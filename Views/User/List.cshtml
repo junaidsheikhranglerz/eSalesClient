@@ -1,0 +1,203 @@
+﻿@model List<eSalesPro.Models.User>
+<body id="body-index" onload="startTime()">
+    <div id="sticky-footer-wrap">
+
+        @*-----------------Top Navigation Start---------------*@
+
+        @{
+            Html.RenderPartial("Top_Navigation_View");
+        }
+
+        @*-----------------Top Navigation End---------------*@
+
+        <div class="container-fluid main-container">
+
+            @*-----------------Side Navigation Start---------------*@
+            <div class="row">
+                @{
+                    Html.RenderPartial("Side_Navigation_View");
+                }
+                @*-----------------Side Navigation End---------------*@
+
+
+
+                @*-----------------Main Container Start---------------*@
+                <form action="~/User/Create">
+                    <div class="right-side-custom">
+                        <div class="bggg-img">
+                            <div class="x_title" style="margin-left:12px">
+                                <h3>List User <small></small></h3>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <section id="no-more-tables" style="margin:30px 12px 0 12px">
+                                <table class="table table-responsive col-md-12">
+                                    <thead>
+                                        <tr style="color:#0094ff; font-size:16px">
+                                            <th>ID</th>
+                                            <th>Full Name</th>
+                                            <th>Username</th>
+                                            <th>Password</th>
+                                            <th>Phone</th>
+                                            <th>Pay Rate</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+
+                                            <th class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="font-size:15px; color:#000">
+                                        
+                                            @foreach (var v in Model)
+                                            {
+                                                <tr id="my_clickable_cell">
+                                                    <td data-title="User ID">@v.Id</td>
+                                                    <td data-title="User ID">@v.full_name</td>
+                                                    <td data-title="First Name">@v.username</td>
+                                                    <td data-title="Last Name">@v.password</td>
+                                                    <td data-title="Email" class="user-emails">@v.phone</td>
+                                                    <td data-title="Date Registered">@v.pay_rate</td>
+                                                    <td data-title="Date Registered">@v.role</td>
+                                                    @if (@v.Is_Active == 1)
+                                                    {
+                                                        <td>Active</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td>Deactive</td>
+                                                    }
+
+                                                    <td data-title="Actions" class="text-center buttons-block">
+                                                            <a class="btn btn-sm btn-success" href="#">
+                                                                Edit
+                                                            </a>
+                                                            <a class="btn btn-sm btn-info" href="#">
+                                                                Enable
+                                                            </a>
+                                                            <a class="btn btn-sm btn-danger" href="#">
+                                                                Disable
+                                                            </a>
+                                                        </td>
+                                                </tr>
+                                            }
+                                    </tbody>
+                                    
+                                </table>
+
+                            </section>
+
+                            <div class="col-md-5 col-sm-6 col-xs-12">
+                                <input type="submit" value="Add User" class="btn btn-primary" />
+                            </div>
+
+                            @*----------------Pages Numbering Starts---------------
+                                <nav>
+
+                                    <ul class="pagination">
+                                        <li>
+                                            <a href="#" aria-label="Previous">
+                                                <span aria-hidden="true">«</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">5</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" aria-label="Next">
+                                                <span aria-hidden="true">»</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                --------------Pages Numbering Ends------------*@
+                        </div>
+                    </div>
+                    @*-----------------Main Container Ends---------------*@
+                </form>
+            </div>
+
+
+
+            <div id="sticky-footer-push"></div>
+        </div>
+    </div>
+
+    <footer class="black">
+
+        @{
+            Html.RenderPartial("Footer_View");
+        }
+
+    </footer>
+
+
+
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" style="background: linear-gradient(to bottom, #fafafd, #b2b2b3);">
+
+                <div class="title">
+                    <span style="margin-left:15px">Alert</span>
+                    <img src="~/img/images/c3.png" class="close" data-dismiss="modal" />
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="text-center" align="center">
+                            <br>
+                            <label class="control-label col-md-12" style="color: #000; margin-top: 15px">
+                                Attendance logging for <span> @Session["username"]</span>
+                            </label>
+
+                            <div class="col-md-12">
+                                <a href="" class="btn btn-success btn-mini center-block" style="margin-top:15px;">OK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function clickMe(cid) {
+            alert(cid.innerHTML);
+
+        }
+    </script>
+
+
+
+
+
+    <script>
+        $("tr#my_clickable_cell").bind("click", function () {
+            
+            
+            location = "Create";
+        });
+    </script>
+
+
+</body>
