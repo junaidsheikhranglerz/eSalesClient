@@ -1,0 +1,57 @@
+.user-page-height {
+    width: 81%;
+    float: right;
+    height:100%;
+    /*background: #fff;*/
+    background: -webkit-linear-gradient(left, #c9c9c9,#fafafd, #fafafd,#c9c9c9 ); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #c9c9c9,#fafafd,#fafafd,#c9c9c9 ); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #c9c9c9,#fafafd,#fafafd, #c9c9c9 ); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #c9c9c9,#fafafd,#fafafd, #c9c9c9 ); /* Standard syntax (must be last) */
+}
+
+.index-page-heading {
+    color: #000;
+    margin:0 0 30px 38px;
+    text-align: left;
+    font-weight:bold;
+}
+
+.ml-15{
+    margin-left:15px;
+}
+
+.hrr {
+    color: #00AAFF;
+    background-color: #00AAFF;
+    height: 5px;
+    width:95%;
+}
+
+.ml-9{
+    margin-left:9px;
+}
+
+.mr-9{
+    margin-right:9px;
+}
+
+.user-management-button {
+    width: 220px;
+    height: 40px;
+}
+
+.pl-82{
+    padding-left:82px;
+}
+
+.supplier-edit{
+    width: 81%;
+    height: 910px;
+    float: right;
+    /*background: #fff;*/
+   
+    background: -webkit-linear-gradient(left, #c9c9c9,#fafafd, #fafafd,#c9c9c9 ); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #c9c9c9,#fafafd,#fafafd,#c9c9c9 ); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #c9c9c9,#fafafd,#fafafd, #c9c9c9 ); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #c9c9c9 ,#fafafd,#fafafd, #c9c9c9 ); /* Standard syntax (must be last) */
+}

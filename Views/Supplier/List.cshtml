@@ -1,4 +1,4 @@
-﻿@model List<eSalesPro.Models.User>
+﻿@model List<eSalesPro.Models.Supplier>
 <body id="body-index" onload="startTime()">
     <div id="sticky-footer-wrap">
 
@@ -43,22 +43,21 @@
                                             <th>Role</th>
                                             <th>Status</th>
 
-                                            @*<th class="text-center">Actions</th>*@
+                                            <th class="text-center">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody style="font-size:15px; color:#000">
 
-                                                                                @foreach (var v in Model)
+                                        @foreach (var v in Model)
                                         {
-                                            @*<tr data-toggle="modal" data-target=".bs-example-modal-lg">*@
-                                            <tr>
+                                            <tr data-toggle="modal" data-target=".bs-example-modal-lg">
                                                 <td data-title="User ID">@v.Id</td>
-                                                <td data-title="User ID">@v.full_name</td>
-                                                <td data-title="First Name">@v.username</td>
-                                                <td data-title="Last Name">@v.password</td>
-                                                <td data-title="Email" class="user-emails">@v.phone</td>
-                                                <td data-title="Date Registered">@v.pay_rate</td>
-                                                <td data-title="Date Registered">@v.role</td>
+                                                <td data-title="User ID">@v.Address</td>
+                                                <td data-title="First Name">@v.Company_Id</td>
+                                                <td data-title="Last Name">@v.Password</td>
+                                                <td data-title="Email" class="user-emails">@v.Phone</td>
+                                                <td data-title="Date Registered">@v.Phone_Ext</td>
+                                                <td data-title="Date Registered">@v.Post_Code</td>
                                                 @if (@v.Is_Active == 1)
                                                 {
                                                     <td>Active</td>
@@ -68,7 +67,7 @@
                                                     <td>Deactive</td>
                                                 }
 
-                                                @*<td data-title="Actions" class="text-center buttons-block">
+                                                <td data-title="Actions" class="text-center buttons-block">
                                                     <a class="btn btn-sm btn-success" href="#">
                                                         Edit
                                                     </a>
@@ -78,7 +77,7 @@
                                                     <a class="btn btn-sm btn-danger" href="#">
                                                         Disable
                                                     </a>
-                                                </td>*@
+                                                </td>
                                             </tr>
                                         }
                                     </tbody>
@@ -87,7 +86,10 @@
 
                             </section>
 
-                       
+                            <div class="col-md-5 col-sm-6 col-xs-12">
+                                <input type="submit" value="Add User" class="btn btn-primary" />
+                            </div>
+
                             @*----------------Pages Numbering Starts---------------
                                 <nav>
 
@@ -413,21 +415,21 @@
 
                                     <div class="col-md-1"></div>
 
-                                        <div class="col-md-3">
-                                            @*<a href="" class="btn btn-primary btn-mini center-block" style="width:135px">Cancel</a>*@
-                                            <a href="~/Supplier/Create" class="btn btn-primary btn-mini center-block" style="width:200px;margin-top:2px">Cancel</a>
-                                        </div>
-
-                                    <div class="col-md-1"></div>
-
-                                        <div class="col-md-3">
-                                            <a href="~/Supplier/Create" class="btn btn-danger btn-mini center-block" style="width:200px;margin-top:2px">Delete</a>
-                                        </div>
-
-                                    <div class="col-md-1"></div>
-
-
+                                    <div class="col-md-3">
+                                        @*<a href="" class="btn btn-primary btn-mini center-block" style="width:135px">Cancel</a>*@
+                                        <a href="~/Supplier/Create" class="btn btn-primary btn-mini center-block" style="width:200px;margin-top:2px">Cancel</a>
                                     </div>
+
+                                    <div class="col-md-1"></div>
+
+                                    <div class="col-md-3">
+                                        <a href="~/Supplier/Create" class="btn btn-danger btn-mini center-block" style="width:200px;margin-top:2px">Delete</a>
+                                    </div>
+
+                                    <div class="col-md-1"></div>
+
+
+                                </div>
 
                             </form>
 
@@ -451,7 +453,7 @@
     @*----------------------------POP UP END NEW SUPPLIER--------------------------------*@
 
 
-    
+
 
     <script type="text/javascript">
         function clickMe(cid) {

@@ -19,7 +19,6 @@
         <AssociationConnector Association="Database1Model.FK_Supplier_AccountID" />
         <AssociationConnector Association="Database1Model.FK_Products_Categories" />
         <AssociationConnector Association="Database1Model.FK_Products_Quantity" />
-        <AssociationConnector Association="Database1Model.FK_Supplier_Account" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

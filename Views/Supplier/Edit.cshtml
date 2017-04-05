@@ -1,0 +1,328 @@
+﻿<body id="body-index">
+    <div id="sticky-footer-wrap">
+
+        @*-----------------Top Navigation Start---------------*@
+
+        @{
+            Html.RenderPartial("Top_Navigation_View");
+        }
+
+        @*-----------------Top Navigation End---------------*@
+
+        <div class="container-fluid main-container">
+
+            @*-----------------Side Navigation Start---------------*@
+            <div class="row">
+                @{
+                    Html.RenderPartial("Side_Navigation_View");
+                }
+                @*-----------------Side Navigation End---------------*@
+
+
+
+                @*-----------------Main Container Start---------------*@
+
+                <div class="supplier-edit">
+                    <div class="bggg-img">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+
+                                <div class="win" style="text-align:center;margin-bottom:20px">
+                                    <h3 style="color:#000"><b>Edit Supplier</b></h3>
+                                    <img class="pull-right" src="~/img/images/supplier.png" style="margin:-34px 81px 20px 0" />
+
+                                    <form id="demo-form2" action="~/Supplier/Create" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+
+
+
+                                        <div class="col-md-12">
+
+                                            <div class="col-md-6">
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Company Name <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="company_name" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Company Short Name <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="company_short_name" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="supplier-border"></div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Sales Contact Name <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="sales_contact_name" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Sales Contact Email <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="sales_contact_mail" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div>
+                                                        <div class="">
+                                                            <label class="supplier-create-texts" for="middle-name">Sales Contact Phone <span class="required">*</span></label>
+                                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                                <input type="text" name="sales_contact_phone" required style="width:113px">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="">
+                                                            <label style="float: left;margin: 1px -32px 0 25px">Ext</label>
+                                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                                <input type="text" name="sales_phone_ext" required style="width:35px">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="clear"></div>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Sales Contact Mobile <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="sales_contact_mobile" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Sales Contact Fax <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="sales_contact_fax" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="supplier-border"></div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Account Contact Name <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="account_contact_name" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Account Contact Email <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="account_contact_mail" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div>
+                                                        <div class="">
+                                                            <label class="supplier-create-texts" for="middle-name">Account Contact Phone <span class="required">*</span></label>
+                                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                                <input type="text" name="account_contact_phone" required style="width:113px">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="">
+                                                            <label style="float: left;margin: 1px -32px 0 25px">Ext</label>
+                                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                                <input type="text" name="account_ext_phone" required style="width:35px">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="clear"></div>
+
+                                                    </div>
+
+
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Account Contact Mobile <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="account_contact_mobile" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Account Contact Fax <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="account_contact_fax" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="supplier-border"></div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Bank Name <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="bank_name" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Account Name <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="account_name" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Account No <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="account_no" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Sort Code <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="sort_code" required>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+                                            </div>
+
+
+
+                                            <div class="col-md-6">
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Address<span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="address1" required>
+                                                        <input type="text" name="address2">
+                                                        <input type="text" name="address3">
+                                                        <input type="text" name="address4">
+                                                        <input type="text" name="address5">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Postcode<span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="postcode" required>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Website<span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="website" required>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Login<span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="login" required>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Password<span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="password" required>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="">Notes<span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="notes" required style="width: 175px; height: 80px;vertical-align:top">
+                                                    </div>
+                                                </div>
+
+                                                <div class="supplier-border"></div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Credit Limit<span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="credit_limit" required>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Credit Period<span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="credit_period" required>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+
+                                        @*<div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-3" style="margin-bottom:15px">
+                            <input type="submit" value="Add Product" class="btn btn-success" />
+                        </div>*@
+                                        <div class="col-md-12" style="margin-top:16px">
+
+                                            <div class="col-md-3">
+                                                <input type="submit" value="Add" class="btn btn-success btn-mini center-block" style="width:200px" />
+                                            </div>
+
+                                            <div class="col-md-1"></div>
+
+                                            <div class="col-md-3">
+                                                @*<a href="" class="btn btn-primary btn-mini center-block" style="width:135px">Cancel</a>*@
+                                                <a href="~/Supplier/Create" class="btn btn-primary btn-mini center-block" style="width:200px;margin-top:2px">Cancel</a>
+                                            </div>
+
+                                            <div class="col-md-1"></div>
+
+                                            <div class="col-md-3">
+                                                <a href="~/Supplier/Create" class="btn btn-danger btn-mini center-block" style="width:200px;margin-top:2px">Delete</a>
+                                            </div>
+
+                                            <div class="col-md-1"></div>
+
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                @*-----------------Main Container Ends---------------*@
+            </div>
+            <div id="sticky-footer-push"></div>
+        </div>
+    </div>
+
+    <footer class="black">
+
+        @{
+            Html.RenderPartial("Footer_View");
+        }
+    </footer>
+</body>

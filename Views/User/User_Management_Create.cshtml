@@ -1,0 +1,323 @@
+﻿@model List<eSalesPro.Models.User>
+<body id="body-index">
+
+    <div id="sticky-footer-wrap">
+
+
+        @*-----------------Top Navigation Start---------------*@
+
+        @{
+            Html.RenderPartial("Top_Navigation_View");
+        }
+
+        @*-----------------Top Navigation End---------------*@
+
+        <div class="container-fluid main-container">
+
+            @*-----------------Side Navigation Start---------------*@
+            <div class="row">
+                @{
+                    Html.RenderPartial("Side_Navigation_View");
+                }
+                @*-----------------Side Navigation End---------------*@
+
+
+
+                @*-----------------Main Container Start---------------*@
+                @*-----------------Main Container Start---------------*@
+
+                <div class="user-page-height">
+                    <div class="bggg-img user">
+
+                        @*<h3 id="time_"></h3>*@
+                        <div class="">
+                            <div class="title" style="">
+                                @*<img src="~/img/images/triangle.png"/>*@
+                                <span style="margin-left:15px">User Access</span>
+                            </div>
+
+                            <div class="space">
+                                <div class="">
+                                    <h3><b>Choose user to modify:</b></h3>
+
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <form id="demo-form2" action="~/User/User_Management_Create" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" style="margin-top:30px">
+
+                                                <div class="form-group">
+                                                    <div class="col-md-3"></div>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12" style="display:inline;">
+                                                        <select name="categoryname" required class="form-control user-management-button ml-9">
+                                                            <option value="">Please select any </option>
+                                                            @foreach (var v in Model)
+                                                            {
+                                                                <option value="@v.Id">@v.username</option>
+                                                            }
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <input type="submit" value="Edit User Settings" class="btn btn-primary btn-mini center-block user-management-button mr-9" />
+                                                    </div>
+
+
+                                                    <div class="col-md-3"></div>
+
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3"></div>
+                                            <div class="col-md-3">
+                                                <a href="javascript:showhide('add_user_div')" class="btn btn-success btn-mini center-block user-management-button">Add New User</a>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <a href="#" class="btn btn-danger btn-mini center-block user-management-button">Delete Existing User</a>
+                                            </div>
+                                            <div class="col-md-3"></div>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+
+
+
+                                <hr class="hrr">
+
+
+
+                                <div class="row" id="add_user_div" style="display:none;">
+                                    <h4 class="index-page-heading">Add User</h4>
+
+                                    <form id="demo-form2" action="~/User/User_Management_Create" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+
+
+
+                                        <div class="col-md-12 pl-82">
+
+                                            <div class="col-md-6">
+
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Full Name <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="full_name" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Display Name <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="display_name" required>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Address <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="address" required>
+                                                        <input type="text" name="address1" required>
+                                                        <input type="text" name="address2" required>
+                                                        <input type="text" name="address3" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Postcode <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="postcode" required>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Phone <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="phone" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Emergency Contact Number <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="emergency_contact" required>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Username <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="username" placeholder="User Name" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Set New Password <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="password" name="password" required placeholder="Password">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Confirm Password <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="password" name="confirm_password" required placeholder="Confirm Password">
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+
+                                            </div>
+
+
+
+                                            <div class="col-md-6">
+
+
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Pay Rate</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="pay_rate">
+                                                    </div>
+                                                </div>
+
+
+
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">Tax Code</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="tax_code" required>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="middle-name">NI Number</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="ni_number" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="supplier-create-texts" for="">Notes</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="notes" required style="width: 175px; height: 80px;vertical-align:top">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <div class="col-md-12">
+                                            <div class="col-md-3"></div>
+
+
+                                            <div class="col-md-3">
+                                            </div>
+                                            <div class="col-md-3"></div>
+                                            <div class="col-md-3">
+                                                <input type="submit" value="Save & Go to Permissions" class="btn btn-success btn-mini center-block" style="width:200px" />
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+
+                                
+
+                                
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                @*-----------------Main Container Ends---------------*@
+            </div>
+            <div id="sticky-footer-push"></div>
+        </div>
+    </div>
+
+    <footer class="black">
+
+        @{
+            Html.RenderPartial("Footer_View");
+        }
+    </footer>
+
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" style="background: linear-gradient(to bottom, #fafafd, #b2b2b3);">
+
+                <div class="title">
+                    <span style="margin-left:15px">Alert</span>
+                    <img src="~/img/images/c3.png" class="close" data-dismiss="modal" />
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="text-center" align="center">
+                            <br>
+                            <label class="control-label col-md-12" style="color: #000; margin-top: 15px">
+                                Attendance logging for <span> @Session["username"]</span>
+                            </label>
+
+                            <div class="col-md-12">
+                                <a href="" class="btn btn-success btn-mini center-block" style="margin-top:15px;">OK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        function showhide(id) {
+            var e = document.getElementById(id);
+            e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+        }
+
+    </script>
+
+</body>
