@@ -1,7 +1,7 @@
 .user-page-height {
     width: 81%;
     float: right;
-    height:100%;
+    height: 100%;
     /*background: #fff;*/
     background: -webkit-linear-gradient(left, #c9c9c9,#fafafd, #fafafd,#c9c9c9 ); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(right, #c9c9c9,#fafafd,#fafafd,#c9c9c9 ); /* For Opera 11.1 to 12.0 */
@@ -11,28 +11,28 @@
 
 .index-page-heading {
     color: #000;
-    margin:0 0 30px 38px;
+    margin: 0 0 30px 38px;
     text-align: left;
-    font-weight:bold;
+    font-weight: bold;
 }
 
-.ml-15{
-    margin-left:15px;
+.ml-15 {
+    margin-left: 15px;
 }
 
 .hrr {
     color: #00AAFF;
     background-color: #00AAFF;
     height: 5px;
-    width:95%;
+    width: 95%;
 }
 
-.ml-9{
-    margin-left:9px;
+.ml-9 {
+    margin-left: 18px;
 }
 
-.mr-9{
-    margin-right:9px;
+.mr-9 {
+    margin-right: 18px;
 }
 
 .user-management-button {
@@ -40,18 +40,205 @@
     height: 40px;
 }
 
-.pl-82{
-    padding-left:82px;
+.pl-82 {
+    padding-left: 82px;
 }
 
-.supplier-edit{
+.supplier-edit {
     width: 81%;
     height: 910px;
     float: right;
     /*background: #fff;*/
-   
     background: -webkit-linear-gradient(left, #c9c9c9,#fafafd, #fafafd,#c9c9c9 ); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(right, #c9c9c9,#fafafd,#fafafd,#c9c9c9 ); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(right, #c9c9c9,#fafafd,#fafafd, #c9c9c9 ); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, #c9c9c9 ,#fafafd,#fafafd, #c9c9c9 ); /* Standard syntax (must be last) */
+    background: linear-gradient(to right, #c9c9c9,#fafafd,#fafafd, #c9c9c9 ); /* Standard syntax (must be last) */
+}
+
+.supplier-create-texts {
+    text-align: left;
+    font-weight: bold;
+    width: 175px;
+    float: left;
+}
+
+.user-create-texts {
+    text-align: left;
+    font-weight: bold;
+    width: 135px;
+    float: left;
+}
+
+.width-193 {
+    width: 193px;
+    height: 80px;
+}
+
+.width-135 {
+    width: 142px;
+    float: left;
+    text-align: left;
+    font-size:15px;
+}
+
+.width-94 {
+    width: 94px;
+    float: left;
+    text-align: left;
+}
+
+.supplier-border {
+    border-bottom: 1px solid #000;
+    width: 93%;
+    margin-bottom: 15px;
+    margin-left: -16px;
+}
+
+.a-cancel {
+    width: 145px;
+    margin-top: 2px;
+}
+
+.width-145 {
+    width: 145px;
+}
+
+.ext-texts {
+    float: left;
+    margin: 2px -27px 0 36px;
+}
+
+.contacts-texts {
+}
+
+.width-43 {
+    width: 43px;
+}
+
+.width-123 {
+    width: 123px;
+}
+
+.black-color {
+    color: #000;
+}
+
+.margin-supplier {
+    margin: -34px 81px 20px 0;
+}
+
+.mr--13 {
+    margin: 0 -13px 0 0;
+}
+
+.modal-style-custom {
+    background: linear-gradient(to bottom, #fafafd, #b2b2b3);
+    border: 3px solid #00aeee;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.width-320 {
+    width: 320px;
+}
+
+.btn-existing-supplier-cancel {
+    width: 110px;
+    height: 26px;
+    margin-left: 11px;
+    float: right;
+}
+
+.btn-existing-supplier-search {
+    width: 110px;
+    float: right;
+    margin-left: 12px;
+}
+
+.table-heading-fonts {
+    color: #0094ff;
+    font-size: 16px;
+}
+
+.new-supplier-btn-margin {
+    margin: -20px -40px 0 0;
+}
+
+.existing-supplier-btn-margin {
+    margin: -20px -25px 0 0;
+}
+
+.supplier-epos-btn {
+    margin: 15px 0 0 -20px;
+}
+
+.table-inline-margin {
+    margin: 50px 12px 0 12px;
+}
+
+.top-li-messages{
+    margin-top:2px;margin-right: -15px;
+}
+
+.div-messages{
+    width: 300px;padding: 6px;
+}
+
+.div-dropdown-messages{
+    margin-bottom: 8px; font-weight: bold; border-bottom: 2px solid #6ba0ab; padding-bottom: 4px;
+}
+
+.font-15{
+    font-size:15px;
+}
+
+.mt-10{
+    margin-top:10px;
+}
+
+
+
+.ml-10{
+    margin-left:10px;
+}
+
+.ml--30{
+    margin-left:-30px;
+}
+
+.width-200{
+    width:200px;
+}
+
+.user-permission-btn {
+    margin: 0px 0 15px -50px;
+}
+
+.bold{
+    font-weight:bold;
+}
+
+
+#input_container {
+    position:relative;
+    padding:0 0 0 20px;
+    margin:0 20px;
+    background:#ddd;
+    direction: rtl;
+    width: 200px;
+}
+#input {
+    height:26px;
+    margin:0;
+    padding-right: 30px;
+    width: 193px;
+}
+#input_img {
+    position:absolute;
+    bottom:0;
+    right:-103px;
+    width:24px;
+    height:24px;
 }

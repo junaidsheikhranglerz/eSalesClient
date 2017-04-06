@@ -1141,6 +1141,11 @@ div.login-inner div.form-actions {
     background: linear-gradient(to right, #c9c9c9 ,#fafafd,#fafafd, #c9c9c9 ); /* Standard syntax (must be last) */
 }
 
+.side-navi-style{
+    width:17%;float:left; margin-left:15px
+}
+
+
 .bggg-img {
     background-image: url(../../img/logo/eSales_background.png);
     background-repeat: no-repeat;
