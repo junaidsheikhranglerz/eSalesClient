@@ -10,18 +10,18 @@
                 <a href="~/User"><img src="~/img/logo/esales_top.png"/></a>
             </div>
 
+            <div class="toprightdivmedia">
+                <p class=" pull-right mt-10">
+                    <a id="user-popover" href="#" class="navbar-link font-15 user-info" data-original-title=""><span>Logged in as  : </span><i class="font-15"></i>@Session["username"]</a>
+                    <br />
+                    <a id="user-popover" href="#" class="navbar-link font-15 user-info" data-original-title=""><span class="font-15">Account name: </span><b>CCTV</b></a>
 
-            <p class=" pull-right" style="margin-top:10px">
-                <a style="font-size:15px" id="user-popover" href="#" class="navbar-link user-info" data-original-title=""><span>Logged in as  : </span><i style="font-size:15px"></i>@Session["username"]</a>
-                <br/>
-                <a style="font-size:15px" id="user-popover" href="#" class="navbar-link user-info" data-original-title=""><span style="font-size:15px">Account name: </span><b>CCTV</b></a>
-                
-                @*<i class="radmin-icon radmin-redo">Logout</i>*@
-            </p>
+                    @*<i class="radmin-icon radmin-redo">Logout</i>*@
+                </p>
 
-             
+
                 <ul class="navbar-search pull-right">
-                    <li class="dropdown" style="margin-top:2px;margin-right: -15px;">
+                    <li class="dropdown top-li-messages">
                         <a href=" #" class="dropdown-toggle linkhover" data-toggle="dropdown" aria-expanded="false">
 
                             <img src="~/img/images/cvv.png" />
@@ -29,8 +29,8 @@
 
                         </a>
 
-                        <div class="dropdown-menu dropdown-content divmain" style="width: 300px;padding: 6px;">
-                            <div class="dropdown-content-heading" style="margin-bottom: 8px; font-weight: bold; border-bottom: 2px solid #6ba0ab; padding-bottom: 4px; ">
+                        <div class="dropdown-menu dropdown-content divmain div-messages">
+                            <div class="dropdown-content-heading div-dropdown-messages">
                                 Messages
                                 @*<ul class="icons-list" style="list-style-type:none;">
                                 <li><a href="#"><i class="radmin-icon radmin-user"></i></a></li>
@@ -126,6 +126,8 @@
                         </div>
                     </li>
                 </ul>
+                <div class="clearfix"></div>
+            </div>
             @*<div class="col-md-2"></div>
 
             <div class="col-md-6 col-xs-12">

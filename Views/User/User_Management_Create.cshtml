@@ -1,6 +1,14 @@
 ﻿@model List<eSalesPro.Models.User>
 <body id="body-index">
-
+    <style>
+        .hideDiv{
+            display:none;
+        }
+        .showDiv{
+            display:block;
+        }
+    </style>
+   
     <div id="sticky-footer-wrap">
 
 
@@ -51,14 +59,14 @@
                                                             <option value="">Please select any </option>
                                                             @foreach (var v in Model)
                                                             {
-                                                                <option value="@v.Id">@v.username</option>
+                                                                <option value="">@v.username</option>
                                                             }
 
                                                         </select>
                                                     </div>
 
                                                     <div class="col-md-3">
-                                                        <input type="submit" value="Edit User Settings" class="btn btn-primary btn-mini center-block user-management-button mr-9" />
+                                                        <input type="button" onclick="javascript: showhide_EDIT('edit_user_div')" value="Edit User Settings" class="btn btn-primary btn-mini bold center-block user-management-button mr-9" />
                                                     </div>
 
 
@@ -70,10 +78,10 @@
                                         <div class="row">
                                             <div class="col-md-3"></div>
                                             <div class="col-md-3">
-                                                <a href="javascript:showhide('add_user_div')" class="btn btn-success btn-mini center-block user-management-button">Add New User</a>
+                                                <a href="javascript:showhide_ADD('add_user_div')" class="btn bold btn-success btn-mini center-block user-management-button">Add New User</a>
                                             </div>
                                             <div class="col-md-3">
-                                                <a href="#" class="btn btn-danger btn-mini center-block user-management-button">Delete Existing User</a>
+                                                <a href="javascript:showhide_DELETE('delete_user_div')" class="btn btn-danger btn-mini center-block user-management-button bold">Delete Existing User</a>
                                             </div>
                                             <div class="col-md-3"></div>
                                             <div class="clearfix"></div>
@@ -89,30 +97,198 @@
 
                                 <hr class="hrr">
 
+                                @*--------------------NEW USER DIV----------------*@
 
-
-                                <div class="row" id="add_user_div" style="display:none;">
-                                    <h4 class="index-page-heading">Add User</h4>
+                                <div class="row hideDiv" id="add_user_div" >
+                                    <h4 class="index-page-heading">User Personal Details</h4>
 
                                     <form id="demo-form2" action="~/User/User_Management_Create" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
 
 
 
-                                        <div class="col-md-12 pl-82">
+                                        <div class="col-md-12">
+                                            <div class="col-md-1"></div>
 
-                                            <div class="col-md-6">
+                                                <div class="col-md-5">
+
+
+
+                                                    <div class="form-group">
+                                                        <label class="width-135" for="middle-name">Full Name <span class="required">*</span></label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <input type="text" name="full_name" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="width-135" for="middle-name">Display Name <span class="required">*</span></label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <input type="text" name="display_name" required>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="form-group">
+                                                        <label class="width-135" for="middle-name">Address <span class="required">*</span></label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <input type="text" name="address" required>
+                                                            <input type="text" name="address1">
+                                                            <input type="text" name="address2">
+                                                            <input type="text" name="address3">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="width-135" for="middle-name">Postcode <span class="required">*</span></label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <input type="text" name="postcode" required>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <label class="width-135" for="middle-name">Phone <span class="required">*</span></label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <input type="text" name="phone" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="width-135" for="middle-name">Emergency Contact Number <span class="required">*</span></label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <input type="text" name="emergency_contact" required>
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                    <div class="form-group">
+                                                        <label class="width-135" for="middle-name">Username <span class="required">*</span></label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <input type="text" name="username" placeholder="User Name" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="width-135" for="middle-name">Set New Password <span class="required">*</span></label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <input type="password" name="password" required placeholder="Password">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="width-135" for="middle-name">Confirm Password <span class="required">*</span></label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <input type="password" name="confirm_password" required placeholder="Confirm Password">
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+
+
+                                                </div>
+
+
+
+                                                <div class="col-md-5 ml--30">
+
+
+
+
+                                                    <div class="form-group">
+                                                        <label class="width-94" for="middle-name">Pay Rate</label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <input type="text" name="pay_rate">
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+                                                    <div class="form-group">
+                                                        <label class="width-94" for="middle-name">Tax Code</label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <input type="text" name="tax_code" required>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="form-group">
+                                                        <label class="width-94" for="middle-name">NI Number</label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <input type="text" name="ni_number" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="width-94" for="">Notes</label>
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                                            <textarea class="width-193" name="notes" required></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        <div class="col-md-1"></div>
+
+
+                                        <div class="col-md-12">
+                                            <div class="col-md-3"></div>
+
+
+                                            <div class="col-md-3">
+                                            </div>
+                                            <div class="col-md-3"></div>
+                                            <div class="col-md-3">
+                                                <input type="submit" value="Save & Go to Permissions" class="bold btn btn-success btn-mini center-block width-200 user-permission-btn"/>
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                                @*--------------------NEW USER DIV ENDS----------------*@
+                                
+
+
+
+                                @*--------------------EDIT USER DIV----------------*@
+
+                                <div class="row hideDiv" id="edit_user_div">
+                                    <h4 class="index-page-heading">Edit User Personal Details</h4>
+
+                                    <form id="demo-form2" action="~/User/User_Management_Create" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+
+
+
+                                        <div class="col-md-12">
+                                            <div class="col-md-1"></div>
+
+                                            <div class="col-md-5">
 
 
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="middle-name">Full Name <span class="required">*</span></label>
+                                                    <label class="width-135" for="middle-name">Full Name <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                                         <input type="text" name="full_name" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="middle-name">Display Name <span class="required">*</span></label>
+                                                    <label class="width-135" for="middle-name">Display Name <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                                         <input type="text" name="display_name" required>
                                                     </div>
@@ -121,17 +297,17 @@
 
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="middle-name">Address <span class="required">*</span></label>
+                                                    <label class="width-135" for="middle-name">Address <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                                         <input type="text" name="address" required>
-                                                        <input type="text" name="address1" required>
-                                                        <input type="text" name="address2" required>
-                                                        <input type="text" name="address3" required>
+                                                        <input type="text" name="address1">
+                                                        <input type="text" name="address2">
+                                                        <input type="text" name="address3">
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="middle-name">Postcode <span class="required">*</span></label>
+                                                    <label class="width-135" for="middle-name">Postcode <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                                         <input type="text" name="postcode" required>
                                                     </div>
@@ -139,14 +315,14 @@
 
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="middle-name">Phone <span class="required">*</span></label>
+                                                    <label class="width-135" for="middle-name">Phone <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                                         <input type="text" name="phone" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="middle-name">Emergency Contact Number <span class="required">*</span></label>
+                                                    <label class="width-135" for="middle-name">Emergency Contact Number <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                                         <input type="text" name="emergency_contact" required>
                                                     </div>
@@ -156,21 +332,21 @@
 
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="middle-name">Username <span class="required">*</span></label>
+                                                    <label class="width-135" for="middle-name">Username <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                                         <input type="text" name="username" placeholder="User Name" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="middle-name">Set New Password <span class="required">*</span></label>
+                                                    <label class="width-135" for="middle-name">Set New Password <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                                         <input type="password" name="password" required placeholder="Password">
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="middle-name">Confirm Password <span class="required">*</span></label>
+                                                    <label class="width-135" for="middle-name">Confirm Password <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                                         <input type="password" name="confirm_password" required placeholder="Confirm Password">
                                                     </div>
@@ -186,13 +362,13 @@
 
 
 
-                                            <div class="col-md-6">
+                                            <div class="col-md-5 ml--30">
 
 
 
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="middle-name">Pay Rate</label>
+                                                    <label class="width-94" for="middle-name">Pay Rate</label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                                         <input type="text" name="pay_rate">
                                                     </div>
@@ -203,7 +379,7 @@
 
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="middle-name">Tax Code</label>
+                                                    <label class="width-94" for="middle-name">Tax Code</label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                                         <input type="text" name="tax_code" required>
                                                     </div>
@@ -212,23 +388,23 @@
 
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="middle-name">NI Number</label>
+                                                    <label class="width-94" for="middle-name">NI Number</label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                                         <input type="text" name="ni_number" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="supplier-create-texts" for="">Notes</label>
+                                                    <label class="width-94" for="">Notes</label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input type="text" name="notes" required style="width: 175px; height: 80px;vertical-align:top">
+                                                        <textarea class="width-193" name="notes" required></textarea>
                                                     </div>
                                                 </div>
 
                                             </div>
 
                                         </div>
-
+                                        <div class="col-md-1"></div>
 
 
                                         <div class="col-md-12">
@@ -239,7 +415,7 @@
                                             </div>
                                             <div class="col-md-3"></div>
                                             <div class="col-md-3">
-                                                <input type="submit" value="Save & Go to Permissions" class="btn btn-success btn-mini center-block" style="width:200px" />
+                                                <input type="submit" value="Save & Go to Permissions" class="bold btn btn-success btn-mini center-block width-200 user-permission-btn" />
                                             </div>
 
 
@@ -250,8 +426,12 @@
 
                                 </div>
 
+                                @*--------------------EDIT USER DIV ENDS----------------*@
 
-                                
+
+
+
+
 
                                 
 
@@ -313,11 +493,26 @@
 
     <script>
 
-        function showhide(id) {
+        function showhide_ADD(id) {
             var e = document.getElementById(id);
-            e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+            $("#edit_user_div").removeClass("showDiv");
+            $("#edit_user_div").addClass("hideDiv");
+            $("#add_user_div").addClass("showDiv");
+ 
+
         }
 
     </script>
 
+
+    <script>
+
+        function showhide_EDIT(id) {
+            var e = document.getElementById(id);
+            $("#add_user_div").removeClass("showDiv");
+            $("#add_user_div").addClass("hideDiv");
+            $("#edit_user_div").addClass("showDiv");
+        }
+
+    </script>
 </body>
