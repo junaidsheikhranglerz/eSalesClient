@@ -176,7 +176,7 @@
                                                 <div class="form-group">
                                                     <label class="width-135" for="middle-name">Confirm Password <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input type="password" name="confirm_password" required placeholder="Confirm Password">
+                                                        <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm Password">
                                                     </div>
                                                 </div>
 
@@ -242,7 +242,7 @@
                                             <div class="col-md-3"></div>
                                             <div class="col-md-3"></div>
                                             <div class="col-md-3">
-                                                <input type="submit" onclick="javascript:show_AddPermissions('add-user-div-permissions')" value="Save & Go to Permissions" class="bold btn btn-success btn-mini center-block width-200 user-permission-btn" />
+                                                <input type="submit" onclick="javascript: show_AddPermissions('add-user-div-permissions'); javascript: password_check();" value="Save & Go to Permissions" class="bold btn btn-success btn-mini center-block width-200 user-permission-btn" />
                                                 @*<a href="javascript:show_AddPermissions('add-user-div-permissions')" class="btn bold btn-success btn-mini center-block width-200 user-permission-btn">Save &amp; Go to Permissions</a>*@
                                             </div>
 
@@ -264,7 +264,7 @@
                                 <div id="add-user-div-permissions" class="row hideDiv">
                                     <div class="col-md-12">
 
-                                        <h5 class="bold black-color text-left">User aaa's Access Permissions</h5>
+                                        <h5 class="bold black-color text-left">User Access Permissions</h5>
 
                                         <div class="row1 mt-20">
                                             <div class="col1 min-width-120 min-height-32 text-center"><label class="checkbox-main-style"><input type="checkbox" />User Tools</label></div>
@@ -701,42 +701,7 @@
 
                     </div>
 
-                    <div id="modal-xx" class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-hidden="false">
-                        <div class="modal-dialog modal-md">
-                            <div class="modal-content modal-style-custom">
-
-                                <div class="title col-md-12">
-                                    <span>Message</span>
-                                    <img src="~/img/images/c3.png" class="close mr--13 pull-right" data-dismiss="modal" />
-                                </div>
-
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="x_panel">
-
-                                        <div class="win text-center">
-                                            <h3 class="black-color"><b>Find Supplier</b></h3>
-                                            @*<img class="pull-right" src="~/img/images/supplier.png" style="margin:-34px 81px 20px 0" />*@
-
-
-                                            
-
-
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-                                <div class="modal-footer">
-
-
-                                </div>
-
-
-
-                            </div>
-                        </div>
-                    </div>
+                    
 
 
                 </div>
@@ -753,41 +718,7 @@
         }
     </footer>
 
-    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="false">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content" style="background: linear-gradient(to bottom, #fafafd, #b2b2b3);">
-
-                <div class="title">
-                    <span style="margin-left:15px">Alert</span>
-                    <img src="~/img/images/c3.png" class="close" data-dismiss="modal" />
-                </div>
-
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
-
-                        <div class="text-center" align="center">
-                            <br>
-                            <label class="control-label col-md-12" style="color: #000; margin-top: 15px">
-                                Attendance logging for <span> @Session["username"]</span>
-                            </label>
-
-                            <div class="col-md-12">
-                                <a href="" class="btn btn-success btn-mini center-block" style="margin-top:15px;">OK</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-
-
-                </div>
-
-
-
-            </div>
-        </div>
-    </div>
+    
 
 
     <script>
@@ -797,6 +728,7 @@
             $("#edit_user_div").removeClass("showDiv");
             $("#edit_user_div").addClass("hideDiv");
             $("#add_user_div").addClass("showDiv");
+            $("#edit-user-permissions").removeClass("showDiv");
 
 
         }
@@ -868,6 +800,30 @@
 
             </script>*@
 
+
+
+    <script>
+
+        function password_check() {
+            alert('dasdsa');
+
+            var pass = document.getElementById(password);
+            var confirm = document.getElementById(confirm_password);
+
+            if (pass == confirm) {
+                return true;
+            }
+
+            else {
+                alert("reenter your password");
+                return false;
+            }
+        }
+
+    </script>
+
+    
+    
     <script>
 
         function showhide_EDIT(id) {
@@ -877,6 +833,8 @@
             $("#edit_user_div").addClass("showDiv");
                 //edit-user-permissions
             $("#edit-user-permissions").addClass("showDiv");
+            
+            $("#add-user-div-permissions").removeClass("showDiv");
         }
 
     </script>
