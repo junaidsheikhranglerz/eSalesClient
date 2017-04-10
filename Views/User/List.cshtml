@@ -26,14 +26,19 @@
                     <div class="right-side-custom">
                         <div class="bggg-img">
                             <div class="x_title" style="margin-left:12px">
-                                <h3>List User <small></small></h3>
+                                <h3 class="bold">List User <small></small></h3>
                                 <div class="clearfix"></div>
                             </div>
 
+                            <div class="clearfix"></div>
+
+
                             <section id="no-more-tables" style="margin:30px 12px 0 12px">
+                                <div class="table-border">
+
                                 <table class="table table-responsive col-md-12">
                                     <thead>
-                                        <tr style="color:#0094ff; font-size:16px">
+                                        <tr class="table-heading-fonts table-main-headings">
                                             <th>ID</th>
                                             <th>Full Name</th>
                                             <th>Username</th>
@@ -48,7 +53,7 @@
                                     </thead>
                                     <tbody style="font-size:15px; color:#000" class="bold">
 
-                                                                                @foreach (var v in Model)
+                                        @foreach (var v in Model)
                                         {
                                             @*<tr data-toggle="modal" data-target=".bs-example-modal-lg">*@
                                             <tr>
@@ -61,66 +66,72 @@
                                                 <td data-title="Date Registered">@v.role</td>
                                                 @if (@v.Is_Active == 1)
                                                 {
-                                                    <td>Active</td>
+                                                    <td class="gg">Active</td>
                                                 }
                                                 else
                                                 {
-                                                    <td>Deactive</td>
+                                                    <td class="red">Deactive</td>
                                                 }
-
                                                 @*<td data-title="Actions" class="text-center buttons-block">
-                                                    <a class="btn btn-sm btn-success" href="#">
-                                                        Edit
-                                                    </a>
-                                                    <a class="btn btn-sm btn-info" href="#">
-                                                        Enable
-                                                    </a>
-                                                    <a class="btn btn-sm btn-danger" href="#">
-                                                        Disable
-                                                    </a>
-                                                </td>*@
+                                        <a class="btn btn-sm btn-success" href="#">
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-sm btn-info" href="#">
+                                            Enable
+                                        </a>
+                                        <a class="btn btn-sm btn-danger" href="#">
+                                            Disable
+                                        </a>
+                                    </td>*@
                                             </tr>
                                         }
                                     </tbody>
 
                                 </table>
 
-                            </section>
+                                <div class="clearfix"></div>
 
-                       
-                            @*----------------Pages Numbering Starts---------------
-                                <nav>
 
-                                    <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">«</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">2</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">3</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">4</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">5</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">»</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                                --------------Pages Numbering Ends------------*@
                         </div>
+
+
+
+                        </section>
+
+
+                        @*----------------Pages Numbering Starts---------------
+            <nav>
+
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">«</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">»</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            --------------Pages Numbering Ends------------*@
+                    </div>
                     </div>
                     @*-----------------Main Container Ends---------------*@
                 </form>

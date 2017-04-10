@@ -40,10 +40,8 @@
                /*background: linear-gradient(to right, #666666 10%, #282828 20%,#141414 20%,#3d3d3d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
                 background-color: #141414; /* Old browsers */
-                background-image: url(../img/images/hhh.png);
+                background-image: url(../../img/images/hhh.png);
                 background-repeat: repeat-x;
-
-
                 color: white;
                 padding: 3px 3px;
                 color: #ffffff;
@@ -59,7 +57,7 @@
             .nestedsidemenu ul li:hover > a {
                 /*background: #0916a9;*/
                 background: linear-gradient(to bottom, #1e87f3 1%, #051e68 27%, #000245 27%, #0269ca 100%);
-                background: linear-gradient(to right, #1e87f3 10%, #051e68 20%,#000245 20%,#0269ca 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                background: linear-gradient(to right, #1e87f3 10%, #051e68 26%,#000245 20%,#0269ca 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             }
 
             .nestedsidemenu ul li:active > a {

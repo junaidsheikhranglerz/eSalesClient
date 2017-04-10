@@ -1,14 +1,9 @@
 ﻿@model List<eSalesPro.Models.User>
 <body id="body-index">
     <style>
-        .hideDiv{
-            display:none;
-        }
-        .showDiv{
-            display:block;
-        }
+
     </style>
-   
+
     <div id="sticky-footer-wrap">
 
 
@@ -39,9 +34,9 @@
 
                         @*<h3 id="time_"></h3>*@
                         <div class="">
-                            <div class="title" style="">
+                            <div class="title">
                                 @*<img src="~/img/images/triangle.png"/>*@
-                                <span style="margin-left:15px">User Access</span>
+                                <span class="ml-15">User Access</span>
                             </div>
 
                             <div class="space">
@@ -54,8 +49,8 @@
 
                                                 <div class="form-group">
                                                     <div class="col-md-3"></div>
-                                                    <div class="col-md-3 col-sm-6 col-xs-12" style="display:inline;">
-                                                        <select name="categoryname" required class="form-control user-management-button ml-9">
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <select name="username" required class="form-control user-management-button ml-9">
                                                             <option value="">Please select any </option>
                                                             @foreach (var v in Model)
                                                             {
@@ -99,7 +94,7 @@
 
                                 @*--------------------NEW USER DIV----------------*@
 
-                                <div class="row hideDiv" id="add_user_div" >
+                                <div class="row hideDiv" id="add_user_div">
                                     <h4 class="index-page-heading">User Personal Details</h4>
 
                                     <form id="demo-form2" action="~/User/User_Management_Create" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
@@ -109,134 +104,134 @@
                                         <div class="col-md-12">
                                             <div class="col-md-1"></div>
 
-                                                <div class="col-md-5">
+                                            <div class="col-md-5">
 
 
 
-                                                    <div class="form-group">
-                                                        <label class="width-135" for="middle-name">Full Name <span class="required">*</span></label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <input type="text" name="full_name" required>
-                                                        </div>
+                                                <div class="form-group">
+                                                    <label class="width-135" for="middle-name">Full Name <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="full_name" required>
                                                     </div>
+                                                </div>
 
-                                                    <div class="form-group">
-                                                        <label class="width-135" for="middle-name">Display Name <span class="required">*</span></label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <input type="text" name="display_name" required>
-                                                        </div>
+                                                <div class="form-group">
+                                                    <label class="width-135" for="middle-name">Display Name <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="display_name" required>
                                                     </div>
-
-
-
-                                                    <div class="form-group">
-                                                        <label class="width-135" for="middle-name">Address <span class="required">*</span></label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <input type="text" name="address" required>
-                                                            <input type="text" name="address1">
-                                                            <input type="text" name="address2">
-                                                            <input type="text" name="address3">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label class="width-135" for="middle-name">Postcode <span class="required">*</span></label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <input type="text" name="postcode" required>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="form-group">
-                                                        <label class="width-135" for="middle-name">Phone <span class="required">*</span></label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <input type="text" name="phone" required>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label class="width-135" for="middle-name">Emergency Contact Number <span class="required">*</span></label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <input type="text" name="emergency_contact" required>
-                                                        </div>
-                                                    </div>
-
-
-
-
-                                                    <div class="form-group">
-                                                        <label class="width-135" for="middle-name">Username <span class="required">*</span></label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <input type="text" name="username" placeholder="User Name" required>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label class="width-135" for="middle-name">Set New Password <span class="required">*</span></label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <input type="password" name="password" required placeholder="Password">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label class="width-135" for="middle-name">Confirm Password <span class="required">*</span></label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <input type="password" name="confirm_password" required placeholder="Confirm Password">
-                                                        </div>
-                                                    </div>
-
-
-
-
-
-
-
                                                 </div>
 
 
 
-                                                <div class="col-md-5 ml--30">
-
-
-
-
-                                                    <div class="form-group">
-                                                        <label class="width-94" for="middle-name">Pay Rate</label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <input type="text" name="pay_rate">
-                                                        </div>
+                                                <div class="form-group">
+                                                    <label class="width-135" for="middle-name">Address <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="address" required>
+                                                        <input type="text" name="address1">
+                                                        <input type="text" name="address2">
+                                                        <input type="text" name="address3">
                                                     </div>
+                                                </div>
 
-
-
-
-
-                                                    <div class="form-group">
-                                                        <label class="width-94" for="middle-name">Tax Code</label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <input type="text" name="tax_code" required>
-                                                        </div>
+                                                <div class="form-group">
+                                                    <label class="width-135" for="middle-name">Postcode <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="postcode" required>
                                                     </div>
+                                                </div>
 
 
-
-                                                    <div class="form-group">
-                                                        <label class="width-94" for="middle-name">NI Number</label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <input type="text" name="ni_number" required>
-                                                        </div>
+                                                <div class="form-group">
+                                                    <label class="width-135" for="middle-name">Phone <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="phone" required>
                                                     </div>
+                                                </div>
 
-                                                    <div class="form-group">
-                                                        <label class="width-94" for="">Notes</label>
-                                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                                            <textarea class="width-193" name="notes" required></textarea>
-                                                        </div>
+                                                <div class="form-group">
+                                                    <label class="width-135" for="middle-name">Emergency Contact Number <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="emergency_contact" required>
                                                     </div>
+                                                </div>
 
+
+
+
+                                                <div class="form-group">
+                                                    <label class="width-135" for="middle-name">Username <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input id="username" type="text" name="username" placeholder="User Name" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="width-135" for="middle-name">Set New Password <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input id="password" type="password" name="password" required placeholder="Password">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="width-135" for="middle-name">Confirm Password <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="password" name="confirm_password" required placeholder="Confirm Password">
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+
+                                            </div>
+
+
+
+                                            <div class="col-md-5 ml--30">
+
+
+
+
+                                                <div class="form-group">
+                                                    <label class="width-94" for="middle-name">Pay Rate</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="pay_rate">
+                                                    </div>
+                                                </div>
+
+
+
+
+
+                                                <div class="form-group">
+                                                    <label class="width-94" for="middle-name">Tax Code</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="tax_code" required>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group">
+                                                    <label class="width-94" for="middle-name">NI Number</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" name="ni_number" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="width-94" for="">Notes</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <textarea class="width-193" name="notes" required></textarea>
+                                                    </div>
                                                 </div>
 
                                             </div>
+
+                                        </div>
                                         <div class="col-md-1"></div>
 
 
@@ -244,11 +239,11 @@
                                             <div class="col-md-3"></div>
 
 
-                                            <div class="col-md-3">
-                                            </div>
+                                            <div class="col-md-3"></div>
                                             <div class="col-md-3"></div>
                                             <div class="col-md-3">
-                                                <input type="submit" value="Save & Go to Permissions" class="bold btn btn-success btn-mini center-block width-200 user-permission-btn"/>
+                                                <input type="submit" onclick="javascript:show_AddPermissions('add-user-div-permissions')" value="Save & Go to Permissions" class="bold btn btn-success btn-mini center-block width-200 user-permission-btn" />
+                                                @*<a href="javascript:show_AddPermissions('add-user-div-permissions')" class="btn bold btn-success btn-mini center-block width-200 user-permission-btn">Save &amp; Go to Permissions</a>*@
                                             </div>
 
 
@@ -260,11 +255,129 @@
                                 </div>
 
                                 @*--------------------NEW USER DIV ENDS----------------*@
-                                
 
 
-                                @*--------------------EDIT USER DIV----------------*@
-                                @*--------------------EDIT USER DIV----------------*@
+
+                                @*--------------------NEW USER PERMISSION DIV----------------*@
+
+
+                                <div id="add-user-div-permissions" class="row hideDiv">
+                                    <div class="col-md-12">
+
+                                        <h5 class="bold black-color text-left">User aaa's Access Permissions</h5>
+
+                                        <div class="row1 mt-20">
+                                            <div class="col1 min-width-120 min-height-32 text-center"><label class="checkbox-main-style"><input type="checkbox" />User Tools</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Attendance</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Quick Links</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Send Email</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Company Messenger</label></div>
+                                        </div>
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-120 min-height-32 text-center"><label class="checkbox-main-style"><input type="checkbox" />Automation</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />eBay Order Fetcher</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />eBay Feedback Manager</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />eBay Message Quantity</label></div>
+                                        </div>
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-88 min-height-32 text-center"><label class="checkbox-main-style"><input type="checkbox" />Orders</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Add Order</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Search Order</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Print Order</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Order Tracking</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Waiting Orders</label></div>
+                                        </div>
+
+
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-88 min-height-44"><label class="checkbox-main-style"><input type="checkbox" />EPOS System</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />EPOS Main Panel</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Allow Editing</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Allow Refunds</label></div>
+                                            <div class="col1 width-87 min-height-44"><label class="mb-0"><input type="checkbox" />Allow Supplier Data &amp; Cost Price</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Supplier List</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Allow Credit</label></div>
+                                            <div class="col1 width-90 min-height-44"><label class="mb-0"><input type="checkbox" />Allow Customer Opening Balance</label></div>
+                                            <div class="col1 min-height-44 width-50"><label class="mb-0"><input type="checkbox" />Credit Limit</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Allow Total Price</label></div>
+                                            <div class="col1 width-73 min-height-44"><label class="mb-0"><input type="checkbox" />Update Stock Recount</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Modify Invoice No</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Revenue Report</label></div>
+                                        </div>
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-88 min-height-32"><label class="checkbox-main-style"><input type="checkbox" />File Manager</label></div>
+                                        </div>
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-88 min-height-32"><label class="checkbox-main-style"><input type="checkbox" />Refunds &amp; Return</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />RMA &amp; Replacements</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Data Reports</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Refund Queue</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Waiting Orders</label></div>
+                                        </div>
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-88 min-height-32"><label class="checkbox-main-style"><input type="checkbox" />Admin</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Admin Menu</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Accounting</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />User Access</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Attendance Management</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Database Management</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Log Explorer</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Assign Mail Service</label></div>
+                                        </div>
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-88 min-height-32"><label class="checkbox-main-style"><input type="checkbox" />IP</label></div>
+                                        </div>
+
+
+
+
+
+                                    </div>
+
+
+                                    <div class="col-md-12 mt-15">
+
+                                        <h5 class="bold black-color text-left">Authcode for temporary permission</h5>
+                                        <div>
+                                            <h5 class="bold black-color" style="float:left">Authcode:</h5>
+                                            <div class="col-md-3 col-sm-6 col-xs-12 pull-left">
+                                                <input type="text" name="" required class="width-135 mt-5">
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1"><label class="mb-0 font-11"><input type="checkbox" />Allow Editing</label></div>
+                                            <div class="col1"><label class="mb-0 font-11"><input type="checkbox" />Allow Refunds</label></div>
+                                            <div class="col1"><label class="mb-0 font-11"><input type="checkbox" />Modify Invoice No</label></div>
+                                            <div class="col1"><label class="mb-0 font-11"><input type="checkbox" />Credit Limit</label></div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <div class="clearfix"></div>
+
+
+
+
+                                @*--------------------EDIT USER PERMISSION DIV ENDS----------------*@
                                 @*--------------------EDIT USER DIV----------------*@
 
                                 <div class="row hideDiv" id="edit_user_div">
@@ -408,38 +521,223 @@
                                         <div class="col-md-1"></div>
 
 
-                                        <div class="col-md-12">
-                                            <div class="col-md-3"></div>
+                                        
 
 
-                                            <div class="col-md-3">
-                                            </div>
-                                            <div class="col-md-3"></div>
-                                            <div class="col-md-3">
-                                                <input type="submit" value="Save & Go to Permissions" class="bold btn btn-success btn-mini center-block width-200 user-permission-btn" />
-                                            </div>
+
+                                        <div>
 
 
+
+
+
+                                            
+
+
+                                            
 
                                         </div>
 
-                                    </form>
 
+
+                                    </form>
                                 </div>
 
                                 @*--------------------EDIT USER DIV ENDS----------------*@
 
 
+                                @*--------------------EDIT USER PERMISSION DIV----------------*@
+                                <div id="edit-user-permissions" class="hideDiv">
+                                    <div class="col-md-12">
+
+                                        <h5 class="bold black-color text-left">User Access Permissions</h5>
+
+                                        @*<div style="margin:10px 0 0 10px" class="">
+
+                </div>*@
 
 
 
+
+                                        <div class="row1 mt-20">
+                                            <div class="col1 min-width-120 min-height-32 text-center"><label class="checkbox-main-style"><input type="checkbox" />User Tools</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Attendance</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Quick Links</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Send Email</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Company Messenger</label></div>
+                                        </div>
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-120 min-height-32 text-center"><label class="checkbox-main-style"><input type="checkbox" />Automation</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />eBay Order Fetcher</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />eBay Feedback Manager</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />eBay Message Quantity</label></div>
+                                        </div>
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-88 min-height-32 text-center"><label class="checkbox-main-style"><input type="checkbox" />Orders</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Add Order</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Search Order</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Print Order</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Order Tracking</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Waiting Orders</label></div>
+                                        </div>
+
+
+                                        @*<div class="row1">
+                    <div class="col1"><input type="checkbox" /><label></label></div>
+                    <div class="col1"><input type="checkbox" /><label></label></div>
+                    <div class="col1"><input type="checkbox" /><label></label></div>
+                    <div class="col1"><input type="checkbox" /><label></label></div>
+                    <div class="col1"><input type="checkbox" /><label></label></div>
+                </div>*@
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-88 min-height-44"><label class="checkbox-main-style"><input type="checkbox" />EPOS System</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />EPOS Main Panel</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Allow Editing</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Allow Refunds</label></div>
+                                            <div class="col1 width-87 min-height-44"><label class="mb-0"><input type="checkbox" />Allow Supplier Data &amp; Cost Price</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Supplier List</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Allow Credit</label></div>
+                                            <div class="col1 width-90 min-height-44"><label class="mb-0"><input type="checkbox" />Allow Customer Opening Balance</label></div>
+                                            <div class="col1 min-height-44 width-50"><label class="mb-0"><input type="checkbox" />Credit Limit</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Allow Total Price</label></div>
+                                            <div class="col1 width-73 min-height-44"><label class="mb-0"><input type="checkbox" />Update Stock Recount</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Modify Invoice No</label></div>
+                                            <div class="col1 width-61 min-height-44"><label class="mb-0"><input type="checkbox" />Revenue Report</label></div>
+                                        </div>
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-88 min-height-32"><label class="checkbox-main-style"><input type="checkbox" />File Manager</label></div>
+                                        </div>
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-88 min-height-32"><label class="checkbox-main-style"><input type="checkbox" />Refunds &amp; Return</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />RMA &amp; Replacements</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Data Reports</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Refund Queue</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Waiting Orders</label></div>
+                                        </div>
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-88 min-height-32"><label class="checkbox-main-style"><input type="checkbox" />Admin</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Admin Menu</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Accounting</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />User Access</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Attendance Management</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Database Management</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Log Explorer</label></div>
+                                            <div class="col1"><label class="mb-0"><input type="checkbox" />Assign Mail Service</label></div>
+                                        </div>
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1 min-width-88 min-height-32"><label class="checkbox-main-style"><input type="checkbox" />IP</label></div>
+                                        </div>
+
+
+
+
+
+                                    </div>
+
+
+                                    <div class="col-md-12 mt-15">
+
+                                        <h5 class="bold black-color text-left">Authcode for temporary permission</h5>
+                                        <div>
+                                            <h5 class="bold black-color" style="float:left">Authcode:</h5>
+                                            <div class="col-md-3 col-sm-6 col-xs-12 pull-left">
+                                                <input type="text" name="" required class="width-135 mt-5">
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+
+
+                                        <div class="row1 mt-5">
+                                            <div class="col1"><label class="mb-0 font-11"><input type="checkbox" />Allow Editing</label></div>
+                                            <div class="col1"><label class="mb-0 font-11"><input type="checkbox" />Allow Refunds</label></div>
+                                            <div class="col1"><label class="mb-0 font-11"><input type="checkbox" />Modify Invoice No</label></div>
+                                            <div class="col1"><label class="mb-0 font-11"><input type="checkbox" />Credit Limit</label></div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="col-md-12">
+                                        <div class="col-md-3"></div>
+
+
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-3">
+                                            <input type="submit" value="Save" class="bold btn btn-success btn-mini center-block width-200 user-permission-btn" />
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+
+                                <div class="clearfix"></div>
 
                                 
+
+
+                                @*--------------------EDIT USER PERMISSION DIV ENDS----------------*@
+
 
                             </div>
                         </div>
 
                     </div>
+
+                    <div id="modal-xx" class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-hidden="false">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content modal-style-custom">
+
+                                <div class="title col-md-12">
+                                    <span>Message</span>
+                                    <img src="~/img/images/c3.png" class="close mr--13 pull-right" data-dismiss="modal" />
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+
+                                        <div class="win text-center">
+                                            <h3 class="black-color"><b>Find Supplier</b></h3>
+                                            @*<img class="pull-right" src="~/img/images/supplier.png" style="margin:-34px 81px 20px 0" />*@
+
+
+                                            
+
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
                 @*-----------------Main Container Ends---------------*@
@@ -499,7 +797,7 @@
             $("#edit_user_div").removeClass("showDiv");
             $("#edit_user_div").addClass("hideDiv");
             $("#add_user_div").addClass("showDiv");
- 
+
 
         }
 
@@ -508,11 +806,77 @@
 
     <script>
 
+        function show_AddPermissions(id) {
+            var e = document.getElementById(id);
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("username").value;
+
+            if (username == "" || password == "")
+            {
+                alert("Please enter Required Fields")
+            }
+
+            else {
+                $("#add-user-div-permissions").addClass("showDiv");
+                $("#edit_user_div").addClass("hideDiv");
+                $("#add_user_div").addClass("hideDiv");
+                $("#edit_user_div").removeClass("showDiv");
+                $("#add_user_div").removeClass("showDiv");
+            }
+            alert(u);
+          
+
+
+        }
+
+    </script>
+
+
+
+        @*<script type="text/javascript">
+            function show_AddPermissions(id) {
+
+                var e = document.getElementById(id);
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("username").value;
+
+                if (username == "" || password == "") {
+                    swal({
+                        title: "ERROR!",
+                        text: "Please Enter username or password",
+                        type: "warning",
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Okay",
+                        closeOnConfirm: true,
+                        closeOnCancel: false
+                    },
+                    function (isConfirm) {
+                    });
+                }
+
+                else {
+                    $("#add-user-div-permissions").addClass("showDiv");
+                    $("#edit_user_div").addClass("hideDiv");
+                    $("#add_user_div").addClass("hideDiv");
+                    $("#edit_user_div").removeClass("showDiv");
+                    $("#add_user_div").removeClass("showDiv");
+                }
+                }
+            }
+
+
+
+            </script>*@
+
+    <script>
+
         function showhide_EDIT(id) {
             var e = document.getElementById(id);
             $("#add_user_div").removeClass("showDiv");
             $("#add_user_div").addClass("hideDiv");
             $("#edit_user_div").addClass("showDiv");
+                //edit-user-permissions
+            $("#edit-user-permissions").addClass("showDiv");
         }
 
     </script>
