@@ -906,6 +906,14 @@ footer {
 	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1) inset, 0 -1px 10px rgba(0, 0, 0, 0.1);
 }
 
+footer-home-index {
+	color: #CCC;
+	padding: 15px 20px 0;
+	margin-top: 54px;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1) inset, 0 -1px 10px rgba(0, 0, 0, 0.1);
+}
+
+
 footer a {
 	color: #C3D9FF;
 }
@@ -1152,6 +1160,13 @@ div.login-inner div.form-actions {
     background-position: center;
     width:100%;
     height:800px;
+}
+
+.bggg-img-without-height {
+    background-image: url(../../img/logo/eSales_background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width:100%;
 }
 
 .bg-jd {

@@ -233,6 +233,9 @@
     font-weight: bold!important;
 }
 
+.width-192{
+    width:192px;
+}
 
 #input_container {
     position: relative;
@@ -253,7 +256,7 @@
 #input_img {
     position: absolute;
     bottom: 0;
-    right: -103px;
+    right: -54px;
     width: 24px;
     height: 24px;
 }
@@ -320,21 +323,35 @@
     font-size:11px;
 }
 
+.font-12{
+    font-size:12px;
+}
+
 .col1 {
     border: 1px solid black;
     float: left;
     padding: 5px;
     margin-right: 5px;
-    font-size:9px;
+    font-size:12px;
     margin-bottom:0px!important;
 }
+
+.col1-without-padding {
+    border: 1px solid black;
+    float: left;
+    padding: 1px;
+    margin-right: 5px;
+    font-size:12px;
+    margin-bottom:0px!important;
+}
+
 
 .col1-bold {
     border: 1px solid black;
     float: left;
     padding: 5px;
     margin-right: 5px;
-    font-size:10px;
+    font-size:12px;
     font-weight:bold!important;
 }
 
@@ -345,6 +362,10 @@
     padding: 5px;
     margin-right: 5px;
     font-size:10px;
+}
+
+.max-width-61{
+    max-width:61px;
 }
 
 .checkboxes-user-tools{
@@ -360,8 +381,20 @@
 
 }
 
+.font-13{
+    font-size:13px;
+    font-weight:bold;
+}
+
+.vertical-align{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .width-61{
-    max-width:61px;
+    max-width:58px;
 }
 
 .width-87{
@@ -378,10 +411,14 @@
 
 .checkbox-main-style{
     margin-bottom:0px !important;
-    font-size:11px;
+    font-size:14px;
 }
 .min-width-88{
-    min-width:120px!important;
+    min-width:128px!important;
+}
+
+.width-110{
+    max-width:110px!important;
 }
 
 .min-height-32{
@@ -389,7 +426,7 @@
 }
 
 .min-height-44{
-    min-height:44px!important;
+    min-height:68px!important;
 }
 
 .mt-5{
@@ -430,3 +467,16 @@
     color: #fff;
 }
 
+.ml-22{
+    margin-left:22px;
+}
+
+
+.ml--50{
+    margin-left:-50px;
+}
+
+.red-border{
+    color:white;
+    background-color:#d9534f;
+}
