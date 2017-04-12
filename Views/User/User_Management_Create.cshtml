@@ -767,7 +767,7 @@
 
             if (u == "" || p == "" || c == "") {
                 
-                alert("Please enter Required Fields IF");
+                alert("Please enter Required Fields");
             }
 
             else if (c == p) {
@@ -1076,64 +1076,4 @@
 
         </script>
     @*----------------USERNAME-EDIT VALIDATION Script----------------*@
-
-
-
-
-
-
-
-
-
-
-
-
-    @*----------------ADD USER PERMISSION PAGE Script----------------*@
-    <script>
-        function username_edit_validation() {
-
-            var user = document.getElementById("username_edit").value;
-            var user_ID = document.getElementById("user_id").value;
-            var v = "";
-
-            var urls = "/User/user_edit_validation/";
-
-            $.ajax({
-                url: urls,
-                data: { username: user, id: user_ID },
-                cache: false,
-                type: "Post",
-
-                success: function (data) {
-
-                    if (data == "True") {
-                        document.getElementById('username_edit').value = '';
-
-                        $('#user_exist_edit').addClass('showDiv');
-                    }
-
-
-                    else {
-                        $('#user_exist_edit').removeClass('showDiv');
-                        $('#user_exist_edit').AddClass('hideDiv');
-
-                    }
-                },
-                error: function () {
-                    alert("FAILURE");
-                }
-            });
-        }
-
-
-
-
-    </script>
-    @*----------------ADD USER PERMISSION PAGE Script----------------*@
-
-
-
-
-
-
 </body>
