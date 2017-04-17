@@ -787,72 +787,104 @@
                         <div class="win text-center">
 
                             <div>
-                                <h4 class="mt-30 pull-left bold">
+                                <h4 class="mt-30 pull-left black-color bold">
                                     Manage Item Syncing
                                     @*<a class="ml-5 mr-5" href="#">
                                             <img class="size-35-32 ml-5 mr-5" src="~/img/images/plus.png" />Add Items
                                         </a>*@
                                 </h4>
                             </div>
+                            <div class="clearfix"></div>
                             <br />
-                            <div class="pull-left">
+                            <div class="">
 
-                                <div class="row1 mt-30 pull-left">
+                                <div class="row1 pull-left">
                                     <div class="pull-left"><label>Sync Options  : </label></div>
-                                    <div class="pull-left"><label class="mb-0"><input type="radio" />Basic</label></div>
-                                    <div class="pull-left"><label class="mb-0"><input type="radio" />Standard</label></div>
-                                    <div class="pull-left"><label class="mb-0"><input type="radio" />Advance</label></div>
+                                    <div class="pull-left"><label class="mb-0"><input name="syncing" onclick="showBasic()" value="Basic" type="radio" />Basic</label></div>
+                                    <div class="pull-left"><label class="mb-0"><input name="syncing" onclick="showStandard()" value="Standard" type="radio" />Standard</label></div>
+                                    <div class="pull-left"><label class="mb-0"><input name="syncing" onclick="showAdvance()" value="Advance" type="radio" />Advance</label></div>
                                 </div>
+                                <div class="clearfix"></div>
                             </div>
+                            <div class="clearfix"></div>
 
-                            @*<form action="" class="form-horizontal form-label-left" method="post">
-
-                                    <div class="col-md-12">
-                                        <div class="ml-75">
-                                            <div class="form-group pull-left">
-                                                <label class="control-label pull-left mt--4">SKU:</label>
-
-
-                                                <input id="sku_composite" class="form-control pull-left width-170" type="text" name="sku_composite" placeholder="" required="" title="admin" style="height: 25px">
-
-
-
-                                            </div>
-
-                                            <div class="form-group pull-left">
-                                                <label class="control-label pull-left ml-31 mt--4">QTY:</label>
-
-
-                                                <input id="sku_composite" class="form-control pull-left width-170" type="text" name="sku_composite" placeholder="" required="" title="admin" style="height: 25px">
-
-
-
-                                            </div>
-                                            <a href=""><img class="del-img" src="~/img/images/delete.png" /></a>
-                                        </div>
-
-
-
-                                        <div class="clearfix"></div>
+                            <div class="">
+                                <div id="basic_id" class="none mt-15">
+                                    <div class="row1 pull-left">
+                                        <div class="pull-left"><label>If warning level reach  : </label></div>
+                                        <div class="pull-left"><label class="mb-0"><input name="syncing" value="Basic" type="radio" />Update increased price :</label></div>
+                                        <div class="pull-left"><label class="mb-0"><input name="syncing" value="Standard" type="radio" />Put listing Out of Stock :</label></div>
                                     </div>
 
-                                    <div class="col-md-12">
-                                        <div class="col-md-3"></div>
+                                    <form action="" class="form-horizontal form-label-left" method="post">
 
-                                        <div class="col-md-3">
-                                            <input type="submit" value="Add" class="btn btn-success btn-mini center-block width-123" />
+                                        <div class="col-md-12 margin-stock-modal">
+
+                                            <div class="form-group">
+                                                <label class="pull-left width-145" for="middle-name">Warning Level (Qty) :</label>
+                                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                                    <input type="text" class="width-150" name="stock_qty" id="login">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="pull-left width-145" for="middle-name">Increased price:</label>
+                                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                                    <input type="text" class="width-150" name="stock_qty" id="login">
+                                                </div>
+                                            </div>
+
+
                                         </div>
 
-                                        <div class="col-md-3">
-                                            <a href="~/Product/List" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0">Cancel</a>
+
+                                    </form>
+
+
+
+                                </div>
+
+                                <div id="advance_id" class="none">
+                                    <form action="" class="form-horizontal form-label-left" method="post">
+
+                                        <div class="col-md-12 margin-stock-modal">
+
+                                            <div class="form-group">
+                                                <label class="pull-left" for="middle-name">Maximum Listed Quantity:</label>
+                                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                                    <input type="text" class="width-150" name="stock_qty" id="login">
+                                                </div>
+                                            </div>
+
+
                                         </div>
-                                        <div class="col-md-3"></div>
+
+
+                                    </form>
+
+
+                                </div>
 
 
 
+                                <div class="col-md-12">
+                                    <div class="col-md-3"></div>
+
+                                    <div class="col-md-3">
+                                        <input type="submit" value="Add" class="btn btn-success btn-mini center-block width-123" />
                                     </div>
-                                </form>*@
 
+                                    <div class="col-md-3">
+                                        <a href="~/Product/List" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0">Cancel</a>
+                                    </div>
+                                    <div class="col-md-3"></div>
+
+
+
+                                </div>
+
+
+                            </div>
 
                         </div>
 
@@ -1372,6 +1404,32 @@
         //}
     </script>
 
+
+    <script>
+        function showBasic() {
+            $("#basic_id").removeClass("none");
+            $("#basic_id").addClass("showDiv");
+            $("#advance_id").addClass("none");
+        }
+
+    </script>
+
+
+    <script>
+        function showAdvance() {
+            $("#advance_id").removeClass("none");
+            $("#advance_id").addClass("showDiv");
+            $("#basic_id").addClass("none");
+        }
+
+    </script>
+    <script>
+        function showStandard() {
+            $("#advance_id").addClass("none");
+            $("#basic_id").addClass("none");
+        }
+
+    </script>
 
 
     <script>
