@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="Database1Model.Product" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.Supplier" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
         <AssociationConnector Association="Database1Model.FK_Products_Supplier" />
-        <EntityTypeShape EntityType="Database1Model.Account" Width="1.5" PointX="3.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Account" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.Bank" Width="1.5" PointX="0.5" PointY="13.25" />
         <EntityTypeShape EntityType="Database1Model.Company" Width="2" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <AssociationConnector Association="Database1Model.FK_Accounts_BANKID" />
@@ -19,6 +19,8 @@
         <AssociationConnector Association="Database1Model.FK_Products_Categories" />
         <AssociationConnector Association="Database1Model.FK_Products_Quantity" />
         <EntityTypeShape EntityType="Database1Model.User" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="Database1Model.Warehouse" Width="1.5" PointX="7.375" PointY="5" />
+        <AssociationConnector Association="Database1Model.FK_Products_Warehouse" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

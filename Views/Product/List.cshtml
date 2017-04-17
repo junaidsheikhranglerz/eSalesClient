@@ -1,0 +1,1563 @@
+﻿@model  List<eSalesPro.Models.Product>
+<body id="body-index">
+    <div id="sticky-footer-wrap">
+
+        @*-----------------Top Navigation Start---------------*@
+
+        @{
+            Html.RenderPartial("Top_Navigation_View");
+        }
+
+        @*-----------------Top Navigation End---------------*@
+
+        <div class="container-fluid main-container">
+
+            @*-----------------Side Navigation Start---------------*@
+            <div class="row">
+                @{
+                    Html.RenderPartial("Side_Navigation_View");
+                }
+                @*-----------------Side Navigation End---------------*@
+
+
+
+                @*-----------------Main Container Start---------------*@
+                <div class="user-page-height">
+                    <div class="bggg-img">
+                        <div>
+
+                            <div class="col-md-12">
+
+                                <div class="col-md-3">
+                                    <h3 class="bold margin-stock-manager-heading">Stock Manager<small></small></h3>
+                                </div>
+                                <div class="col-md-3"></div>
+
+                                <div class="col-md-3 pull-right">
+                                    <a href="~/Product/Stock_Taking_List" class="btn btn-primary btn-mini width-170 product-stock-btn bold">Update Stocktaking</a>
+                                </div>
+
+                                <div class="col-md-3 pull-right">
+                                    <a href="~/Home/Epos" class="btn btn-primary btn-mini width-170 product-import-btn bold">Import / Export</a>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-md-12">
+
+                            <div class="col-md-3 pull-left">
+                                <a href="~/Home/Epos" class="btn btn-primary btn-mini supplier-epos-btn bold">Back to EPOS Main Panel</a>
+                            </div>
+
+                            <div class="col-md-3 pull-left">
+                                <a href="#" data-toggle="modal" data-target="#CreateModal" class="btn btn-primary btn-mini width-200 ml--50 product-import-btn bold">Add New Item</a>
+
+                            </div>
+
+
+                            <div class="col-md-4 search-filter-div">
+                                <label class="supplier-create-texts ml-22" for="middle-name">Search Filter</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input type="text" class="ml--95 width-208" name="postcode" id="postcode">
+                                    <a href="#"><img class="search-btn-product" src="~/img/images/ssearch.png" /></a>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                        </div>
+
+
+                        <div class="clearfix"></div>
+
+                        <div class="margin-checkboxes-product">
+                            <div class="row1 pull-right">
+                                <div class="pull-left bold">Custom Fields</div>
+                                <div class="pull-left"><label class="unbold"><input onclick="normalprice()" id="checkbox-normal" type="checkbox" />Normal</label></div>
+                                <div class="pull-left"><label class="unbold"><input onclick="normalprice()" id="checkbox-trade" type="checkbox" />Trade</label></div>
+                                <div class="pull-left"><label class="unbold"><input onclick="normalprice()" id="checkbox-premium" type="checkbox" />Premium</label></div>
+                                <div class="pull-left"><label class="unbold"><input onclick="normalprice()" id="checkbox-other" type="checkbox" />Other</label></div>
+                                <div class="pull-left"><label class="unbold"><input onclick="normalprice()" id="checkbox-cost" type="checkbox" />Cost</label></div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+
+                        @*<section id="no-more-tables">*@
+
+                        <section id="no-more-tables" class="margin-table-product">
+                            <div class="table-border">
+
+                                <table class="table table-responsive col-md-12">
+                                    <thead>
+                                        <tr class="table-heading-fonts table-main-headings">
+                                            <th>Id</th>
+                                            <th>SKU</th>
+                                            <th>Description</th>
+                                            <th>Normal Price</th>
+                                            <th>Trade Price</th>
+                                            <th>Premium Price</th>
+                                            <th>Other Price</th>
+                                            <th>Cost Price</th>
+                                            <th>Courier Type</th>
+                                            <th id="check-normal-price-th" class="hideDiv">Total Normal Price</th>
+                                            <th id="check-trade-price-th" class="hideDiv">Total Trade Price</th>
+                                            <th id="check-premium-price-th" class="hideDiv">Total Premium Price</th>
+                                            <th id="check-other-price-th" class="hideDiv">Total Other Price</th>
+                                            <th id="check-cost-price-th" class="hideDiv">Total Cost Price</th>
+
+
+
+                                        </tr>
+                                    </thead>
+
+
+
+                                    <tbody class="bold tbody-font-style">
+
+                                        @foreach (var v in Model) { 
+
+                                        @*<tr data-toggle="modal" data-target=".bs-example-modal-lg">*@
+                                        <tr>
+                                            <td data-title="User ID">@v.Id</td>
+                                            <td data-title="User ID">@v.Custom_Label_</td>
+                                            <td data-title="First Name">@v.Item_Title</td>
+                                            <td data-title="Last Name">@v.Price_Normal</td>
+                                            <td data-title="Email" class="user-emails">@v.Price_Trade</td>
+                                            <td data-title="Date Registered">@v.Price_Premium</td>
+                                            <td class="">@v.Price_Others</td>
+                                            <td class="">@v.Cost_Price</td>
+                                            <td class="">@v.Courier_Type</td>
+                                            <td id="check-normal-price-td" class="hideDiv">@v.Normal_VAT</td>
+                                            <td id="check-trade-price-td" class="hideDiv">@v.Normal_VAT</td>
+                                            <td id="check-premium-price-td" class="hideDiv">@v.Normal_VAT</td>
+                                            <td id="check-other-price-td" class="hideDiv">@v.Normal_VAT</td>
+                                            <td id="check-cost-price-td" class="hideDiv">@v.Normal_VAT</td>
+
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+                                <div class="clearfix"></div>
+
+
+                            </div>
+
+
+
+                        </section>
+
+                    </div>
+                </div>
+                @*-----------------Main Container Ends---------------*@
+            </div>
+
+
+            <div id="sticky-footer-push"></div>
+        </div>
+    </div>
+
+    <footer class="black">
+
+        @{
+            Html.RenderPartial("Footer_View");
+        }
+    </footer>
+
+
+
+    @*----------------------------POP UP for EDIT SUPPLIER--------------------------------*@
+
+    <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal-style-custom">
+
+                <div class="title col-md-12">
+                    <span>Message</span>
+                    <img src="~/img/images/c3.png" class="close mr--13 pull-right" data-dismiss="modal" />
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="win text-center">
+                            <h3 class="black-color"><b>Edit Supplier</b></h3>
+                            <img class="pull-right margin-supplier" src="~/img/images/supplier.png" />
+
+                            <form id="demo-form2" action="@Url.Action("Edit","Supplier")" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+
+
+
+                                <div class="col-md-12 text-center">
+
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Company Name <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Company Short Name <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="company_short_name" id="company_short_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="supplier-border"></div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Sales Contact Name <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="sales_contact_name" id="sales_contact_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Sales Contact Email <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="sales_contact_mail" id="sales_contact_mail" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div>
+                                                <div class="">
+                                                    <label class="supplier-create-texts" for="middle-name">Sales Contact Phone <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input class="width-123" type="text" name="sales_contact_phone" id="sales_contact_phone" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+                                                    <label class="ext-texts">Ext</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="number" class="width-43" name="sales_phone_ext" id="sales_phone_ext" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Sales Contact Mobile <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="sales_contact_mobile" id="sales_contact_mobile" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Sales Contact Fax <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="sales_contact_fax" id="sales_contact_fax" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="supplier-border"></div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Account Contact Name <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="account_contact_name" id="account_contact_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Account Contact Email <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="account_contact_mail" id="account_contact_mail" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div>
+                                                <div class="">
+                                                    <label class="supplier-create-texts" for="middle-name">Account Contact Phone <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input class="width-123" type="text" name="account_contact_phone" id="account_contact_phone" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+                                                    <label class="ext-texts">Ext</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input class="width-43" type="text" name="account_ext_phone" id="account_ext_phone" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Account Contact Mobile <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="account_contact_mobile" id="account_contact_mobile" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Account Contact Fax <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="account_contact_fax" id="account_contact_fax" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="supplier-border"></div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Bank Name <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="bank_name" id="bank_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Account Name <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="account_name" id="account_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Account No <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="account_no" id="account_no" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Sort Code <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="sort_code" id="sort_code" required>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts ml-22" for="middle-name">Address<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" class="ml--50" name="address1" id="address" required>
+                                                <input type="text" class="ml--50" name="address2">
+                                                <input type="text" class="ml--50" name="address3">
+                                                <input type="text" class="ml--50" name="address4">
+                                                <input type="text" class="ml--50" name="address5">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts ml-22" for="middle-name">Postcode<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" class="ml--50" name="postcode" id="postcode">
+                                                <a href="#"><img src="~/img/images/ssearch.png" id="input_img" /></a>
+                                            </div>
+                                        </div>
+
+                                        <div id="input_container">
+
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts ml-22" for="middle-name">Website<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" class="ml--50" name="website" id="website" required>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts ml-22" for="middle-name">Login<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" class="ml--50" name="login" id="login" required>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts ml-22" for="middle-name">Password<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" class="ml--50" name="password" id="password" required>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts ml-22" for="">Notes<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <textarea class="width-193 ml--50" name="notes" id="notes" required></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="supplier-border"></div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts ml-22" for="middle-name">Credit Limit<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" class="ml--50" name="credit_limit" id="credit_limit" required>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts ml-22" for="middle-name">Credit Period<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" class="ml--50" name="credit_period" id="credit_period" required>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                @*<div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-3" style="margin-bottom:15px">
+                                        <input type="submit" value="Add Product" class="btn btn-success" />
+                                    </div>*@
+                                <div class="col-md-12">
+                                    <div class="col-md-3"></div>
+
+                                    <div class="col-md-3">
+                                        <input type="hidden" id="supplier_id" value="" name="supplier_id" />
+                                        <input type="submit" value="Update" class="btn btn-success btn-mini center-block width-145" />
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        @*<a href="" class="btn btn-primary btn-mini center-block" style="width:135px">Cancel</a>*@
+                                        <a href="~/Supplier/List" class="btn btn-primary btn-mini center-block a-cancel">Cancel</a>
+                                    </div>
+                                    <div class="col-md-3"></div>
+
+
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    @*----------------------------POP UP END EDIT SUPPLIER--------------------------------*@
+
+
+    @*----------------------------POP UP for CATEGORY--------------------------------*@
+
+    <div class="modal fade bs-example-modal-md z-999999999999999999999999" id="create_category_modal" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-lg-2">
+            <div class="modal-content modal-style-custom">
+
+                <div class="title col-md-12">
+                    <span>Categories</span>
+                    <img src="~/img/images/c3.png" class="close mr--13 pull-right" />
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="win text-center">
+                            @*<h3 class="black-color"><b>Find Supplier</b></h3>*@
+
+                            <form action="" class="form-horizontal form-label-left" method="post">
+
+                                <div class="col-md-12 margin-category">
+
+                                    <div class="form-group">
+                                        <label class="supplier-create-texts font-16" for="middle-name">Category Name<span class="required">*</span></label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <input class="width-200" type="text" name="category_title" id="category" required>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="col-md-3"></div>
+
+                                    <div class="col-md-3">
+                                        <input type="button" onclick="addCategorys();" value="Save" class="btn btn-success btn-mini center-block width-123" />
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <a href="#" onclick="cancel_btn()" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0 ml-22">Cancel</a>
+                                    </div>
+                                    <div class="col-md-3"></div>
+
+
+
+                                </div>
+                            </form>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    @*----------------------------POP UP END CATEGORY--------------------------------*@
+
+
+    @*----------------------------POP UP for STOCK TRANSFER--------------------------------*@
+
+    <div class="modal fade bs-example-modal-md z-999999999999999999999999" id="transfer_stock" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-lg-2">
+            <div class="modal-content modal-style-custom">
+
+                <div class="title col-md-12">
+                    <span>Stock Transfer</span>
+                    @*<img src="~/img/images/c3.png" class="close mr--13 pull-right" data-dismiss="modal" />*@
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="win text-center">
+                            @*<h3 class="black-color"><b>Find Supplier</b></h3>*@
+
+                            <form action="" class="form-horizontal form-label-left" method="post">
+
+                                <div class="col-md-12 margin-stock-modal">
+
+                                    <p class="margin-stock-modal-heading bold font-16">Please select the stock locations. </p>
+
+                                    <div class="form-group">
+                                        <label class="stock-transfer-texts" for="middle-name">From:</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <select name="supplier_name" class="form-control width-365">
+                                                <option value="">Please select any </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="stock-transfer-texts" for="middle-name">To:</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <select name="supplier_name" class="form-control width-365">
+                                                <option value="">Please select any </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="stock-transfer-texts" for="middle-name">QTY:</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <input type="text" class="width-110" name="stock_qty" id="login">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="col-md-3"></div>
+
+                                    <div class="col-md-3">
+                                        <input type="submit" value="Transfer" class="btn btn-success btn-mini center-block width-123" />
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <a href="~/Product/List" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0">Cancel</a>
+                                    </div>
+                                    <div class="col-md-3"></div>
+
+
+
+                                </div>
+                            </form>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    @*----------------------------POP UP END STOCK TRANSFER--------------------------------*@
+
+
+    @*<----------------CATEGORY POP UP------------------>*@
+    <div class="modal fade" style="overflow:auto" id="" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg-2" role="document">
+            <div class="modal-content modal-border" style="border-radius:10px;background:#e6e6e6;">
+
+                <div class="title col-md-12">
+                    <span>Categories</span>
+                    <img src="~/img/images/c3.png" class="close mr--13 pull-right" data-dismiss="modal" />
+                </div>
+
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="win text-center">
+                            @*<h3 class="black-color"><b>Add New Item</b></h3>
+                                <img class="pull-right margin-supplier ml-22" src="~/img/images/supplier.png" />*@
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*--------------------POP UP ENDS--------------------*@
+
+
+
+    @*----------------------------POP UP for COMPOSITE ITEMS--------------------------------*@
+
+    <div class="modal fade bs-example-modal-md z-999999999999999999999999" id="composite_modal" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-lg-2">
+            <div class="modal-content modal-style-custom">
+
+
+                <div class="title col-md-12">
+                    <span>Composite Items</span>
+                    @*<img src="~/img/images/c3.png" class="close mr--13 pull-right" data-dismiss="modal" />*@
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="win text-center">
+
+                            <p class="mt-30 bold">
+                                Add Composite items
+                                <a class="ml-5 mr-5" href="#">
+                                    <img class="size-35-32 ml-5 mr-5" src="~/img/images/plus.png" />Add Items
+                                </a>
+                            </p>
+
+                            <form action="" class="form-horizontal form-label-left" method="post">
+
+                                <div class="col-md-12">
+                                    <div class="ml-75">
+                                        <div class="form-group pull-left">
+                                            <label class="control-label pull-left mt--4">SKU:</label>
+
+
+                                            <input id="sku_composite" class="form-control pull-left width-170" type="text" name="sku_composite" placeholder="" required="" title="admin" style="height: 25px">
+
+
+
+                                        </div>
+
+                                        <div class="form-group pull-left">
+                                            <label class="control-label pull-left ml-31 mt--4">QTY:</label>
+
+
+                                            <input id="sku_composite" class="form-control pull-left width-170" type="text" name="sku_composite" placeholder="" required="" title="admin" style="height: 25px">
+
+
+
+                                        </div>
+                                        <a href=""><img class="del-img" src="~/img/images/delete.png" /></a>
+                                    </div>
+
+
+
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="col-md-3"></div>
+
+                                    <div class="col-md-3">
+                                        <input type="submit" value="Add" class="btn btn-success btn-mini center-block width-123" />
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <a href="~/Product/List" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0">Cancel</a>
+                                    </div>
+                                    <div class="col-md-3"></div>
+
+
+
+                                </div>
+                            </form>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    @*----------------------------POP UP END COMPOSITE ITEMS--------------------------------*@
+
+
+    @*----------------------------POP UP for ESHOP SETTINGS SETTINGS--------------------------------*@
+
+    <div class="modal fade bs-example-modal-md z-999999999999999999999999" id="eshop_modal" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-lg-2">
+            <div class="modal-content modal-style-custom">
+
+
+                <div class="title col-md-12">
+                    <span>Edit-Sync Settings</span>
+                    @*<img src="~/img/images/c3.png" class="close mr--13 pull-right" data-dismiss="modal" />*@
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="win text-center">
+
+                            <div>
+                                <h4 class="mt-30 pull-left bold">
+                                    Manage Item Syncing
+                                    @*<a class="ml-5 mr-5" href="#">
+                                            <img class="size-35-32 ml-5 mr-5" src="~/img/images/plus.png" />Add Items
+                                        </a>*@
+                                </h4>
+                            </div>
+                            <br />
+                            <div class="pull-left">
+
+                                <div class="row1 mt-30 pull-left">
+                                    <div class="pull-left"><label>Sync Options  : </label></div>
+                                    <div class="pull-left"><label class="mb-0"><input type="radio" />Basic</label></div>
+                                    <div class="pull-left"><label class="mb-0"><input type="radio" />Standard</label></div>
+                                    <div class="pull-left"><label class="mb-0"><input type="radio" />Advance</label></div>
+                                </div>
+                            </div>
+
+                            @*<form action="" class="form-horizontal form-label-left" method="post">
+
+                                    <div class="col-md-12">
+                                        <div class="ml-75">
+                                            <div class="form-group pull-left">
+                                                <label class="control-label pull-left mt--4">SKU:</label>
+
+
+                                                <input id="sku_composite" class="form-control pull-left width-170" type="text" name="sku_composite" placeholder="" required="" title="admin" style="height: 25px">
+
+
+
+                                            </div>
+
+                                            <div class="form-group pull-left">
+                                                <label class="control-label pull-left ml-31 mt--4">QTY:</label>
+
+
+                                                <input id="sku_composite" class="form-control pull-left width-170" type="text" name="sku_composite" placeholder="" required="" title="admin" style="height: 25px">
+
+
+
+                                            </div>
+                                            <a href=""><img class="del-img" src="~/img/images/delete.png" /></a>
+                                        </div>
+
+
+
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="col-md-3"></div>
+
+                                        <div class="col-md-3">
+                                            <input type="submit" value="Add" class="btn btn-success btn-mini center-block width-123" />
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <a href="~/Product/List" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0">Cancel</a>
+                                        </div>
+                                        <div class="col-md-3"></div>
+
+
+
+                                    </div>
+                                </form>*@
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    @*----------------------------POP UP END ESHOP SETTINGS--------------------------------*@
+
+
+    @*----------------------------POP UP ADD PRODUCT--------------------------------*@
+
+    <div class="modal fade" id="CreateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal-style-custom">
+
+                <div class="title col-md-12">
+                    <span>Add-Stock</span>
+                    <img src="~/img/images/c3.png" class="close mr--13 pull-right" data-dismiss="modal" />
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="win text-center">
+                            <h3 class="black-color mb-40"><b>Add New Item</b></h3>
+                            @*<img class="pull-right margin-supplier ml-22" src="~/img/images/supplier.png" />*@
+
+                            <form id="demo-form2" action="@Url.Action("Create","Product")" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+
+
+
+                                <div class="col-md-12 text-center">
+
+                                    <div class="col-md-9">
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Custom Label / SKU <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input class="width-400" type="text" name="sku" required placeholder="SKU is case sensitive. eshop's SKU need to be same.">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Item Title <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input class="width-400" type="text" name="item_title" required>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <div>
+                                                <div class="">
+                                                    <label class="supplier-create-texts" for="middle-name">Normal Price <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input id="NormalPrice" onkeyup="javascript:Add();" class="width-170" type="text" name="normal_price" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+                                                    <label class="vat-texts">+VAT=</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input id="NormalTotal" type="text" class="width-170" name="normal_vat" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <div>
+                                                <div class="">
+                                                    <label class="supplier-create-texts" for="middle-name">Trade Price <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input id="TradePrice" onkeyup="javascript:Add();" class="width-170" type="text" name="trade_price" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+                                                    <label class="vat-texts">+VAT=</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input id="TradeTotal" type="text" class="width-170" name="trade_vat" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <div>
+                                                <div class="">
+                                                    <label class="supplier-create-texts" for="middle-name">Premium Price <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input id="PremiumPrice" class="width-170" onkeyup="javascript:Add();" type="text" name="premium_price" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+                                                    <label class="vat-texts">+VAT=</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input id="PremiumTotal" type="text" class="width-170" name="premium_vat" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+
+                                        </div>
+
+
+
+
+
+                                        <div class="form-group">
+                                            <div>
+                                                <div class="">
+                                                    <label class="supplier-create-texts" for="middle-name">Other Price <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input id="OtherPrice" class="width-170" onkeyup="javascript:Add();" type="text" name="other_price" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+                                                    <label class="vat-texts">+VAT=</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input id="OtherTotal" type="text" class="width-170" name="other_vat" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="product-border"></div>
+
+
+
+
+
+
+                                        <div class="form-group">
+                                            <div>
+                                                <div class="">
+                                                    <label class="supplier-create-texts font-16 black-color" for="middle-name">Total Quantity<span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input class="width-170" type="text" name="total_quantity" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+                                                    <a href="#" data-toggle="modal" data-target="#transfer_stock">
+                                                        <img class="stock-transfer-img" src="~/img/images/stock_transfer.png" />
+                                                        <label class="mr-60 font-16">Transfer Stock</label>
+                                                    </a>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+
+                                        </div>
+
+
+
+
+
+
+                                        <div class="form-group">
+                                            <div>
+                                                <div class="">
+                                                    <label class="supplier-create-texts" for="middle-name">Warehouse Locations<span class="required">*</span></label>
+                                                </div>
+
+                                                <div class="">
+                                                    <a href="#">
+                                                        <img class="stock-transfer-img" src="~/img/images/plus.png" />
+                                                        <label class="mr-180 font-16">Add New Locations</label>
+                                                    </a>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="product-border"></div>
+
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Warn Level<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input class="width-400" type="text" name="warn_level" required>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <div>
+                                                <div class="">
+                                                    <label class="supplier-create-texts" for="middle-name">Barcode<span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input class="width-170" type="text" name="barcode" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+                                                    <a href="#">
+                                                        <img class="add-barcode-img" src="~/img/images/add_barcode.png" />
+                                                        <img class="print-barcode-img" src="~/img/images/barcode_print.png" />
+                                                    </a>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Supplier Name<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <select name="supplier_name" required class="form-control width-400">
+                                                    <option value="">Please select any </option>
+                                                    @foreach (var name in ViewBag.Suppliers)
+                                                    {
+                                                        <option value="@name.Id">@name.Name </option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Supplier Code<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input class="width-400" type="text" name="supplier_code" required>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <div>
+                                                <div class="">
+                                                    <label class="supplier-create-texts" for="middle-name">Cost Price <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input class="width-170" type="text" name="cost_price" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+                                                    <label class="vat-texts">+VAT=</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" class="width-170" name="cost_vat" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div>
+                                                <div class="">
+                                                    <label class="supplier-create-texts" for="middle-name">Quantity in Box (Inner) <span class="required">*</span></label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input class="width-170" type="text" name="inner" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+                                                    <label class="vat-texts">(Outer)</label>
+                                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                                        <input type="text" class="width-170" name="outer" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div id="" class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Category Name<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <select id="updated_Category" name="categooory_name" required class="form-control width-360">
+
+                                                    <option value="">Please select any </option>
+                                                    @foreach (var name in ViewBag.Categories)
+                                                    {
+                                                        <option value="name.Id">@name.Type</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="">
+                                                <a href="#" data-toggle="modal" data-target="#create_category_modal">
+                                                    <img class="plus-img" src="~/img/images/plus.png" />
+                                                </a>
+                                            </div>
+
+                                            <div class="clear"></div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Courier Type</label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input class="width-400" type="text" name="courier_type" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Tax Type</label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input class="width-400" type="text" name="tax_type" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts" for="middle-name">Notes<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <textarea class="width-400" name="notes"></textarea>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts bold font-16 black-color" for="middle-name">Composite(Kit) Items</label>
+
+                                            <div class="pull-left">
+                                                <a href="#" data-toggle="modal" data-target="#composite_modal">
+                                                    <img class="pencil-img" src="~/img/images/pencil48.png" />
+                                                </a>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <div class="product-border"></div>
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts bold font-16 black-color" for="middle-name">Sync eShops</label>
+
+                                            <div class="pull-left">
+                                                <a href="#">
+                                                    <img class="pencil-img" src="~/img/images/sync248.png" />
+                                                    <p class="black-color width-400">NOTE: eShop synchronized according to your settings.</p>
+                                                </a>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="supplier-create-texts bold font-16 black-color" for="middle-name">eShop Settings</label>
+
+                                            <div class="pull-left">
+                                                <a href="#" data-toggle="modal" data-target="#eshop_modal">
+                                                    <img class="pencil-img" src="~/img/images/pencil.png" />
+                                                </a>
+                                            </div>
+
+
+
+                                        </div>
+
+
+
+
+
+
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div>
+                                            <h3 class="bold mt-0">Item Images</h3>
+                                            <div class="fileupload fileupload-new" data-provides="fileupload" align="center">
+
+                                                <div class="fileupload-new thumbnail"><img src="~/img/images/default-image.jpg" class="product-img" /></div>
+
+                                                <div class="fileupload-preview fileupload-exists thumbnail @*product-img*@"></div>
+
+                                                <div>
+
+                                                    <span class="btn btn-file btn-primary btn-margin-product"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name="image[]" id="a_image1" onchange="Checkfilesimage(1)"></span>
+
+                                                    <a href="javascript:;" class="btn btn-primary btn-margin-product fileupload-exists" data-dismiss="fileupload">Remove</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                                <div class="col-md-12">
+                                    <div class="col-md-3"></div>
+
+                                    <div class="col-md-3">
+                                        <input type="submit" value="Save" class="btn btn-success btn-mini center-block width-145" />
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <a href="~/Product/List" class="btn btn-primary btn-mini center-block a-cancel">Cancel</a>
+                                    </div>
+                                    <div class="col-md-3"></div>
+
+
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    @*----------------------------POP UP END ADD PRODUCT--------------------------------*@
+
+    <script>
+        function cancel_btn() {
+
+            //alert("cancel")
+            //if(document.getElementById("create_category_modal"))
+            //{
+            //    alert("if")
+            //    $("#create_category_modal").hide('fast');
+            //}
+        }
+    </script>
+
+    <script>
+        //function again_click_modal_btn() {
+
+        //    alert("again")
+        //    if (document.getElementById("create_category_modal")) {
+        //        alert("again if")
+        //        $("#create_category_modal").show('slow');
+        //        $("#create_category_modal").show('FAST');
+        //    }
+        //}
+    </script>
+
+
+
+    <script>
+
+        function GetEditedObject(Id) {
+
+            var url = "/Supplier/GetSupplier/";
+            var vendorslist = "#VendorsDD";
+
+            $.ajax({
+                url: url,
+                data: { objID: Id },
+                cache: false,
+                type: "POST",
+                success: function (data) {
+                    var serobj = jQuery.parseJSON(data);
+                    document.getElementById('supplier_id').value = serobj.supplier_id;
+                    document.getElementById('company_name').value = serobj.company_name;
+                    document.getElementById('company_short_name').value = serobj.company_short_name;
+                    document.getElementById('sales_contact_name').value = serobj.supplier_name;
+                    document.getElementById('sales_contact_mail').value = serobj.supplier_email;
+                    document.getElementById('sales_contact_phone').value = serobj.supplier_phone;
+                    document.getElementById('sales_phone_ext').value = serobj.supplier_phone_ext;
+                    document.getElementById('sales_contact_mobile').value = serobj.supplier_mobile;
+                    document.getElementById('sales_contact_fax').value = serobj.supplier_fax;
+                    document.getElementById('account_contact_name').value = serobj.account_name;
+                    document.getElementById('account_contact_mail').value = serobj.account_email;
+                    document.getElementById('account_contact_phone').value = serobj.account_phone;
+                    document.getElementById('account_ext_phone').value = serobj.account_phone_ext;
+                    document.getElementById('account_contact_mobile').value = serobj.account_mobile;
+                    document.getElementById('account_contact_fax').value = serobj.account_fax;
+                    document.getElementById('bank_name').value = serobj.bank_name;
+                    document.getElementById('account_name').value = serobj.bank_acc_name;
+                    document.getElementById('account_no').value = serobj.account_no;
+                    document.getElementById('sort_code').value = serobj.bank_sort_code;
+                    document.getElementById('address').value = serobj.supplier_address;
+                    document.getElementById('postcode').value = serobj.supplier_post_code;
+                    document.getElementById('website').value = serobj.supplier_website;
+                    document.getElementById('login').value = serobj.supplier_login;
+                    document.getElementById('password').value = serobj.supplier_password;
+                    document.getElementById('notes').value = serobj.supplier_notes;
+                    document.getElementById('credit_limit').value = serobj.supplier_credit_limit;
+                    document.getElementById('credit_period').value = serobj.supplier_credit_period;
+                },
+
+
+                error: function (reponse) {
+                    alert("error : " + reponse);
+                }
+            });
+        }
+
+
+
+
+    </script>
+ 
+    <script>
+        function normalprice() {
+            //alert("NORMAL");
+            if (document.getElementById("checkbox-normal").checked) {
+                $("#check-normal-price-th").show('slow');
+                $("#check-normal-price-td").show('slow');
+            }
+
+            else {
+                $("#check-normal-price-th").hide('slow');
+                $("#check-normal-price-td").hide('slow');
+            }
+
+            if (document.getElementById("checkbox-trade").checked) {
+                $("#check-trade-price-th").show('slow');
+                $("#check-trade-price-td").show('slow');
+            }
+
+            else {
+                $("#check-trade-price-th").hide('slow');
+                $("#check-trade-price-td").hide('slow');
+            }
+
+            if (document.getElementById("checkbox-trade").checked) {
+                $("#check-trade-price-th").show('slow');
+                $("#check-trade-price-td").show('slow');
+            }
+
+            else {
+                $("#check-trade-price-th").hide('slow');
+                $("#check-trade-price-td").hide('slow');
+            }
+            if (document.getElementById("checkbox-premium").checked) {
+                $("#check-premium-price-th").show('slow');
+                $("#check-premium-price-td").show('slow');
+            }
+
+            else {
+                $("#check-premium-price-th").hide('slow');
+                $("#check-premium-price-td").hide('slow');
+
+            }
+
+
+            if (document.getElementById("checkbox-other").checked) {
+                $("#check-other-price-th").show('slow');
+                $("#check-other-price-td").show('slow');
+            }
+
+            else {
+                $("#check-other-price-th").hide('slow');
+                $("#check-other-price-td").hide('slow');
+            }
+
+
+            if (document.getElementById("checkbox-cost").checked) {
+                $("#check-cost-price-th").show('slow');
+                $("#check-cost-price-td").show('slow');
+            }
+
+            else {
+                $("#check-cost-price-th").hide('slow');
+                $("#check-cost-price-td").hide('slow');
+            }
+        }
+
+    </script>
+
+    <script>
+        function addCategorys()
+        {
+           
+            var Name = document.getElementById('category').value;
+            
+            $.ajax({
+
+                url: "/Product/addCategory/",
+                data : {name : Name},
+                cache: false,
+                type: "Get",
+                success: function (data) {
+                    document.getElementById('create_category_modal').style.display = "none";
+                    document.getElementById('updated_Category').innerHTML = data;
+              
+                },
+                error: function (response) {
+                    alert("eeeeee");
+                }
+                });
+        }
+    </script>
+
+
+    <script>
+
+    function Add() {
+        var a, b, c, d;
+        a = parseInt(document.getElementById("NormalPrice").value);
+
+        //
+        // If textbox value is null i.e empty, then the below mentioned if condition will
+        // come into picture and make the value to '0' to avoid errors.
+        //
+        if (isNaN(a) == true) {
+            a = 0;
+        }
+
+        var b = parseInt(document.getElementById("TradePrice").value);
+        if (isNaN(b) == true) {
+            b = 0;
+        }
+
+        var c = parseInt(document.getElementById("PremiumPrice").value);
+        if (isNaN(c) == true) {
+            c = 0;
+        }
+
+        var d = parseInt(document.getElementById("OtherPrice").value);
+        if (isNaN(d) == true) {
+            d = 0;
+        }
+
+
+        document.getElementById("NormalTotal").value = a + ((a * 20) / 100)
+        document.getElementById("TradeTotal").value = b + ((b * 20) / 100)
+        document.getElementById("PremiumTotal").value = c + ((c * 20) / 100)
+        document.getElementById("OtherTotal").value = d + ((d * 20) / 100)
+    }
+    </script>
+
+
+</body>

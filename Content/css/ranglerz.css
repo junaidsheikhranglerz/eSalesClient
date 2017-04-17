@@ -16,8 +16,22 @@
     font-weight: bold;
 }
 
+.mb-20{
+    margin-bottom:20px;
+}
+
+.ml--20{
+    margin-left:-20px;
+}
+
 .ml-15 {
     margin-left: 15px;
+}
+.update-stock-margin{
+    margin: 19px 0 10px -20px;
+}
+.ml--7{
+    margin-left:-7px;
 }
 
 .hrr {
@@ -25,6 +39,13 @@
     background-color: #00AAFF;
     height: 5px;
     width: 95%;
+}
+.width-136{
+    width:136px;
+}
+
+.ml-99{
+    margin-left:99px;
 }
 
 .ml-9 {
@@ -55,11 +76,41 @@
     background: linear-gradient(to right, #c9c9c9,#fafafd,#fafafd, #c9c9c9 ); /* Standard syntax (must be last) */
 }
 
+.mb-40{
+    margin-bottom:40px;
+}
 .supplier-create-texts {
     text-align: left;
     font-weight: bold;
     width: 175px;
     float: left;
+}
+.width-365{
+    width:365px;
+}
+
+.ml-5{
+    margin-left:5px;
+}
+
+.mr-5{
+    margin-right:5px;
+}
+
+.size-35-32{
+    width:35px;
+    height:32px;
+}
+.stock-transfer-texts {
+    text-align: left;
+    font-weight: bold;
+    width: 50px;
+    margin-top:3px;
+    float: left;
+}
+
+.z-999999999999999999999999{
+    z-index:999999999999999999999999;
 }
 
 .user-create-texts {
@@ -94,19 +145,88 @@
     margin-left: -16px;
 }
 
+.product-border {
+    border-bottom: 5px solid #00AAFF;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-left: -16px;
+}
+
 .a-cancel {
     width: 145px;
     margin-top: 2px;
+}
+
+.width-150 {
+    width: 150px;
+}
+
+.width-280 {
+    width: 280px;
+}
+
+.width-360 {
+    width: 360px;
+}
+
+.font-16{
+    font-size:16px;
+}
+
+.mr-60{
+    margin-right:60px;
+}
+
+.mr-180{
+    margin-right:180px;
+}
+
+.stock-transfer-img{
+    width: 35px;
+    height: 35px;
+    margin-left: 78px;
+    margin-top: -7px;
+    float: left;
+}
+
+.plus-img{
+     width: 35px;
+    height: 32px;
+    margin-left: 224px;
+    /* margin-top: -2px; */
+    float: left;
+}
+
+.pencil-img{
+     width: 35px;
+    height: 32px;
+    margin-left: 10px;
+     margin-top: -8px; 
+    float: left;
 }
 
 .width-145 {
     width: 145px;
 }
 
+.width-400 {
+    width: 400px;
+}
+
+.width-170 {
+    width: 170px;
+}
+
 .ext-texts {
     float: left;
     margin: 2px -27px 0 36px;
 }
+
+.vat-texts {
+    float: left;
+    margin: 3px -8px 0 36px;
+}
+
 
 .contacts-texts {
 }
@@ -123,6 +243,26 @@
     color: #000;
 }
 
+.margin-stock-modal-heading{
+    margin:0 0 20px -120px;
+}
+
+.margin-category{
+    margin: 43px 0px 15px 80px;
+}
+
+.margin-stock-modal{
+    margin: 25px 0px 15px 80px;
+}
+.height-40{
+    height:40px;
+}
+.mt-0{
+    margin-top:0;
+}
+.padd-50{
+    padding:50px;
+}
 .margin-supplier {
     margin: -34px 81px 20px 0;
 }
@@ -133,6 +273,10 @@
 
 .modal-style-custom {
     background: linear-gradient(to bottom, #fafafd, #b2b2b3);
+    border: 3px solid #00aeee;
+}
+
+.modal-border{
     border: 3px solid #00aeee;
 }
 
@@ -170,8 +314,37 @@
     margin: -20px -25px 0 0;
 }
 
+.margin-stock-manager-heading{
+    margin: 35px 0 10px -20px;
+}
+
+.width-208{
+    width:208px;
+}
+
+.ml--95{
+    margin-left:-95px;
+}
+.search-btn-product{
+    position:absolute;
+    bottom:0;
+    margin-left:86px;
+}
+
+.search-filter-div{
+    margin:23px 0 0 160px;
+}
+
 .supplier-epos-btn {
     margin: 15px 0 0 -20px;
+}
+
+.product-stock-btn {
+    margin: 15px 0 0 67px;
+}
+
+.product-import-btn {
+    margin: 15px 0 0 135px;
 }
 
 .table-inline-margin {
@@ -269,6 +442,10 @@
     display: block;
 }
 
+.none {
+    display: none;
+}
+
 .white{
     color:#FFF;
 }
@@ -319,12 +496,32 @@
     color:#000!important;
 }
 
+.margin-table-product{
+    margin:0px 12px 0 12px;
+}
+
+.unbold{
+    font-weight:normal !important;
+}
+
+.margin-checkboxes-product{
+    margin:30px 13px 0 0;
+}
+
+.width-300{
+    width:300px;
+}
 .font-11{
     font-size:11px;
 }
 
 .font-12{
     font-size:12px;
+}
+
+.tbody-font-style {
+    font-size: 15px;
+    color: #000;
 }
 
 .col1 {
@@ -476,7 +673,151 @@
     margin-left:-50px;
 }
 
+.ml-31{
+    margin-left:31px;
+}
 .red-border{
     color:white;
     background-color:#d9534f;
+}
+
+
+.mt--4{
+    margin-top:-4px;
+}
+.ml-75{
+    margin-left:75px;
+}
+
+.del-img{
+    width:35px;
+    height:25px;
+    margin-left:10px
+}
+
+#dvPreview
+{
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
+    min-height: 100px;
+    min-width: 100px;
+    display: none;
+}
+
+
+.fileupload {
+  margin-bottom: 9px;
+}
+
+.fileupload .uneditable-input {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+  cursor: text;
+}
+
+.fileupload .thumbnail {
+  display: inline-block;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fileupload .thumbnail > img {
+  display: inline-block;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+.fileupload .btn {
+  vertical-align: middle;
+}
+
+.fileupload-exists .fileupload-new,
+.fileupload-new .fileupload-exists {
+  display: none;
+}
+
+.fileupload-inline .fileupload-controls {
+  display: inline;
+}
+
+.fileupload-new .input-append .btn-file {
+  -webkit-border-radius: 0 3px 3px 0;
+     -moz-border-radius: 0 3px 3px 0;
+          border-radius: 0 3px 3px 0;
+}
+
+.thumbnail-borderless .thumbnail {
+  padding: 0;
+  border: none;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+
+.fileupload-new.thumbnail-borderless .thumbnail {
+  border: 1px solid #ddd;
+}
+
+.control-group.warning .fileupload .uneditable-input {
+  color: #a47e3c;
+  border-color: #a47e3c;
+}
+
+.control-group.warning .fileupload .fileupload-preview {
+  color: #a47e3c;
+}
+
+.control-group.warning .fileupload .thumbnail {
+  border-color: #a47e3c;
+}
+
+.control-group.error .fileupload .uneditable-input {
+  color: #b94a48;
+  border-color: #b94a48;
+}
+
+.control-group.error .fileupload .fileupload-preview {
+  color: #b94a48;
+}
+
+.control-group.error .fileupload .thumbnail {
+  border-color: #b94a48;
+}
+
+.control-group.success .fileupload .uneditable-input {
+  color: #468847;
+  border-color: #468847;
+}
+
+.control-group.success .fileupload .fileupload-preview {
+  color: #468847;
+}
+
+.control-group.success .fileupload .thumbnail {
+  border-color: #468847;
+}
+
+.product-img {
+    height: 150px;
+    width: 200px;
+}
+
+.btn-margin-product{
+    padding:6px 8px;
+}
+
+.add-barcode-img{
+    margin-left: 34px;
+    margin-top: -5px;
+    float: left;
+}
+
+.print-barcode-img{
+    margin-top: -5px;
+    float: left;
 }
