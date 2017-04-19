@@ -18,3 +18,10 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#example1').dataTable();
 });
+
+function PrintBtn() {
+    $("#crud_btn_hide").addClass("none");
+    $("#side_navi_hide").addClass("none");
+
+    window.print();
+}

@@ -38,7 +38,7 @@
 
                                 <div class="mt-10">
                                     <div class="col-md-2 pull-right">
-                                        <a href="~/Home/Epos" class="btn btn-primary ml--45 btn-mini text-center width-195 bold">Print</a>
+                                        <a href="~/Home/Epos" onclick="PrintBtn()" class="btn btn-primary ml--45 btn-mini text-center width-195 bold">Print</a>
                                     </div>
 
                                     <div class="col-md-2 pull-right">
@@ -95,7 +95,7 @@
                                 <thead>
                                     <tr class="table-heading-fonts table-main-headings">
                                         <th>ID</th>
-                                        <th>Salesman</th>
+                                        <th>Name</th>
                                         <th>Phone</th>
                                         <th>Email</th>
                                         <th>Address</th>
@@ -115,12 +115,12 @@
                                     @*<tr data-toggle="modal" data-target="#EditModal">*@
 
                                     <tr>
-                                        <td data-title="User ID">Id</td>
-                                        <td data-title="User ID">Name</td>
-                                        <td data-title="First Name">Phone</td>
-                                        <td data-title="Last Name">Email</td>
-                                        <td data-title="Email" class="user-emails">Address</td>
-                                        <td data-title="Date Registered">Postcode</td>
+                                        <td data-title="User ID">45</td>
+                                        <td data-title="User ID">Steve Smith</td>
+                                        <td data-title="First Name">+32111494</td>
+                                        <td data-title="Last Name">steve@icloud.com</td>
+                                        <td data-title="Email" class="user-emails">Street 20, USA</td>
+                                        <td data-title="Date Registered">0l12odr</td>
 
                                         <td class="gg">Active</td>
 
@@ -136,6 +136,31 @@
                                             </a>
                                         </td>
                                     </tr>
+
+
+                                    <tr>
+                                        <td data-title="User ID">500</td>
+                                        <td data-title="User ID">Michael Clark</td>
+                                        <td data-title="First Name">+1015872300</td>
+                                        <td data-title="Last Name">clark@icloud.com</td>
+                                        <td data-title="Email" class="user-emails">Street 48, UK</td>
+                                        <td data-title="Date Registered">00sadadR</td>
+
+                                        <td class="gg">Active</td>
+
+                                        <td data-title="Actions" class="text-center min-width-191 buttons-block">
+                                            <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#EditModal">
+                                                Edit
+                                            </a>
+                                            <a class="btn btn-sm btn-success bold" href="#">
+                                                Enable
+                                            </a>
+                                            <a class="btn btn-sm btn-danger bold" href="#">
+                                                Disable
+                                            </a>
+                                        </td>
+                                    </tr>
+
                                 </tbody>
                             </table>
 
@@ -254,282 +279,35 @@
 
 
                                             <tr>
-                                                <td data-title="User ID">Order Id</td>
-                                                <td data-title="User ID">Payment Type</td>
-                                                <td data-title="User ID">Status</td>
-                                                <td data-title="User ID">Net</td>
-                                                <td data-title="User ID">VAT</td>
-                                                <td data-title="User ID">Gross</td>
-                                                <td data-title="User ID">Date</td>
-                                            </tr>
-
-
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
+                                                <td data-title="User ID">Order-110</td>
+                                                <td data-title="User ID">Paypal</td>
+                                                <td data-title="User ID">Done</td>
+                                                <td data-title="User ID">£123</td>
+                                                <td data-title="User ID">£123</td>
+                                                <td data-title="User ID">£246</td>
+                                                <td data-title="User ID">1-1-2017</td>
                                             </tr>
 
 
                                             <tr>
-                                                <td data-title="User ID">1</td>
-                                                <td data-title="User ID">76</td>
-                                                <td data-title="User ID">7887</td>
-                                                <td data-title="User ID">7867</td>
-                                                <td data-title="User ID">4564</td>
-                                                <td data-title="User ID">54345</td>
-                                                <td data-title="User ID">453</td>
+                                                <td data-title="User ID">Order-80</td>
+                                                <td data-title="User ID">Cash</td>
+                                                <td data-title="User ID">Partially Paid</td>
+                                                <td data-title="User ID">£1</td>
+                                                <td data-title="User ID">£12</td>
+                                                <td data-title="User ID">£13</td>
+                                                <td data-title="User ID">05-07-2017</td>
                                             </tr>
 
 
                                             <tr>
-                                                <td data-title="User ID">dfg</td>
-                                                <td data-title="User ID">as</td>
-                                                <td data-title="User ID">asa</td>
-                                                <td data-title="User ID">asfd</td>
-                                                <td data-title="User ID">ass</td>
-                                                <td data-title="User ID">dfs</td>
-                                                <td data-title="User ID">dsfsd</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">ngf</td>
-                                                <td data-title="User ID">fgrf</td>
-                                                <td data-title="User ID">wert</td>
-                                                <td data-title="User ID">435</td>
-                                                <td data-title="User ID">fgdfs</td>
-                                                <td data-title="User ID">234</td>
-                                                <td data-title="User ID">bfd</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">Order Id</td>
-                                                <td data-title="User ID">Payment Type</td>
-                                                <td data-title="User ID">Status</td>
-                                                <td data-title="User ID">Net</td>
-                                                <td data-title="User ID">VAT</td>
-                                                <td data-title="User ID">Gross</td>
-                                                <td data-title="User ID">Date</td>
-                                            </tr>
-
-
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">1</td>
-                                                <td data-title="User ID">76</td>
-                                                <td data-title="User ID">7887</td>
-                                                <td data-title="User ID">7867</td>
-                                                <td data-title="User ID">4564</td>
-                                                <td data-title="User ID">54345</td>
-                                                <td data-title="User ID">453</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">dfg</td>
-                                                <td data-title="User ID">as</td>
-                                                <td data-title="User ID">asa</td>
-                                                <td data-title="User ID">asfd</td>
-                                                <td data-title="User ID">ass</td>
-                                                <td data-title="User ID">dfs</td>
-                                                <td data-title="User ID">dsfsd</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">ngf</td>
-                                                <td data-title="User ID">fgrf</td>
-                                                <td data-title="User ID">wert</td>
-                                                <td data-title="User ID">435</td>
-                                                <td data-title="User ID">fgdfs</td>
-                                                <td data-title="User ID">234</td>
-                                                <td data-title="User ID">bfd</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">Order Id</td>
-                                                <td data-title="User ID">Payment Type</td>
-                                                <td data-title="User ID">Status</td>
-                                                <td data-title="User ID">Net</td>
-                                                <td data-title="User ID">VAT</td>
-                                                <td data-title="User ID">Gross</td>
-                                                <td data-title="User ID">Date</td>
-                                            </tr>
-
-
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">1</td>
-                                                <td data-title="User ID">76</td>
-                                                <td data-title="User ID">7887</td>
-                                                <td data-title="User ID">7867</td>
-                                                <td data-title="User ID">4564</td>
-                                                <td data-title="User ID">54345</td>
-                                                <td data-title="User ID">453</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">dfg</td>
-                                                <td data-title="User ID">as</td>
-                                                <td data-title="User ID">asa</td>
-                                                <td data-title="User ID">asfd</td>
-                                                <td data-title="User ID">ass</td>
-                                                <td data-title="User ID">dfs</td>
-                                                <td data-title="User ID">dsfsd</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">ngf</td>
-                                                <td data-title="User ID">fgrf</td>
-                                                <td data-title="User ID">wert</td>
-                                                <td data-title="User ID">435</td>
-                                                <td data-title="User ID">fgdfs</td>
-                                                <td data-title="User ID">234</td>
-                                                <td data-title="User ID">bfd</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">Order Id</td>
-                                                <td data-title="User ID">Payment Type</td>
-                                                <td data-title="User ID">Status</td>
-                                                <td data-title="User ID">Net</td>
-                                                <td data-title="User ID">VAT</td>
-                                                <td data-title="User ID">Gross</td>
-                                                <td data-title="User ID">Date</td>
-                                            </tr>
-
-
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">1</td>
-                                                <td data-title="User ID">76</td>
-                                                <td data-title="User ID">7887</td>
-                                                <td data-title="User ID">7867</td>
-                                                <td data-title="User ID">4564</td>
-                                                <td data-title="User ID">54345</td>
-                                                <td data-title="User ID">453</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">dfg</td>
-                                                <td data-title="User ID">as</td>
-                                                <td data-title="User ID">asa</td>
-                                                <td data-title="User ID">asfd</td>
-                                                <td data-title="User ID">ass</td>
-                                                <td data-title="User ID">dfs</td>
-                                                <td data-title="User ID">dsfsd</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">ngf</td>
-                                                <td data-title="User ID">fgrf</td>
-                                                <td data-title="User ID">wert</td>
-                                                <td data-title="User ID">435</td>
-                                                <td data-title="User ID">fgdfs</td>
-                                                <td data-title="User ID">234</td>
-                                                <td data-title="User ID">bfd</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">Order Id</td>
-                                                <td data-title="User ID">Payment Type</td>
-                                                <td data-title="User ID">Status</td>
-                                                <td data-title="User ID">Net</td>
-                                                <td data-title="User ID">VAT</td>
-                                                <td data-title="User ID">Gross</td>
-                                                <td data-title="User ID">Date</td>
-                                            </tr>
-
-
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">1</td>
-                                                <td data-title="User ID">76</td>
-                                                <td data-title="User ID">7887</td>
-                                                <td data-title="User ID">7867</td>
-                                                <td data-title="User ID">4564</td>
-                                                <td data-title="User ID">54345</td>
-                                                <td data-title="User ID">453</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">dfg</td>
-                                                <td data-title="User ID">as</td>
-                                                <td data-title="User ID">asa</td>
-                                                <td data-title="User ID">asfd</td>
-                                                <td data-title="User ID">ass</td>
-                                                <td data-title="User ID">dfs</td>
-                                                <td data-title="User ID">dsfsd</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">ngf</td>
-                                                <td data-title="User ID">fgrf</td>
-                                                <td data-title="User ID">wert</td>
-                                                <td data-title="User ID">435</td>
-                                                <td data-title="User ID">fgdfs</td>
-                                                <td data-title="User ID">234</td>
-                                                <td data-title="User ID">bfd</td>
+                                                <td data-title="User ID">Order-007</td>
+                                                <td data-title="User ID">Bank Transfer</td>
+                                                <td data-title="User ID">Done</td>
+                                                <td data-title="User ID">£2000</td>
+                                                <td data-title="User ID">£8000</td>
+                                                <td data-title="User ID">£10000</td>
+                                                <td data-title="User ID">07-07-2010</td>
                                             </tr>
 
 
@@ -569,12 +347,12 @@
                                         <tbody class="black-color bold">
 
                                             <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
+                                                <td data-title="User ID">07-07-2007</td>
+                                                <td data-title="User ID">SKU-1111</td>
+                                                <td data-title="User ID">1000</td>
+                                                <td data-title="User ID">£10</td>
+                                                <td data-title="User ID">£2</td>
+                                                <td data-title="User ID">£12</td>
 
                                             </tr>
 
@@ -704,6 +482,10 @@
         });
     </script>
 
-    
+    <script>
+        function PrintBtn() {
+            window.print();
+        }
+    </script>
 
 </body>

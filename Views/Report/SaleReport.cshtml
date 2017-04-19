@@ -91,7 +91,7 @@
                             </div>
 
                             <div class="col-md-3 pull-right">
-                                <a href="~/Home/Epos" class="btn btn-primary btn-mini bold width-150 ml-160">Print</a>
+                                <a href="~/Home/Epos" onclick="PrintBtn()" class="btn btn-primary btn-mini bold width-150 ml-160">Print</a>
                             </div>
 
                             <div class="clearfix"></div>
@@ -158,7 +158,7 @@
 
 
 
-                                <div class="col-md-12 mt-15">
+                                <div id="crud_btn_hide" class="col-md-12 mt-15">
 
                                     <div class="col-md-2 pull-left">
                                         <a href="~/Home/Epos" class="btn btn-primary btn-mini ml--20 bold width-150">Edit Customer</a>
@@ -204,207 +204,42 @@
                                         <tbody class="black-color bold">
 
                                             @*@foreach (var v in Model)
-                                                {*@
+            {*@
                                             @*<tr data-toggle="modal" data-target="#EditModal">*@
 
 
 
                                             <tr>
-                                                <td data-title="User ID">Order Id</td>
-                                                <td data-title="User ID">Payment Type</td>
-                                                <td data-title="User ID">Status</td>
-                                                <td data-title="User ID">Net</td>
-                                                <td data-title="User ID">VAT</td>
-                                                <td data-title="User ID">Gross</td>
-                                                <td data-title="User ID">Date</td>
+                                                <td data-title="User ID">Order-110</td>
+                                                <td data-title="User ID">Paypal</td>
+                                                <td data-title="User ID">Done</td>
+                                                <td data-title="User ID">£123</td>
+                                                <td data-title="User ID">£123</td>
+                                                <td data-title="User ID">£246</td>
+                                                <td data-title="User ID">1-1-2017</td>
                                             </tr>
-
 
 
                                             <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
+                                                <td data-title="User ID">Order-80</td>
+                                                <td data-title="User ID">Cash</td>
+                                                <td data-title="User ID">Partially Paid</td>
+                                                <td data-title="User ID">£1</td>
+                                                <td data-title="User ID">£12</td>
+                                                <td data-title="User ID">£13</td>
+                                                <td data-title="User ID">05-07-2017</td>
                                             </tr>
-
 
 
                                             <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
+                                                <td data-title="User ID">Order-007</td>
+                                                <td data-title="User ID">Bank Transfer</td>
+                                                <td data-title="User ID">Done</td>
+                                                <td data-title="User ID">£2000</td>
+                                                <td data-title="User ID">£8000</td>
+                                                <td data-title="User ID">£10000</td>
+                                                <td data-title="User ID">07-07-2010</td>
                                             </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                            </tr>
-
-
-                                           
 
 
 
@@ -442,13 +277,14 @@
                                         </thead>
                                         <tbody class="black-color bold">
 
+
                                             <tr>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
-                                                <td data-title="User ID">Salesman</td>
+                                                <td data-title="User ID">07-07-2007</td>
+                                                <td data-title="User ID">SKU-1111</td>
+                                                <td data-title="User ID">1000</td>
+                                                <td data-title="User ID">£10</td>
+                                                <td data-title="User ID">£2</td>
+                                                <td data-title="User ID">£12</td>
 
                                             </tr>
 
@@ -490,28 +326,18 @@
                                         @*<tr data-toggle="modal" data-target="#EditModal">*@
 
 
-
                                         <tr>
-                                            <td data-title="User ID">Order Id</td>
-                                            <td data-title="User ID">Customer</td>
-                                            <td data-title="User ID">Payment Type</td>
-                                            <td data-title="User ID">Status</td>
-                                            <td data-title="User ID">Net</td>
-                                            <td data-title="User ID">VAT</td>
-                                            <td data-title="User ID">Gross</td>
-                                            <td data-title="User ID">Date</td>
+                                            <td data-title="User ID">Order-80</td>
+                                            <td data-title="User ID">Cash</td>
+                                            <td data-title="User ID">Partially Paid</td>
+                                            <td data-title="User ID">Active</td>
+                                            <td data-title="User ID">£1</td>
+                                            <td data-title="User ID">£12</td>
+                                            <td data-title="User ID">£13</td>
+                                            <td data-title="User ID">05-07-2017</td>
                                         </tr>
 
-                                        <tr>
-                                            <td data-title="User ID">Salesman</td>
-                                            <td data-title="User ID">Salesman</td>
-                                            <td data-title="User ID">Salesman</td>
-                                            <td data-title="User ID">Salesman</td>
-                                            <td data-title="User ID">Salesman</td>
-                                            <td data-title="User ID">Salesman</td>
-                                            <td data-title="User ID">Salesman</td>
-                                            <td data-title="User ID">Salesman</td>
-                                        </tr>
+                                     
 
 
 
@@ -817,6 +643,15 @@
         $(document).ready(function () {
             $('#table_on_dates').dataTable();
         });
+    </script>
+
+    <script>
+        function PrintBtn() {
+            $("#crud_btn_hide").addClass("none");
+            $("#side_navi_hide").addClass("none");
+
+            window.print();
+        }
     </script>
 
 </body>
