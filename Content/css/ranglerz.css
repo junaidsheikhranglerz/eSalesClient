@@ -94,7 +94,7 @@
 }
 
 .mr-5{
-    margin-right:5px;
+    margin-right:5px!important;
 }
 
 .size-35-32{
@@ -271,6 +271,10 @@
     margin: 0 -13px 0 0;
 }
 
+.mb-10{
+    margin-bottom:10px;
+}
+
 .modal-style-custom {
     background: linear-gradient(to bottom, #fafafd, #b2b2b3);
     border: 3px solid #00aeee;
@@ -279,6 +283,11 @@
 .modal-border{
     border: 3px solid #00aeee;
 }
+.border_black{
+    border:2px solid black;
+    background:#FFF;
+}
+
 
 .mt-30 {
     margin-top: 30px;
@@ -577,6 +586,12 @@
 .main-checkboxes{
 
 }
+.width-78{
+    width:78px;
+}
+.ml--72{
+    margin-left:-72px;
+}
 
 .font-13{
     font-size:13px;
@@ -647,8 +662,37 @@
     border: 2px solid #202020
 }
 
+.ml-45{
+    margin-left:45px;
+}
+
+.ml-160{
+    margin-left:160px;
+}
+
+.mr-7{
+    margin-right:7px;
+}
+
+.mr-3{
+    margin-right:3px;
+}
+
+.mt-2{
+    margin-top:2px;
+}
+
 .red{
     color:red;
+}
+
+.font-20{
+    font-size:20px;
+}
+
+.date-width-height{
+    width:100px; 
+    height:26px;
 }
 
 .green{
@@ -820,4 +864,54 @@
 .print-barcode-img{
     margin-top: -5px;
     float: left;
+}
+
+.border-bottom-black-1px{
+    border-bottom:1px solid black;
+}
+
+#table_cash_flow{
+    min-width:380px;
+}
+
+
+#table_cash_flow th{
+    font-size:16px;
+    padding-left:10px;
+    border-bottom:1px solid black;
+}
+
+#table_cash_flow td{
+    font-size:16px;
+    padding-right:10px;
+    border-bottom:1px solid black;
+}
+
+.min-width-191{
+    min-width:191px;
+}
+
+.width-195{
+    width:195px;
+}
+
+.ml--62{
+    margin-left:-62px;
+}
+
+.ml--45{
+    margin-left:-45px;
+}
+
+.ml--40{
+    margin-left:-40px;
+}
+
+.ml-30{
+    margin-left:30px;
+}
+
+
+.margin-epos-panel-btn {
+    margin: 10px 0px 0px -14px;
 }

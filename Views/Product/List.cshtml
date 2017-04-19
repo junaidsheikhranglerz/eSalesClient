@@ -77,16 +77,19 @@
 
                         <div class="margin-checkboxes-product">
                             <div class="row1 pull-right">
-                                <div class="pull-left bold">Custom Fields</div>
-                                <div class="pull-left"><label class="unbold"><input onclick="normalprice()" id="checkbox-normal" type="checkbox" />Normal</label></div>
-                                <div class="pull-left"><label class="unbold"><input onclick="normalprice()" id="checkbox-trade" type="checkbox" />Trade</label></div>
-                                <div class="pull-left"><label class="unbold"><input onclick="normalprice()" id="checkbox-premium" type="checkbox" />Premium</label></div>
-                                <div class="pull-left"><label class="unbold"><input onclick="normalprice()" id="checkbox-other" type="checkbox" />Other</label></div>
-                                <div class="pull-left"><label class="unbold"><input onclick="normalprice()" id="checkbox-cost" type="checkbox" />Cost</label></div>
+                                <div class="pull-left bold  mr-5">Custom Fields</div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="normalprice()" id="checkbox-normal" type="checkbox" />Normal</label></div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="normalprice()" id="checkbox-trade" type="checkbox" />Trade</label></div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="normalprice()" id="checkbox-premium" type="checkbox" />Premium</label></div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="normalprice()" id="checkbox-other" type="checkbox" />Other</label></div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="normalprice()" id="checkbox-cost" type="checkbox" />Cost</label></div>
                             </div>
                         </div>
 
                         <div class="clearfix"></div>
+                        
+                       
+                        
 
 
                         @*<section id="no-more-tables">*@
@@ -124,22 +127,25 @@
                                         @foreach (var v in Model) { 
 
                                         @*<tr data-toggle="modal" data-target=".bs-example-modal-lg">*@
-                                        <tr>
-                                            <td data-title="User ID">@v.Id</td>
-                                            <td data-title="User ID">@v.Custom_Label_</td>
-                                            <td data-title="First Name">@v.Item_Title</td>
-                                            <td data-title="Last Name">@v.Price_Normal</td>
-                                            <td data-title="Email" class="user-emails">@v.Price_Trade</td>
-                                            <td data-title="Date Registered">@v.Price_Premium</td>
-                                            <td class="">@v.Price_Others</td>
-                                            <td class="">@v.Cost_Price</td>
-                                            <td class="">@v.Courier_Type</td>
-                                            <td id="check-normal-price-td" class="hideDiv">@v.Normal_VAT</td>
-                                            <td id="check-trade-price-td" class="hideDiv">@v.Normal_VAT</td>
-                                            <td id="check-premium-price-td" class="hideDiv">@v.Normal_VAT</td>
-                                            <td id="check-other-price-td" class="hideDiv">@v.Normal_VAT</td>
-                                            <td id="check-cost-price-td" class="hideDiv">@v.Normal_VAT</td>
+                                        
+                                            <tr class="" >
+                                            
 
+
+                                                <td data-title="User ID">@v.Id</td>
+                                                <td data-title="User ID">@v.Custom_Label_</td>
+                                                <td data-title="First Name">@v.Item_Title</td>
+                                                <td data-title="Last Name">@v.Price_Normal</td>
+                                                <td data-title="Email" class="user-emails">@v.Price_Trade</td>
+                                                <td data-title="Date Registered">@v.Price_Premium</td>
+                                                <td class="">@v.Price_Others</td>
+                                                <td class="">@v.Cost_Price</td>
+                                                <td class="">@v.Courier_Type</td>
+                                                <td id="check-normal-price-td" class="hideDiv">@v.Normal_VAT</td>
+                                                <td id="check-trade-price-td" class="hideDiv">@v.Normal_VAT</td>
+                                                <td id="check-premium-price-td" class="hideDiv">@v.Normal_VAT</td>
+                                                <td id="check-other-price-td" class="hideDiv">@v.Normal_VAT</td>
+                                                <td id="check-cost-price-td" class="hideDiv">@v.Normal_VAT</td>
                                         </tr>
                                         }
                                     </tbody>
@@ -153,6 +159,10 @@
 
 
                         </section>
+
+
+
+
 
                     </div>
                 </div>
@@ -954,14 +964,14 @@
                                                 <div class="">
                                                     <label class="supplier-create-texts" for="middle-name">Normal Price <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input id="NormalPrice" onkeyup="javascript:Add();" class="width-170" type="text" name="normal_price" required>
+                                                        <input id="NormalPrice" onkeypress="validate(event)" onkeyup="javascript:Add();" class="width-170" type="text" name="normal_price" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="">
                                                     <label class="vat-texts">+VAT=</label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input id="NormalTotal" type="text" class="width-170" name="normal_vat" required>
+                                                        <input id="NormalTotal" onkeypress="validate(event)" type="text" class="width-170" name="normal_vat" required>
                                                     </div>
                                                 </div>
 
@@ -980,14 +990,14 @@
                                                 <div class="">
                                                     <label class="supplier-create-texts" for="middle-name">Trade Price <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input id="TradePrice" onkeyup="javascript:Add();" class="width-170" type="text" name="trade_price" required>
+                                                        <input id="TradePrice" onkeypress="validate(event)" onkeyup="javascript:Add();" class="width-170" type="text" name="trade_price" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="">
                                                     <label class="vat-texts">+VAT=</label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input id="TradeTotal" type="text" class="width-170" name="trade_vat" required>
+                                                        <input id="TradeTotal" onkeypress="validate(event)" type="text" class="width-170" name="trade_vat" required>
                                                     </div>
                                                 </div>
 
@@ -1005,14 +1015,14 @@
                                                 <div class="">
                                                     <label class="supplier-create-texts" for="middle-name">Premium Price <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input id="PremiumPrice" class="width-170" onkeyup="javascript:Add();" type="text" name="premium_price" required>
+                                                        <input id="PremiumPrice" onkeypress="validate(event)" class="width-170" onkeyup="javascript:Add();" type="text" name="premium_price" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="">
                                                     <label class="vat-texts">+VAT=</label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input id="PremiumTotal" type="text" class="width-170" name="premium_vat" required>
+                                                        <input id="PremiumTotal" onkeypress="validate(event)" type="text" class="width-170" name="premium_vat" required>
                                                     </div>
                                                 </div>
 
@@ -1032,14 +1042,14 @@
                                                 <div class="">
                                                     <label class="supplier-create-texts" for="middle-name">Other Price <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input id="OtherPrice" class="width-170" onkeyup="javascript:Add();" type="text" name="other_price" required>
+                                                        <input id="OtherPrice" onkeypress="validate(event)" class="width-170" onkeyup="javascript:Add();" type="text" name="other_price" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="">
                                                     <label class="vat-texts">+VAT=</label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input id="OtherTotal" type="text" class="width-170" name="other_vat" required>
+                                                        <input id="OtherTotal" onkeypress="validate(event)" type="text" class="width-170" name="other_vat" required>
                                                     </div>
                                                 </div>
 
@@ -1063,7 +1073,7 @@
                                                 <div class="">
                                                     <label class="supplier-create-texts font-16 black-color" for="middle-name">Total Quantity<span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input class="width-170" type="text" name="total_quantity" required>
+                                                        <input class="width-170" onkeypress="validate(event)" type="text" name="total_quantity" required>
                                                     </div>
                                                 </div>
 
@@ -1173,14 +1183,14 @@
                                                 <div class="">
                                                     <label class="supplier-create-texts" for="middle-name">Cost Price <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input class="width-170" type="text" name="cost_price" required>
+                                                        <input id="CostPrice" onkeyup="Add()" class="width-170" onkeypress="validate(event)" type="text" name="cost_price" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="">
                                                     <label class="vat-texts">+VAT=</label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input type="text" class="width-170" name="cost_vat" required>
+                                                        <input id="CostTotal" type="text" onkeypress="validate(event)" class="width-170" name="cost_vat" required>
                                                     </div>
                                                 </div>
 
@@ -1196,14 +1206,14 @@
                                                 <div class="">
                                                     <label class="supplier-create-texts" for="middle-name">Quantity in Box (Inner) <span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input class="width-170" type="text" name="inner" required>
+                                                        <input class="width-170" onkeypress="validate(event)" type="text" name="inner" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="">
                                                     <label class="vat-texts">(Outer)</label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input type="text" class="width-170" name="outer" required>
+                                                        <input type="text" onkeypress="validate(event)" class="width-170" name="outer" required>
                                                     </div>
                                                 </div>
 
@@ -1609,13 +1619,20 @@
             d = 0;
         }
 
+        var e = parseInt(document.getElementById("CostPrice").value);
+        if (isNaN(e) == true) {
+            e = 0;
+        }
 
         document.getElementById("NormalTotal").value = a + ((a * 20) / 100)
         document.getElementById("TradeTotal").value = b + ((b * 20) / 100)
         document.getElementById("PremiumTotal").value = c + ((c * 20) / 100)
         document.getElementById("OtherTotal").value = d + ((d * 20) / 100)
+        document.getElementById("CostTotal").value = e + ((e * 20) / 100)
     }
     </script>
 
+
+    
 
 </body>

@@ -888,7 +888,7 @@ html, body {
     height: auto !important;
     height: 100%;
     /* Negative indent footer by it's height + margin + padding + border */
-    margin: 0 auto -100px;
+    /*margin: 0 auto -100px;*/
 }
 
 /* Height of the push needs to match the margin of the wrap */
@@ -1159,8 +1159,21 @@ div.login-inner div.form-actions {
     background-repeat: no-repeat;
     background-position: center;
     width:100%;
-    height:800px;
+    min-height:800px;
+
+
+
+
 }
+
+.bggg-img-with-2000-height {
+    background-image: url(../../img/logo/eSales_background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width:100%;
+    max-height:2000px;
+}
+
 
 .bggg-img-without-height {
     background-image: url(../../img/logo/eSales_background.png);
