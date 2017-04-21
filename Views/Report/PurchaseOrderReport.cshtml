@@ -1,0 +1,272 @@
+﻿<body id="body-index">
+    <div id="sticky-footer-wrap">
+
+        @*-----------------Top Navigation Start---------------*@
+
+        @{
+            Html.RenderPartial("Top_Navigation_View");
+        }
+
+        @*-----------------Top Navigation End---------------*@
+
+        <div class="container-fluid main-container">
+
+            @*-----------------Side Navigation Start---------------*@
+            <div class="row">
+                @{
+                    Html.RenderPartial("Side_Navigation_View");
+                }
+                @*-----------------Side Navigation End---------------*@
+
+
+
+                @*-----------------Main Container Start---------------*@
+                <div class="user-page-height">
+                    <div class="bggg-img">
+                        <div>
+                            <div class="col-md-12">
+
+                                <div class="empty-height"></div>
+                                <div class="col-md-4 padding-all-0">
+                                    <h3 class="bold font-20 padding-0">
+                                        EPOS Report Purchase Order
+                                    </h3>
+                                </div>
+
+                                <div class="empty-height"></div>
+
+                                <div class="col-md-8 padding-0">
+
+
+                                    <div class="pull-left mr-5">
+                                        <select name="sale_type" required="" class="form-control">
+                                            <option value="">Pay Priority</option>
+                                            <option value="">Pay Now</option>
+                                            <option value="">Pay in Day</option>
+                                            <option value="">Pay in week</option>
+                                            <option value="">Pay in month</option>
+                                        </select>
+                                    </div>
+                                    <div class="pull-left mr-5">
+                                        <select name="sale_type" required="" class="form-control">
+                                            <option value="">Pay Status</option>
+                                            <option value="">Paid</option>
+                                            <option value="">Not Paid</option>
+                                            <option value="">Partially Paid</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="pull-left">
+                                        <input type="text" onkeypress="validate(event)" class="width-65 text-center mr-7  height-34" placeholder="Number" name="number">
+                                    </div>
+
+                                    <div class="pull-left">
+                                        <label class="black-color mr-3 mt-7">From :</label>
+                                    </div>
+                                    <div class="pull-left">
+                                        <input required="" type="date" id="from_date" oninput="showToDate()" class="date-width-height mr-3" name="from_date">
+                                    </div>
+                                    <div class="pull-left">
+                                        <label class="black-color mr-3 mt-7">To :</label>
+                                    </div>
+                                    <div class="pull-left">
+                                        <input required="" type="date" disabled="" id="to_date" oninput="showDateDiv()" class="date-width-height" name="to_date">
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+
+                            <div class="clearfix"></div>
+
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-md-12 mt-15">
+
+                            <div class="col-md-3 pull-left padding-all-0">
+                                <a href="~/Home/Epos" class="btn blue-btn-style btn-primary btn-mini bold">Back to EPOS Main Panel</a>
+                            </div>
+
+                            <div class="col-md-3"></div>
+
+                            <div class="col-md-3 pull-right">
+                                <a href="#" data-toggle="modal" onclick="PrintBtn()" class="btn blue-btn-style btn-primary btn-mini width-195 bold ml-39">Print</a>
+                            </div>
+
+                            <div class="col-md-3 pull-right">
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                        </div>
+                        
+
+                        <div class="clearfix"></div>
+
+                        <div class="empty-height"></div>
+                        <div class="empty-height"></div>
+                        <div class="empty-height"></div>
+
+                        <div id="date_click_div" class="none">
+
+                            <div class="col-md-12">
+                                <table border="0" class="table table-responsive border_black" id="table_on_dates">
+                                    <thead>
+                                        <tr class="table-heading-fonts table-main-headings">
+                                            <th>PO ID</th>
+                                            <th>Supplier Name</th>
+                                            <th>Ordered Total+Vat</th>
+                                            <th>Received Total+Vat</th>
+                                            <th>Date</th>
+                                            <th>Pay Priority</th>
+                                            <th>Payment Method</th>
+                                            <th>Pay Status</th>
+                                            <th>PO Status</th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody class="black-color bold">
+
+                                        @*@foreach (var v in Model)
+                                            {*@
+                                        @*<tr data-toggle="modal" data-target="#EditModal">*@
+
+
+                                        <tr>
+                                            <td data-title="User ID">PO-2</td>
+                                            <td data-title="User ID">Johnson</td>
+                                            <td data-title="User ID">£555</td>
+                                            <td data-title="User ID">£0.00</td>
+                                            <td class="text-center" data-title="User ID">22-03-2017</td>
+                                            <td class="text-center" data-title="User ID">Pay Now</td>
+                                            <td class="text-center" data-title="User ID">Cash</td>
+                                            <td class="text-center" data-title="User ID">Paid</td>
+                                            <td data-title="User ID">Received</td>
+                                        </tr>
+
+
+
+
+
+
+                                        @*}*@
+                                    </tbody>
+
+                                </table>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+
+
+                            <div class="clearfix"></div>
+
+
+
+                            <div class="clearfix"></div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+                @*-----------------Main Container Ends---------------*@
+            </div>
+
+
+            @*<div id="sticky-footer-push"></div>*@
+        </div>
+    </div>
+
+    <footer class="black">
+
+        @{
+            Html.RenderPartial("Footer_View");
+        }
+    </footer>
+
+    <script src="~/Scripts/new-js/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/new-js/jquery.datatables.min.js"></script>
+
+    <script>
+        function show_customer_summary() {
+            $("#customer_summary").removeClass("none");
+            $("#customer_summary").addClass("showDiv");
+            $("#date_click_div").addClass("none");
+        }
+    </script>
+
+    <script>
+        function showDateDiv() {
+            var to = document.getElementById("to_date").value;
+            $("#date_click_div").removeClass("none");
+            $("#date_click_div").addClass("showDiv");
+            $("#customer_summary").addClass("none");
+        }
+
+
+    </script>
+
+    <script>
+        function showToDate() {
+            var from = document.getElementById("from_date").value;
+
+            if (from == "") {
+            }
+
+            else {
+                document.getElementById("to_date").removeAttribute('disabled');
+            }
+        }
+
+
+    </script>
+
+
+    <script>
+
+        function myDate() {
+            var date = new Date(document.getElementById("to_date")).toDateString("yyyy-MM-dd");
+        }
+
+    </script>
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#example').dataTable();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example1').dataTable();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#table_on_dates').dataTable();
+        });
+    </script>
+
+    <script>
+        function PrintBtn() {
+            $("#crud_btn_hide").addClass("none");
+            $("#side_navi_hide").addClass("none");
+
+            window.print();
+        }
+    </script>
+
+</body>

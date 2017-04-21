@@ -1,0 +1,440 @@
+﻿@model eSalesPro.Models.Product
+<div id="EditProduct" class="win text-center">
+    <h3 class="black-color mb-40"><b>Edit Item</b></h3>
+    @*<img class="pull-right margin-supplier ml-22" src="~/img/images/supplier.png" />*@
+
+    <form id="demo-form2" action="@Url.Action("Edit", "Product", new {id=@Model.Id })" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+      
+          <div id="PleaseWait" class="hideDiv">
+            <img src="~/img/loading.gif" />
+        </div>
+
+        <div class="col-md-12 text-center">
+
+
+            <div class="col-md-9">
+
+                <div class="form-group">
+                    <label class="supplier-create-texts" for="middle-name">Custom Label / SKU <span class="required">*</span></label>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <input class="width-400" type="text" name="sku" value="@Model.Custom_Label_" required placeholder="SKU is case sensitive. eshop's SKU need to be same.">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="supplier-create-texts" for="middle-name">Item Title <span class="required">*</span></label>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <input class="width-400" type="text" name="item_title" value="@Model.Item_Title" required>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div>
+                        <div class="">
+                            <label class="supplier-create-texts" for="middle-name">Normal Price <span class="required">*</span></label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input id="NormalPrice" onkeypress="validate(event)" onkeyup="javascript:Add();" value="@Model.Price_Normal" class="width-170" type="text" name="normal_price" required>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <label class="vat-texts">+VAT=</label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input id="NormalTotal" onkeypress="validate(event)" type="text" class="width-170" @Model.Normal_VAT name="normal_vat" required>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <div>
+                        <div class="">
+                            <label class="supplier-create-texts" for="middle-name">Trade Price <span class="required">*</span></label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input id="TradePrice" onkeypress="validate(event)" onkeyup="javascript:Add();" value="@Model.Price_Trade" class="width-170" type="text" name="trade_price" required>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <label class="vat-texts">+VAT=</label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input id="TradeTotal" onkeypress="validate(event)" type="text" class="width-170" value="@Model.Trade_VAT" name="trade_vat" required>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="form-group">
+                    <div>
+                        <div class="">
+                            <label class="supplier-create-texts" for="middle-name">Premium Price <span class="required">*</span></label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input id="PremiumPrice" onkeypress="validate(event)" class="width-170" value="@Model.Price_Premium" onkeyup="javascript:Add();" type="text" name="premium_price" required>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <label class="vat-texts">+VAT=</label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input id="PremiumTotal" onkeypress="validate(event)" type="text" value="@Model.Premium_VAT" class="width-170" name="premium_vat" required>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+                <div class="form-group">
+                    <div>
+                        <div class="">
+                            <label class="supplier-create-texts" for="middle-name">Other Price <span class="required">*</span></label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input id="OtherPrice" onkeypress="validate(event)" class="width-170" value="@Model.Price_Others" onkeyup="javascript:Add();" type="text" name="other_price" required>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <label class="vat-texts">+VAT=</label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input id="OtherTotal" onkeypress="validate(event)" type="text" value="@Model.Other_VAT" class="width-170" name="other_vat" required>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="product-border"></div>
+
+
+
+
+
+
+                <div class="form-group">
+                    <div>
+                        <div class="">
+                            <label class="supplier-create-texts font-16 black-color" for="middle-name">Total Quantity<span class="required">*</span></label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input class="width-170" onkeypress="validate(event)" value="@Model.Quantity.Quantity1" type="text" name="total_quantity" required>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <a href="#" data-toggle="modal" data-target="#transfer_stock">
+                                <img class="stock-transfer-img" src="~/img/images/stock_transfer.png" />
+                                <label class="mr-60 font-16">Transfer Stock</label>
+                            </a>
+                        </div>
+
+                        <div class="clear"></div>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="form-group">
+                    <div>
+                        <div class="">
+                            <label class="supplier-create-texts" for="middle-name">Warehouse Locations<span class="required">*</span></label>
+                        </div>
+
+                        <div class="">
+                            <a href="#">
+                                <img class="stock-transfer-img" src="~/img/images/plus.png" />
+                                <label class="mr-180 font-16">Add New Locations</label>
+                            </a>
+                        </div>
+
+                        <div class="clear"></div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="product-border"></div>
+
+
+                <div class="form-group">
+                    <label class="supplier-create-texts" for="middle-name">Warn Level<span class="required">*</span></label>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <input class="width-400" type="text" name="warn_level" value="@Model.Warn_Level" required>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <div>
+                        <div class="">
+                            <label class="supplier-create-texts" for="middle-name">Barcode<span class="required">*</span></label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input class="width-170" type="text" name="barcode" value="@Model.Barcode" required>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <a href="#">
+                                <img class="add-barcode-img" src="~/img/images/add_barcode.png" />
+                                <img class="print-barcode-img" src="~/img/images/barcode_print.png" />
+                            </a>
+                        </div>
+
+                        <div class="clear"></div>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="form-group">
+                        <label class="supplier-create-texts" for="middle-name">Supplier Name<span class="required">*</span></label>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <select name="supplier_name" required class="form-control width-400">
+                                <option value="@Model.Supplier.Id">@Model.Supplier.Name </option>
+                                @foreach (var name in ViewBag.Suppliers)
+                                {
+                                    <option value="@name.Id">@name.Name </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+
+                <div class="form-group">
+                    <label class="supplier-create-texts" for="middle-name">Supplier Code<span class="required">*</span></label>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <input class="width-400" type="text" name="supplier_code" value="@Model.Supplier.Id" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div>
+                        <div class="">
+                            <label class="supplier-create-texts" for="middle-name">Cost Price <span class="required">*</span></label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input id="CostPrice" onkeyup="Add()" class="width-170" value="@Model.Cost_Price" onkeypress="validate(event)" type="text" name="cost_price" required>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <label class="vat-texts">+VAT=</label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input id="CostTotal" type="text" onkeypress="validate(event)" value="@Model.Cost_VAT" class="width-170" name="cost_vat" required>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <div class="">
+                            <label class="supplier-create-texts" for="middle-name">Quantity in Box (Inner) <span class="required">*</span></label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input class="width-170" onkeypress="validate(event)" value="@Model.Quantity.Inner_Quantity" type="text" name="inner" required>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <label class="vat-texts">(Outer)</label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input type="text" onkeypress="validate(event)" value="@Model.Quantity.Outer_Quantity" class="width-170" name="outer" required>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+                    <label class="supplier-create-texts" for="middle-name">Category Name<span class="required">*</span></label>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <select name="cat_name" required class="form-control width-400">
+                            <option value="@Model.Product_Categories.Id">@Model.Product_Categories.Type </option>
+                            @foreach (var name in ViewBag.Categories)
+                            {
+                                <option value="@name.Id">@name.Type </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="form-group">
+                    <label class="supplier-create-texts" for="middle-name">Courier Type</label>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <input class="width-400" type="text" value="@Model.Courier_Type" name="courier_type" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="supplier-create-texts" for="middle-name">Tax Type</label>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <input class="width-400" type="text" value="@Model.Tax_Type" name="tax_type" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="supplier-create-texts" for="middle-name">Notes<span class="required">*</span></label>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <textarea class="width-400" name="notes">@Model.Note</textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="supplier-create-texts bold font-16 black-color" for="middle-name">Composite(Kit) Items</label>
+
+                    <div class="pull-left">
+                        <a href="#" data-toggle="modal" data-target="#composite_modal">
+                            <img class="pencil-img" src="~/img/images/pencil48.png" />
+                        </a>
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="product-border"></div>
+
+                <div class="form-group">
+                    <label class="supplier-create-texts bold font-16 black-color" for="middle-name">Sync eShops</label>
+
+                    <div class="pull-left">
+                        <a href="#">
+                            <img class="pencil-img" src="~/img/images/sync248.png" />
+                            <p class="black-color width-400">NOTE: eShop synchronized according to your settings.</p>
+                        </a>
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="form-group">
+                    <label class="supplier-create-texts bold font-16 black-color" for="middle-name">eShop Settings</label>
+
+                    <div class="pull-left">
+                        <a href="#" data-toggle="modal" data-target="#eshop_modal">
+                            <img class="pencil-img" src="~/img/images/pencil.png" />
+                        </a>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <div class="col-md-3">
+                <div>
+                    <h3 class="bold mt-0">Item Images</h3>
+                    <div class="fileupload fileupload-new" data-provides="fileupload" align="center">
+
+                        <div class="fileupload-new thumbnail"><img src="~/img/images/default-image.jpg" class="product-img" /></div>
+
+                        <div class="fileupload-preview fileupload-exists thumbnail @*product-img*@"></div>
+
+                        <div>
+
+                            <span class="btn btn-file btn-primary btn-margin-product"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name="image[]" id="a_image1" onchange="Checkfilesimage(1)"></span>
+
+                            <a href="javascript:;" class="btn btn-primary btn-margin-product fileupload-exists" data-dismiss="fileupload">Remove</a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <div class="col-md-12">
+            <div class="col-md-3"></div>
+
+            <div class="col-md-3">
+                <input type="submit" value="Save" class="btn btn-success btn-mini center-block width-145" />
+            </div>
+
+            <div class="col-md-3">
+                <a href="~/Product/List" class="btn btn-primary btn-mini blue-btn-style-modal center-block a-cancel">Cancel</a>
+            </div>
+            <div class="col-md-3"></div>
+
+
+
+        </div>
+
+    </form>
+
+</div>

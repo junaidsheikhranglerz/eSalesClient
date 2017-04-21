@@ -27,148 +27,83 @@
 
                             <div class="col-md-12">
 
-                                @*<div class="col-md-4">
-                                    <h3 class="bold update-stock-margin"><small></small></h3>
-                                </div>*@
-
-                                <div class="pull-left">
-                                    <a href="~/Home/Epos" class="btn btn-primary blue-btn-style mt-10 btn-mini bold">Back to EPOS Main Panel</a>
+                                <div class="empty-height"></div>
+                                <div class="col-md-4 padding-all-0">
+                                    <h3 class="bold font-20 padding-0">
+                                        EPOS Credit Sales Report
+                                    </h3>
                                 </div>
 
+                                <div class="empty-height"></div>
 
-                                <div class="mt-10">
-                                    <div class="col-md-2 pull-right">
-                                        <a href="~/Home/Epos" onclick="PrintBtn()" class="btn btn-primary blue-btn-style ml--45 btn-mini text-center width-195 bold">Print</a>
+                                    <div class="col-md-8 padding-0">
+                                        <div class="pull-right">
+                                            <div class="mr-7 pull-left">
+                                                @*<input type="text"  class="width-192 text-center mr-7" placeholder="">*@
+                                                <select name="sale_type" required class="form-control">
+                                                    <option value="">All Type of Sales</option>
+                                                    <option value="">Invoice </option>
+                                                    <option value="">Item Sale</option>
+                                                </select>
+                                            </div>
+                                            <div class="mr-7 pull-left">
+                                                @*<input type="text" class="width-192 text-center mr-7" placeholder="">*@
+                                                <select name="customer_type" required class="form-control">
+                                                    <option value="">All Type of Customers</option>
+                                                    <option value="">Normal </option>
+                                                    <option value="">Trade </option>
+                                                    <option value="">Premium </option>
+                                                    <option value="">Other </option>
+                                                </select>
+                                            </div>
+
+                                            <div class="pull-left">
+                                                <label class="black-color mr-3 mt-7">To Date :</label>
+                                            </div>
+                                            <div class="pull-left">
+                                                <input required type="date" id="to_date" oninput="showDateDiv()" class="mr-3 credit_date_width-height" name="to_date">
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div class="col-md-2 pull-right">
-                                    </div>
-
-                                    <div class="col-md-2 pull-right">
-                                    </div>
-
-                                    <div class="col-md-2 pull-right">
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="mt-30">
-                                <div class="col-md-3 pull-left">
-                                    <h4 class="black-color bold">Choose Customer type : </h4>
-                                </div>
-                                <div class="col-md-3 ml--40 pull-left">
-                                    <select oninput="show_customer_type()" name="customer_type" required class="form-control">
-                                        <option value="">Please select any </option>
-                                        <option value="">Normal</option>
-                                        <option value="">Trade</option>
-                                        <option value="">Premium</option>
-                                        <option value="">Other</option>
-                                    </select>
+                                    <div class="clearfix"></div>
 
                                 </div>
-
-                                <div class="col-md-3 pull-right mb-20">
-                                    @*<a href="#" data-toggle="modal" data-target="#customer_modal" class="btn btn-primary btn-mini bold ml-75">Customer Summary</a>*@
-                                    <a href="#" data-toggle="modal" data-target="#customer_modal" class="btn btn-primary blue-btn-style ml-30 btn-mini text-center width-195 bold">Customer Summary</a>
-                                </div>
-
-                                <div class="col-md-3"></div>
-                            </div>
-                            
-                            
                             <div class="clearfix"></div>
 
                         </div>
 
                         <div class="clearfix"></div>
 
-                    
+                        <div class="empty-height"></div>
+                        <div class="empty-height"></div>
 
+                        <div class="col-md-12">
 
+                            <div class="col-md-3 pull-left">
+                                <a href="~/Home/Epos" class="btn btn-primary btn-mini blue-btn-style bold ml--20">Back to EPOS Main Panel</a>
+                            </div>
 
+                            <div class="col-md-3"></div>
 
+                            <div class="col-md-3 pull-right">
+                                <a href="#" data-toggle="modal" data-target="#customer_modal" class="btn btn-primary blue-btn-style btn-mini bold ml-75">Customer Summary</a>
+                            </div>
 
-                        <div class="col-md-12 mt-20 none" id="customer_table_div">
-
-                            <table class="table table-responsive border_black" id="customer_list_table">
-                                <thead>
-                                    <tr class="table-heading-fonts table-main-headings">
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Address</th>
-                                        <th>Postcode</th>
-
-                                        <th>Status</th>
-
-                                        @*<th>Pay Rate</th>
-                    <th>Role</th>
-                    <th>Status</th>*@
-
-                                        <th class="text-center">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="black-color bold">
-
-                                    @*<tr data-toggle="modal" data-target="#EditModal">*@
-
-                                    <tr>
-                                        <td data-title="User ID">45</td>
-                                        <td data-title="User ID">Steve Smith</td>
-                                        <td data-title="First Name">+32111494</td>
-                                        <td data-title="Last Name">steve@icloud.com</td>
-                                        <td data-title="Email" class="user-emails">Street 20, USA</td>
-                                        <td data-title="Date Registered">0l12odr</td>
-
-                                        <td class="gg">Active</td>
-
-                                        <td data-title="Actions" class="text-center min-width-191 buttons-block">
-                                            <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#EditModal">
-                                                Edit
-                                            </a>
-                                            <a class="btn btn-sm btn-success bold" href="#">
-                                                Enable
-                                            </a>
-                                            <a class="btn btn-sm btn-danger bold" href="#">
-                                                Disable
-                                            </a>
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td data-title="User ID">500</td>
-                                        <td data-title="User ID">Michael Clark</td>
-                                        <td data-title="First Name">+1015872300</td>
-                                        <td data-title="Last Name">clark@icloud.com</td>
-                                        <td data-title="Email" class="user-emails">Street 48, UK</td>
-                                        <td data-title="Date Registered">00sadadR</td>
-
-                                        <td class="gg">Active</td>
-
-                                        <td data-title="Actions" class="text-center min-width-191 buttons-block">
-                                            <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#EditModal">
-                                                Edit
-                                            </a>
-                                            <a class="btn btn-sm btn-success bold" href="#">
-                                                Enable
-                                            </a>
-                                            <a class="btn btn-sm btn-danger bold" href="#">
-                                                Disable
-                                            </a>
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
+                            <div class="col-md-3 pull-right">
+                                <a href="~/Home/Epos" onclick="PrintBtn()" class="btn btn-primary btn-mini blue-btn-style bold width-150 ml-160">Print</a>
+                            </div>
 
                             <div class="clearfix"></div>
 
                         </div>
 
+
                         <div class="clearfix"></div>
+
+
+                        <div class="empty-height"></div>
+                        <div class="empty-height"></div>
 
                         <div id="customer_summary" class="none">
 
@@ -227,14 +162,14 @@
 
 
 
-                                <div class="col-md-12 mt-15">
+                                <div id="crud_btn_hide" class="col-md-12 mt-15">
 
                                     <div class="col-md-2 pull-left">
-                                        <a href="~/Home/Epos" class="btn btn-primary btn-mini ml--20 blue-btn-style bold width-150">Edit Customer</a>
+                                        <a href="~/Home/Epos" class="btn btn-primary btn-mini blue-btn-style ml--20 bold width-150">Edit Customer</a>
                                     </div>
 
                                     <div class="col-md-2 pull-left">
-                                        <a href="~/Home/Epos" class="btn btn-primary btn-mini ml--20 blue-btn-style bold width-150">Delete Customer</a>
+                                        <a href="~/Home/Epos" class="btn btn-primary btn-mini blue-btn-style ml--20 bold width-150">Delete Customer</a>
                                     </div>
 
                                     <div class="col-md-2 pull-left">
@@ -255,7 +190,7 @@
                                     <p class="bold font-20 mt-30 black-color">Customer Invoices<small></small></p>
                                 </div>
                                 <div class="col-md-12">
-                                    <table border="0" class="table table-responsive border_black" id="customer_invoices_table">
+                                    <table border="0" class="table table-responsive border_black" id="example1">
                                         <thead>
                                             <tr class="table-heading-fonts table-main-headings">
                                                 <th>Order Id</th>
@@ -273,7 +208,7 @@
                                         <tbody class="black-color bold">
 
                                             @*@foreach (var v in Model)
-                            {*@
+                                                {*@
                                             @*<tr data-toggle="modal" data-target="#EditModal">*@
 
 
@@ -331,7 +266,7 @@
 
 
                                 <div class="col-md-12">
-                                    <table border="0" class="table table-responsive border_black" id="item_history_table">
+                                    <table border="0" class="table table-responsive border_black" id="example">
                                         <thead>
                                             <tr class="table-heading-fonts table-main-headings">
                                                 <th>Date</th>
@@ -345,6 +280,7 @@
                                             </tr>
                                         </thead>
                                         <tbody class="black-color bold">
+
 
                                             <tr>
                                                 <td data-title="User ID">07-07-2007</td>
@@ -369,8 +305,65 @@
                             </div>
                         </div>
 
+                        <div id="date_click_div" class="none">
 
-                        <div class="clearfix"></div>
+                            <div class="col-md-12">
+                                <table border="0" class="table table-responsive border_black" id="table_on_dates">
+                                    <thead>
+                                        <tr class="table-heading-fonts table-main-headings">
+                                            <th>Type</th>
+                                            <th>Customer</th>
+                                            <th>Phone No</th>
+                                            <th>Email</th>
+                                            <th>Credit Limit</th>
+                                            <th>Outstanding Balance</th>
+                                            <th>Status</th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody class="black-color bold">
+
+                                        @*@foreach (var v in Model)
+                                            {*@
+                                        @*<tr data-toggle="modal" data-target="#EditModal">*@
+
+
+                                        <tr>
+                                            <td data-title="User ID">Premium</td>
+                                            <td data-title="User ID">Cctv</td>
+                                            <td data-title="User ID">8687655</td>
+                                            <td data-title="User ID">test@icloud.com</td>
+                                            <td class="text-center" data-title="User ID">£555</td>
+                                            <td class="text-center" data-title="User ID">£12</td>
+                                            <td data-title="User ID"></td>
+                                        </tr>
+
+
+
+
+
+
+                                        @*}*@
+                                    </tbody>
+
+                                </table>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            
+
+                            <div class="clearfix"></div>
+
+                            
+
+                            <div class="clearfix"></div>
+
+
+                        </div>
+
 
                     </div>
                 </div>
@@ -378,7 +371,7 @@
             </div>
 
 
-            <div id="sticky-footer-push"></div>
+            @*<div id="sticky-footer-push"></div>*@
         </div>
     </div>
 
@@ -443,47 +436,79 @@
 
     @*----------------------------POP UP END CUSTOMER SUMMARY--------------------------------*@
 
-
     <script src="~/Scripts/new-js/jquery-1.11.1.min.js"></script>
     <script src="~/Scripts/new-js/jquery.datatables.min.js"></script>
-
-
-    <script>
-        $(document).ready(function () {
-            $('#customer_list_table').dataTable();
-        });
-    </script>
 
     <script>
         function show_customer_summary() {
             $("#customer_summary").removeClass("none");
             $("#customer_summary").addClass("showDiv");
-            $("#customer_table_div").addClass("none");
+            $("#date_click_div").addClass("none");
         }
     </script>
 
     <script>
-        function show_customer_type() {
-            $("#customer_table_div").removeClass("none");
-            $("#customer_table_div").addClass("showDiv");
+        function showDateDiv() {
+            var to = document.getElementById("to_date").value;
+            $("#date_click_div").removeClass("none");
+            $("#date_click_div").addClass("showDiv");
             $("#customer_summary").addClass("none");
         }
+
+
     </script>
+
+    <script>
+        function showToDate() {
+            var from = document.getElementById("from_date").value;
+
+            if (from == "") {
+            }
+
+            else {
+                document.getElementById("to_date").removeAttribute('disabled');
+            }
+        }
+
+
+    </script>
+
+
+    <script>
+
+        function myDate() {
+            var date = new Date(document.getElementById("to_date")).toDateString("yyyy-MM-dd");
+        }
+
+    </script>
+
+
+
+
 
     <script>
         $(document).ready(function () {
-            $('#customer_invoices_table').dataTable();
+            $('#example').dataTable();
         });
     </script>
 
     <script>
         $(document).ready(function () {
-            $('#item_history_table').dataTable();
+            $('#example1').dataTable();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#table_on_dates').dataTable();
         });
     </script>
 
     <script>
         function PrintBtn() {
+            $("#crud_btn_hide").addClass("none");
+            $("#side_navi_hide").addClass("none");
+
             window.print();
         }
     </script>
