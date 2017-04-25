@@ -174,10 +174,6 @@
 
                         </section>
 
-
-
-
-
                     </div>
                 </div>
                 @*-----------------Main Container Ends---------------*@
@@ -294,7 +290,7 @@
                         <div class="win text-center">
                             @*<h3 class="black-color"><b>Find Supplier</b></h3>*@
 
-                            <form action="" class="form-horizontal form-label-left" method="post">
+                            <form action="~/Product/List" class="form-horizontal form-label-left" method="post">
 
                                 <div class="col-md-12 margin-stock-modal">
 
@@ -303,17 +299,25 @@
                                     <div class="form-group">
                                         <label class="stock-transfer-texts" for="middle-name">From:</label>
                                         <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <select name="supplier_name" class="form-control width-365">
+                                            <select id="from_warehouse" name="From_Warehouse" class="form-control width-365">
                                                 <option value="">Please select any </option>
-                                            </select>
+                                                @foreach (var warehouse in ViewBag.Warehouses)
+                                                { 
+                                                <option value="@warehouse.Id">@warehouse.Name </option>
+                                                }
+                                                    </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="stock-transfer-texts" for="middle-name">To:</label>
                                         <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <select name="supplier_name" class="form-control width-365">
+                                            <select id="to_warehouse" name=" to_warehouse" class="form-control width-365">
                                                 <option value="">Please select any </option>
+                                                @foreach (var warehouse in ViewBag.Warehouses)
+                                                {
+                                                    <option value="@warehouse.Id">@warehouse.Name </option>
+                                                }
                                             </select>
                                         </div>
                                     </div>
@@ -321,7 +325,7 @@
                                     <div class="form-group">
                                         <label class="stock-transfer-texts" for="middle-name">QTY:</label>
                                         <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input type="text" class="width-110" name="stock_qty" id="login">
+                                            <input type="text"  class="width-110"  name="stock_qty" id="quantity">
                                         </div>
                                     </div>
 
@@ -332,7 +336,7 @@
                                     <div class="col-md-3"></div>
 
                                     <div class="col-md-3">
-                                        <input type="submit" value="Transfer" class="btn btn-success btn-mini center-block width-123" />
+                                        <input type="submit" onclick="transferStock();" value="Transfer" class="btn btn-success btn-mini center-block width-123" />
                                     </div>
 
                                     <div class="col-md-3">
@@ -393,6 +397,15 @@
     </div>
 
     @*--------------------POP UP ENDS--------------------*@
+
+
+    @*----------------------------POP UP for ADD NEW LOCATION--------------------------------*@
+
+    
+
+
+    @*----------------------------POP UP END ADD NEW LOCATION--------------------------------*@
+
 
 
 
@@ -795,7 +808,7 @@
                                                     </a>
                                                 </div>
 
-                                                <div class="clear"></div>
+                                                <div class="clearfix"></div>
 
                                             </div>
 
@@ -803,7 +816,7 @@
                                         </div>
 
 
-
+                                        <div class="clearfix"></div>
 
 
 
@@ -814,19 +827,81 @@
                                                 </div>
 
                                                 <div class="">
-                                                    <a href="#">
+                                                    <a href="#" class="add_new_warehouse showDiv  mb-10">
                                                         <img class="stock-transfer-img" src="~/img/images/plus.png" />
                                                         <label class="mr-180 font-16">Add New Locations</label>
                                                     </a>
                                                 </div>
 
-                                                <div class="clear"></div>
+                                                
 
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="remove_warehouse_div">
+                                            <div class="form-group pull-left pl-0">
+                                                <label class="control-label pull-left">Location:</label>
+
+
+                                                <select name="ware_house_name" required class="form-control width-170 pull-left">
+                                                    @foreach (var warehouse in ViewBag.Warehouses)
+                                                    {
+                                                        <option value="@warehouse.Id">@warehouse.Name </option>
+                                                    }
+
+
+                                                </select>
+
+
+
+
+
+                                            </div>
+
+
+
+
+                                            <div class="pull-left">
+                                                <label class="control-label pull-left ml-22 mr-5">Shelf No :</label>
+                                                <select name="ware_shelf_number" required class="form-control width-94 pull-left">
+
+                                                    @foreach (var warehouse in ViewBag.Warehouses)
+                                                    {
+                                                        <option value="@warehouse.Id">@warehouse.shelf_number </option>
+                                                    }
+
+                                                </select>
+
+
+
+
+                                            </div>
+
+                                            <div id="addedRows"></div>
+
+
+                                            <div class="form-group pull-left">
+                                                <label class="control-label pull-left ml-22">QTY:</label>
+
+
+                                                <input id="" class="form-control pull-left width-78 ml-5" type="text" name="ware_house_qty" placeholder="" required="" title="admin">
+
+
+
+                                            </div>
+                                            <div>
+                                                <a class=""><img class="del-img-size" src="~/img/images/delete.png"/></a>
                                             </div>
 
 
                                         </div>
 
+
+
+                                        
+                                        <div class="empty-height"></div>
 
                                         <div class="product-border"></div>
 
@@ -1032,10 +1107,6 @@
 
 
                                         </div>
-
-
-
-
 
 
                                     </div>
@@ -1588,6 +1659,42 @@
 
 
     <script>
+        $('.add_new_warehouse').click(function () {
+            $(this).after('<div class="ml-16 remove_warehouse_div"><div class="form-group pull-left"><label class="control-label pull-left">Location:</label><select name="ware_house_name" required class="form-control width-170 pull-left">@foreach (var warehouse in ViewBag.Warehouses){<option value="@warehouse.Id">@warehouse.Name </option>}</select></div><div class="pull-left"><label class="control-label pull-left ml-22 mr-5">Shelf No :</label><select name="ware_shelf_number" required class="form-control width-94 pull-left">@foreach (var warehouse in ViewBag.Warehouses){<option value="@warehouse.Id">@warehouse.shelf_number </option>}</select></div><div id="addedRows"></div><div class="form-group pull-left"><label class="control-label pull-left ml-22">QTY:</label><input id="" class="form-control pull-left width-78 ml-5" type="text" name="ware_house_qty" placeholder="" required="" title="admin"></div><div><a class="kashif" onclick="removeWarehouse()"><img class="del-img-size" style="margin-left:-14px;" src="/img/images/delete.png" /></a></div><div class="clearfix"></div></div>');
+        });
+
+        //function removeWarehouse()
+
+        $(document).on('click', '.kashif', function removeWarehouse() {
+            
+            $(this).closest(".remove_warehouse_div").remove();
+
+        //$(this).parent('div').remove();
+
+
+        //function removeWarehouse(){
+        //    $(this).closest(".remove_warehouse_div").remove();
+        //}
+
+        });
+    </script>
+
+    <script>
+        $('.add').click(function () {
+            $(this).before('<div class="block"><input type="text" /><span class="remove">Remove Option</span></div>');
+        });
+
+        $(document).on('click', '.remove', function () {
+            $(this).parent('div').remove();
+        });
+
+
+    </script>
+
+
+   
+
+    <script>
         function cancel_btn() {
 
             //alert("cancel")
@@ -1599,17 +1706,21 @@
         }
     </script>
 
-    <script>
-        //function again_click_modal_btn() {
+    @*<script>
+        function same_warehouse() {
 
-        //    alert("again")
-        //    if (document.getElementById("create_category_modal")) {
-        //        alert("again if")
-        //        $("#create_category_modal").show('slow');
-        //        $("#create_category_modal").show('FAST');
-        //    }
-        //}
-    </script>
+            var From = document.getElementById("from_warehouse").value;
+            var To = document.getElementById("to_warehouse").value;
+
+            if (From == To) {
+                Alert("Both Fields Warehouses Cannot be Same");
+                document.getElementById("from_warehouse").value = "";
+                document.getElementById("to_warehouse").value = "";
+                return false;
+            }
+
+        }
+    </script>*@
 
 
     <script>
@@ -1869,6 +1980,48 @@
 
     </script>
 
+    <script>
 
+        function transferStock()
+        {
+            
+            var From = document.getElementById("from_warehouse").value;
+            var To = document.getElementById("to_warehouse").value;
+            var Quantity = document.getElementById("quantity").value;
+            
+
+            if (From == To) {
+                alert("ERROR Same Warehouses");
+            }
+
+            else {
+                $.ajax({
+
+                    url: "/Product/TransferStock/",
+                    data: { from: From, to: To, quantity: Quantity },
+                    cache: false,
+                    type: "Get",
+                    success: function (data) {
+                        
+                    },
+                    error: function (response) {
+
+                        alert("error");
+
+                    }
+
+                })
+            }
+        }
+
+    </script>
+
+
+    <script>
+        function warehouse_show() {
+            $("#show_warehouse").removeClass("none");
+            $("#show_warehouse").addClass("showDiv");
+        }
+    </script>
 
 </body>

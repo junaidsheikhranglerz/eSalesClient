@@ -403,6 +403,11 @@
     font-size: 16px;
 }
 
+.table-heading-fonts-new-invoice {
+    color: #0094ff;
+    font-size: 17px;
+}
+
 .new-supplier-btn-margin {
     margin: -20px -40px 0 0;
 }
@@ -775,6 +780,23 @@
     color: #fff;
 }
 
+.min-width-130{
+    min-width:132px;
+}
+
+.description-text-area{
+    width:250px;    
+    height: 36px;
+    font-size: 13px;
+    border: 0px;
+    resize: vertical;
+}
+
+.new-invoice-width-boxes{
+    width:60px;
+    height:36px;
+}
+
 .table-border {
     border: 2px solid #202020;
 }
@@ -786,6 +808,11 @@
 .ml-160 {
     margin-left: 160px;
 }
+
+.ml-16 {
+    margin-left: 16px;
+}
+
 
 .mr-7 {
     margin-right: 7px;
@@ -890,6 +917,13 @@
     width: 35px;
     height: 25px;
     margin-left: 10px;
+}
+
+.del-img-size {
+    width: 35px;
+    height: 25px;
+    margin-top:4px;
+    /*margin-left: 12px;*/
 }
 
 #dvPreview {

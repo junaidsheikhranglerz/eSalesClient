@@ -76,7 +76,7 @@
                                 <div class="empty-height"></div>
                                 <div class="col-md-5">
                                     <label><input type="checkbox" value="" />Check Sold History</label>
-                                    <label><input type="checkbox" id="excludeVat" value="" onclick="excludeVatUnchecked();"/>Exclude VAT</label>
+                                    <label><input type="checkbox" id="excludeVat" value="" onclick="excludeVatUnchecked();" />Exclude VAT</label>
                                     <label><input type="checkbox" value="" />Show Details</label>
                                 </div>
                                 <div class="col-md-7 pr-0">
@@ -154,7 +154,7 @@
                         </div>
                         <div class="empty-height"></div>
                         <div class="empty-height"></div>
-                        <hr class="hrr"/>
+                        <hr class="hrr" />
 
 
                         <div class="col-md-12">
@@ -176,7 +176,7 @@
                                 <tbody class="black-color">
 
                                     @*@foreach (var v in Model)
-                {*@
+                                        {*@
                                     @*<tr data-toggle="modal" data-target="#EditModal">*@
 
 
@@ -194,16 +194,16 @@
                                         <td>£246</td>
                                         <td class="text-center">
                                             <a href="#" id="addrows">
-                                                <img src="~/img/images/plus_new_sale.png"/>
+                                                <img src="~/img/images/plus_new_sale.png" />
                                             </a>
                                             <a href="#" class="remove">
-                                                <img src="~/img/images/cross_new_sale.png"/>
+                                                <img src="~/img/images/cross_new_sale.png" />
                                             </a>
                                             <a href="#">
-                                                <img src="~/img/images/barcode_new_sale.png"/>
+                                                <img src="~/img/images/barcode_new_sale.png" />
                                             </a>
                                             <a href="#">
-                                                <img src="~/img/images/findpost.png"/>
+                                                <img src="~/img/images/findpost.png" />
                                             </a>
 
                                         </td>
@@ -294,25 +294,25 @@
 
                         <div class="col-md-12">
 
-                            
+
 
                             <div class="col-md-5"></div>
-                                
 
-                                <div class="col-md-1 pr-0 text-center">
-                                    <a href="#">
-                                        <span class=""><img src="~/img/images/save.png"/></span><br />
-                                        <span class="bold">Save</span>
-                                    </a>
-                                </div>
 
-                                <div class="col-md-1 text-center">
-                                    <a href="#">
-                                        <span class=""><img src="~/img/images/exit.png"/></span><br />
-                                        <span class="bold ml--7">Exit</span>
+                            <div class="col-md-1 pr-0 text-center">
+                                <a href="#">
+                                    <span class=""><img src="~/img/images/save.png" /></span><br />
+                                    <span class="bold">Save</span>
+                                </a>
+                            </div>
 
-                                    </a>
-                                </div>
+                            <div class="col-md-1 text-center">
+                                <a href="#">
+                                    <span class=""><img src="~/img/images/exit.png" /></span><br />
+                                    <span class="bold ml--7">Exit</span>
+
+                                </a>
+                            </div>
                             <div class="col-md-5"></div>
 
                         </div>
@@ -434,7 +434,7 @@
 
 
 
-                               
+
 
                                 </div>
 
@@ -482,7 +482,7 @@
                             <h3 class="black-color"><b>New Customer</b></h3>
                             <img class="pull-right margin-supplier ml-22" src="~/img/images/supplier.png" />
 
-                            <form id="demo-form2" action="" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+                            <form id="demo-form2" action="@Url.Action("Create","Customer")" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
 
 
 
@@ -504,7 +504,7 @@
                                             </div>
                                         </div>
 
-                                        
+
 
                                         <div class="customer-border"></div>
 
@@ -536,21 +536,30 @@
                                             </div>
                                         </div>
 
-                                     
+
 
                                         <div class="empty-height"></div>
 
                                         <div class="form-group">
                                             <label class="customer-create-texts" for="middle-name">Type<span class="required">*</span></label>
                                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                                <input type="text" name="account_contact_name" required>
+                                                
+                                                <select id="customer_type" name="customer_type" class="form-control width-192">
+                                                    <option value="">Please select any </option>
+                                                    @foreach (var customer_type in ViewBag.Customer_Type)
+                                                    {
+                                                        <option value="@customer_type.Id">@customer_type.Type</option>
+                                                    }
+                                                </select>
+
+
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="customer-create-texts" for="middle-name">Opening Balance<span class="required">*</span></label>
                                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                                <input type="text" name="account_contact_mail" required>
+                                                <input type="text" name="opening_balance" required>
                                             </div>
                                         </div>
 
@@ -558,7 +567,7 @@
                                         <div class="form-group">
                                             <label class="customer-create-texts" for="middle-name">Credit Limit<span class="required">*</span></label>
                                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                                <input type="text" name="account_contact_mobile" required>
+                                                <input type="text" name="credit_limit" required>
                                             </div>
                                         </div>
                                     </div>
@@ -581,7 +590,7 @@
                                         <div class="form-group">
                                             <label class="customer-create-texts width-178" for="middle-name">Postcode<span class="required">*</span></label>
                                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                                <input class="ml--50" type="text" name="postcode">
+                                                <input class="ml--50" type="text" name="billing_postcode">
                                                 <a href="#"><img src="~/img/images/ssearch.png" id="input_img" /></a>
                                             </div>
                                         </div>
@@ -603,7 +612,7 @@
                                             <div class="form-group">
                                                 <label class="customer-create-texts width-178" for="middle-name">Shipping Address<span class="required">*</span></label>
                                                 <div class="col-md-3 col-sm-6 col-xs-12">
-                                                    <input class="ml--50" type="text" name="address1" required>
+                                                    <input class="ml--50" type="text" name="shipping_address" required>
                                                     <input class="ml--50" type="text" name="address2">
                                                     <input class="ml--50" type="text" name="address3">
                                                     <input class="ml--50" type="text" name="address4">
@@ -617,7 +626,7 @@
                                             <div class="form-group">
                                                 <label class="customer-create-texts width-178" for="middle-name">Postcode<span class="required">*</span></label>
                                                 <div class="col-md-3 col-sm-6 col-xs-12">
-                                                    <input class="ml--50" type="text" name="postcode">
+                                                    <input class="ml--50" type="text" name="shipping_postcode">
                                                     <a href="#"><img src="~/img/images/ssearch.png" id="input_img" /></a>
                                                 </div>
                                             </div>
@@ -633,25 +642,25 @@
 
                                 <div class="clearfix"></div>
 
-                                
+
                                 <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
 
                                 <div class="col-md-12">
                                     <p class="font-12 black-color text-center">
                                         NOTE: Opening Balance use - values if customer owed to seller and + values if seller owed to customer.
-                                        <br/> Add (-1) for unlimited Credit
+                                        <br /> Add (-1) for unlimited Credit
                                     </p>
                                 </div>
 
                                 <div class="clearfix"></div>
                                 <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
-                                
+
 
                                 <div class="clearfix"></div>
 
                                 @*<div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-3" style="margin-bottom:15px">
-                                        <input type="submit" value="Add Product" class="btn btn-success" />
-                                    </div>*@
+                <input type="submit" value="Add Product" class="btn btn-success" />
+            </div>*@
                                 <div class="col-md-12">
                                     <div class="col-md-3"></div>
 
@@ -672,12 +681,12 @@
 
                                 <div class="clearfix"></div>
 
-                               
+
 
                             </form>
 
                         </div>
-                        
+
                     </div>
                 </div>
 
@@ -708,17 +717,17 @@
 
 
     @*<script type="text/javascript">
-        var rowCount = 1;
-        function addMoreRows(frm) {
-            rowCount++;
-            var recRow = '<p id="rowCount' + rowCount + '"><tr><td><input  name="" class="width-43" type="text"/></td></tr> <a href="javascript:void(0);" onclick="removeRow(' + rowCount + ');">Delete</a></p>';
-            jQuery('#addedRows').append(recRow);
-        }
+            var rowCount = 1;
+            function addMoreRows(frm) {
+                rowCount++;
+                var recRow = '<p id="rowCount' + rowCount + '"><tr><td><input  name="" class="width-43" type="text"/></td></tr> <a href="javascript:void(0);" onclick="removeRow(' + rowCount + ');">Delete</a></p>';
+                jQuery('#addedRows').append(recRow);
+            }
 
-        function removeRow(removeNum) {
-            jQuery('#rowCount' + removeNum).remove();
-        }
-    </script>*@
+            function removeRow(removeNum) {
+                jQuery('#rowCount' + removeNum).remove();
+            }
+        </script>*@
 
     <script>
 
@@ -733,12 +742,12 @@
 
     </script>
 
-    
-   
 
 
 
-  
+
+
+
 
     <script>
         function show_customer_summary() {
@@ -841,5 +850,5 @@
 
 
 
-    
+
 </body>

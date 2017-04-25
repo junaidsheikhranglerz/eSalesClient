@@ -1,4 +1,5 @@
-﻿<body id="body-index">
+﻿@model List<eSalesPro.Models.Customer>
+<body id="body-index">
     <div id="sticky-footer-wrap">
 
         @*-----------------Top Navigation Start---------------*@
@@ -28,8 +29,8 @@
                             <div class="col-md-12">
 
                                 @*<div class="col-md-4">
-                                    <h3 class="bold update-stock-margin"><small></small></h3>
-                                </div>*@
+                                        <h3 class="bold update-stock-margin"><small></small></h3>
+                                    </div>*@
 
                                 <div class="pull-left">
                                     <a href="~/Home/Epos" class="btn btn-primary blue-btn-style mt-10 btn-mini bold">Back to EPOS Main Panel</a>
@@ -60,11 +61,14 @@
                                 <div class="col-md-2 ml--40 pull-left">
                                     <select oninput="show_customer_type()" name="customer_type" required class="form-control">
                                         <option value="">Please select any </option>
-                                        <option value="">Normal</option>
-                                        <option value="">Trade</option>
-                                        <option value="">Premium</option>
-                                        <option value="">Other</option>
+                                        @foreach (var customer_type in ViewBag.Customer_Type)
+                                        {
+                                            <option value="@customer_type.Id">@customer_type.Type</option>
+                                        }
                                     </select>
+
+
+
 
                                 </div>
 
@@ -75,15 +79,15 @@
 
                                 <div class="col-md-3"></div>
                             </div>
-                            
-                            
+
+
                             <div class="clearfix"></div>
 
                         </div>
 
                         <div class="clearfix"></div>
 
-                    
+
 
 
 
@@ -104,64 +108,52 @@
                                         <th>Status</th>
 
                                         @*<th>Pay Rate</th>
-                    <th>Role</th>
-                    <th>Status</th>*@
+                                            <th>Role</th>
+                                            <th>Status</th>*@
 
                                         <th class="text-center">Actions</th>
                                     </tr>
                                 </thead>
+
+
                                 <tbody class="black-color bold">
 
-                                    @*<tr data-toggle="modal" data-target="#EditModal">*@
+                                    @foreach (var v in Model)
+                                    {
+                                        <tr>
+                                            <td data-title="User ID">@v.Id</td>
+                                            <td data-title="User ID">@v.Name</td>
+                                            <td data-title="First Name">@v.phone</td>
+                                            <td data-title="Last Name">@v.Email</td>
+                                            <td data-title="Email" class="user-emails">@v.Billing_Address</td>
+                                            <td data-title="Date Registered">@v.Billing_Postcode</td>
 
-                                    <tr>
-                                        <td data-title="User ID">45</td>
-                                        <td data-title="User ID">Steve Smith</td>
-                                        <td data-title="First Name">+32111494</td>
-                                        <td data-title="Last Name">steve@icloud.com</td>
-                                        <td data-title="Email" class="user-emails">Street 20, USA</td>
-                                        <td data-title="Date Registered">0l12odr</td>
+                                            @*@if (@v.Is_Active == 1)
+                                                {*@
+                                            <td class="gg">Active</td>
+                                            @*}
+                                                else
+                                                {
+                                                    <td class="red">Deactive</td>
+                                                }*@
 
-                                        <td class="gg">Active</td>
-
-                                        <td data-title="Actions" class="text-center min-width-191 buttons-block">
-                                            <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#EditModal">
-                                                Edit
-                                            </a>
-                                            <a class="btn btn-sm btn-success bold" href="#">
-                                                Enable
-                                            </a>
-                                            <a class="btn btn-sm btn-danger bold" href="#">
-                                                Disable
-                                            </a>
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td data-title="User ID">500</td>
-                                        <td data-title="User ID">Michael Clark</td>
-                                        <td data-title="First Name">+1015872300</td>
-                                        <td data-title="Last Name">clark@icloud.com</td>
-                                        <td data-title="Email" class="user-emails">Street 48, UK</td>
-                                        <td data-title="Date Registered">00sadadR</td>
-
-                                        <td class="gg">Active</td>
-
-                                        <td data-title="Actions" class="text-center min-width-191 buttons-block">
-                                            <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#EditModal">
-                                                Edit
-                                            </a>
-                                            <a class="btn btn-sm btn-success bold" href="#">
-                                                Enable
-                                            </a>
-                                            <a class="btn btn-sm btn-danger bold" href="#">
-                                                Disable
-                                            </a>
-                                        </td>
-                                    </tr>
-
+                                            <td data-title="Actions" class="text-center min-width-191 buttons-block">
+                                                <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#EditModal">
+                                                    Edit
+                                                </a>
+                                                @*<a class="btn btn-sm btn-success bold" href="#">
+                                                        Enable
+                                                    </a>*@
+                                                <a class="btn btn-sm btn-danger bold" href="#">
+                                                    Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                       
+                                    }
                                 </tbody>
+
+
                             </table>
 
                             <div class="clearfix"></div>
@@ -273,7 +265,7 @@
                                         <tbody class="black-color bold">
 
                                             @*@foreach (var v in Model)
-                            {*@
+                                                {*@
                                             @*<tr data-toggle="modal" data-target="#EditModal">*@
 
 
