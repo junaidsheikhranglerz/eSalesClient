@@ -1,6 +1,10 @@
 ﻿@model  List<eSalesPro.Models.Product>
 <body id="body-index">
-
+    @{
+        byte[] buffer = Guid.NewGuid().ToByteArray();
+        var FormNumber = BitConverter.ToUInt32(buffer, 0) ^ BitConverter.ToUInt32(buffer, 4) ^ BitConverter.ToUInt32(buffer, 8) ^ BitConverter.ToUInt32(buffer, 12);
+        var barcode = FormNumber.ToString("X");
+    }
 
 
 
@@ -191,6 +195,71 @@
         }
     </footer>
 
+
+    @*----------------------------POP UP for BARCODE--------------------------------*@
+
+    <div class="modal fade bs-example-modal-md z-999999999999999999999999" id="barcode_modal" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-lg-2">
+            <div class="modal-content modal-style-custom">
+
+                <div class="title col-md-12">
+                    <span>Confirm</span>
+                    <img src="~/img/images/c3.png" class="close mr--13 pull-right" />
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="win text-center">
+                            @*<h3 class="black-color"><b>Find Supplier</b></h3>*@
+
+
+                                <div class="col-md-12">
+                                    <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
+                                        <label class="font-16 text-center" for="middle-name">Are you sure you want to use this barcode ?</label>
+                                    <br/>
+                                    <label class="font-17 text-center black-color" id="barcode_label" for="middle-name">@barcode</label>
+
+                                    <div class="empty-height"></div><div class="empty-height"></div>
+
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="col-md-3"></div>
+
+                                    <div class="col-md-3">
+                                        <input type="button" onclick="Barcode_Ok();" value="Ok" class="btn btn-success btn-mini center-block width-123" />
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <a href="#" onclick="cancel_btn()" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0 ml-22">Cancel</a>
+                                    </div>
+                                    <div class="col-md-3"></div>
+
+
+
+                                </div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    @*----------------------------POP UP END BARCODE--------------------------------*@
 
 
     @*----------------------------POP UP for EDIT SUPPLIER--------------------------------*@
@@ -921,12 +990,12 @@
                                                 <div class="">
                                                     <label class="supplier-create-texts" for="middle-name">Barcode<span class="required">*</span></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
-                                                        <input id="barcode_code" class="width-170" type="text" name="barcode" required>
+                                                        <input id="barcode_code" class="width-170" type="text" name="barcode_code" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="">
-                                                    <a href="#" onclick="barcode_generator();">
+                                                    <a href="#" onclick="" data-toggle="modal" data-target="#barcode_modal">
                                                         <img class="add-barcode-img" src="~/img/images/add_barcode.png" />
                                                     </a>
                                                         <a><img class="print-barcode-img" src="~/img/images/barcode_print.png" />
@@ -1104,7 +1173,7 @@
                                                 </a>
                                             </div>
 
-
+                                            <input id="unique_number" type="hidden" value="@barcode" />
 
                                         </div>
 
@@ -1147,7 +1216,7 @@
 
                                     <div class="col-md-3">
                                         <input type="submit" value="Save" class="btn btn-success btn-mini center-block width-145" />
-                                        <input id="unique_number" type="hidden" value=""/>
+                                        @*<input id="unique_number" type="hidden" value=""/>*@
                                     </div>
 
                                     <div class="col-md-3">
@@ -1177,6 +1246,9 @@
             </div>
         </div>
     </div>
+
+
+   
 
     @*----------------------------POP UP END ADD PRODUCT--------------------------------*@
 
@@ -1659,6 +1731,43 @@
 
 
     <script>
+        function Barcode_Ok() {
+            var v=$("#barcode_label").val;
+            if (v == "") {
+                alert(v);
+                alert("EMPTY");
+            }
+            else {
+
+                alert("NOT EMPTY");
+                alert(v);
+                $("#barcode_code").val = v;
+                $("#barcode_code").disabled;
+                $(".barcode_modal").addClass("none");
+
+            }
+        }
+
+
+    </script>
+
+
+    <script>
+        function barcode_generator() {
+            var unique = document.getElementById("unique_number").value;
+
+            document.getElementById("barcode_code").value = unique;
+            document.getElementById("barcode_code").readOnly = true;
+
+        }
+
+    </script>
+
+
+
+
+
+    <script>
         $('.add_new_warehouse').click(function () {
             $(this).after('<div class="ml-16 remove_warehouse_div"><div class="form-group pull-left"><label class="control-label pull-left">Location:</label><select name="ware_house_name" required class="form-control width-170 pull-left">@foreach (var warehouse in ViewBag.Warehouses){<option value="@warehouse.Id">@warehouse.Name </option>}</select></div><div class="pull-left"><label class="control-label pull-left ml-22 mr-5">Shelf No :</label><select name="ware_shelf_number" required class="form-control width-94 pull-left">@foreach (var warehouse in ViewBag.Warehouses){<option value="@warehouse.Id">@warehouse.shelf_number </option>}</select></div><div id="addedRows"></div><div class="form-group pull-left"><label class="control-label pull-left ml-22">QTY:</label><input id="" class="form-control pull-left width-78 ml-5" type="text" name="ware_house_qty" placeholder="" required="" title="admin"></div><div><a class="kashif" onclick="removeWarehouse()"><img class="del-img-size" style="margin-left:-14px;" src="/img/images/delete.png" /></a></div><div class="clearfix"></div></div>');
         });
@@ -1969,16 +2078,7 @@
     </script>
 
 
-    <script>
-        function barcode_generator() {
-            var unique = document.getElementById("unique_number").value;
-
-            document.getElementById("barcode_code").value = unique;
-            document.getElementById("barcode_code").readOnly = true;
-
-        }
-
-    </script>
+    
 
     <script>
 

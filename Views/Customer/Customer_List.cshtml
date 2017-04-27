@@ -100,10 +100,11 @@
                                     <tr class="table-heading-fonts table-main-headings">
                                         <th>ID</th>
                                         <th>Name</th>
+                                        <th>Company Name</th>
                                         <th>Phone</th>
                                         <th>Email</th>
                                         <th>Address</th>
-                                        <th>Postcode</th>
+                                        
 
                                         <th>Status</th>
 
@@ -116,17 +117,18 @@
                                 </thead>
 
 
-                                <tbody class="black-color bold">
+                                <tbody class="black-color bold" id="updated_customer_list">
 
                                     @foreach (var v in Model)
                                     {
                                         <tr>
                                             <td data-title="User ID">@v.Id</td>
                                             <td data-title="User ID">@v.Name</td>
+                                            <td>@v.Company.Company_Name</td>
                                             <td data-title="First Name">@v.phone</td>
                                             <td data-title="Last Name">@v.Email</td>
                                             <td data-title="Email" class="user-emails">@v.Billing_Address</td>
-                                            <td data-title="Date Registered">@v.Billing_Postcode</td>
+                                            
 
                                             @*@if (@v.Is_Active == 1)
                                                 {*@
@@ -138,13 +140,13 @@
                                                 }*@
 
                                             <td data-title="Actions" class="text-center min-width-191 buttons-block">
-                                                <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#EditModal">
+                                                <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#Edit_Customer_Modal" onclick="GetCustomer(@v.Id)">
                                                     Edit
                                                 </a>
                                                 @*<a class="btn btn-sm btn-success bold" href="#">
                                                         Enable
                                                     </a>*@
-                                                <a class="btn btn-sm btn-danger bold" href="#">
+                                                <a class="btn btn-sm btn-danger bold" onclick="delete_customer(@v.Id)">
                                                     Delete
                                                 </a>
                                             </td>
@@ -436,8 +438,317 @@
     @*----------------------------POP UP END CUSTOMER SUMMARY--------------------------------*@
 
 
+    @*----------------------------POP UP EDIT CUSTOMER--------------------------------*@
+
+    <div class="modal fade" id="Edit_Customer_Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal-style-custom">
+
+                <div class="title col-md-12">
+                    <span>Message</span>
+                    <img src="~/img/images/c3.png" class="close mr--13 pull-right" data-dismiss="modal" />
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="win text-center" id="edit_customers">
+                            <h3 class="black-color"><b>Edit Customer</b></h3>
+                            <img class="pull-right margin-supplier ml-22" src="~/img/images/customer.png" />
+
+                            <form id="demo-form2" action="@Url.Action("Edit","Customer")" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+
+
+
+                                <div class="col-md-12 text-center">
+
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label class="customer-create-texts" for="middle-name">Name <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="customer-create-texts" for="middle-name">Company Name <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="company_name" required>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="customer-border"></div>
+
+                                        <div class="form-group">
+                                            <label class="customer-create-texts" for="middle-name">Phone <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="phone" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="customer-create-texts" for="middle-name">Email <span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="email" required>
+                                            </div>
+                                        </div>
+
+                                        @*<div class="form-group">
+                                            <label class="customer-create-texts" for="middle-name">Bank<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+
+                                                <select id="" name="bank_name" class="form-control width-192">
+                                                    <option value="">Please Select</option>
+                                                    @foreach (var banks in ViewBag.Bank)
+                                                    {
+                                                        <option value="@banks.Id">@banks.Bank_Name</option>
+                                                    }
+                                                </select>
+
+
+                                            </div>
+                                        </div>*@
+
+
+                                        <div class="form-group">
+                                            <label class="customer-create-texts" for="middle-name">Account No<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="account_no" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="customer-create-texts" for="">Notes<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <textarea class="width-193" name="notes" required></textarea>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="empty-height"></div>
+
+                                        <div class="form-group">
+                                            <label class="customer-create-texts" for="middle-name">Type<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+
+                                                <select id="customer_type" name="customer_type" class="form-control width-192">
+                                                    <option value="">Please Select</option>
+                                                    @foreach (var customer_type in ViewBag.Customer_Type)
+                                                    {
+                                                        <option value="@customer_type.Id">@customer_type.Type</option>
+                                                    }
+                                                </select>
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="customer-create-texts" for="middle-name">Opening Balance<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="opening_balance" required>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="customer-create-texts" for="middle-name">Credit Limit<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" name="credit_limit" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label class="customer-create-texts width-178" for="middle-name">Address<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input class="ml--50" type="text" name="address1" required>
+                                                <input class="ml--50" type="text" name="address2">
+                                                <input class="ml--50" type="text" name="address3">
+                                                <input class="ml--50" type="text" name="address4">
+                                                <input class="ml--50" type="text" name="address5">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="customer-create-texts width-178" for="middle-name">Postcode<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input class="ml--50" type="text" name="billing_postcode">
+                                                <a href="#"><img src="~/img/images/ssearch.png" id="input_img" /></a>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="customer-border"></div>
+
+                                        <div class="clearfix"></div>
+
+                                        <div class="pull-left ml-9">
+                                            <label><input type="checkbox" id="billing_address_checkbox" checked="checked" onclick="Different_Address()" />Use this as billing and shipping address</label>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                        <div class="empty-height"></div>
+
+
+                                        <div id="Shipping_Address_Div" class="none">
+                                            <div class="form-group">
+                                                <label class="customer-create-texts width-178" for="middle-name">Shipping Address<span class="required">*</span></label>
+                                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                                    <input class="ml--50" type="text" name="shipping_address" required>
+                                                    <input class="ml--50" type="text" name="address2">
+                                                    <input class="ml--50" type="text" name="address3">
+                                                    <input class="ml--50" type="text" name="address4">
+                                                    <input class="ml--50" type="text" name="address5">
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="form-group">
+                                                <label class="customer-create-texts width-178" for="middle-name">Postcode<span class="required">*</span></label>
+                                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                                    <input class="ml--50" type="text" name="shipping_postcode">
+                                                    <a href="#"><img src="~/img/images/ssearch.png" id="input_img" /></a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+
+                                <div class="clearfix"></div>
+
+
+                                <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
+
+                                <div class="col-md-12">
+                                    <p class="font-12 black-color text-center">
+                                        NOTE: Opening Balance use - values if customer owed to seller and + values if seller owed to customer.
+                                        <br /> Add (-1) for unlimited Credit
+                                    </p>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
+
+
+                                <div class="clearfix"></div>
+
+                                @*<div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-3" style="margin-bottom:15px">
+                                        <input type="submit" value="Add Product" class="btn btn-success" />
+                                    </div>*@
+                                <div class="col-md-12">
+                                    <div class="col-md-3"></div>
+
+                                    <div class="col-md-3">
+                                        <input type="submit" value="Edit" class="btn btn-success btn-mini center-block width-145" />
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        @*<a href="" class="btn btn-primary btn-mini center-block" style="width:135px">Cancel</a>*@
+                                        <a href="~/Customer/Customer_List" class="btn btn-primary blue-btn-style-modal btn-mini center-block a-cancel">Cancel</a>
+                                    </div>
+                                    <div class="col-md-3"></div>
+
+
+
+                                </div>
+
+
+                                <div class="clearfix"></div>
+
+
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    @*----------------------------POP UP END EDIT CUSTOMER--------------------------------*@
+
     <script src="~/Scripts/new-js/jquery-1.11.1.min.js"></script>
     <script src="~/Scripts/new-js/jquery.datatables.min.js"></script>
+
+    <script>
+
+        function GetCustomer(ID) {
+
+            $("#PleaseWait").addClass('showDiv');
+
+            $.ajax({
+
+                url: "/Customer/Edit/",
+                data: { id: ID },
+                cache: false,
+                type: "Get",
+                success: function (data) {
+                    document.getElementById("edit_customers").innerHTML = data;
+                    $("#PleaseWait").removeClass('showDiv');
+                    $("#PleaseWait").addClass('hideDiv');
+                },
+                error: function (response) {
+                    alert("Error" + response);
+                }
+
+            })
+        }
+
+
+
+    </script>
+
+
+    <script>
+        function delete_customer(ID) {
+            $.ajax({
+                url: "/Customer/Delete_Customer/",
+                data: { id: ID },
+                cache: false,
+                type: "Get",
+
+                success: function (data) {
+                    //alert("ok");
+                    document.getElementById("updated_customer_list").innerHTML = data;
+
+                },
+                error: function () {
+                    //alert("FAILURE");
+                }
+            });
+        }
+
+    </script>
+
+
+
 
 
     <script>

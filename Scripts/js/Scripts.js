@@ -105,3 +105,13 @@ function Add() {
     document.getElementById("OtherTotal").value = d + ((d * 20) / 100)
     document.getElementById("CostTotal").value = e + ((e * 20) / 100)
 }
+
+function Different_Address() {
+    if (document.getElementById("billing_address_checkbox").checked) {
+        $("#Shipping_Address_Div").addClass('none');
+    }
+    else {
+        $("#Shipping_Address_Div").removeClass('none');
+        $("#Shipping_Address_Div").addClass('showDiv');
+    }
+}

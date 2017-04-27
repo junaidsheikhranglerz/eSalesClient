@@ -36,14 +36,14 @@
 
                                 <div class="col-md-6 pull-left">
                                     <a href="#" data-toggle="modal" data-target="#ExistingModal">
-                                        <span class=""><img src="~/img/images/existing_supplier.png" /></span><br />
+                                        <span class=""><img src="~/img/images/search_customer.png" /></span><br />
                                         <span class="bold">Existing Customer</span>
                                     </a>
                                 </div>
 
                                 <div class="col-md-6 pull-left">
                                     <a href="#" data-toggle="modal" data-target="#CreateModal">
-                                        <span class=""><img src="~/img/images/new_supplier.png" /></span><br />
+                                        <span class=""><img src="~/img/images/add_customer.png" /></span><br />
                                         <span class="bold">New Customer</span>
 
                                     </a>
@@ -480,7 +480,7 @@
 
                         <div class="win text-center">
                             <h3 class="black-color"><b>New Customer</b></h3>
-                            <img class="pull-right margin-supplier ml-22" src="~/img/images/supplier.png" />
+                            <img class="pull-right margin-supplier ml-22" src="~/img/images/customer.png" />
 
                             <form id="demo-form2" action="@Url.Action("Create","Customer")" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
 
@@ -521,6 +521,24 @@
                                                 <input type="text" name="email" required>
                                             </div>
                                         </div>
+
+
+                                        @*<div class="form-group">
+                                            <label class="customer-create-texts" for="middle-name">Bank<span class="required">*</span></label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+
+                                                <select id="" name="bank_name" class="form-control width-192">
+                                                    <option value="">Please select any </option>
+                                                    @foreach (var banks in ViewBag.Bank)
+                                                    {
+                                                        <option value="@banks.Id">@banks.Bank_Name</option>
+                                                    }
+                                                </select>
+
+
+                                            </div>
+                                        </div>*@
+
 
                                         <div class="form-group">
                                             <label class="customer-create-texts" for="middle-name">Account No<span class="required">*</span></label>
@@ -704,15 +722,7 @@
     @*----------------------------POP UP END ADD CUSTOMER--------------------------------*@
 
     <script>
-        function Different_Address() {
-            if (document.getElementById("billing_address_checkbox").checked) {
-                $("#Shipping_Address_Div").addClass('none');
-            }
-            else {
-                $("#Shipping_Address_Div").removeClass('none');
-                $("#Shipping_Address_Div").addClass('showDiv');
-            }
-        }
+        
     </script>
 
 
