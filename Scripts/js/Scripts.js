@@ -34,6 +34,8 @@ function excludeVatUnchecked() {
         $("#price_vat_td").addClass("none");
         $("#total_vat_th").addClass("none");
         $("#total_vat_td").addClass("none");
+        $("#vat_td").removeClass('border-right-td');
+        $("#price_vat").removeClass('border-right-td');
     }
 
     else {
@@ -45,6 +47,8 @@ function excludeVatUnchecked() {
         $("#price_vat_td").addClass("showDiv");
         $("#total_vat_th").addClass("showDiv");
         $("#total_vat_td").addClass("showDiv");
+        $("#vat_td").addClass('border-right-td');
+        $("#price_vat").addClass('border-right-td');
     }
 }
 

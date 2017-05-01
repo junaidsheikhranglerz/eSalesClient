@@ -405,7 +405,7 @@
 
 .table-heading-fonts-new-invoice {
     color: #0094ff;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 .new-supplier-btn-margin {
@@ -784,17 +784,94 @@
     min-width:132px;
 }
 
+.code-width{
+}
+
+.width-100{
+    width:100px;
+}
+
+
+
 .description-text-area{
-    width:250px;    
-    height: 36px;
+    /*width:270px;*/    
+    height: 26px;
     font-size: 13px;
     border: 0px;
     resize: vertical;
 }
 
+.width-1p{
+    width:1%;
+}
+
+.width-7p{
+    width:7%;
+}
+
+.width-8p{
+    width:8%;
+}
+
+.width-11p{
+    width:11%;
+}
+
+.width-15p{
+    width:15%;
+}
+
+.width-4p{
+    width:4%;
+}
+
+
+.width-10p{
+    width:10%;
+}
+
+.width-20p{
+    width:20%;
+}
+
+.width-30p{
+    width:30%;
+}
+
+.width-40p{
+    width:40%;
+}
+
+.width-50p{
+    width:50%;
+}
+
+.width-60p{
+    width:60%;
+}
+
+.width-70p{
+    width:70%;
+}
+
+.width-80p{
+    width:80%;
+}
+
+.width-90p{
+    width:90%;
+}
+
+.width-100p{
+    width:100%;
+}
+
+.width-45{
+    width:45px;
+}
 .new-invoice-width-boxes{
-    width:60px;
-    height:36px;
+    /*width:60px;*/
+    height:26px;
 }
 
 .table-border {
@@ -1073,6 +1150,10 @@
         border-bottom: 1px solid black;
     }
 
+      #tableee td {
+        border-right: 2px solid black;
+    }
+
 .min-width-191 {
     min-width: 191px;
 }
@@ -1099,4 +1180,8 @@
 
 .margin-epos-panel-btn {
     margin: 10px 0px 0px -14px;
+}
+
+.border-right-td{
+    border-right:solid 2px black;
 }

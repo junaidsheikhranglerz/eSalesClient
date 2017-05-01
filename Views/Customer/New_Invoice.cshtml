@@ -132,6 +132,9 @@
                                                 <option value="">Bank Transfer</option>
                                                 <option value="">Paypal</option>
                                                 <option value="">Credit</option>
+                                                <option value="">7 Days</option>
+                                                <option value="">14 Days</option>
+                                                <option value="">30 Days</option>
                                                 <option value="">Other</option>
                                             </select>
                                         </div>
@@ -158,52 +161,51 @@
 
 
                         <div class="col-md-12">
-                            <table border="0" class="table table-responsive border_black" id="maintable">
+                            
+
+                            <table border="0" class="table table-responsive border_black" style="width:100%" id="maintable">
                                 <thead>
                                     <tr class="table-heading-fonts-new-invoice table-main-headings">
-                                        <th>Code</th>
-                                        <th class="width-250 text-center">Description</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                        <th id="price_vat_th">Price+VAT</th>
-                                        <th>Total</th>
-                                        <th id="total_vat_th">Total+VAT</th>
-                                        <th>Discount%</th>
-                                        <th class="text-center min-width-130">Actions</th>
+                                        <th width="20%" class="text-center">Code</th>
+                                        <th width="40%" class="text-center">Description</th>
+                                        <th width="1%" class="text-center">Quantity</th>
+                                        <th width="10%" class="text-center">Price</th>
+                                        <th width="1%" class="text-center"><div id="price_vat_th">Price+VAT</div></th>
+                                        <th width="2%" class="text-center">Total</th>
+                                        <th width="1%" class="text-center"><div id="total_vat_th">Total+VAT</div></th>
+                                        <th width="1%" class="text-center">Discount</th>
+                                        <th width="25%" class="text-center">Actions</th>
 
                                     </tr>
                                 </thead>
                                 <tbody class="black-color">
 
-                                    @*@foreach (var v in Model)
-                                        {*@
-                                    @*<tr data-toggle="modal" data-target="#EditModal">*@
 
+                                    
 
-
-                                    <tr id="rowId" class="font-17">
-                                        <td><input class="new-invoice-width-boxes unbold" name="" type="text" /></td>
-                                        <td>
-                                            <textarea class="description-text-area unbold" required></textarea>
+                                    <tr id="rowId" class="font-15 remove_div">
+                                        <td class="border-right-td"><div class="text-center"><input class="unbold width-100p" name="" type="text"></div></td>
+                                        <td class="border-right-td">
+                                            <textarea class="description-text-area unbold width-100p" required=""></textarea>
                                         </td>
-                                        <td><input class="new-invoice-width-boxes unbold" name="" type="text" /></td>
-                                        <td><input class="new-invoice-width-boxes unbold" name="" type="text" /></td>
-                                        <td id="price_vat_td"><input class="new-invoice-width-boxes unbold" name="" type="text" /></td>
-                                        <td>£123</td>
-                                        <td id="total_vat_td">£246</td>
-                                        <td>£246</td>
-                                        <td class="text-center">
-                                            <a href="#" id="addrows">
-                                                <img src="~/img/images/plus_new_sale.png" />
+                                        <td class="border-right-td"><div class="text-center"><input class="unbold width-80p" name="" type="text"></div></td>
+                                        <td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-100p" name="" type="text"></div></td>
+                                        <td id="price_vat" class="border-right-td"><div id="price_vat_td" class="text-center"><input class="new-invoice-width-boxes unbold width-100p" name="" type="text"></div></td>
+                                        <td class="text-center width-7p border-right-td">£123</td>
+                                        <td id="vat_td" class="border-right-td text-center width-4p"><div id="total_vat_td">£246</div></td>
+                                        <td class="border-right-td"><div class="text-center"><input class="unbold width-70p" name="" type="text"></div></td>
+                                        <td class="text-center width-100p">
+                                            <a href="#" class="add_new_row showdiv">
+                                                <img src="/img/images/plus_new_sale.png">
                                             </a>
                                             <a href="#" class="remove">
-                                                <img src="~/img/images/cross_new_sale.png" />
+                                                <img src="/img/images/cross_new_sale.png">
                                             </a>
                                             <a href="#">
-                                                <img src="~/img/images/barcode_new_sale.png" />
+                                                <img src="/img/images/barcode_new_sale.png">
                                             </a>
                                             <a href="#">
-                                                <img src="~/img/images/findpost.png" />
+                                                <img src="/img/images/findpost.png">
                                             </a>
 
                                         </td>
@@ -217,10 +219,12 @@
 
 
 
-                                    @*}*@
+
                                 </tbody>
 
                             </table>
+
+
                             <div id="addedRows"></div>
 
                             <div class="clearfix"></div>
@@ -230,11 +234,11 @@
 
                         <div class="">
 
-                            <div class="col-md-4">
-                                <textarea class="textarea-style-none textarea-width" placeholder="Customer notes..."></textarea>
+                            <div class="col-md-4 unbold">
+                                <textarea class="textarea-style-none unbold textarea-width" placeholder="Customer notes..."></textarea>
                             </div>
                             <div class="col-md-4 pl-0">
-                                <textarea class="textarea-style-none textarea-width" placeholder="Private notes..."></textarea>
+                                <textarea class="textarea-style-none unbold textarea-width" placeholder="Private notes..."></textarea>
                             </div>
                             <div class="col-md-4">
                                 <table id="table_cash" class="black-color col-md-12 border_black">
@@ -262,10 +266,14 @@
                                     <tr>
                                         <td class="bold">Payment Status</td>
                                         <td class="text-right">
-                                            <select name="supplier_name" class="form-control border_black-1px height-28 width-120">
-                                                <option value="">Invoice</option>
-                                                <option value="">Quote</option>
-                                                <option value="">Item Sale</option>
+                                            <select name="supplier_name" class="form-control border_black-1px min-height-32 width-120">
+                                                <option value="">Paid</option>
+                                                <option value="">Unpaid</option>
+                                                <option value="">Partially Paid</option>
+                                                <option value="">Deposit</option>
+                                                <option value="">Pay within 7 Days</option><option value="">Pay within 14 Days</option>
+                                                <option value="">Today</option>
+
                                             </select>
                                         </td>
                                     </tr>
@@ -720,6 +728,30 @@
     </div>
 
     @*----------------------------POP UP END ADD CUSTOMER--------------------------------*@
+
+
+    <script>
+        $('.add_new_row').click(function () {
+            $('#maintable tr:last').after('<tr id="rowId" class="font-15 remove_div"><td class="border-right-td"><div class="text-center"><input class="unbold width-100p" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required=""></textarea></td><td class="border-right-td"><div class="text-center"><input class="unbold width-80p" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-100p" name="" type="text"></div></td><td id="price_vat" class="border-right-td"><div id="price_vat_td" class="text-center"><input class="new-invoice-width-boxes unbold width-100p" name="" type="text"></div></td><td class="text-center width-7p border-right-td">£123</td><td id="vat_td" class="border-right-td text-center width-4p"><div id="total_vat_td">£246</div></td><td class="border-right-td"><div class="text-center"><input class="unbold width-70p" name="" type="text"></div></td><td class="text-center width-100p"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif" onclick="removeRow()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:5px;"></a></td></tr>');
+        });
+
+        //function removeRow()
+
+        $(document).on('click', '.kashif', function removeRow() {
+
+            $(this).closest(".remove_div").remove();
+
+            //$(this).parent('div').remove();
+
+
+            //function removeRow(){
+            //    $(this).closest(".remove_div").remove();
+            //}
+
+        });
+    </script>
+
+
 
     <script>
         
