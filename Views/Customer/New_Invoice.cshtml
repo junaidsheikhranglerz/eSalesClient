@@ -23,308 +23,845 @@
                 @*-----------------Main Container Start---------------*@
                 <div class="user-page-height">
                     <div class="bggg-img">
-                        <div class="">
+                        <div id="invoice_id">
+                            <div class="">
 
-                            <div class="col-md-4 pull-left">
-                                <h3 class="bold">
-                                    New Invoice
-                                </h3>
+                                <div class="col-md-4 pull-left">
+                                    <h3 class="bold">
+                                        New Invoice
+                                    </h3>
 
-                                <div class="empty-height"></div>
-                                <div class="empty-height"></div>
+                                    <div class="empty-height"></div>
+                                    <div class="empty-height"></div>
 
 
-                                <div class="col-md-6 pull-left">
-                                    <a href="#" data-toggle="modal" data-target="#ExistingModal">
-                                        <span class=""><img src="~/img/images/search_customer.png" /></span><br />
-                                        <span class="bold">Existing Customer</span>
-                                    </a>
+                                    <div class="col-md-6 pull-left">
+                                        <a href="#" data-toggle="modal" data-target="#ExistingModal">
+                                            <span class=""><img src="~/img/images/search_customer.png" /></span><br />
+                                            <span class="bold">Existing Customer</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-md-6 pull-left">
+                                        <a href="#" data-toggle="modal" data-target="#CreateModal">
+                                            <span class=""><img src="~/img/images/add_customer.png" /></span><br />
+                                            <span class="bold">New Customer</span>
+
+                                        </a>
+                                    </div>
+
+
+                                    <div class="clearfix"></div>
+
+
                                 </div>
 
-                                <div class="col-md-6 pull-left">
-                                    <a href="#" data-toggle="modal" data-target="#CreateModal">
-                                        <span class=""><img src="~/img/images/add_customer.png" /></span><br />
-                                        <span class="bold">New Customer</span>
 
-                                    </a>
+
+
+
+                                <div class="col-md-2 pull-left">
+                                    <div class="empty-height"></div>
+                                    <ul class="list-style-type-custom">
+                                        <li class="bold font-18 black-color">Premium Customer</li>
+                                        <li id="customer_name">cctv</li>
+                                        <li id="customer_address">185 Rochdale</li>
+                                        <li id="customer_postcode">OL12ODR</li>
+                                        <li id="customer_phone">8687655</li>
+                                        <li id="customer_email">test@cctv.co.uk</li>
+                                    </ul>
                                 </div>
 
+                                <div class="col-md-6 pull-left pr-0">
+
+                                    <div class="empty-height"></div>
+                                    <div class="col-md-5">
+                                        <label><input type="checkbox" value="" />Check Sold History</label>
+                                        <label><input type="checkbox" id="excludeVat" value="" onclick="excludeVatUnchecked();" />Exclude VAT</label>
+                                        <label><input type="checkbox" value="" />Show Details</label>
+                                    </div>
+                                    <div class="col-md-7 pr-0">
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Document Type</label>
+                                            <div class="pull-left">
+                                                <select id="language" oninput="run_invoice()" name="supplier_name" class="select-class-color form-control border_black-1px width-120">
+                                                    <option class="option-color" id="11" value="1">Invoice</option>
+                                                    <option class="option-color" value="2">Quote</option>
+                                                    <option class="option-color" value="3">Item Sale</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Invoice Number</label>
+                                            <div class="pull-left">
+                                                <input class="width-120" type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Date</label>
+                                            <div class="pull-left">
+                                                <input class="width-120" type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Sales Person</label>
+                                            <div class="pull-left">
+                                                <input class="width-120" type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Payment Method</label>
+                                            <div class="pull-left">
+                                                <select name="supplier_name" class="form-control border_black-1px width-120 select-class-color">
+                                                    <option class="option-color" value="">Cash</option>
+                                                    <option class="option-color" value="">Card</option>
+                                                    <option class="option-color" value="">Cheque</option>
+                                                    <option class="option-color" value="">Bank Transfer</option>
+                                                    <option class="option-color" value="">Paypal</option>
+                                                    <option class="option-color" value="">Credit</option>
+                                                    <option class="option-color" value="">7 Days</option>
+                                                    <option class="option-color" value="">14 Days</option>
+                                                    <option class="option-color" value="">30 Days</option>
+                                                    <option class="option-color" value="">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Purchase Order No</label>
+                                            <div class="pull-left">
+                                                <input class="width-120" type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="clearfix"></div>
 
-
                             </div>
+                            <div class="empty-height"></div>
+                            <div class="empty-height"></div>
+                            <hr class="hrr" />
 
 
+                            <div class="col-md-12">
 
 
+                                <table border="0" class="table table-responsive border_black" style="width:100%" id="maintable">
+                                    <thead>
+                                        <tr class="table-heading-fonts-new-invoice table-main-headings">
+                                            <th class="text-center">Code</th>
+                                            <th class="text-center width-53p">Description</th>
+                                            <th class="text-center">Quantity</th>
+                                            <th width="10%" class="text-center">Price</th>
+                                            <th class="text-center hidecolumn">Price+VAT</th>
+                                            <th width="2%" class="text-center">Total</th>
+                                            <th class="text-center hidecolumn">Total+VAT</th>
+                                            <th class="text-center">Discount</th>
+                                            <th width="25%" class="text-center">Actions</th>
 
-                            <div class="col-md-2 pull-left">
-                                <div class="empty-height"></div>
-                                <ul class="list-style-type-custom">
-                                    <li class="bold font-18 black-color">Premium Customer</li>
-                                    <li>cctv</li>
-                                    <li>185 Rochdale</li>
-                                    <li>OL12ODR</li>
-                                    <li>8687655</li>
-                                    <li>test@cctv.co.uk</li>
-                                </ul>
-                            </div>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="black-color">
 
-                            <div class="col-md-6 pull-left pr-0">
+                                        <tr id="rowId" class="font-15 remove_div">
+                                            <td class="border-right-td"><div class="text-center"><input class="unbold width-110" name="" type="text"></div></td>
+                                            <td class="border-right-td">
+                                                <textarea class="description-text-area unbold width-100p" required=""></textarea>
+                                            </td>
+                                            <td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td>
+                                            <td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td>
+                                            <td class="border-right-td hidecolumn text-center"><input class="new-invoice-width-boxes unbold width-78" name="" type="text"></td>
+                                            <td class="text-center border-right-td width-68">£12345678</td>
+                                            <td class="border-right-td text-center width-78 hidecolumn">£123456789</td>
+                                            <td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td>
+                                            <td class="text-center width-25p" style="vertical-align:middle;">
+                                                <a href="#" class="add_new_row showdiv">
+                                                    <img src="/img/images/plus_new_sale.png">
+                                                </a>
+                                                <a href="#" class="remove">
+                                                    <img src="/img/images/cross_new_sale.png">
+                                                </a>
+                                                <a href="#">
+                                                    <img src="/img/images/barcode_new_sale.png">
+                                                </a>
+                                                <a href="#">
+                                                    <img src="/img/images/findpost.png">
+                                                </a>
 
-                                <div class="empty-height"></div>
-                                <div class="col-md-5">
-                                    <label><input type="checkbox" value="" />Check Sold History</label>
-                                    <label><input type="checkbox" id="excludeVat" value="" onclick="excludeVatUnchecked();" />Exclude VAT</label>
-                                    <label><input type="checkbox" value="" />Show Details</label>
-                                </div>
-                                <div class="col-md-7 pr-0">
+                                            </td>
+                                        </tr>
 
-                                    <div class="form-group">
-                                        <label class="pull-left width-145" for="middle-name">Document Type</label>
-                                        <div class="pull-left">
-                                            <select name="supplier_name" class="form-control border_black-1px width-120">
-                                                <option value="">Invoice</option>
-                                                <option value="">Quote</option>
-                                                <option value="">Item Sale</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-
-                                    <div class="form-group">
-                                        <label class="pull-left width-145" for="middle-name">Invoice Number</label>
-                                        <div class="pull-left">
-                                            <input class="width-120" type="text" name="company_name" id="company_name" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-
-
-                                    <div class="form-group">
-                                        <label class="pull-left width-145" for="middle-name">Date</label>
-                                        <div class="pull-left">
-                                            <input class="width-120" type="text" name="company_name" id="company_name" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-
-                                    <div class="form-group">
-                                        <label class="pull-left width-145" for="middle-name">Sales Person</label>
-                                        <div class="pull-left">
-                                            <input class="width-120" type="text" name="company_name" id="company_name" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-
-                                    <div class="form-group">
-                                        <label class="pull-left width-145" for="middle-name">Payment Method</label>
-                                        <div class="pull-left">
-                                            <select name="supplier_name" class="form-control border_black-1px width-120">
-                                                <option value="">Cash</option>
-                                                <option value="">Card</option>
-                                                <option value="">Cheque</option>
-                                                <option value="">Bank Transfer</option>
-                                                <option value="">Paypal</option>
-                                                <option value="">Credit</option>
-                                                <option value="">7 Days</option>
-                                                <option value="">14 Days</option>
-                                                <option value="">30 Days</option>
-                                                <option value="">Other</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-
-
-                                    <div class="form-group">
-                                        <label class="pull-left width-145" for="middle-name">Purchase Order No</label>
-                                        <div class="pull-left">
-                                            <input class="width-120" type="text" name="company_name" id="company_name" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="clearfix"></div>
-
-                        </div>
-                        <div class="empty-height"></div>
-                        <div class="empty-height"></div>
-                        <hr class="hrr" />
-
-
-                        <div class="col-md-12">
-                            
-
-                            <table border="0" class="table table-responsive border_black" style="width:100%" id="maintable">
-                                <thead>
-                                    <tr class="table-heading-fonts-new-invoice table-main-headings">
-                                        <th width="20%" class="text-center">Code</th>
-                                        <th width="40%" class="text-center">Description</th>
-                                        <th width="1%" class="text-center">Quantity</th>
-                                        <th width="10%" class="text-center">Price</th>
-                                        <th width="1%" class="text-center"><div id="price_vat_th">Price+VAT</div></th>
-                                        <th width="2%" class="text-center">Total</th>
-                                        <th width="1%" class="text-center"><div id="total_vat_th">Total+VAT</div></th>
-                                        <th width="1%" class="text-center">Discount</th>
-                                        <th width="25%" class="text-center">Actions</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody class="black-color">
-
-
-                                    
-
-                                    <tr id="rowId" class="font-15 remove_div">
-                                        <td class="border-right-td"><div class="text-center"><input class="unbold width-100p" name="" type="text"></div></td>
-                                        <td class="border-right-td">
-                                            <textarea class="description-text-area unbold width-100p" required=""></textarea>
-                                        </td>
-                                        <td class="border-right-td"><div class="text-center"><input class="unbold width-80p" name="" type="text"></div></td>
-                                        <td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-100p" name="" type="text"></div></td>
-                                        <td id="price_vat" class="border-right-td"><div id="price_vat_td" class="text-center"><input class="new-invoice-width-boxes unbold width-100p" name="" type="text"></div></td>
-                                        <td class="text-center width-7p border-right-td">£123</td>
-                                        <td id="vat_td" class="border-right-td text-center width-4p"><div id="total_vat_td">£246</div></td>
-                                        <td class="border-right-td"><div class="text-center"><input class="unbold width-70p" name="" type="text"></div></td>
-                                        <td class="text-center width-100p">
-                                            <a href="#" class="add_new_row showdiv">
-                                                <img src="/img/images/plus_new_sale.png">
-                                            </a>
-                                            <a href="#" class="remove">
-                                                <img src="/img/images/cross_new_sale.png">
-                                            </a>
-                                            <a href="#">
-                                                <img src="/img/images/barcode_new_sale.png">
-                                            </a>
-                                            <a href="#">
-                                                <img src="/img/images/findpost.png">
-                                            </a>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-
-
-
-
-
-                                </tbody>
-
-                            </table>
-
-
-                            <div id="addedRows"></div>
-
-                            <div class="clearfix"></div>
-                        </div>
-
-
-
-                        <div class="">
-
-                            <div class="col-md-4 unbold">
-                                <textarea class="textarea-style-none unbold textarea-width" placeholder="Customer notes..."></textarea>
-                            </div>
-                            <div class="col-md-4 pl-0">
-                                <textarea class="textarea-style-none unbold textarea-width" placeholder="Private notes..."></textarea>
-                            </div>
-                            <div class="col-md-4">
-                                <table id="table_cash" class="black-color col-md-12 border_black">
-                                    <tr>
-                                        <td class="bold">Net</td>
-                                        <td class="text-right">£123</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bold">VAT (20%)</td>
-                                        <td class="text-right">£1</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="bold">Gross</td>
-                                        <td class="text-right">£83</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bold">Discount</td>
-                                        <td class="text-right">£0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bold">Total After Discount</td>
-                                        <td class="text-right">£0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bold">Payment Status</td>
-                                        <td class="text-right">
-                                            <select name="supplier_name" class="form-control border_black-1px min-height-32 width-120">
-                                                <option value="">Paid</option>
-                                                <option value="">Unpaid</option>
-                                                <option value="">Partially Paid</option>
-                                                <option value="">Deposit</option>
-                                                <option value="">Pay within 7 Days</option><option value="">Pay within 14 Days</option>
-                                                <option value="">Pay within 30 Days</option>
-
-                                            </select>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="bold"><a href="#">Add Partial Payment</a></td>
-                                        <td class="bold"><a href="#">Give Refund</a></td>
-                                    </tr>
+                                    </tbody>
 
                                 </table>
+
+
+                                <div id="addedRows"></div>
+
+                                <div class="clearfix"></div>
                             </div>
 
-                            <div class="clearfix"></div>
+
+
+                            <div class="">
+
+                                <div class="col-md-4 unbold">
+                                    <textarea class="textarea-style-none unbold textarea-width" placeholder="Customer notes..."></textarea>
+                                </div>
+                                <div class="col-md-4 pl-0">
+                                    <textarea class="textarea-style-none unbold textarea-width" placeholder="Private notes..."></textarea>
+                                </div>
+                                <div class="col-md-4">
+                                    <table id="table_cash" class="black-color col-md-12 border_black">
+                                        <tr>
+                                            <td class="bold">Net</td>
+                                            <td class="text-right">£123</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bold">VAT (20%)</td>
+                                            <td class="text-right">£1</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="bold">Gross</td>
+                                            <td class="text-right">£83</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bold">Discount</td>
+                                            <td class="text-right">£0</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bold">Total After Discount</td>
+                                            <td class="text-right">£0</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bold">Payment Status</td>
+                                            <td class="text-right">
+                                                <select name="supplier_name" class="form-control border_black-1px min-height-32 width-120 select-class-color">
+                                                    <option class="option-color" value="">Paid</option>
+                                                    <option class="option-color" value="">Unpaid</option>
+                                                    <option class="option-color" value="">Partially Paid</option>
+                                                    <option class="option-color" value="">Deposit</option>
+                                                    <option class="option-color" value="">Pay within 7 Days</option>
+                                                    <option class="option-color" value="">Pay within 14 Days</option>
+                                                    <option class="option-color" value="">Pay within 30 Days</option>
+
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="bold"><a href="#">Add Partial Payment</a></td>
+                                            <td class="bold"><a href="#">Give Refund</a></td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                            <div class="col-md-12">
+
+                                <div class="empty-height"></div><div class="empty-height"></div>
+
+                                <div class="col-md-3 pull-right">
+                                    <a href="" class="btn btn-primary blue-btn-style btn-mini bold">Add Global Discount</a>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12">
+
+
+
+                                <div class="col-md-5"></div>
+
+
+                                <div class="col-md-1 pr-0 text-center">
+                                    <a href="#">
+                                        <span class=""><img src="~/img/images/save.png" /></span><br />
+                                        <span class="bold">Save</span>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-1 text-center">
+                                    <a href="#">
+                                        <span class=""><img src="~/img/images/exit.png" /></span><br />
+                                        <span class="bold ml--7">Exit</span>
+
+                                    </a>
+                                </div>
+                                <div class="col-md-5"></div>
+
+                            </div>
 
                         </div>
 
-                        <div class="col-md-12">
+                        <div id="quote_id" class="none">
+                            <div class="">
 
-                            <div class="empty-height"></div><div class="empty-height"></div>
+                                <div class="col-md-4 pull-left">
+                                    <h3 class="bold">
+                                        New Quote
+                                    </h3>
 
-                            <div class="col-md-3 pull-right">
-                                <a href="" class="btn btn-primary blue-btn-style btn-mini bold">Add Global Discount</a>
+                                    <div class="empty-height"></div>
+                                    <div class="empty-height"></div>
+
+
+                                    <div class="col-md-6 pull-left">
+                                        <a href="#" data-toggle="modal" data-target="#ExistingModal">
+                                            <span class=""><img src="~/img/images/search_customer.png" /></span><br />
+                                            <span class="bold">Existing Customer</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-md-6 pull-left">
+                                        <a href="#" data-toggle="modal" data-target="#CreateModal">
+                                            <span class=""><img src="~/img/images/add_customer.png" /></span><br />
+                                            <span class="bold">New Customer</span>
+
+                                        </a>
+                                    </div>
+
+
+                                    <div class="clearfix"></div>
+
+
+                                </div>
+
+
+
+
+
+                                <div class="col-md-2 pull-left">
+                                    <div class="empty-height"></div>
+                                    <ul class="list-style-type-custom">
+                                        <li class="bold font-18 black-color">Premium Customer</li>
+                                        <li>cctv</li>
+                                        <li>185 Rochdale</li>
+                                        <li>OL12ODR</li>
+                                        <li>8687655</li>
+                                        <li>test@cctv.co.uk</li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-6 pull-left pr-0">
+
+                                    <div class="empty-height"></div>
+                                    <div class="col-md-5">
+                                        <label><input type="checkbox" value="" />Check Sold History</label>
+                                        <label><input type="checkbox" id="excludeVatQuote" value="" onclick="excludeVatQuote();" />Exclude VAT</label>
+                                        <label><input type="checkbox" value="" />Show Details</label>
+                                    </div>
+                                    <div class="col-md-7 pr-0">
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Document Type</label>
+                                            <div class="pull-left">
+                                                <select id="language1" oninput="run_quote()" name="supplier_name" class="form-control border_black-1px width-120">
+                                                    <option value="1">Invoice</option>
+                                                    <option value="2" selected>Quote</option>
+                                                    <option value="3">Item Sale</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Quote Number</label>
+                                            <div class="pull-left">
+                                                <input class="width-120" type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Date</label>
+                                            <div class="pull-left">
+                                                <input class="width-120" type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Sales Person</label>
+                                            <div class="pull-left">
+                                                <input class="width-120" type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                        
+
+                                        <div class="clearfix"></div>
+
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Purchase Order No</label>
+                                            <div class="pull-left">
+                                                <input class="width-120" type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+                            <div class="empty-height"></div>
+                            <div class="empty-height"></div>
+                            <hr class="hrr" />
+
+
+                            <div class="col-md-12">
+
+
+                                <table border="0" class="table table-responsive border_black" style="width:100%" id="maintable">
+                                    <thead>
+                                        <tr class="table-heading-fonts-new-invoice table-main-headings">
+                                            <th width="20%" class="text-center">Code</th>
+                                            <th width="40%" class="text-center">Description</th>
+                                            <th width="1%" class="text-center">Quantity</th>
+                                            <th width="10%" class="text-center">Price</th>
+                                            <th width="1%" class="text-center"><div id="price_vat_th_quote">Price+VAT</div></th>
+                                            <th width="2%" class="text-center">Total</th>
+                                            <th width="1%" class="text-center"><div id="total_vat_th_quote">Total+VAT</div></th>
+                                            <th width="1%" class="text-center">Discount</th>
+                                            <th width="25%" class="text-center">Actions</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody class="black-color">
+
+
+
+
+                                        <tr id="rowId" class="font-15 remove_div">
+                                            <td class="border-right-td"><div class="text-center"><input class="unbold width-100p" name="" type="text"></div></td>
+                                            <td class="border-right-td">
+                                                <textarea class="description-text-area unbold width-100p" required=""></textarea>
+                                            </td>
+                                            <td class="border-right-td"><div class="text-center"><input class="unbold width-80p" name="" type="text"></div></td>
+                                            <td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-100p" name="" type="text"></div></td>
+                                            <td id="price_vat_quote" class="border-right-td"><div id="price_vat_td_quote" class="text-center"><input class="new-invoice-width-boxes unbold width-100p" name="" type="text"></div></td>
+                                            <td class="text-center width-7p border-right-td">£123</td>
+                                            <td id="vat_td_quote" class="border-right-td text-center width-4p"><div id="total_vat_td_quote">£246</div></td>
+                                            <td class="border-right-td"><div class="text-center"><input class="unbold width-70p" name="" type="text"></div></td>
+                                            <td class="text-center width-100p">
+                                                <a href="#" class="add_new_row showdiv">
+                                                    <img src="/img/images/plus_new_sale.png">
+                                                </a>
+                                                <a href="#" class="remove">
+                                                    <img src="/img/images/cross_new_sale.png">
+                                                </a>
+                                                <a href="#">
+                                                    <img src="/img/images/barcode_new_sale.png">
+                                                </a>
+                                                <a href="#">
+                                                    <img src="/img/images/findpost.png">
+                                                </a>
+
+                                            </td>
+                                        </tr>
+
+
+
+
+
+
+
+
+
+
+                                    </tbody>
+
+                                </table>
+
+
+                                <div id="addedRows"></div>
+
+                                <div class="clearfix"></div>
+                            </div>
+
+
+
+                            <div class="">
+
+                                <div class="col-md-4 unbold">
+                                    <textarea class="textarea-style-none unbold textarea-width" placeholder="Customer notes..."></textarea>
+                                </div>
+                                <div class="col-md-4 pl-0">
+                                    <textarea class="textarea-style-none unbold textarea-width" placeholder="Private notes..."></textarea>
+                                </div>
+                                <div class="col-md-4">
+                                    <table id="table_cash" class="black-color col-md-12 border_black">
+                                        <tr>
+                                            <td class="bold">Net</td>
+                                            <td class="text-right">£123</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bold">VAT (20%)</td>
+                                            <td class="text-right">£1</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="bold">Gross</td>
+                                            <td class="text-right">£83</td>
+                                        </tr>
+                                  
+                                    </table>
+                                </div>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                         
+
+                            <div class="col-md-12">
+
+
+
+                                <div class="col-md-5"></div>
+
+
+                                <div class="col-md-1 pr-0 text-center">
+                                    <a href="#">
+                                        <span class=""><img src="~/img/images/save.png" /></span><br />
+                                        <span class="bold">Save</span>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-1 text-center">
+                                    <a href="#">
+                                        <span class=""><img src="~/img/images/exit.png" /></span><br />
+                                        <span class="bold ml--7">Exit</span>
+
+                                    </a>
+                                </div>
+                                <div class="col-md-5"></div>
+
                             </div>
 
                         </div>
 
-                        <div class="col-md-12">
+                        <div id="item_sale_id" class="none">
+                            <div class="">
+
+                                <div class="col-md-4 pull-left">
+                                    <h3 class="bold">
+                                        New Item Sale
+                                    </h3>
+
+                                    <div class="empty-height"></div>
+                                    <div class="empty-height"></div>
+
+
+                                    <div class="col-md-6 pull-left">
+                                        <a href="#" data-toggle="modal" data-target="#ExistingModal">
+                                            <span class=""><img src="~/img/images/search_customer.png" /></span><br />
+                                            <span class="bold">Existing Customer</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-md-6 pull-left">
+                                        <a href="#" data-toggle="modal" data-target="#CreateModal">
+                                            <span class=""><img src="~/img/images/add_customer.png" /></span><br />
+                                            <span class="bold">New Customer</span>
+
+                                        </a>
+                                    </div>
+
+
+                                    <div class="clearfix"></div>
+
+
+                                </div>
 
 
 
-                            <div class="col-md-5"></div>
 
 
-                            <div class="col-md-1 pr-0 text-center">
-                                <a href="#">
-                                    <span class=""><img src="~/img/images/save.png" /></span><br />
-                                    <span class="bold">Save</span>
-                                </a>
+                                <div class="col-md-2 pull-left">
+                                    <div class="empty-height"></div>
+                                    <ul class="list-style-type-custom">
+                                        <li class="bold font-18 black-color">Premium Customer</li>
+                                        <li>cctv</li>
+                                        <li>185 Rochdale</li>
+                                        <li>OL12ODR</li>
+                                        <li>8687655</li>
+                                        <li>test@cctv.co.uk</li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-6 pull-left pr-0">
+
+                                    <div class="empty-height"></div>
+                                    <div class="col-md-5">
+                                        <label><input type="checkbox" value="" />Check Sold History</label>
+                                    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+                                    <div class="col-md-7 pr-0">
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Document Type</label>
+                                            <div class="pull-left">
+                                                <select id="language2" oninput="run_item_sale()" name="supplier_name" class="form-control border_black-1px width-120">
+                                                    <option value="1">Invoice</option>
+                                                    <option value="2">Quote</option>
+                                                    <option value="3" selected>Item Sale</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Item Sale Number</label>
+                                            <div class="pull-left">
+                                                <input class="width-120" type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Date</label>
+                                            <div class="pull-left">
+                                                <input class="width-120" type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Sales Person</label>
+                                            <div class="pull-left">
+                                                <input class="width-120" type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Payment Method</label>
+                                            <div class="pull-left">
+                                                <select name="supplier_name" class="form-control border_black-1px width-120">
+                                                    <option value="">Cash</option>
+                                                    <option value="">Card</option>
+                                                    <option value="">Cheque</option>
+                                                    <option value="">Bank Transfer</option>
+                                                    <option value="">Paypal</option>
+                                                    <option value="">Credit</option>
+                                                    <option value="">7 Days</option>
+                                                    <option value="">14 Days</option>
+                                                    <option value="">30 Days</option>
+                                                    <option value="">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+
+                                        <div class="form-group">
+                                            <label class="pull-left width-145" for="middle-name">Purchase Order No</label>
+                                            <div class="pull-left">
+                                                <input class="width-120" type="text" name="company_name" id="company_name" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+                            <div class="empty-height"></div>
+                            <div class="empty-height"></div>
+                            <hr class="hrr" />
+
+
+                            <div class="col-md-12">
+
+
+                                <table border="0" class="table table-responsive border_black" style="width:100%" id="maintable">
+                                    <thead>
+                                        <tr class="table-heading-fonts-new-invoice table-main-headings">
+                                            <th width="20%" class="text-center">Code</th>
+                                            <th width="40%" class="text-center">Description</th>
+                                            <th width="1%" class="text-center">Quantity</th>
+                                            <th width="10%" class="text-center">Price</th>
+                                            
+                                            <th width="2%" class="text-center">Total</th>
+                                            
+                                            <th width="1%" class="text-center">Discount</th>
+                                            <th width="25%" class="text-center">Actions</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody class="black-color">
+
+
+
+
+                                        <tr id="rowId" class="font-15 remove_div">
+                                            <td class="border-right-td"><div class="text-center"><input class="unbold width-100p" name="" type="text"></div></td>
+                                            <td class="border-right-td">
+                                                <textarea class="description-text-area unbold width-100p" required=""></textarea>
+                                            </td>
+                                            <td class="border-right-td"><div class="text-center"><input class="unbold width-80p" name="" type="text"></div></td>
+                                            <td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-100p" name="" type="text"></div></td>
+                                            
+                                            <td class="text-center width-7p border-right-td">£123</td>
+                                            
+                                            <td class="border-right-td"><div class="text-center"><input class="unbold width-70p" name="" type="text"></div></td>
+                                            <td class="text-center width-100p">
+                                                <a href="#" class="add_new_row showdiv">
+                                                    <img src="/img/images/plus_new_sale.png">
+                                                </a>
+                                                <a href="#" class="remove">
+                                                    <img src="/img/images/cross_new_sale.png">
+                                                </a>
+                                                <a href="#">
+                                                    <img src="/img/images/barcode_new_sale.png">
+                                                </a>
+                                                <a href="#">
+                                                    <img src="/img/images/findpost.png">
+                                                </a>
+
+                                            </td>
+                                        </tr>
+
+
+
+
+
+
+
+
+
+
+                                    </tbody>
+
+                                </table>
+
+
+                                <div id="addedRows"></div>
+
+                                <div class="clearfix"></div>
                             </div>
 
-                            <div class="col-md-1 text-center">
-                                <a href="#">
-                                    <span class=""><img src="~/img/images/exit.png" /></span><br />
-                                    <span class="bold ml--7">Exit</span>
 
-                                </a>
+
+                            <div class="">
+
+                                <div class="col-md-4 unbold">
+                                    <textarea class="textarea-style-none unbold textarea-width" placeholder="Customer notes..."></textarea>
+                                </div>
+                                <div class="col-md-4 pl-0">
+                                    <textarea class="textarea-style-none unbold textarea-width" placeholder="Private notes..."></textarea>
+                                </div>
+                                <div class="col-md-4">
+                                    <table id="table_cash" class="black-color col-md-12 border_black">
+                                       
+
+                                        <tr>
+                                            <td class="bold">Gross</td>
+                                            <td class="text-right">£83</td>
+                                        </tr>
+                                       
+                                       
+                                        <tr>
+                                            <td class="bold">Payment Status</td>
+                                            <td class="text-right">
+                                                <select name="supplier_name" class="form-control border_black-1px min-height-32 width-120">
+                                                    <option value="">Paid</option>
+                                                    <option value="">Unpaid</option>
+                                                    <option value="">Partially Paid</option>
+                                                    <option value="">Deposit</option>
+                                                    <option value="">Pay within 7 Days</option>
+                                                    <option value="">Pay within 14 Days</option>
+                                                    <option value="">Pay within 30 Days</option>
+
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="bold"><a href="#">Add Partial Payment</a></td>
+                                            <td class="bold"><a href="#">Give Refund</a></td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+
+                                <div class="clearfix"></div>
+
                             </div>
-                            <div class="col-md-5"></div>
+
+                            <div class="col-md-12">
+
+                                
+
+                                <div class="col-md-3 pull-right">
+                                    <a href="" class="btn btn-primary blue-btn-style btn-mini bold">Add Global Discount</a>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12">
+
+
+
+                                <div class="col-md-5"></div>
+
+
+                                <div class="col-md-1 pr-0 text-center">
+                                    <a href="#">
+                                        <span class=""><img src="~/img/images/save.png" /></span><br />
+                                        <span class="bold">Save</span>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-1 text-center">
+                                    <a href="#">
+                                        <span class=""><img src="~/img/images/exit.png" /></span><br />
+                                        <span class="bold ml--7">Exit</span>
+
+                                    </a>
+                                </div>
+                                <div class="col-md-5"></div>
+
+                            </div>
 
                         </div>
-
                     </div>
                 </div>
                 @*-----------------Main Container Ends---------------*@
@@ -411,43 +948,43 @@
                     <div class="x_panel">
 
                         <div class="win text-center">
-                            <h3 class="black-color"><b>Find Customer</b></h3>
+                            <h3 class="color"><b>Find Customer</b></h3>
                             @*<img class="pull-right" src="~/img/images/supplier.png" style="margin:-34px 81px 20px 0" />*@
 
 
-                            <form id="demo-form2" action="" method="post" data-parsley-validate class="form-horizontal form-label-left mt-30" enctype="multipart/form-data">
+                            <div class="empty-height"></div><div class="empty-height"></div>
+
+                            <table class="table table-responsive border_black" id="customer_list_table">
+                                <thead>
+                                    <tr class="table-heading-fonts table-main-headings">
+                                        <th class="text-center">Name</th>
+                                        <th class="text-center">Phone</th>
+                                        <th class="text-center">Address</th>
+                                        <th class="text-center">Postcode</th>
+                                        <th class="text-center">Email</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="black-color bold" id="existing_customer_list">
+
+                                    @foreach (var v in ViewBag.Customer)
+                                    {
+                                        <tr onclick="go()">
+                                            <td data-title="User ID">@v.Name</td>
+                                            <td data-title="First Name">@v.phone</td>
+                                            <td data-title="Last Name">@v.Billing_Address</td>
+                                            <td data-title="Last Name">@v.Billing_Postcode</td>
+                                            <td data-title="Email" class="user-emails">@v.Email</td>
 
 
+                                        </tr>
 
-                                <div class="col-md-12">
+                                    }
 
-                                    <div class="form-group">
-                                        <div class="">
-                                            <div class="pull-left">
-                                                <input type="text" name="credit_period" class="width-320">
-                                                <a href="" class="btn-primary btn-mini center-block btn-existing-supplier-cancel" style="">Cancel</a>
-                                                <input type="submit" value="Search" class="btn-success btn-mini center-block btn-existing-supplier-search" />
-
-                                            </div>
-                                        </div>
-
-                                        @*<label style="float: left;margin: 1px -32px 0 25px">Ext</label>*@
-
-                                        <div class="clear"></div>
+                                </tbody>
 
 
-
-
-                                    </div>
-
-
-
-
-
-                                </div>
-
-
-                            </form>
+                            </table>
 
 
                         </div>
@@ -456,11 +993,15 @@
                     </div>
                 </div>
 
-                <div class="modal-footer">
+                <div class="modal-footer"></div>
 
+
+                
+
+                <div class="">
+                    
 
                 </div>
-
 
 
             </div>
@@ -729,10 +1270,44 @@
 
     @*----------------------------POP UP END ADD CUSTOMER--------------------------------*@
 
+    <script src="~/Scripts/new-js/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/new-js/jquery.datatables.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#DropDownList1").change(function () {
+                $("option", $(this)).each(function (index) {
+                    if ($(this).is(":selected")) {
+                        $(this).css("backgroundColor", "yellow");
+                    }
+                    else {
+                        $(this).css("backgroundColor", "white");
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        function go() {
+            alert("GOOOOOOOOOOO");
+            //$("#ExistingModal").addClass('none');
+        }
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#customer_list_table').dataTable();
+        });
+
+    </script>
 
     <script>
         $('.add_new_row').click(function () {
-            $('#maintable tr:last').after('<tr id="rowId" class="font-15 remove_div"><td class="border-right-td"><div class="text-center"><input class="unbold width-100p" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required=""></textarea></td><td class="border-right-td"><div class="text-center"><input class="unbold width-80p" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-100p" name="" type="text"></div></td><td id="price_vat" class="border-right-td"><div id="price_vat_td" class="text-center"><input class="new-invoice-width-boxes unbold width-100p" name="" type="text"></div></td><td class="text-center width-7p border-right-td">£123</td><td id="vat_td" class="border-right-td text-center width-4p"><div id="total_vat_td">£246</div></td><td class="border-right-td"><div class="text-center"><input class="unbold width-70p" name="" type="text"></div></td><td class="text-center width-100p"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif" onclick="removeRow()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:5px;"></a></td></tr>');
+            $('#maintable tr:last').after('<tr id="rowId" class="font-15 remove_div"><td class="border-right-td"><div class="text-center"><input class="unbold width-110" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required=""></textarea></td><td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="border-right-td hidecolumn text-center"><input class="new-invoice-width-boxes unbold width-78" name="" type="text"></td><td class="text-center border-right-td width-68">£12345678</td><td class="border-right-td text-center width-78 hidecolumn">£123456789</td><td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif" onclick="removeRow()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
         });
 
         //function removeRow()
@@ -774,7 +1349,7 @@
     <script>
 
         $("#addrows").click(function () {
-            $('#maintable tr:last').after('<tr id="rowId" class="font-17"><td><input class="new-invoice-width-boxes unbold" name="" type="text" /></td><td><textarea class="description-text-area unbold" required></textarea></td><td><input class="new-invoice-width-boxes unbold" name="" type="text" /></td><td><input class="new-invoice-width-boxes unbold" name="" type="text" /></td><td id="price_vat_td"><input class="new-invoice-width-boxes unbold" name="" type="text" /></td><td>£123</td><td id="total_vat_td">£246</td><td>£246</td><td class="text-center"><a href="#" id="addrows"><img src="/img/images/plus_new_sale.png"/></a><a href="#" class="remove"><img src="/img/images/cross_new_sale.png"/></a><a href="#"><img src="/img/images/barcode_new_sale.png"/></a><a href="#"><img src="/img/images/findpost.png"/></a></td></tr>');
+            $('#maintable tr:last').after('<tr id="rowId" class="font-17"><td><input class="new-invoice-width-boxes unbold" name="" type="text" /></td><td><textarea class="description-text-area unbold" required></textarea></td><td><input class="new-invoice-width-boxes unbold" name="" type="text" /></td><td><input class="new-invoice-width-boxes unbold" name="" type="text" /></td><td id="price_vat_td"><input class="new-invoice-width-boxes unbold" name="" type="text" /></td><td>£0</td><td id="total_vat_td">£246</td><td>£246</td><td class="text-center"><a href="#" id="addrows"><img src="/img/images/plus_new_sale.png"/></a><a href="#" class="remove"><img src="/img/images/cross_new_sale.png" style="margin-left:4px;"/></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:5px;"/></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:5px;"/></a></td></tr>');
             //$('#maintable tr:last').after('<tr id="delete_tr"><td><input class="width-43" name="" type="text" /></td><td><textarea class="textarea-style width-250"></textarea></td><td><input class="width-43" name="" type="text" /></td><td><input class="width-43" name="" type="text" /></td><td id="price_vat_td"><input class="width-43" name="" type="text" /></td><td>£123</td><td id="total_vat_td">£246</td><td>£246</td><td class="text-center"><a href="#" id="addrows" style="margin-left: 3px;"><img src="../img/images/24.png"/></a><a class="remove" style="margin-left: 3px;" href="#"><img src="../img/images/24.png" /></a><a href="#" style="margin-left: 3px;"><img src="../img/images/24.png" /></a><a style="margin-left: 3px;" href="#"><img src="../img/images/24.png" /></a><a href="#" style="margin-left: 3px;"><img src="../img/images/24.png" /></a><a href="#" style="margin-left: 3px;"><img src="../img/images/24.png" /></a></td></tr>');
             $('.remove').click(function () {
                 $(this).closest('tr').remove();

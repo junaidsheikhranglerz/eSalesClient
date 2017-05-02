@@ -30,25 +30,37 @@ function excludeVatUnchecked() {
 
 
     if (document.getElementById("excludeVat").checked) {
-        $("#price_vat_th").addClass("none");
-        $("#price_vat_td").addClass("none");
-        $("#total_vat_th").addClass("none");
-        $("#total_vat_td").addClass("none");
-        $("#vat_td").removeClass('border-right-td');
-        $("#price_vat").removeClass('border-right-td');
+        $(".hidecolumn").hide();
     }
 
     else {
-        $("#price_vat_th").removeClass("none");
-        $("#price_vat_td").removeClass("none");
-        $("#total_vat_th").removeClass("none");
-        $("#total_vat_td").removeClass("none");
-        $("#price_vat_th").addClass("showDiv");
-        $("#price_vat_td").addClass("showDiv");
-        $("#total_vat_th").addClass("showDiv");
-        $("#total_vat_td").addClass("showDiv");
-        $("#vat_td").addClass('border-right-td');
-        $("#price_vat").addClass('border-right-td');
+        $(".hidecolumn").show();
+    }
+}
+
+function excludeVatQuote() {
+
+
+    if (document.getElementById("excludeVatQuote").checked) {
+        $("#price_vat_th_quote").addClass("none");
+        $("#price_vat_td_quote").addClass("none");
+        $("#total_vat_th_quote").addClass("none");
+        $("#total_vat_td_quote").addClass("none");
+        $("#vat_td_quote").removeClass('border-right-td');
+        $("#price_vat_quote").removeClass('border-right-td');
+    }
+
+    else {
+        $("#price_vat_th_quote").removeClass("none");
+        $("#price_vat_td_quote").removeClass("none");
+        $("#total_vat_th_quote").removeClass("none");
+        $("#total_vat_td_quote").removeClass("none");
+        $("#price_vat_th_quote").addClass("showDiv");
+        $("#price_vat_td_quote").addClass("showDiv");
+        $("#total_vat_th_quote").addClass("showDiv");
+        $("#total_vat_td_quote").addClass("showDiv");
+        $("#vat_td_quote").addClass('border-right-td');
+        $("#price_vat_quote").addClass('border-right-td');
     }
 }
 
@@ -117,5 +129,99 @@ function Different_Address() {
     else {
         $("#Shipping_Address_Div").removeClass('none');
         $("#Shipping_Address_Div").addClass('showDiv');
+    }
+}
+
+
+
+function run_invoice() {
+    var selectedValue = document.getElementById("language").value;
+
+    //var selectedValue1 = document.getElementById("language1").value;
+    //var selectedValue2 = document.getElementById("language2").value;
+
+    //alert(selectedValue);
+    if (selectedValue == 1) {
+        //$("#language") = "Invoice";
+        $("#item_sale_id").addClass("none");
+        $("#quote_id").addClass("none");
+        $("#invoice_id").removeClass("none");
+        $("#invoice_id").addClass("showDiv");
+    }
+
+    else if (selectedValue == 2) {
+        //$("#language") = "Quote";
+        $("#invoice_id").addClass("none");
+        $("#item_sale_id").addClass("none");
+        $("#quote_id").removeClass("none");
+        $("#quote_id").addClass("showDiv");
+    }
+
+    else if (selectedValue == 3) {
+       // $("#language") = "Item Sale";
+        $("#invoice_id").addClass("none");
+        $("#quote_id").addClass("none");
+        $("#item_sale_id").removeClass("none");
+        $("#item_sale_id").addClass("showDiv");
+        
+    }
+}
+
+function run_quote(){
+    var selectedValue = document.getElementById("language1").value;
+
+
+    if (selectedValue == 1) {
+        //$("#language1") = "Invoice";
+        $("#invoice_id").removeClass("none");
+        $("#invoice_id").addClass("showDiv");
+        $("#item_sale_id").addClass("none");
+        $("#quote_id").addClass("none");
+    }
+
+    else if (selectedValue == 2) {
+        //$("#language1") = "Quote";
+        $("#invoice_id").addClass("none");
+        $("#item_sale_id").addClass("none");
+        $("#quote_id").removeClass("none");
+        $("#quote_id").addClass("showDiv");
+    }
+
+    else if (selectedValue == 3) {
+        //$("#language1") = "Item Sale";
+        $("#invoice_id").addClass("none");
+        $("#quote_id").addClass("none");
+        $("#item_sale_id").addClass("showDiv");
+        $("#item_sale_id").removeClass("none");
+    }
+}
+
+
+function run_item_sale() {
+    var selectedValue = document.getElementById("language2").value;
+
+
+    if (selectedValue == 1) {
+        //$("#language2") = "Invoice";
+        $("#invoice_id").removeClass("none");
+        $("#invoice_id").addClass("showDiv");
+        $("#item_sale_id").addClass("none");
+        $("#quote_id").addClass("none");
+    }
+
+    else if (selectedValue == 2) {
+        //$("#language2") = "Quote";
+        $("#invoice_id").addClass("none");
+        $("#item_sale_id").addClass("none");
+        $("#quote_id").removeClass("none");
+        $("#quote_id").addClass("showDiv");
+    }
+
+    else if (selectedValue == 3) {
+        //$("#language2") = "Item Sale";
+        $("#invoice_id").addClass("none");
+        $("#quote_id").addClass("none");
+        $("#item_sale_id").addClass("showDiv");
+        $("#item_sale_id").removeClass("none");
     }
 }
