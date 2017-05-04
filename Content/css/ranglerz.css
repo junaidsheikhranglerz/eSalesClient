@@ -811,7 +811,7 @@
     margin-top:-25px;
 }
 
-#customer_list_tablee tbody tr:hover td{
+#kj tbody tr:hover td{
     background-color:#b94a48;
     cursor: pointer;
 }
