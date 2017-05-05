@@ -811,6 +811,17 @@
     margin-top:-25px;
 }
 
+.width-27p{
+    width:27%;
+}
+
+.total_invoice_background {
+    background-color: #2F4F4F;
+    color: #fff;
+    padding: 3px;
+    border-radius: 6px;
+}
+
 #kj tbody tr:hover td{
     background-color:#b94a48;
     cursor: pointer;
@@ -1282,4 +1293,9 @@
 
 .border-right-td{
     border-right:solid 2px black;
+}
+
+#partial_table_add tbody tr:hover td{
+    background-color:#b94a48;
+    cursor: pointer;
 }

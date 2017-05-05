@@ -191,17 +191,20 @@
                                     <tbody class="black-color">
 
                                         <tr id="rowId" class="font-15 id remove_div">
-                                            <td class="border-right-td"><div class="text-center"><input placeholder="Code" class="unbold width-110" name="" type="text"></div></td>
+                                            <td class="border-right-td"><div class="text-center"><input placeholder="Code" class="unbold width-110" id="codeforProduct" name="yoyoyoyoyoyoyoy" onkeyup="productList()" type="text"></div></td>
+
+                                         
+
                                             <td class="border-right-td">
-                                                <textarea class="description-text-area unbold width-100p" required="" placeholder="Description"></textarea>
+                                                <textarea class="description-text-area unbold width-100p" id="invoice_description" required="" placeholder="Description"></textarea>
                                             </td>
-                                            <td class="border-right-td"><div class="text-center"><input placeholder="0" class="unbold width-45" name="" type="text"></div></td>
-                                            <td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td>
-                                            <td class="border-right-td hidecolumn text-center"><input placeholder="0.0" class="new-invoice-width-boxes unbold width-78" name="" type="text"></td>
-                                            <td class="text-center border-right-td width-68">£0</td>
-                                            <td class="border-right-td text-center width-78 hidecolumn">£0</td>
-                                            <td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="unbold width-45" name="" type="text"></div></td>
-                                            <td class="text-center width-25p" style="vertical-align:middle;">
+                                            <td class="border-right-td"><div class="text-center"><input id="invoice_quantity" placeholder="0" class="unbold width-45" name="" type="text"></div></td>
+                                            <td class="border-right-td"><div class="text-center"><input id="invoice_price" placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td>
+                                            <td class="border-right-td hidecolumn text-center"><input id="invoice_price_vat" placeholder="0.0" class="new-invoice-width-boxes unbold width-78" name="" type="text"></td>
+                                            <td class="text-center border-right-td width-68"><div id="invoice_total" class="total_invoice_background">£12345678</div></td>
+                                            <td class="border-right-td text-center width-78 hidecolumn"><div id="invoice_total_vat" class="total_invoice_background">£123456789</div></td>
+                                            <td class="border-right-td"><div class="text-center"><input id="invoice_discount" placeholder="0.0" class="unbold width-45" name="" type="text"></div></td>
+                                            <td class="text-center width-27p" style="vertical-align:middle;">
                                                 <a href="#" class="add_new_row showdiv">
                                                     <img src="/img/images/plus_new_sale.png">
                                                 </a>
@@ -224,7 +227,9 @@
 
 
                                 <div id="addedRows"></div>
-
+                                <div id="productList">
+                                    <h1></h1>
+                                </div>
                                 <div class="clearfix"></div>
                             </div>
 
@@ -394,7 +399,7 @@
 
                                         <div class="col-md-5">
                                             <label><input type="checkbox" value="" />Check Sold History</label>
-                                            <label><input type="checkbox" id="excludeVat" value="" onclick="excludeVatUnchecked();" />Exclude VAT</label>
+                                            <label><input type="checkbox" id="QuoteId" value="" onclick="VatQuote();" />Exclude VAT</label>
                                             @*<label><input type="checkbox" value="" />Show Details</label>*@
                                         </div>
                                         <div class="col-md-7 pl-0 pr-0">
@@ -468,17 +473,23 @@
                                     </thead>
                                     <tbody class="black-color">
 
+                                    <tbody class="black-color">
+
                                         <tr id="rowId" class="font-15 remove_div_quote">
                                             <td class="border-right-td"><div class="text-center"><input placeholder="Code" class="unbold width-110" name="" type="text"></div></td>
                                             <td class="border-right-td">
                                                 <textarea class="description-text-area unbold width-100p" required="" placeholder="Description"></textarea>
                                             </td>
                                             <td class="border-right-td"><div class="text-center"><input placeholder="0" class="unbold width-45" name="" type="text"></div></td>
-                                            
+
                                             <td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td>
                                             <td class="border-right-td hidecolumnQuote text-center"><input placeholder="0.0" class="new-invoice-width-boxes unbold width-78" name="" type="text"></td>
-                                            <td class="text-center border-right-td width-68">£0</td>
-                                            <td class="border-right-td text-center width-78 hidecolumnQuote">£0</td>
+
+                                            <td class="text-center border-right-td width-68"><div id="quote_total" class="6 total_invoice_background">£0</div></td>
+                                            <td class="border-right-td text-center width-78 hidecolumnQuote"><div id="quote_total_vat" class="7 total_invoice_background">£0</div></td>
+
+
+
                                             <td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="unbold width-45" name="" type="text"></div></td>
                                             <td class="text-center width-25p" style="vertical-align:middle;">
                                                 <a href="#" class="add_new_row_quote showdiv">
@@ -498,6 +509,7 @@
                                         </tr>
 
                                     </tbody>
+
 
                                 </table>
 
@@ -724,7 +736,9 @@
                                             </td>
                                             <td class="border-right-td"><div class="text-center"><input placeholder="0" class="unbold width-45" name="" type="text"></div></td>
                                             <td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td>
-                                            <td class="text-center border-right-td width-68">£12345678</td>
+
+                                            <td class="text-center border-right-td width-68"><div class="total_invoice_background">£0</div></td>
+
                                             <td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="unbold width-45" name="" type="text"></div></td>
                                             <td class="text-center width-25p" style="vertical-align:middle;">
 
@@ -901,14 +915,14 @@
                                     <tbody class="black-color bold" id="">
                                         @foreach (var v in ViewBag.Customer)
 {
-    <tr onclick="go(@v.Id,@v.Customer_Type_Id)">
-        <td id="@String.Concat("juni1", v.Id)" data-title="User ID">@v.Name</td>
-        <td id="@String.Concat("juni2", v.Id)" data-title="First Name">@v.phone</td>
-        <td id="@String.Concat("juni3", v.Id)" data-title="Last Name">@v.Billing_Address</td>
-        <td id="@String.Concat("juni4", v.Id)" data-title="Last Name">@v.Billing_Postcode</td>
-        <td id="@String.Concat("juni5", v.Id)" data-title="Email" class="user-emails">@v.Email</td>
+                                            <tr onclick="go(@v.Id,@v.Customer_Type_Id)">
+                                                <td id="@String.Concat("juni1", v.Id)" data-title="User ID">@v.Name</td>
+                                                <td id="@String.Concat("juni2", v.Id)" data-title="First Name">@v.phone</td>
+                                                <td id="@String.Concat("juni3", v.Id)" data-title="Last Name">@v.Billing_Address</td>
+                                                <td id="@String.Concat("juni4", v.Id)" data-title="Last Name">@v.Billing_Postcode</td>
+                                                <td id="@String.Concat("juni5", v.Id)" data-title="Email" class="user-emails">@v.Email</td>
 
-    </tr>
+                                            </tr>
 }
                                     </tbody>
                                 </table>
@@ -916,8 +930,8 @@
                             </div>
 
 
-                                @*<table id="00" class="table table-responsive border_black">*@
-                                @*<table border="0" class="table table-responsive border_black" id="kj">
+                            @*<table id="00" class="table table-responsive border_black">*@
+                            @*<table border="0" class="table table-responsive border_black" id="kj">
                                     <thead>
                                         <tr class="table-heading-fonts table-main-headings">
                                             <th class="text-center">Name</th>
@@ -1219,13 +1233,48 @@
 
     @*----------------------------POP UP END ADD CUSTOMER--------------------------------*@
 
-  
+    <script>
+        function tbody_add_record() {
+            //alert("Record");
+            
+            var sku = document.getElementById("partial_sku");
+            var sku_inner = sku.innerHTML;
+            $("#codeforProduct").val(sku_inner);
+
+            var desc = document.getElementById("partial_description");
+            var desc_inner = desc.innerHTML;
+            $("#invoice_description").val(desc_inner);
+
+            var quantity = document.getElementById("partial_quantity");
+            var quantity_inner = quantity.innerHTML;
+            $("#invoice_quantity").val(quantity_inner);
+
+            var price = document.getElementById("partial_normal");
+            var price_inner = price.innerHTML;
+            $("#invoice_price").val(price_inner);
+
+            var price_vat = document.getElementById("partial_normal_vat");
+            var price_vat_inner = price_vat.innerHTML;
+            $("#invoice_price_vat").val(price_vat_inner);
+
+            //alert(price_inner);
+
+            document.getElementById("invoice_total").innerHTML = "£" + price_inner;
+            document.getElementById("invoice_total_vat").innerHTML = "£" + price_vat_inner;
+
+
+            $("#invoice_discount").val("0.00");
+
+            $("#productList").hide();
+
+        }
+    </script>
 
     @*----------------------QUOTE ADD ROW-----------------------*@
     <script>
         $('.add_new_row_quote').click(function () {
             //$('#maintable_quote tr:last').after('<tr id="rowId" class="font-15 remove_div_quote"><td class="border-right-td"><div class="text-center"><input class="unbold width-110" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required=""></textarea></td><td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="border-right-td hidecolumnQuote text-center"><input class="new-invoice-width-boxes unbold width-78" name="" type="text"></td><td class="text-center border-right-td width-68">£12345678</td><td class="border-right-td text-center width-78 hidecolumnQuote">£123456789</td><td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif_quote" onclick="removeRowQuote()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
-            $('#maintable_quote tr:last').after('<tr id="rowId" class="font-15 remove_div_quote"><td class="border-right-td"><div class="text-center"><input placeholder="Code"  class="unbold width-110" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required="" placeholder="Description"></textarea></td><td class="border-right-td"><div class="text-center"><input placeholder="0" class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="border-right-td hidecolumnQuote text-center"><input placeholder="0.0" class="new-invoice-width-boxes unbold width-78" name="" type="text"></td><td class="text-center border-right-td width-68">£12345678</td><td class="border-right-td text-center width-78 hidecolumnQuote">£123456789</td><td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif_quote" onclick="removeRowQuote()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
+            $('#maintable_quote tr:last').after('<tr id="rowId" class="font-15 remove_div_quote"><td class="border-right-td"><div class="text-center"><input placeholder="Code"  class="unbold width-110" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required="" placeholder="Description"></textarea></td><td class="border-right-td"><div class="text-center"><input placeholder="0" class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="border-right-td hidecolumnQuote text-center"><input placeholder="0.0" class="new-invoice-width-boxes unbold width-78" name="" type="text"></td><td class="text-center border-right-td width-68"><div id="quote_total" class="total_invoice_background">£0</div></td><td class="border-right-td text-center width-78 hidecolumnQuote"><div id="quote_total_vat" class="total_invoice_background">£0</div></td><td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif_quote" onclick="removeRowQuote()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
         });
 
         //function removeRowQuote()
@@ -1252,7 +1301,7 @@
     <script>
         $('.add_new_row_item_sale').click(function () {
             //$('#maintable_item_sale tr:last').after('<tr id="rowId" class="font-15 remove_div_item_sale"><td class="border-right-td"><div class="text-center"><input class="unbold width-110" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required=""></textarea></td><td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="text-center border-right-td width-68">£12345678</td><td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif_item_sale" onclick="removeRowItemSale()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
-            $('#maintable_item_sale tr:last').after('<tr id="rowId" class="font-15 remove_div_item_sale"><td class="border-right-td"><div class="text-center"><input placeholder="Code" class="unbold width-110" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required="" placeholder="Description"></textarea></td><td class="border-right-td"><div class="text-center"><input placeholder="0" class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input  placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="text-center border-right-td width-68">£12345678</td><td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif_item_sale" onclick="removeRowItemSale()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
+            $('#maintable_item_sale tr:last').after('<tr id="rowId" class="font-15 remove_div_item_sale"><td class="border-right-td"><div class="text-center"><input placeholder="Code" class="unbold width-110" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required="" placeholder="Description"></textarea></td><td class="border-right-td"><div class="text-center"><input placeholder="0" class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input  placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="text-center border-right-td width-68"><div class="total_invoice_background">£0</div></td><td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif_item_sale" onclick="removeRowItemSale()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
         });
 
         //function removeRowItemSale()
@@ -1286,7 +1335,7 @@
     <script>
         $('.add_new_row').click(function () {
             //$('#maintable tr:last').after('<tr id="rowId" class="font-15 remove_div"><td class="border-right-td"><div class="text-center"><input class="unbold width-110" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required=""></textarea></td><td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="border-right-td hidecolumn text-center"><input class="new-invoice-width-boxes unbold width-78" name="" type="text"></td><td class="text-center border-right-td width-68">£12345678</td><td class="border-right-td text-center width-78 hidecolumn">£123456789</td><td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif" onclick="removeRow()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
-            $('#maintable tr:last').after('<tr id="rowId" class="font-15 remove_div"><td class="border-right-td"><div class="text-center"><input placeholder="Code" class="unbold width-110" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required="" placeholder="Description"></textarea></td><td class="border-right-td"><div class="text-center"><input placeholder="0" class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="border-right-td hidecolumn text-center"><input placeholder="0.0" class="new-invoice-width-boxes unbold width-78" name="" type="text"></td><td class="text-center border-right-td width-68">£0</td><td class="border-right-td text-center width-78 hidecolumn">£0</td><td class="border-right-td"><div class="text-center"><input  placeholder="0.0" class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif" onclick="removeRow()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
+            $('#maintable tr:last').after('<tr id="rowId" class="font-15    remove_div"><td class="border-right-td"><div class="text-center"><input placeholder="Code" class="unbold width-110" id="codeforProduct" name="yoyoyoyoyoyoyoy" onkeyup="productList()" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" id="invoice_description" required="" placeholder="Description"></textarea></td><td class="border-right-td"><div class="text-center"><input id="invoice_quantity" placeholder="0" class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input id="invoice_price" placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="border-right-td hidecolumn text-center"><input id="invoice_price_vat" placeholder="0.0" class="new-invoice-width-boxes unbold width-78" name="" type="text"></td><td class="text-center border-right-td width-68"><div id="invoice_total" class="total_invoice_background">£0</div></td><td class="border-right-td text-center width-78 hidecolumn"><div id="invoice_total_vat" class="total_invoice_background">£123456789</div></td><td class="border-right-td"><div class="text-center"><input id="invoice_discount" placeholder="0.0" class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif" onclick="removeRow()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
         });
 
         //function removeRow()
@@ -1305,5 +1354,35 @@
         });
     </script>
     @*----------------------INVOICE ADD ROW-----------------------*@
+
+
+    <script>
+
+        function productList() {
+            $("#productList").show();
+            var char = document.getElementById('codeforProduct').value;
+
+            $.ajax({
+                url: '/Product/GetProducts/',
+                data: { ch: char },
+                cache: false,
+                type: "Get",
+                success: function (data) {
+
+                    document.getElementById('productList').innerHTML = data;
+                },
+                error: function (response) {
+                    alert(response);
+                }
+            })
+
+        }
+
+
+    </script>
+
+   
+
+
 
 </body>

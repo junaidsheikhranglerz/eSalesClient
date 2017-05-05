@@ -26,8 +26,10 @@ function PrintBtn() {
     window.print();
 }
 
-function excludeVatQuote() {
-    if (document.getElementById("excludeVatQuoteId").checked) {
+function VatQuote() {
+    
+    if (document.getElementById("QuoteId").checked) {
+        //alert("checked");
         $(".hidecolumnQuote").hide();
     }
 
