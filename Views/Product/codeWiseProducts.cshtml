@@ -20,18 +20,15 @@
 
         @foreach (var v in Model)
         {
-            <tbody class="black-color" onclick="tbody_add_record()">
+            <tbody class="black-color">
+                <tr id="rowId" class="font-15" onclick="tbody_add_record(@v.Id)">
 
-
-
-                <tr id="rowId" class="font-15 id ">
-
-                    <td id="partial_sku" class="border-right-td text-center">@v.Custom_Label_</td>
-                    <td id="partial_description" class="border-right-td text-center">@v.Item_Title</td>
-                    <td id="partial_normal" class="border-right-td text-center">@v.Price_Normal</td>
-                    <td id="partial_premium" class="border-right-td text-center">@v.Price_Premium</td>
-                    <td id="partial_trade" class="border-right-td text-center">@v.Price_Trade</td>
-                    <td id="partial_other" class="border-right-td text-center">@v.Price_Others</td>
+                    <td id="@String.Concat("partial_row1", v.Id)" class="border-right-td text-center">@v.Custom_Label_</td>
+                    <td id="@String.Concat("partial_row2", v.Id)" class="border-right-td text-center">@v.Item_Title</td>
+                    <td id="@String.Concat("partial_row3", v.Id)" class="border-right-td text-center">@v.Price_Normal</td>
+                    <td id="@String.Concat("partial_row4", v.Id)" class="border-right-td text-center">@v.Price_Premium</td>
+                    <td id="@String.Concat("partial_row5", v.Id)" class="border-right-td text-center">@v.Price_Trade</td>
+                    <td id="@String.Concat("partial_row6", v.Id)" class="border-right-td text-center">@v.Price_Others</td>
 
                     <td id="partial_normal_vat" hidden class="border-right-td text-center">@v.Normal_VAT</td>
                     <td id="partial_quantity" hidden>@v.Quantity.Quantity1</td>

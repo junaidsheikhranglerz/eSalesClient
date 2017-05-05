@@ -1234,26 +1234,26 @@
     @*----------------------------POP UP END ADD CUSTOMER--------------------------------*@
 
     <script>
-        function tbody_add_record() {
+        function tbody_add_record(id) {
             //alert("Record");
             
-            var sku = document.getElementById("partial_sku");
+            var sku = document.getElementById('partial_row1' + id);
             var sku_inner = sku.innerHTML;
             $("#codeforProduct").val(sku_inner);
 
-            var desc = document.getElementById("partial_description");
+            var desc = document.getElementById('partial_row2' + id);
             var desc_inner = desc.innerHTML;
             $("#invoice_description").val(desc_inner);
 
-            var quantity = document.getElementById("partial_quantity");
+            var quantity = document.getElementById('partial_row3' + id);
             var quantity_inner = quantity.innerHTML;
             $("#invoice_quantity").val(quantity_inner);
 
-            var price = document.getElementById("partial_normal");
+            var price = document.getElementById('partial_row4' + id);
             var price_inner = price.innerHTML;
             $("#invoice_price").val(price_inner);
 
-            var price_vat = document.getElementById("partial_normal_vat");
+            var price_vat = document.getElementById('partial_row5' + id);
             var price_vat_inner = price_vat.innerHTML;
             $("#invoice_price_vat").val(price_vat_inner);
 
