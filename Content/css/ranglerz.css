@@ -21,6 +21,10 @@
     width: 120px;
 }
 
+.width-140{
+    width:140px;
+}
+
 .border-grey {
     color: #AAA;
     background-color: #AAA;
@@ -698,6 +702,11 @@
     font-weight: bold !important;
 }
 
+.input_width-height_data_report{
+    width:220px;
+    height:34px;
+}
+
 .checkboxes-user-tools-main {
     max-height: 35px;
     border: 1px solid black;
@@ -816,7 +825,7 @@
 }
 
 .total_invoice_background {
-    background-color: #2F4F4F;
+    background-color: #404040;
     color: #fff;
     padding: 3px;
     border-radius: 6px;
@@ -1046,6 +1055,11 @@
 
 .date-width-height {
     width: 100px;
+    height: 34px;
+}
+
+.date-width-height-data-report {
+    width: 200px;
     height: 34px;
 }
 

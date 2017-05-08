@@ -1,0 +1,263 @@
+﻿<body id="body-index" onload="startTime()">
+
+    <div id="sticky-footer-wrap">
+
+
+        @*-----------------Top Navigation Start---------------*@
+
+        @{
+            Html.RenderPartial("Top_Navigation_View");
+        }
+
+        @*-----------------Top Navigation End---------------*@
+
+        <div class="container-fluid main-container">
+
+            @*-----------------Side Navigation Start---------------*@
+            <div class="row">
+                @{
+                    Html.RenderPartial("Side_Navigation_View");
+                }
+                @*-----------------Side Navigation End---------------*@
+
+
+
+                @*-----------------Main Container Start---------------*@
+                @*-----------------Main Container Start---------------*@
+
+                <div class="right-side-custom">
+                    <div class="bggg-img">
+
+                        @*<h3 id="time_"></h3>*@
+
+                        <div class="">
+                            <div class="title">
+                                @*<img src="~/img/images/triangle.png"/>*@
+                                <span class="ml-15">Data Reports</span>
+                                <a class="pull-right" href="#" data-toggle="modal" data-target=""><img src="~/img/images/i.png" style="margin: -2px 3px 0px 0;" /></a>
+
+
+
+
+                            </div>
+                            <div class="space">
+                                <div class="row">
+                                    <div class="empty-height"></div><div class="empty-height"></div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-3 pull-left form-group">
+                                                    <select name="supplier_name" class="form-control border_black-1px select-class-color">
+                                                        <option class="option-color" value="">Order Report</option>
+                                                        <option class="option-color" value="">SKU Report</option>
+                                                    </select>
+                                        </div>
+
+                                        <div class="col-md-3 pull-left form-group">
+                                            <select name="supplier_name" class="form-control border_black-1px select-class-color">
+                                                <option class="option-color" value="">Document Type - All</option>
+                                                <option class="option-color" value="">Invoice</option>
+                                                <option class="option-color" value="">Quote</option>
+                                                <option class="option-color" value="">Item Sale</option>
+                                                <option class="option-color" value="">Invoice/Item Sale</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-3 pull-left form-group pl-0">
+                                            <input type="text" placeholder="SKU" class="input_width-height_data_report"/>
+                                        </div>
+
+                                        <div class="col-md-3 pull-left form-group pl-0">
+                                            <input type="text" placeholder="Customer Details" class="input_width-height_data_report" />
+                                        </div>
+
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="empty-height"></div>
+
+                                    <div class="col-md-12">
+                                        <div class="col-md-3 pull-left form-group">
+                                            <select name="supplier_name" class="form-control border_black-1px select-class-color">
+                                                <option class="option-color" value="">Payment Status - All</option>
+                                                <option class="option-color" value="">Paid</option>
+                                                <option class="option-color" value="">Not Paid</option>
+                                                <option class="option-color" value="">Partially Paid</option>
+                                            </select>
+                                        </div>
+                                    
+                                        <div class="col-md-2 pull-left pl-0">
+                                            <label class="font-16 black-color mt-5">Start Date :</label>
+                                        </div>
+                                        <div class="col-md-2 pull-left pl-0">
+                                            <input required type="date" id="from_date" oninput="showToDate()" class="date-width-height-data-report" name="from_date">
+                                            
+                                        </div>
+
+                                        <div class="col-md-2 pull-left pr-0">
+                                            <label class="font-16 black-color mt-5">End Date :</label>
+                                        </div>
+                                        <div class="col-md-2 pull-left">
+                                            <input required type="date" id="" oninput="showToDate()" class="date-width-height-data-report" name="from_date">
+                                        </div>
+
+                                    
+                                    </div>
+                                    
+                                    <div class="clearfix"></div>
+
+                                    <div class="empty-height"></div>
+
+                                    <div class="col-md-12">
+                                       <div class="pull-left ml-15"><label class="black-color"><input type="checkbox" />Transaction No</label></div>
+                                       <div class="pull-left"><label class="black-color"><input type="checkbox" />Trans_type</label></div>
+                                       <div class="pull-left"><label class="black-color"><input type="checkbox" />Buyer Name</label></div>
+                                       <div class="pull-left"><label class="black-color"><input type="checkbox" />Phone</label></div>
+                                       <div class="pull-left"><label class="black-color"><input type="checkbox" />Email</label></div>
+                                       <div class="pull-left"><label class="black-color"><input type="checkbox" />Address</label></div>
+                                       <div class="pull-left"><label class="black-color"><input type="checkbox" />SKU &amp; Qty</label></div>
+                                       <div class="pull-left"><label class="black-color"><input type="checkbox" />Prices</label></div>
+                                       <div class="pull-left"><label class="black-color"><input type="checkbox" />Dates</label></div>
+                                       <div class="pull-left"><label class="black-color"><input type="checkbox" />Payment Status</label></div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="empty-height"></div>
+
+                                    <div class="col-md-12">
+                                        <div class="col-md-3 pull-right">
+                                            <a href="#" onclick="data_report_table()" class="width-200 btn btn-primary blue-btn-style btn-mini bold">Generate Report</a>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="clearfix">  </div>
+
+                                    <div class="empty-height"></div><div class="empty-height"></div>
+
+                                    
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
+
+                        <div class="col-md-12">
+                            <table border="0" class="table table-responsive border_black" id="table_data_report" >
+                                <thead>
+                                    <tr class="table-heading-fonts table-main-headings">
+                                        <th>Transaction No.</th>
+                                        <th>Trans Type</th>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>SKU</th>
+                                        <th>QTY</th>
+                                        <th>Price</th>
+                                        <th>Sale Date</th>
+                                        <th>Status</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody class="black-color bold">
+
+
+                                    <tr>
+                                        <td data-title="User ID">07-07-2007</td>
+                                        <td data-title="User ID">SKU-1111</td>
+                                        <td data-title="User ID">1000</td>
+                                        <td data-title="User ID">£10</td>
+                                        <td data-title="User ID">£2</td>
+                                        <td data-title="User ID">07-07-2007</td>
+                                        <td data-title="User ID">SKU-1111</td>
+                                        <td data-title="User ID">1000</td>
+                                        <td data-title="User ID">£10</td>
+                                        <td data-title="User ID">£2</td>
+                                        <td data-title="User ID">£12</td>
+
+                                    </tr>
+
+
+                                </tbody>
+
+                            </table>
+                            <div class="clearfix"></div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                @*-----------------Main Container Ends---------------*@
+            </div>
+            <div id="sticky-footer-push"></div>
+        </div>
+    </div>
+
+    <footer class="black">
+
+        @{
+            Html.RenderPartial("Footer_View");
+        }
+    </footer>
+
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content modal-style-custom">
+
+                <div class="title">
+                    <span class="ml-15">Alert</span>
+                    <img src="~/img/images/c3.png" class="close" data-dismiss="modal" />
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="text-center" align="center">
+                            <br>
+                            <label class="control-label col-md-12 black-color mt-15">
+                                Attendance logging for <span> @Session["username"]</span>
+                            </label>
+
+                            <div class="col-md-12">
+                                <a href="" class="btn btn-success btn-mini center-block mt-15">OK</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function data_report_table() {
+
+        }
+
+
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#table_data_report').dataTable();
+        });
+    </script>
+
+
+</body>

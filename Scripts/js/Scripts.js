@@ -11,6 +11,23 @@
 }
 
 
+function SetDate() {
+    var date = new Date();
+
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    var today = year + "-" + month + "-" + day;
+
+
+    document.getElementById('myDate').value = today;
+}
+
+
 $(document).ready(function () {
     $('#example').dataTable();
 });
@@ -161,6 +178,66 @@ function show_custom_date_payment() {
         $("#custom_date_show_invoice").hide();
     }
 }
+
+function show_custom_date_purchase_order() {
+    var selectedValue = document.getElementById("custom_date_select_purchase_order").value;
+
+    if (selectedValue == 1) {
+        $("#custom_date_show_purchase_order").show();
+    }
+    else {
+        $("#custom_date_show_purchase_order").hide();
+    }
+}
+
+
+function run_invoice_price() {
+    var selectedValue = document.getElementById("price_invoice_dropdown").value;
+    //alert(selectedValue);
+    if (selectedValue == 1) {
+        $("#price_invoice_id").show();
+        $("#price_quote_id").hide();
+        $("#price_item_sale_id").hide();
+    }
+
+    else if (selectedValue == 2) {
+
+        $("#price_quote_id").show();
+        $("#price_invoice_id").hide();
+        $("#price_item_sale_id").hide();
+
+        //var a = $("#language option:selected").text();
+        //alert(a);
+
+        //var a = $('#language option[value="someValue"]').text("qttt");
+        //alert(a);
+
+
+        //$("#language").innerHTML(a);
+
+        //var c = document.getElementById("language").innerHTML(a);
+        //alert(c);
+    }
+
+    else if (selectedValue == 3) {
+
+        $("#price_item_sale_id").show();
+        $("#price_invoice_id").hide();
+        $("#price_quote_id").hide();
+
+
+
+        //var b = $("#language option:selected").text();
+        //alert(b);
+
+        //$("#language").val("Item Sale");
+
+
+
+    }
+}
+
+
 
 function run_invoice() {
     var selectedValue = document.getElementById("language").value;
@@ -349,6 +426,8 @@ function go(id,type_id) {
     else if (type1 == 4) {
         $("#type_customer_item_sale").text("Other Customer");
     }
+
+    
 
     $("#ExistingModal").hide('slow');
     //$("#ExistingModal").closest();

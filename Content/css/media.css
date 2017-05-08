@@ -43,8 +43,11 @@
 
 }
 
-@media screen and (min-width: 1367px) {
-    .margin_right_6{
+@media screen and (min-width: 1367px) and (max-width: 1679px) {
+}
+
+@media screen and (min-width: 1680px) and (max-width: 1919px) {
+        .margin_right_6{
         margin-right:100px;
     }
 
@@ -53,5 +56,12 @@
     }
 }
 
+
+@media screen and (min-width: 1920px) and (max-width: 2000px) {
+    .margin_right_6{
+        margin-right:160px;
+    }
+
+}
 
 

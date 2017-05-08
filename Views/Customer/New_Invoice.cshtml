@@ -1,4 +1,4 @@
-﻿<body id="body-index">
+﻿<body id="body-index" onload="SetDate()">
     <div id="sticky-footer-wrap">
 
         @*-----------------Top Navigation Start---------------*@
@@ -44,14 +44,14 @@
                         <div id="invoice_id" class="hideDocument">
                             <div class="">
                                 <div class="">
-                                    
+
                                 </div>
                                 <div class="">
 
-                                   
+
 
                                     <div class="col-md-4 pull-left">
-                                       
+
                                         <h3 class="bold mt-0">
                                             New Invoice
                                         </h3>
@@ -60,7 +60,7 @@
 
 
                                         <div class="col-md-6 pull-left">
-                                            <a href="#" data-toggle="modal" onclick="abc()" data-target="#ExistingModal">
+                                            <a href="#" data-toggle="modal" data-target="#ExistingModal">
                                                 <span class=""><img src="~/img/images/search_customer.png" /></span><br />
                                                 <span class="bold">Existing Customer</span>
                                             </a>
@@ -80,10 +80,6 @@
 
                                     </div>
 
-
-
-
-
                                     <div class="col-md-2 pull-left pl-0 pr-0">
                                         <ul class="list-style-type-custom">
                                             <li id="type_customer" class="bold font-18 black-color"></li>
@@ -97,7 +93,7 @@
 
                                     <div class="col-md-6 pull-left pl-0 pr-0">
 
-                                        
+
                                         <div class="col-md-5">
                                             <label><input type="checkbox" value="" />Check Sold History</label>
                                             <label><input type="checkbox" id="excludeVat" value="" onclick="excludeVatUnchecked();" />Exclude VAT</label>
@@ -112,7 +108,7 @@
                                             <div class="form-group">
                                                 <label class="pull-left width-134" for="middle-name">Invoice Number</label>
                                                 <div class="pull-left">
-                                                    <input class="width-145" type="text" name="company_name" id="company_name" required>
+                                                    <input class="width-145 text-center" type="text" name="company_name" id="company_name" required>
                                                 </div>
                                             </div>
 
@@ -122,7 +118,7 @@
                                             <div class="form-group">
                                                 <label class="pull-left width-134" for="middle-name">Date</label>
                                                 <div class="pull-left">
-                                                    <input class="width-145" type="text" name="company_name" id="company_name" required>
+                                                    <input class="width-145 text-center" id="myDate" type="text" name="company_name" required>
                                                 </div>
                                             </div>
 
@@ -131,7 +127,7 @@
                                             <div class="form-group">
                                                 <label class="pull-left width-134" for="middle-name">Sales Person</label>
                                                 <div class="pull-left">
-                                                    <input class="width-145" type="text" name="company_name" id="company_name" required>
+                                                    <input class="width-145 text-center" type="text" name="company_name" id="company_name" required>
                                                 </div>
                                             </div>
 
@@ -167,7 +163,7 @@
                                 <div class="clearfix"></div>
 
                             </div>
-                            <hr class="hr_customer"/>
+                            <hr class="hr_customer" />
 
 
                             <div class="col-md-12">
@@ -193,17 +189,17 @@
                                         <tr id="rowId" class="font-15 id remove_div">
                                             <td class="border-right-td"><div class="text-center"><input placeholder="Code" class="unbold width-110" id="codeforProduct" name="yoyoyoyoyoyoyoy" onkeyup="productList()" type="text"></div></td>
 
-                                         
+
 
                                             <td class="border-right-td">
                                                 <textarea class="description-text-area unbold width-100p" id="invoice_description" required="" placeholder="Description"></textarea>
                                             </td>
-                                            <td class="border-right-td"><div class="text-center"><input id="invoice_quantity" placeholder="0" class="unbold width-45" name="" type="text"></div></td>
-                                            <td class="border-right-td"><div class="text-center"><input id="invoice_price" placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td>
-                                            <td class="border-right-td hidecolumn text-center"><input id="invoice_price_vat" placeholder="0.0" class="new-invoice-width-boxes unbold width-78" name="" type="text"></td>
-                                            <td class="text-center border-right-td width-68"><div id="invoice_total" class="total_invoice_background">£12345678</div></td>
-                                            <td class="border-right-td text-center width-78 hidecolumn"><div id="invoice_total_vat" class="total_invoice_background">£123456789</div></td>
-                                            <td class="border-right-td"><div class="text-center"><input id="invoice_discount" placeholder="0.0" class="unbold width-45" name="" type="text"></div></td>
+                                            <td class="border-right-td"><div class="text-center"><input id="invoice_quantity" onkeypress="validate(event)" placeholder="0" class="unbold width-45" name="" type="text"></div></td>
+                                            <td class="border-right-td"><div class="text-center"><input id="invoice_price" onkeypress="validate(event)" placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td>
+                                            <td class="border-right-td hidecolumn text-center"><input id="invoice_price_vat" onkeypress="validate(event)" placeholder="0.0" class="new-invoice-width-boxes unbold width-78" name="" type="text"></td>
+                                            <td class="text-center border-right-td width-68"><div id="invoice_total" onkeypress="validate(event)" class="total_invoice_background">£12345678</div></td>
+                                            <td class="border-right-td text-center width-78 hidecolumn"><div id="invoice_total_vat" onkeypress="validate(event)" class="total_invoice_background">£123456789</div></td>
+                                            <td class="border-right-td"><div class="text-center"><input id="invoice_discount" onkeypress="validate(event)" placeholder="0.0" class="unbold width-45" name="" type="text"></div></td>
                                             <td class="text-center width-27p" style="vertical-align:middle;">
                                                 <a href="#" class="add_new_row showdiv">
                                                     <img src="/img/images/plus_new_sale.png">
@@ -284,7 +280,7 @@
 
                                         <tr id="custom_date_show_invoice" style="display:none">
                                             <td class="bold width-134">Custom Date</td>
-                                            <td><input type="date" class="width-180"/></td>
+                                            <td><input type="date" class="width-180" /></td>
                                         </tr>
 
                                         <tr>
@@ -544,7 +540,7 @@
                                             <td class="bold">Gross</td>
                                             <td class="text-right">£83</td>
                                         </tr>
-                                       
+
                                     </table>
                                 </div>
 
@@ -642,7 +638,7 @@
                                         <div class="col-md-5">
                                             <label><input type="checkbox" value="" />Check Sold History</label>
                                             @*<label><input type="checkbox" id="excludeVat" value="" onclick="excludeVatUnchecked();" />Exclude VAT</label>*@
-                                            <label><input type="checkbox" value=""/>Show Details</label>
+                                            <label><input type="checkbox" value="" />Show Details</label>
                                         </div>
                                         <div class="col-md-7 pl-0 pr-0">
 
@@ -788,8 +784,8 @@
                                             <td class="bold">Gross</td>
                                             <td class="text-right">£83</td>
                                         </tr>
-                                       
-                                        
+
+
                                         <tr>
                                             <td class="bold">Payment Status</td>
                                             <td class="text-right">
@@ -818,7 +814,7 @@
 
                             </div>
 
-                            
+
 
                             <div class="col-md-12">
 
@@ -877,7 +873,7 @@
     </footer>
 
 
-  
+
 
     @*----------------------------POP UP for EXISTING CUSTOMER--------------------------------*@
 
@@ -914,16 +910,15 @@
 
                                     <tbody class="black-color bold" id="">
                                         @foreach (var v in ViewBag.Customer)
-{
-                                            <tr onclick="go(@v.Id,@v.Customer_Type_Id)">
+                                        {
+                                              <tr onclick="go(@v.Id,@v.Customer_Type_Id)">
                                                 <td id="@String.Concat("juni1", v.Id)" data-title="User ID">@v.Name</td>
                                                 <td id="@String.Concat("juni2", v.Id)" data-title="First Name">@v.phone</td>
                                                 <td id="@String.Concat("juni3", v.Id)" data-title="Last Name">@v.Billing_Address</td>
                                                 <td id="@String.Concat("juni4", v.Id)" data-title="Last Name">@v.Billing_Postcode</td>
                                                 <td id="@String.Concat("juni5", v.Id)" data-title="Email" class="user-emails">@v.Email</td>
-
-                                            </tr>
-}
+                                              </tr>
+                                        }
                                     </tbody>
                                 </table>
                                 <div class="clearfix"></div>
@@ -1036,20 +1031,20 @@
 
 
                                         @*<div class="form-group">
-                                            <label class="customer-create-texts" for="middle-name">Bank<span class="required">*</span></label>
-                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <label class="customer-create-texts" for="middle-name">Bank<span class="required">*</span></label>
+                                                <div class="col-md-3 col-sm-6 col-xs-12">
 
-                                                <select id="" name="bank_name" class="form-control width-192">
-                                                    <option value="">Please select any </option>
-                                                    @foreach (var banks in ViewBag.Bank)
-                                                    {
-                                                        <option value="@banks.Id">@banks.Bank_Name</option>
-                                                    }
-                                                </select>
+                                                    <select id="" name="bank_name" class="form-control width-192">
+                                                        <option value="">Please select any </option>
+                                                        @foreach (var banks in ViewBag.Bank)
+                                                        {
+                                                            <option value="@banks.Id">@banks.Bank_Name</option>
+                                                        }
+                                                    </select>
 
 
-                                            </div>
-                                        </div>*@
+                                                </div>
+                                            </div>*@
 
 
                                         <div class="form-group">
@@ -1073,12 +1068,12 @@
                                         <div class="form-group">
                                             <label class="customer-create-texts" for="middle-name">Type<span class="required">*</span></label>
                                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                                
+
                                                 <select id="customer_type" name="customer_type" class="form-control width-192">
                                                     <option value="">Please select any </option>
                                                     @foreach (var customer_type in ViewBag.Customer_Type)
                                                     {
-                                                        <option value="@customer_type.Id">@customer_type.Type</option>
+                                                    <option value="@customer_type.Id">@customer_type.Type</option>
                                                     }
                                                 </select>
 
@@ -1189,8 +1184,8 @@
                                 <div class="clearfix"></div>
 
                                 @*<div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-3" style="margin-bottom:15px">
-                <input type="submit" value="Add Product" class="btn btn-success" />
-            </div>*@
+                                        <input type="submit" value="Add Product" class="btn btn-success" />
+                                    </div>*@
                                 <div class="col-md-12">
                                     <div class="col-md-3"></div>
 
@@ -1234,9 +1229,15 @@
     @*----------------------------POP UP END ADD CUSTOMER--------------------------------*@
 
     <script>
+   
+    </script>
+
+
+
+    <script>
         function tbody_add_record(id) {
             //alert("Record");
-            
+
             var sku = document.getElementById('partial_row1' + id);
             var sku_inner = sku.innerHTML;
             $("#codeforProduct").val(sku_inner);
@@ -1269,6 +1270,32 @@
 
         }
     </script>
+
+    @*----------------------INVOICE ADD ROW-----------------------*@
+    <script>
+        $('.add_new_row').click(function () {
+            //$('#maintable tr:last').after('<tr id="rowId" class="font-15 remove_div"><td class="border-right-td"><div class="text-center"><input class="unbold width-110" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required=""></textarea></td><td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="border-right-td hidecolumn text-center"><input class="new-invoice-width-boxes unbold width-78" name="" type="text"></td><td class="text-center border-right-td width-68">£12345678</td><td class="border-right-td text-center width-78 hidecolumn">£123456789</td><td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif" onclick="removeRow()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
+            $('#maintable tr:last').after('<tr id="rowId" class="font-15    remove_div"><td class="border-right-td"><div class="text-center"><input placeholder="Code" class="unbold width-110" id="codeforProduct" name="yoyoyoyoyoyoyoy" onkeyup="productList()" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" id="invoice_description" required="" placeholder="Description"></textarea></td><td class="border-right-td"><div class="text-center"><input id="invoice_quantity" placeholder="0" class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input id="invoice_price" placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="border-right-td hidecolumn text-center"><input id="invoice_price_vat" placeholder="0.0" class="new-invoice-width-boxes unbold width-78" name="" type="text"></td><td class="text-center border-right-td width-68"><div id="invoice_total" class="total_invoice_background">£0</div></td><td class="border-right-td text-center width-78 hidecolumn"><div id="invoice_total_vat" class="total_invoice_background">£123456789</div></td><td class="border-right-td"><div class="text-center"><input id="invoice_discount" placeholder="0.0" class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif" onclick="removeRow()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
+        });
+
+        //function removeRow()
+
+        $(document).on('click', '.kashif', function removeRow() {
+
+            $(this).closest(".remove_div").remove();
+
+            //$(this).parent('div').remove();
+
+
+            //function removeRow(){
+            //    $(this).closest(".remove_div").remove();
+            //}
+
+        });
+    </script>
+    @*----------------------INVOICE ADD ROW-----------------------*@
+
+
 
     @*----------------------QUOTE ADD ROW-----------------------*@
     <script>
@@ -1331,29 +1358,7 @@
     </script>
 
 
-    @*----------------------INVOICE ADD ROW-----------------------*@
-    <script>
-        $('.add_new_row').click(function () {
-            //$('#maintable tr:last').after('<tr id="rowId" class="font-15 remove_div"><td class="border-right-td"><div class="text-center"><input class="unbold width-110" name="" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" required=""></textarea></td><td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="border-right-td hidecolumn text-center"><input class="new-invoice-width-boxes unbold width-78" name="" type="text"></td><td class="text-center border-right-td width-68">£12345678</td><td class="border-right-td text-center width-78 hidecolumn">£123456789</td><td class="border-right-td"><div class="text-center"><input class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif" onclick="removeRow()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
-            $('#maintable tr:last').after('<tr id="rowId" class="font-15    remove_div"><td class="border-right-td"><div class="text-center"><input placeholder="Code" class="unbold width-110" id="codeforProduct" name="yoyoyoyoyoyoyoy" onkeyup="productList()" type="text"></div></td><td class="border-right-td"><textarea class="description-text-area unbold width-100p" id="invoice_description" required="" placeholder="Description"></textarea></td><td class="border-right-td"><div class="text-center"><input id="invoice_quantity" placeholder="0" class="unbold width-45" name="" type="text"></div></td><td class="border-right-td"><div class="text-center"><input id="invoice_price" placeholder="0.0" class="new-invoice-width-boxes unbold width-68" name="" type="text"></div></td><td class="border-right-td hidecolumn text-center"><input id="invoice_price_vat" placeholder="0.0" class="new-invoice-width-boxes unbold width-78" name="" type="text"></td><td class="text-center border-right-td width-68"><div id="invoice_total" class="total_invoice_background">£0</div></td><td class="border-right-td text-center width-78 hidecolumn"><div id="invoice_total_vat" class="total_invoice_background">£123456789</div></td><td class="border-right-td"><div class="text-center"><input id="invoice_discount" placeholder="0.0" class="unbold width-45" name="" type="text"></div></td><td class="text-center width-25p" style="vertical-align:middle;"><a href="#" class="add_new_row showdiv"><img src="/img/images/plus_new_sale.png"></a><a href="#" class="kashif" onclick="removeRow()"><img src="/img/images/cross_new_sale.png" style="margin-left:3px;"></a><a href="#"><img src="/img/images/barcode_new_sale.png" style="margin-left:4px;"></a><a href="#"><img src="/img/images/findpost.png" style="margin-left:4px"></a></td></tr>');
-        });
-
-        //function removeRow()
-
-        $(document).on('click', '.kashif', function removeRow() {
-
-            $(this).closest(".remove_div").remove();
-
-            //$(this).parent('div').remove();
-
-
-            //function removeRow(){
-            //    $(this).closest(".remove_div").remove();
-            //}
-
-        });
-    </script>
-    @*----------------------INVOICE ADD ROW-----------------------*@
+   
 
 
     <script>
@@ -1381,7 +1386,7 @@
 
     </script>
 
-   
+
 
 
 
