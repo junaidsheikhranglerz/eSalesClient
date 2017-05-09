@@ -234,7 +234,7 @@
                                         <tr>
                                             <td class="bold">Payment Status</td>
                                             <td class="text-right">
-                                                <select id="custom_date_select_invoice" onclick="show_custom_date_payment()" name="supplier_name" class="form-control border_black-1px min-height-32 width-140 select-class-color pull-right">
+                                                <select id="custom_date_select_invoice" onclick="show_custom_date_payment()" name="supplier_name" class="form-control border_black-1px min-height-32 width-180 select-class-color pull-right">
                                                     <option class="option-color" value="">Paid</option>
                                                     <option class="option-color" value="">Not Paid</option>
                                                     <option class="option-color" value="">Partially Paid</option>
@@ -247,7 +247,7 @@
                                         <tr>
                                             <td class="bold">Payment Priority</td>
                                             <td class="text-right">
-                                                <select id="custom_date_select_purchase_order" onclick="show_custom_date_purchase_order()" name="supplier_name" class="form-control border_black-1px min-height-32 width-140 select-class-color pull-right">
+                                                <select id="custom_date_select_purchase_order" onclick="show_custom_date_purchase_order()" name="supplier_name" class="form-control border_black-1px min-height-32 width-180 select-class-color pull-right">
                                                     <option class="option-color" value="">Pay Now</option>
                                                     <option class="option-color" value="">Pay in Day</option>
                                                     <option class="option-color" value="">Pay in Week</option>
@@ -259,13 +259,13 @@
 
                                         <tr id="custom_date_show_purchase_order" style="display:none">
                                             <td class="bold width-134">Custom Date</td>
-                                            <td><input type="date" class="width-180" /></td>
+                                            <td><input type="date" class="width-180 pull-right"/></td>
                                         </tr>
 
                                         <tr>
                                             <td class="bold">PO Status</td>
                                             <td class="text-right">
-                                                <select id="custom_date_select_purchase_order" onclick="show_custom_date_purchase_order()" name="supplier_name" class="form-control border_black-1px min-height-32 width-140 select-class-color pull-right">
+                                                <select id="custom_date_select_purchase_order" onclick="show_custom_date_purchase_order()" name="supplier_name" class="form-control border_black-1px min-height-32 width-180 select-class-color pull-right">
                                                     <option class="option-color" value="">Unsent</option>
                                                     <option class="option-color" value="">Sent</option>
                                                     <option class="option-color" value="">Received</option>
@@ -359,17 +359,17 @@
                         <div class="win text-center">
                             <h3 class="black-color"><b>New Supplier</b></h3>
                             <img class="pull-right margin-supplier ml-22" src="~/img/images/supplier.png" />
-                            
+
                             @using (Ajax.BeginForm("Create_Supplier", new AjaxOptions
                             {
                                 HttpMethod = "POST",
 
                                 UpdateTargetId = "supplier_added_partial",
                                 InsertionMode = InsertionMode.Replace
-                            
+
                             }))
                             {
-                                <div id="form_supp_div">
+                                <div id="form_supp_div" class="form-horizontal form-label-left">
 
 
 
@@ -623,8 +623,8 @@
 
 
                                     @*<div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-3" style="margin-bottom:15px">
-                    <input type="submit" value="Add Product" class="btn btn-success" />
-                </div>*@
+                        <input type="submit" value="Add Product" class="btn btn-success" />
+                    </div>*@
                                     <div class="col-md-12">
                                         <div class="col-md-3"></div>
 
@@ -642,11 +642,9 @@
 
                                     </div>
 
-                            </div>
+                                </div>
                             }
                         </div>
-
-
                     </div>
                 </div>
 

@@ -96,6 +96,7 @@
 
                                         <div class="col-md-5">
                                             <label><input type="checkbox" value="" />Check Sold History</label>
+                                            <div class=""></div>
                                             <label><input type="checkbox" id="excludeVat" value="" onclick="excludeVatUnchecked();" />Exclude VAT</label>
                                             @*<label><input type="checkbox" value="" />Show Details</label>*@
                                         </div>
@@ -265,7 +266,7 @@
                                         <tr>
                                             <td class="bold">Payment Status</td>
                                             <td class="text-right">
-                                                <select id="custom_date_select_invoice" onclick="show_custom_date_payment()" name="supplier_name" class="form-control border_black-1px min-height-32 width-180 select-class-color">
+                                                <select id="custom_date_select_invoice" onclick="show_custom_date_payment()" name="supplier_name" class="form-control border_black-1px min-height-32 width-180 select-class-color pull-right">
                                                     <option class="option-color" value="">Paid</option>
                                                     <option class="option-color" value="">Unpaid</option>
                                                     <option class="option-color" value="">Partially Paid</option>
@@ -280,7 +281,7 @@
 
                                         <tr id="custom_date_show_invoice" style="display:none">
                                             <td class="bold width-134">Custom Date</td>
-                                            <td><input type="date" class="width-180" /></td>
+                                            <td><input type="date" class="width-180 pull-right" /></td>
                                         </tr>
 
                                         <tr>

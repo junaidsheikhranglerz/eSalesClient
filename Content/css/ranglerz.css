@@ -820,8 +820,20 @@
     margin-top:-25px;
 }
 
+.ml-12{
+    margin-left:12px;
+}
+
 .width-27p{
     width:27%;
+}
+
+.margin_checkox{
+    margin-right:2px !important;
+}
+
+.margin_label{
+    margin-left:15px !important;
 }
 
 .total_invoice_background {

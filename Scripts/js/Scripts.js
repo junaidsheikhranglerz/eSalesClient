@@ -10,6 +10,25 @@
     }
 }
 
+function showDateDiv() {
+    var to = document.getElementById("to_date").value;
+    $("#date_click_div").removeClass("none");
+    $("#date_click_div").addClass("showDiv");
+    $("#customer_summary").addClass("none");
+    $('#data_report_table_div').show();
+}
+
+
+function showToDate() {
+    var from = document.getElementById("from_date").value;
+
+    if (from == "") {
+    }
+
+    else {
+        document.getElementById("to_date").removeAttribute('disabled');
+    }
+}
 
 function SetDate() {
     var date = new Date();
