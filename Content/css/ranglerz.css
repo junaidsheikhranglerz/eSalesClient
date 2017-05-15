@@ -201,6 +201,10 @@
     float: left;
 }
 
+.width-kj{
+    background-color:#124567;
+}
+
 .width-193 {
     width: 193px;
     height: 80px;
@@ -844,7 +848,7 @@
 }
 
 #kj tbody tr:hover td{
-    background-color:#b94a48;
+    background-color:#76c5f7;
     cursor: pointer;
 }
 
@@ -1322,6 +1326,15 @@
 }
 
 #partial_table_add tbody tr:hover td{
-    background-color:#b94a48;
+    background-color:#76c5f7;
     cursor: pointer;
+}
+
+.text_center_custom{
+    text-align:center !important;
+}
+
+.width_78_height{
+    width:78px;
+    height:34px;
 }

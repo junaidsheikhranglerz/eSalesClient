@@ -1,4 +1,5 @@
-﻿<body id="body-index" onload="SetDate()">
+﻿@model eSalesPro.Models.Sale
+<body id="body-index" onload="SetDate()">
     <div id="sticky-footer-wrap">
 
         @*-----------------Top Navigation Start---------------*@
@@ -34,13 +35,13 @@
                                         <div class="pull-left">
                                             <select id="language" oninput="run_invoice(); clear_customer_li();" name="document_type" class="select-class-color form-control border_black-1px width-145">
                                                 @*<option class="option-color" value="1">Invoice</option>
-                                <option class="option-color" value="2">Quote</option>
-                                <option class="option-color" value="3">Item Sale</option>*@
+                                                    <option class="option-color" value="2">Quote</option>
+                                                    <option class="option-color" value="3">Item Sale</option>*@
 
                                                 @foreach (var document in ViewBag.Document_Type)
-                                            {
-                                            <option value="@document.Id">@document.Type</option>
-                                            }
+                                                {
+                                                    <option value="@document.Id">@document.Type</option>
+                                                }
 
                                             </select>
                                         </div>
@@ -94,13 +95,12 @@
                                             <div class="col-md-2 pull-left pl-0 pr-0">
                                                 <input type="text" name="exist_customer_idd" class="hidden" id="exist_customer_id" />
                                                 <ul class="list-style-type-custom">
-                                                    <li id="type_customer" class="bold font-18 black-color"></li>
-                                                    <li id="customer_name"></li>
-                                                    <li id="customer_address"></li>
-                                                    <li id="customer_postcode"></li>
-                                                    <li id="customer_phone"></li>
-                                                    <li id="customer_email"></li>
-                                                    <li></li>
+                                                    <li id="type_customer" class="bold font-18 black-color">@Model.Customer.Customer_Type.Type</li>
+                                                    <li id="customer_name">@Model.Customer.Name</li>
+                                                    <li id="customer_address">@Model.Customer.Billing_Address</li>
+                                                    <li id="customer_postcode">@Model.Customer.Billing_Postcode</li>
+                                                    <li id="customer_phone">@Model.Customer.phone</li>
+                                                    <li id="customer_email">@Model.Customer.Email</li>
                                                 </ul>
                                             </div>
 
@@ -123,7 +123,7 @@
                                                     <div class="form-group">
                                                         <label class="pull-left width-134" for="middle-name">Invoice Number</label>
                                                         <div class="pull-left">
-                                                            <input class="width-145 text-center" onblur="checkInvoiceNumber()" value="@ViewBag.invoice_number" onkeypress="validate(event)" type="text" name="invoice_number" id="invoice_number" required>
+                                                            <input class="width-145 text-center" onblur="checkInvoiceNumber()" value="@Model.Invoice_Number" onkeypress="validate(event)" type="text" name="invoice_number" id="invoice_number" required>
                                                         </div>
                                                     </div>
 
@@ -133,7 +133,7 @@
                                                     <div class="form-group">
                                                         <label class="pull-left width-134" for="middle-name">Date</label>
                                                         <div class="pull-left">
-                                                            <input readonly class="width-145 text-center" id="myDate" type="text" name="company_name" required>
+                                                            <input readonly class="width-145 text-center" id="myDate" type="text" name="company_name" required value="@Model.Created_at.ToString("MM/dd/yyyy")">
                                                         </div>
                                                     </div>
 
@@ -142,7 +142,7 @@
                                                     <div class="form-group">
                                                         <label class="pull-left width-134" for="middle-name">Sales Person</label>
                                                         <div class="pull-left">
-                                                            <input readonly class="width-145 text-center" type="text" name="company_name" id="company_name" value="Admin" required>
+                                                            <input readonly class="width-145" type="text" name="company_name" id="company_name" required>
                                                         </div>
                                                     </div>
 
@@ -152,10 +152,12 @@
                                                         <label class="pull-left width-134" for="middle-name">Payment Method</label>
                                                         <div class="pull-left">
                                                             <select name="payment_method_id" class="form-control border_black-1px width-145 select-class-color">
+                                                                <option value="@Model.Payment_Methods.Id">@Model.Payment_Methods.Type</option>
                                                                 @foreach (var method in ViewBag.Payment_Method)
-                                                            {
-                                                            <option value="@method.Id">@method.Type</option>
-                                                            }
+                                                                {
+                                                                    <option value="@method.Id">@method.Type</option>
+                                                                }
+
 
                                                             </select>
                                                         </div>
@@ -167,7 +169,7 @@
                                                     <div class="form-group">
                                                         <label class="pull-left width-134" for="middle-name">Purchase Order No</label>
                                                         <div class="pull-left">
-                                                            <input class="width-145 text-center" onkeypress="validate(event)" type="text" name="invoice_purchase_no" id="company_name" required>
+                                                            <input class="width-145 text-center" onkeypress="validate(event)" type="text" name="invoice_purchase_no" id="company_name" required value="@Model.Purchase_Order_Number">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -198,49 +200,50 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="black-color">
+                                                @foreach (var v in Model.Sale_Product)
+                                                {
+                                                    <tr id="rowId1" class="font-15 id remove_div">
+                                                        <td class="border-right-td"><div class="text-center"><input placeholder="Code" class="yoyo unbold width-110 text-center" id="codeforProduct1" name="yoyoyoyoyoyoyoy" onkeyup="productList(this.value)" type="text" value="@v.Product.Custom_Label_"></div></td>
+                                                        <td class="border-right-td">
+                                                            <textarea class="2 description-text-area unbold width-100p text-center" name="invoice_description1" id="invoice_description1" required="" placeholder="Description">@Model.Discription</textarea>
+                                                        </td>
+                                                        <td class="border-right-td"><div class="text-center"><input onkeypress="validate(event)" id="invoice_quantity1" onkeyup="Total(1);" placeholder="0" class="3 unbold width-45 text-center" name="invoice_quantity1" type="text" value="@Model.Quantity"></div></td>
+                                                        <td class="border-right-td"><div class="text-center"><input onkeypress="validate(event)" id="invoice_price1" onkeyup="Total(1)" placeholder="0.0" class="4 new-invoice-width-boxes unbold width-68 text-center" name="invoice_price1" type="text" value="@Model.Price"></div></td>
+                                                        <td class="border-right-td hidecolumn text-center"><input onkeypress="validate(event)" id="invoice_price_vat1" onkeyup="Total2(1)" placeholder="0.0" class="5 new-invoice-width-boxes unbold width-78 text-center" name="invoice_price_vat1" type="text" value="@Model.PriceVAT"></td>
+                                                        <td class="text-center border-right-td width-68"><div id="invoice_total1" class="6 total_invoice_background text-center">£0</div></td>
+                                                        <td class="border-right-td text-center width-78 hidecolumn"><div id="invoice_total_vat1" class="7 total_invoice_background text-center">£0</div></td>
 
-                                                <tr id="rowId1" class="font-15 id remove_div">
-                                                    <td class="border-right-td"><div class="text-center"><input placeholder="Code" class="yoyo unbold width-110 text-center" id="codeforProduct1" name="yoyoyoyoyoyoyoy" onkeyup="productList(this.value)" type="text"></div></td>
-                                                    <td class="border-right-td">
-                                                        <textarea class="2 description-text-area unbold width-100p text-center" name="invoice_description1" id="invoice_description1" required="" placeholder="Description"></textarea>
-                                                    </td>
-                                                    <td class="border-right-td"><div class="text-center"><input onkeypress="validate(event)" id="invoice_quantity1" onkeyup="Total(1);" placeholder="0" class="3 unbold width-45 text-center" name="invoice_quantity1" type="text"></div></td>
-                                                    <td class="border-right-td"><div class="text-center"><input onkeypress="validate(event)" id="invoice_price1" onkeyup="Total(1)" placeholder="0.0" class="4 new-invoice-width-boxes unbold width-68 text-center" name="invoice_price1" type="text"></div></td>
-                                                    <td class="border-right-td hidecolumn text-center"><input onkeypress="validate(event)" id="invoice_price_vat1" onkeyup="Total2(1)" placeholder="0.0" class="5 new-invoice-width-boxes unbold width-78 text-center" name="invoice_price_vat1" type="text"></td>
-                                                    <td class="text-center border-right-td width-68"><div id="invoice_total1" class="6 total_invoice_background text-center">£0</div></td>
-                                                    <td class="border-right-td text-center width-78 hidecolumn"><div id="invoice_total_vat1" class="7 total_invoice_background text-center">£0</div></td>
+                                                        <td class="border-right-td"><div class="text-center"><input onkeyup="Total(1);" onkeypress="validate(event)" id="invoice_discount1" placeholder="0.0" class="8 unbold width-45 text-center" name="invoice_discount1" type="text" value="@Model.Discount"></div></td>
+                                                        <td class="hidden"><input type="text" class="hidden" id="invoice_product_id1" name="invoice_product_id1" /></td>
+                                                        <td class="text-center width-27p" style="vertical-align:middle;">
+                                                            <a href="#" class="showdiv">
+                                                                <img src="/img/images/plus_new_sale.png">
+                                                            </a>
+                                                            <a href="#" class="remove" onclick="">
+                                                                <img src="/img/images/cross_new_sale.png">
+                                                            </a>
+                                                            <a href="#">
+                                                                <img src="/img/images/barcode_new_sale.png">
+                                                            </a>
+                                                            <a href="#">
+                                                                <img src="/img/images/findpost.png">
+                                                            </a>
 
-                                                    <td class="border-right-td"><div class="text-center"><input onkeyup="Total(1);" onkeypress="validate(event)" id="invoice_discount1" placeholder="0.0" class="8 unbold width-45 text-center" name="invoice_discount1" type="text"></div></td>
-                                                    <td class="hidden"><input type="text" class="hidden" id="invoice_product_id1" name="invoice_product_id1" /></td>
-                                                    <td class="text-center width-27p" style="vertical-align:middle;">
-                                                        <a href="#" class="showdiv">
-                                                            <img src="/img/images/plus_new_sale.png">
-                                                        </a>
-                                                        <a href="#" class="remove" onclick="">
-                                                            <img src="/img/images/cross_new_sale.png">
-                                                        </a>
-                                                        <a href="#">
-                                                            <img src="/img/images/barcode_new_sale.png">
-                                                        </a>
-                                                        <a href="#">
-                                                            <img src="/img/images/findpost.png">
-                                                        </a>
+                                                        </td>
 
-                                                    </td>
-
-                                                    <input type="hidden" id="total_hidden1" name="total_hidden1" />
-                                                    <input type="hidden" id="total_vat_hidden1" name="total_vat_hidden1" />
+                                                        <input type="hidden" id="total_hidden1" name="total_hidden1" />
+                                                        <input type="hidden" id="total_vat_hidden1" name="total_vat_hidden1" />
 
 
 
-                                                </tr>
-
+                                                    </tr>
+                                                }
                                             </tbody>
                                             @for (int i = 1; i <= 1000; i++)
-                                        {
+                                            {
 
-                                        <tbody class="black-color" id="@String.Concat("newrow",i)"></tbody>
-                                        }
+                                                <tbody class="black-color" id="@String.Concat("newrow",i)"></tbody>
+                                            }
                                         </table>
 
 
@@ -256,25 +259,25 @@
                                     <div class="">
 
                                         <div class="col-md-4 unbold">
-                                            <textarea class="textarea-style-none unbold textarea-width" name="customer_notes" placeholder="Customer notes..."></textarea>
+                                            <textarea class="textarea-style-none unbold textarea-width" name="customer_notes" placeholder="Customer notes...">@Model.Customer_Note</textarea>
                                         </div>
                                         <div class="col-md-4 pl-0">
-                                            <textarea class="textarea-style-none unbold textarea-width" name="private_notes" placeholder="Private notes..."></textarea>
+                                            <textarea class="textarea-style-none unbold textarea-width" name="private_notes" placeholder="Private notes...">@Model.Private_Note</textarea>
                                         </div>
                                         <div class="col-md-4 pl-0">
                                             <table id="table_cash" class="black-color col-md-12 border_black">
                                                 <tr class="hidecolumn">
                                                     <td class="bold">Net</td>
-                                                    <td id="net_invoice" class="text-right">£0</td>
+                                                    <td id="net_invoice" class="text-right">£123</td>
                                                 </tr>
                                                 <tr class="hidecolumn">
                                                     <td class="bold">VAT (20%)</td>
-                                                    <td id="invoice_vat" class="text-right">£0</td>
+                                                    <td class="text-right">£1</td>
                                                 </tr>
 
                                                 <tr>
                                                     <td class="bold">Gross</td>
-                                                    <td id="invoice_gross" class="text-right">£0</td>
+                                                    <td class="text-right">£83</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bold">Discount</td>
@@ -289,9 +292,9 @@
                                                     <td class="text-right">
                                                         <select id="custom_date_select_invoice" onclick="show_custom_date_payment()" name="payment_status_id" class="form-control border_black-1px min-height-32 width-180 select-class-color">
                                                             @foreach (var status in ViewBag.Payment_Status)
-                                                        {
-                                                        <option value="@status.Id">@status.Status</option>
-                                                        }
+                                                            {
+                                                                <option value="@status.Id">@status.Status</option>
+                                                            }
                                                             <option class="option-color" value="1">Custom Date</option>
                                                         </select>
                                                     </td>
@@ -368,7 +371,7 @@
     </div>
 
     <input id="counters" value="" type="text" hidden />
-    <input type="text" class="" id="net_hidden" name="net_hidden" />
+    <input type="text" class="" id="net_hidden" name="net_hidden" hidden/>
 
     <footer class="black">
 
@@ -736,7 +739,7 @@
 
     <script>
         function RemoveAddedRow(id) {
-            $("#rowId"+ id).closest(".remove_div").remove();
+            $("#rowId" + id).closest(".remove_div").remove();
         }
 
     </script>
@@ -785,7 +788,7 @@
 
             var quantity = document.getElementById('partial_row3' + id);
             var quantity_inner = quantity.innerHTML;
-//            $("#invoice_quantity" + count).val(quantity_inner);
+            //            $("#invoice_quantity" + count).val(quantity_inner);
 
             var price = document.getElementById('partial_row4' + id);
             var price_inner = price.innerHTML;
@@ -795,18 +798,18 @@
             total_price_with_vat = +percent_price + +price_inner;
 
             var a = total_price_with_vat.toPrecision(5);
-            
 
-           //var price_vat = document.getElementById('partial_row5' + id);
+
+            //var price_vat = document.getElementById('partial_row5' + id);
             //var price_vat_inner = total_price_with_vat.innerHTML;
             $("#invoice_price_vat" + count).val(a);
 
             document.getElementById("invoice_total" + count).innerHTML = "£" + price_inner;
             document.getElementById("invoice_total_vat" + count).innerHTML = "£" + total_price_with_vat;
-            
+
             $("#total_hidden1" + count).val(price_inner);
             $("#total_vat_hidden1" + count).val(total_price_with_vat);
-            
+
             //$("#invoice_discount" + count).val("0");
             $("#invoice_quantity" + count).val("1");
 
@@ -882,9 +885,9 @@
                 cache: false,
                 type: "Get",
                 success: function (data) {
-                    
+
                     document.getElementById('productList').innerHTML = data;
-                    
+
 
                 },
                 error: function (response) {
@@ -918,7 +921,7 @@
             document.getElementById('invoice_total_vat' + rownum).innerHTML = totalVat;
 
             var discount_enter = $("#invoice_discount" + rownum).val();
-            
+
 
 
 
@@ -937,17 +940,9 @@
                 a = +totaaaal + +a;
             }
 
-          
-
-            $("#net_invoice").html("£" + a);
 
 
-            var total_vat = ((20 / 100)) * a;
-
-            var gross = +a + +total_vat;
-
-            $("#invoice_vat").html("£" + total_vat);
-            $("#invoice_gross").html("£" + gross);
+            document.getElementById("net_invoice").value = a;
 
 
         }
@@ -966,7 +961,7 @@
             document.getElementById('invoice_price' + rownum).value = price;
             document.getElementById('invoice_total_vat' + rownum).innerHTML = totalVat;
 
-            
+
             var discount_enter = $("#invoice_discount" + rownum).val();
 
 
@@ -987,16 +982,15 @@
             }
 
 
-            $("#net_invoice").html("£" + a);
-           
+            document.getElementById("net_invoice").value = a;
+
         }
 
     </script>
 
 
     <script>
-        function checkInvoiceNumber()
-        {
+        function checkInvoiceNumber() {
             var number = document.getElementById("invoice_number").value;
             $.ajax({
 
@@ -1004,18 +998,16 @@
                 data: { invoice: number },
                 type: "Get",
                 cache: false,
-                success : function (data)
-                {
-//                    alert("YES");
+                success: function (data) {
+                    //alert("YES");
                     if (data == false)
 
-                    document.getElementById("invoice_number").value = '';
+                        document.getElementById("invoice_number").value = '';
                 },
-                error: function(response)
-                {
-  //                  alert("NO");
+                error: function (response) {
+                    //alert("NO");
                 }
-                
+
 
             })
         }
@@ -1023,5 +1015,3 @@
     </script>
 
 </body>
-
-

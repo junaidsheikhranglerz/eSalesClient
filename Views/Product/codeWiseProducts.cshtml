@@ -1,5 +1,10 @@
 ﻿@model List<eSalesPro.Models.Product>
 
+@{
+    int count = @ViewBag.ID;
+}
+
+
 
 
 <div>
@@ -13,7 +18,7 @@
                 <th class="text-center">Normal</th>
                 <th class="text-center">Premium</th>
                 <th class="text-center">Trade</th>
-                <th class="text-center">Other</th>
+                <th class="text-center">Others</th>
             </tr>
         </thead>
 
@@ -21,7 +26,9 @@
         @foreach (var v in Model)
         {
             <tbody class="black-color">
-                <tr id="rowId" class="font-15" onclick="tbody_add_record(@v.Id)">
+
+          
+                <tr id="rowId" class="font-15" onclick="tbody_add_record(@v.Id,@count)">
 
                     <td id="@String.Concat("partial_row1", v.Id)" class="border-right-td text-center">@v.Custom_Label_</td>
                     <td id="@String.Concat("partial_row2", v.Id)" class="border-right-td text-center">@v.Item_Title</td>

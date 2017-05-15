@@ -111,4 +111,12 @@
     .end_margin_left {
         margin-left: 27px;
     }
+
+    .width_78_height{
+        width:130px;
+    }
+
+    .date-width-height{
+        width:150px;
+    }
 }

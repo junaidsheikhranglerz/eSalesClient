@@ -44,6 +44,7 @@ function SetDate() {
 
 
     document.getElementById('myDate').value = today;
+    document.getElementById('date').value = today;
 }
 
 
@@ -367,6 +368,10 @@ function go(id,type_id) {
     var postcode = document.getElementById('juni4' + id);
     var email = document.getElementById('juni5' + id);
     var type1 = type_id;
+    
+    
+
+    
 
     var name1 = name.innerHTML
     var phone1 = phone.innerHTML
@@ -389,6 +394,9 @@ function go(id,type_id) {
     $("#customer_postcode").text(address1);
     $("#customer_phone").text(postcode1);
     $("#customer_email").text(email1);
+    $("#exist_customer_id").val(id);
+
+    
 
     if (type1 == 1) {
         $("#type_customer").text("Normal Customer");
