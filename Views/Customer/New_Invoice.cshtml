@@ -308,6 +308,9 @@
                                                 </tr>
 
                                             </table>
+
+
+
                                         </div>
 
                                         <div class="clearfix"></div>
@@ -942,11 +945,11 @@
             $("#net_invoice").html("£" + a);
 
 
-            var total_vat = ((20 / 100)) * a;
+            var total_vat = (((20 / 100)) * a).toPrecision(5);
 
             var gross = +a + +total_vat;
 
-            $("#invoice_vat").html("£" + total_vat);
+            $("#invoice_vat").html("£" + total_vat)
             $("#invoice_gross").html("£" + gross);
 
 
