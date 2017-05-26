@@ -142,14 +142,14 @@
                                                     <div class="form-group" id="quote_number_div" style="display:none;">
                                                         <label class="pull-left width-134" for="middle-name">Quote Number</label>
                                                         <div class="pull-left">
-                                                            <input class="width-145 text-center" type="text" onblur="checkQuoteNumber()" value="@ViewBag.quote_number" name="quote_number" id="quote_number" required>
+                                                            <input class="width-145" type="text" onblur="checkQuoteNumber()" value="@ViewBag.quote_number" name="quote_number" id="quote_number" required>
                                                         </div>
                                                     </div>
-                                                    
+
                                                     <div class="form-group" id="item_sale_div" style="display:none;">
                                                         <label class="pull-left width-134" for="middle-name">Item Sale Number</label>
                                                         <div class="pull-left">
-                                                            <input class="width-145 text-center" type="text" onblur="checkItemSaleNumber()" value="@ViewBag.item_sale_number" name="item_sale_number" id="item_sale_number" required>
+                                                            <input class="width-145" type="text" onblur="checkItemSaleNumber()" value="@ViewBag.item_sale_number" name="item_sale_number" id="item_sale_number" required>
                                                         </div>
                                                     </div>
 
@@ -241,8 +241,8 @@
                                                     @*<td class="text-center border-right-td width-68"><div id="invoice_total1" class="6 total_invoice_background text-center">£0</div></td>*@
                                                     @*<td class="border-right-td text-center width-78 hidecolumn"><div id="invoice_total_vat1" class="7 total_invoice_background text-center">£0</div></td>*@
 
-                                                    <td class="border-right-td text-center"><input onkeyup="Total(1);" onkeypress="validate(event)" id="invoice_discount1" placeholder="0.0" class="8 unbold width-45 text-center" name="invoice_discount1" type="text"></td>
-                                                    
+                                                    <td class="border-right-td"><input onkeyup="Total(1);" onkeypress="validate(event)" id="invoice_discount1" placeholder="0.0" class="8 unbold width-45 text-center" name="invoice_discount1" type="text"></td>
+
                                                     <td class="hidden"><input type="text" class="hidden" id="invoice_product_id1" name="invoice_product_id1" /></td>
                                                     <td class="text-center width-27p" style="vertical-align:middle;">
                                                         <a href="#" class="showdiv">
@@ -330,12 +330,12 @@
                                                     </td>
                                                 </tr>
 
-                                                <tr class="partial_paid" id="partial_paid_tr" style="display:none">
+                                                <tr class="partial_paid" style="display:none">
                                                     <td class="bold">Partial Payment</td>
                                                     <td id="partial_paid_td" class="text-right">£0</td>
                                                 </tr>
 
-                                                <tr class="deposit_paid" id="deposit_paid_tr" style="display:none">
+                                                <tr class="deposit_paid" style="display:none">
                                                     <td class="bold">Deposit Payment</td>
                                                     <td id="deposit_paid_td" class="text-right">£0</td>
                                                 </tr>
@@ -347,7 +347,7 @@
 
                                                 <tr id="custom_date_show_invoice" style="display:none">
                                                     <td class="bold width-134">Custom Date</td>
-                                                    <td><input type="date" class="width-180"/></td>
+                                                    <td><input type="date" class="width-180" /></td>
                                                 </tr>
 
                                                 <tr>
@@ -402,11 +402,11 @@
                                     <div class="col-md-1 pr-0 text-center">
                                         <a>
                                             <span class=""><img src="~/img/images/save.png" /></span><br />
-                                         
+
 
                                         </a>
 
-                                        <input type="submit" onclick="return submitResult();" value="Save" /> 
+                                        <input type="submit" onclick="return submitResult();" value="Save" />
 
 
                                     </div>
@@ -433,7 +433,7 @@
                                 <input type="text" class="" id="amount_paid_hidden" name="amount_paid_hidden" hidden />
                             </form>
 
-                          
+
 
 
 
@@ -568,12 +568,12 @@
                                     <div class="col-md-3"></div>
 
                                     @*<div class="col-md-3">
-                                        <input type="submit" onclick="" value="Yes" class="btn btn-success btn-mini center-block width-123" />
-                                    </div>
+                                            <input type="submit" onclick="" value="Yes" class="btn btn-success btn-mini center-block width-123" />
+                                        </div>
 
-                                    <div class="col-md-3">
-                                        <a data-dismiss="modal" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0">No</a>
-                                    </div>*@
+                                        <div class="col-md-3">
+                                            <a data-dismiss="modal" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0">No</a>
+                                        </div>*@
                                     <div class="col-md-3"></div>
 
 
@@ -790,7 +790,7 @@
 
     @*----------------------------POP UP FOR OUTSTANDING--------------------------------*@
 
-    
+
     <div class="modal fade" id="Outstanding_modal" tabindex="-1" role="dialog" aria-hidden="false">
         <div class="modal-dialog modal-md">
             <div class="modal-content modal-style-custom">
@@ -1316,7 +1316,7 @@
                 $("#custom_date_show_invoice").hide();
                 $("#partial_payment_option").show();
                 $("#Deposit_payment_option").hide();
-                
+
                 $("#Partial_Payment_Modal").modal("show");
             }
             else if (selectedValue == 4) {
@@ -1363,14 +1363,13 @@
             $("#Sold_History_Modal").modal('show');
         }
 
-       
+
     </script>
 
     <script>
         function Partial_Payment() {
 
             $(".partial_paid").show();
-            $("#deposit_paid_tr").hide();
 
             var discount = $("#discount_value").val();
 
@@ -1388,20 +1387,19 @@
             document.getElementById("amount_left_td").innerHTML = remaining;
             $("#left_amount_hidden").val(remaining);
             //$("#partial_paid_td").val(amount);
-            //alert("REMAINING" + remaining);
+            alert("REMAINING" + remaining);
 
         }
 
         function Deposit_Payment() {
-            $(".deposit_paid").show();
-            $("#partial_paid_tr").hide();
+            $(".deposit_paid").show()
 
             var discount = $("#discount_value").val();
 
             var gross = $("#gross_invoice").val();
 
             var amount = $("#partial_amount_deposit").val();
-            //alert("Deposit Value:" + amount);
+            alert("Deposit Value:" + amount);
 
             var rem = gross - amount - discount;
             var remaining = rem.toFixed(2);
@@ -1413,7 +1411,7 @@
             document.getElementById("amount_left_td").innerHTML = remaining;
             $("#left_amount_hidden").val(remaining);
             //$("#partial_paid_td").val(amount);
-            //alert("REMAINING: " + " " + remaining);
+            alert("REMAINING: " + " " + remaining);
         }
     </script>
 
@@ -1509,8 +1507,8 @@
             checkSoldHistory(count);
             Total(count);
 
-         
-            
+
+
 
         }
     </script>
@@ -1578,6 +1576,7 @@
                 $("#global_discount_hidden").val(a);
                 $("#total_after_discount_hidden").val(after_discount);
                 var amount_left = document.getElementById("amount_left_td").innerHTML;
+                alert(amount_left);
                 var remaining = amount_left - a;
 
                 document.getElementById("amount_left_td").innerHTML = ("£" + remaining.toFixed(2));
@@ -1597,7 +1596,7 @@
 
             var customerID = document.getElementById("exist_customer_id").value;
 
-            if (customerID != null && customerID !="") {
+            if (customerID != null && customerID != "") {
 
                 var Count = document.getElementById("counters").value;
                 if (Count == "") {
@@ -1778,9 +1777,9 @@
                 type: "Get",
                 cache: false,
                 success: function (data) {
-          
+
                     if (data == "False") {
-                   
+
                         document.getElementById("invoice_number").value = "";
                         alert("Invoice_number already exist !")
                     }
@@ -1793,8 +1792,8 @@
             })
         }
     </script>
-    
-    
+
+
     <script>
         function checkQuoteNumber() {
             var number = document.getElementById("quote_number").value;
@@ -1821,7 +1820,7 @@
             })
         }
     </script>
-    
+
 
     <script>
         function checkItemSaleNumber() {
@@ -1901,7 +1900,7 @@
             $.ajax({
 
                 url: '/Customer/Paying_Outstanding_Balance/',
-                data: { amount_paid: amount , id: customer_id },
+                data: { amount_paid: amount, id: customer_id },
                 cache: false,
                 type: "Get",
                 success: function (data) {
@@ -1924,30 +1923,26 @@
 
     <script>
 
-        function checkQuantityAvailable(quantiy,id)
-        {
-           
-            var proID = document.getElementById('invoice_product_id' + id ).value;
-          
+        function checkQuantityAvailable(quantiy, id) {
+
+            var proID = document.getElementById('invoice_product_id' + id).value;
+
             $.ajax({
 
                 url: '/Product/QuantityCheck/',
-                data: { quantity: quantiy,productId : proID },
+                data: { quantity: quantiy, productId: proID },
                 cache: false,
                 type: 'Get',
-                success: function(data)
-                {
-                   
+                success: function (data) {
 
-                    if(data =="False")
-                    {
+
+                    if (data == "False") {
                         alert("Quantity Exceeded Limit");
                         document.getElementById('invoice_quantity' + id).value = "";
                     }
-                    
+
                 },
-                error: function (response)
-                {
+                error: function (response) {
                     alert(response);
                 }
 
@@ -1968,7 +1963,7 @@
 
 
             if (checkCreditLimit() == false) {
-               return false;
+                return false;
             } else {
                 return true;
             }
@@ -1992,29 +1987,29 @@
 
 
             if (payment_status != 1) {
-                
+
 
                 if (payment_status == 3) {
                     var amount_left = document.getElementById("left_amount_hidden").value;
-                 
-                    
-                    if (amount_left <= limit ) {
-                        //alert("Partial Payment Not Reached your Credit Limit");
+
+
+                    if (amount_left <= limit) {
+                        alert("Partial Payment Not Reached your Credit Limit");
                         return true;
                     }
                     else {
-                        alert("Partial Payment You have Reached your Credit Limit\nYou have to Update your Credit Limit");
+                        alert("Partial Payment You have Reached your Credit Limit  \n You have to Update your Credit Limit");
                         return false;
                     }
                 }
 
                 else {
                     if (gross > limit) {
-                        alert("You have Reached your Credit Limit\nYou have to Update your Credit Limit");
+                        alert("You have Reached your Credit Limit \n You have to Update your Credit Limit");
                         return false;
                     }
                     else {
-                        //alert("Not Reached your Credit Limit");
+                        alert("Not Reached your Credit Limit");
                         return true;
                     }
                 }
@@ -2024,7 +2019,7 @@
             }
         }
 
-        
+
     </script>
 
 </body>
