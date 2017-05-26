@@ -1979,26 +1979,36 @@
 
         function checkCreditLimit() {
 
-            //alert("check_credit_limit");
+            alert("check_credit_limit");
             var limits = document.getElementById('credit_limit_input').value;
 
 
-            var gross = document.getElementById("gross_invoice").value;
+            var gross1 = document.getElementById("gross_invoice").value;
             var payment_status = document.getElementById("payment_status_id").value;
 
+            var gross2 = gross1 - 0;
+            var gross = gross2.toFixed(2);
             var limit_float = limits - 0;
 
+            
             var limit = limit_float.toFixed(2);
+            //alert("gross" + gross);
+            //alert("limit" + limit);
 
 
             if (payment_status != 1) {
                 
 
                 if (payment_status == 3) {
-                    var amount_left = document.getElementById("left_amount_hidden").value;
+                    var amount_left1 = document.getElementById("left_amount_hidden").value;
+
+                    var amount_left2 = amount_left1 - 0;
+                    var amount_left = amount_left2.toFixed(2);
+
                  
                     
-                    if (amount_left <= limit ) {
+                    if (amount_left <= limit) {
+                        //alert("Amount Left" + amount_left);
                         //alert("Partial Payment Not Reached your Credit Limit");
                         return true;
                     }
@@ -2010,6 +2020,9 @@
 
                 else {
                     if (gross > limit) {
+
+                        //alert("Gross" + gross);
+                        //alert("Limit" + limit);
                         alert("You have Reached your Credit Limit\nYou have to Update your Credit Limit");
                         return false;
                     }
