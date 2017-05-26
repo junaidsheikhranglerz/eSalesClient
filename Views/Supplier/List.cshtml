@@ -24,105 +24,107 @@
                 @*-----------------Main Container Start---------------*@
                 <div class="user-page-height">
                     <div class="bggg-img">
-                        <div class="ml-10">
+                        <div class="col-md-12">
                             <h3 class="bold">Suppliers<small></small></h3>
                             <div class="clearfix"></div>
                         </div>
 
-                        <div>
+                        <div class="empty-height"></div><div class="empty-height"></div>
+                        <div class="col-md-12">
 
-                            <div class="col-md-12">
+                            <div class="col-md-3 mt-20 pull-left pl-0">
+                                <a href="/Home/Epos" class="btn btn-success blue-btn-style btn-mini bold">Back to EPOS Main Panel</a>
+                            </div>
 
-                                <div class="col-md-3 pull-left">
-                                    <a href="~/Home/Epos" class="btn btn-success blue-btn-style btn-mini supplier-epos-btn bold">Back to EPOS Main Panel</a>
-                                </div>
+                            <div class="col-md-3"></div>
 
+                            <div class="col-md-6 pull-right pr-0">
 
-
-                                <div class="col-md-2 col-sm-6 col-xs-6 text-center pull-right existing-supplier-btn-margin">
+                                <div class="col-md-3 col-sm-6 col-xs-6 text-center pull-right pr-0 pl-0">
                                     <a href="#" data-toggle="modal" data-target=".bs-example-modal-md">
-                                        <span class="box"><img src="~/img/images/existing_supplier.png" /></span><br />
+                                        <span class="box"><img src="/img/images/existing_supplier.png"></span><br>
                                         <span><b>Existing Supplier</b></span>
                                     </a>
                                 </div>
 
-                                <div class="col-md-2 col-sm-6 col-xs-6 text-center pull-right new-supplier-btn-margin">
+                                <div class="col-md-3 col-sm-6 col-xs-6 text-center pull-right pl-0">
                                     <a href="#" data-toggle="modal" data-target="#CreateModal">
-                                        @*<a href="~/Supplier/SuppCreate">*@
-                                        <span class="box"><img src="~/img/images/new_supplier.png" /></span><br />
+
+                                        <span class="box"><img src="/img/images/new_supplier.png"></span><br>
                                         <span><b>New Supplier</b></span>
 
                                     </a>
                                 </div>
-
                             </div>
                         </div>
 
+                        
 
                         <div class="clearfix"></div>
 
 
                         @*<section id="no-more-tables">*@
-                        <section id="no-more-tables" class="mt-15 table-inline-margin">
 
-                            <div class="table-border">
+                        <div class="empty-height"></div><div class="empty-height"></div>
+
+                            <div class="col-md-12">
 
 
-                                <table border="0" class="table table-responsive col-md-12">
+                                <table border="0" class="table table-responsive border_black" id="supplier_table">
                                     <thead>
                                         <tr class="table-heading-fonts table-main-headings">
-                                            <th>ID</th>
-                                            <th>Salesman</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                            <th>Address</th>
-                                            <th>Postcode</th>
+                                            <th class="text-center">ID</th>
+                                            <th class="text-center">Salesman</th>
+                                            <th class="text-center">Phone</th>
+                                            <th class="text-center">Email</th>
+                                            <th class="text-center">Address</th>
+                                            <th class="text-center">Postcode</th>
 
-                                            <th>Status</th>
+                                            <th class="text-center">Status</th>
 
                                             @*<th>Pay Rate</th>
-                        <th>Role</th>
-                        <th>Status</th>*@
+                    <th>Role</th>
+                    <th>Status</th>*@
 
                                             <th class="text-center">Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="black-color bold">
+                                    <tbody class="black-color bold text-center">
 
                                         @foreach (var v in Model)
-                                    {
-                                    @*<tr data-toggle="modal" data-target="#EditModal">*@
+                                        {
+                                            @*<tr data-toggle="modal" data-target="#EditModal">*@
 
-                                      <tr>
-                                        <td data-title="User ID">@v.Id</td>
-                                        <td data-title="User ID">@v.Name</td>
-                                        <td data-title="First Name">@v.Phone</td>
-                                        <td data-title="Last Name">@v.Email</td>
-                                        <td data-title="Email" class="user-emails">@v.Address</td>
-                                        <td data-title="Date Registered">@v.Post_Code</td>
+                                            <tr>
+                                                <td class="border-right-td" data-title="User ID">@v.Id</td>
+                                                <td class="border-right-td" data-title="User ID">@v.Name</td>
+                                                <td class="border-right-td" data-title="First Name">@v.Phone</td>
+                                                <td class="border-right-td" data-title="Last Name">@v.Email</td>
+                                                <td class="border-right-td" data-title="Email">@v.Address</td>
+                                                <td class="border-right-td" data-title="Date Registered">@v.Post_Code</td>
 
-                                        @if (@v.Is_Active ==1)
-                                            {
-                                            <td class="gg">Active</td>
-                                            }
-                                            else
-                                            {
-                                            <td class="red">Deactive</td>
-                                            }
+                                                @if (@v.Is_Active == 1)
+                                                {
+                                                    <td class="gg border-right-td">Active</td>
+                                                }
+                                                else
+                                                {
+                                                    <td class="red border-right-td">Deactive</td>
+                                                }
 
-                                        <td data-title="Actions" style="min-width:191px" class="text-center width-193 buttons-block">
-                                            <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#EditModal" onclick="GetEditedObject(@v.Id)">
-                                                Edit
-                                            </a>
-                                            <a class="btn btn-sm btn-success bold" href="~/Supplier/Active/@v.Id">
-                                                Enable
-                                            </a>
-                                            <a class="btn btn-sm btn-danger bold" href="~/Supplier/Disable/@v.Id">
-                                                Disable
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    }
+                                                <td data-title="Actions" style="min-width:191px" class="text-center buttons-block">
+                                                    <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#EditModal" onclick="GetEditedObject(@v.Id)">
+                                                        Edit
+                                                    </a>
+                                                    <a class="btn btn-sm btn-success bold" href="~/Supplier/Active/@v.Id">
+                                                        Enable
+                                                    </a>
+                                                    <a class="btn btn-sm btn-danger bold" href="~/Supplier/Disable/@v.Id">
+                                                        Disable
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
                                     </tbody>
 
                                 </table>
@@ -132,7 +134,6 @@
 
                             </div>
 
-                    </section>
 
 
 
@@ -883,8 +884,15 @@
     @*----------------------------POP UP END ADD SUPPLIER--------------------------------*@
 
 
+    <script src="~/Scripts/new-js/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/new-js/jquery.datatables.min.js"></script>
 
-    
+    <script>
+        $(document).ready(function () {
+            $('#supplier_table').dataTable();
+        });
+    </script>
+
 
     <script>
 

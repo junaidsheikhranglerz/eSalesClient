@@ -24,21 +24,41 @@
                 <div class="user-page-height">
                     <div class="bggg-img">
                         <div>
+                            
+
+
                             <div class="col-md-12">
 
-                                <div class="empty-height"></div>
-                                <div class="col-md-4 padding-all-0">
-                                    <h3 class="bold font-20 padding-0">
-                                        EPOS Report Purchase Order
-                                    </h3>
+                                <div class="col-md-4 pl-0">
+                                    <h3 class="bold font-20">EPOS Report Purchase Order<small></small></h3>
                                 </div>
+                                <div class="pull-right col-md-8 mt-10 pr-0">
 
-                                <div class="empty-height"></div>
+                                     <div class="pull-right">
+                                        <input required type="date" disabled id="to_date" oninput="showDateDiv()" class="date-width-height" name="to_date">
+                                    </div>
 
-                                <div class="col-md-8 padding-0">
-
-
-                                    <div class="pull-left mr-5">
+                                    <div class="pull-right">
+                                        <label class="black-color mr-3 mt-5">To :</label>
+                                    </div>
+                                    <div class="pull-right">
+                                        <input required type="date" id="from_date" oninput="showToDate()" class="date-width-height mr-3" name="from_date">
+                                    </div>
+                                    <div class="pull-right">
+                                        <label class="black-color mr-3 mt-5">From :</label>
+                                    </div>
+                                    <div class="pull-right">
+                                        <input type="text" onkeypress='validate(event)' class="width_78_height text-center mr-7" placeholder="Number" name="stock_qty" id="login">
+                                    </div>
+                                    <div class="pull-right">
+                                        <select name="sale_type" required="" class="form-control">
+                                            <option value="">Pay Status</option>
+                                            <option value="">Paid</option>
+                                            <option value="">Not Paid</option>
+                                            <option value="">Partially Paid</option>
+                                        </select>
+                                    </div>
+                                    <div class="pull-right">
                                         <select name="sale_type" required="" class="form-control">
                                             <option value="">Pay Priority</option>
                                             <option value="">Pay Now</option>
@@ -47,31 +67,14 @@
                                             <option value="">Pay in month</option>
                                         </select>
                                     </div>
-                                    <div class="pull-left mr-5">
-                                        <select name="sale_type" required="" class="form-control">
-                                            <option value="">Pay Status</option>
-                                            <option value="">Paid</option>
-                                            <option value="">Not Paid</option>
-                                            <option value="">Partially Paid</option>
-                                        </select>
-                                    </div>
+                                    
+                                    
 
-                                    <div class="pull-left">
-                                        <input type="text" onkeypress="validate(event)" class="width-65 text-center mr-7  height-34" placeholder="Number" name="number">
-                                    </div>
 
-                                    <div class="pull-left">
-                                        <label class="black-color mr-3 mt-7">From :</label>
-                                    </div>
-                                    <div class="pull-left">
-                                        <input required="" type="date" id="from_date" oninput="showToDate()" class="date-width-height mr-3" name="from_date">
-                                    </div>
-                                    <div class="pull-left">
-                                        <label class="black-color mr-3 mt-7">To :</label>
-                                    </div>
-                                    <div class="pull-left">
-                                        <input required="" type="date" disabled="" id="to_date" oninput="showDateDiv()" class="date-width-height" name="to_date">
-                                    </div>
+
+
+
+
                                 </div>
 
                                 <div class="clearfix"></div>
@@ -92,12 +95,11 @@
                             </div>
 
                             <div class="col-md-3"></div>
-
-                            <div class="col-md-3 pull-right">
-                                <a href="#" data-toggle="modal" onclick="PrintBtn()" class="btn blue-btn-style btn-primary btn-mini width-195 bold ml-39">Print</a>
+                            <div class="col-md-2 pull-right pr-0 mb-20">
+                                <a href="#" class="btn btn-primary blue-btn-style btn-mini bold pull-right width-195">Print</a>
                             </div>
 
-                            <div class="col-md-3 pull-right">
+                            <div class="col-md-4 pull-right">
                             </div>
 
                             <div class="clearfix"></div>

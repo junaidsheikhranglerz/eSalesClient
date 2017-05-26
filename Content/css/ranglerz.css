@@ -79,6 +79,14 @@
     margin-left: 15px;
 }
 
+#low_stock td{
+    background-color:red;
+}
+
+.red_background{
+    background-color:red!important;
+}
+
 .update-stock-margin {
     margin: 19px 0 10px -20px;
 }
@@ -131,8 +139,33 @@
     height: 40px;
 }
 
+.width-80{
+    width:80px;
+}
+
+.width-72{
+    width:72px;
+}
+
 .pl-82 {
     padding-left: 82px;
+}
+
+.input_type_custom{
+    border: none;
+    outline: none;
+    cursor: default;
+    border-radius:0px;
+}
+
+.balance_div{
+    background: white;
+    border: 2px solid black;
+    margin-top: 2px;
+}
+
+.width-260{
+    width:260px;
 }
 
 .supplier-edit {
@@ -149,6 +182,15 @@
 .mb-40 {
     margin-bottom: 40px;
 }
+
+.font-22{
+    font-size:22px;
+}
+
+.font-23{
+    font-size:23px;
+}
+
 
 .supplier-create-texts {
     text-align: left;

@@ -1,0 +1,66 @@
+﻿@model List<eSalesPro.Models.Customer>
+
+
+
+    <table class="table table-responsive border_black" id="customer_list_table">
+        <thead>
+            <tr class="table-heading-fonts table-main-headings">
+                @*<th class="text-center">ID</th>*@
+                <th class="text-center">Name</th>
+                <th class="text-center">Company Name</th>
+                <th class="text-center">Phone</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Address</th>
+                <th class="text-center">Status</th>
+
+                @*<th>Pay Rate</th>
+                    <th>Role</th>
+                    <th>Status</th>*@
+
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody class="black-color bold" id="updated_customer_list">
+
+            @foreach (var v in Model)
+            {
+                <tr>
+                    @*<td class="text-center" data-title="User ID">@v.Id</td>*@
+                    <td class="text-center" data-title="User ID">@v.Name</td>
+                    <td class="text-center">@v.Company.Company_Name</td>
+                    <td class="text-center" data-title="First Name">@v.phone</td>
+                    <td class="text-center" data-title="Last Name">@v.Email</td>
+                    <td data-title="Email" class="user-emails text-center">@v.Billing_Address</td>
+
+
+                    @*@if (@v.Is_Active == 1)
+                        {*@
+                    <td class="gg text-center">Active</td>
+                    @*}
+                        else
+                        {
+                            <td class="red">Deactive</td>
+                        }*@
+
+                    <td data-title="Actions" class="text-center min-width-191 buttons-block">
+                        <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#Edit_Customer_Modal" onclick="GetCustomer(@v.Id)">
+                            Edit
+                        </a>
+                        @*<a class="btn btn-sm btn-success bold" href="#">
+                                Enable
+                            </a>*@
+                        <a class="btn btn-sm btn-danger bold" href="" onclick="delete_customer(@v.Id)">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+
+
+    </table>
+
+    <div class="clearfix"></div>
+

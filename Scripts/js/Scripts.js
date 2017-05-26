@@ -40,7 +40,7 @@ function SetDate() {
     if (month < 10) month = "0" + month;
     if (day < 10) day = "0" + day;
 
-    var today = year + "-" + month + "-" + day;
+    var today = day + "-" + month + "-" + year;
 
 
     document.getElementById('myDate').value = today;
@@ -76,13 +76,9 @@ function VatQuote() {
 }
 
 function excludeVatUnchecked() {
-
-
     if (document.getElementById("excludeVat").checked) {
         $(".hidecolumn").hide();
-    }
-
-    else {
+    }else {
         $(".hidecolumn").show();
     }
 }
@@ -188,8 +184,10 @@ function Different_Address() {
     
 //}
 
+
+
 function show_custom_date_payment() {
-    var selectedValue = document.getElementById("custom_date_select_invoice").value;
+    //var selectedValue = document.getElementById("payment_status_id").value;
 
     if (selectedValue == 1) {
         $("#custom_date_show_invoice").show();
@@ -260,38 +258,90 @@ function run_invoice_price() {
 
 
 function run_invoice() {
+    //alert("Run Invoice");
     var selectedValue = document.getElementById("language").value;
-    //alert(selectedValue);
+    //alert("Selected Value: " + selectedValue);
     if (selectedValue == 1) {
-        $("#invoice_id").show();
-        $("#quote_id").hide();
-        $("#item_sale_id").hide();
+
+        //alert("Invoice Document");
+
+        //Invoice Show
+        $("#payment_method_div").show();
+        $("#payment_status_tr").show();
+        $("#invoice_number_div").show();
+        $("#new_invoice_heading").show();
+        $("#hideExcludeVat").show();
+
+        $("#net_tr").show();
+        $("#vat_tr").show();
+
+        $("#global_discount_div").show();
+        $("#hideExcludeVat").show();
+
+        //Quote Hide
+        $("#quote_number_div").hide();
+        $("#new_quote_heading").hide();
+
+        //Item Sale Hide
+        $("#show_details").hide();
+        $("#item_sale_div").hide();
+        $("#new_item_sale_heading").hide();
     }
 
     else if (selectedValue == 2) {
+        //alert("Quote Document");
 
-        $("#quote_id").show();
-        $("#invoice_id").hide();
-        $("#item_sale_id").hide();
+        $("#hideExcludeVat").show();
+        $("#net_tr").show();
+        $("#vat_tr").show();
 
-        //var a = $("#language option:selected").text();
-        //alert(a);
+        //Invoice Hide
+        $("#payment_method_div").hide();
+        $("#payment_status_tr").hide();
+        $("#invoice_number_div").hide();
+        $("#new_invoice_heading").hide();
 
-        //var a = $('#language option[value="someValue"]').text("qttt");
-        //alert(a);
-        
+        $("#global_discount_div").hide();
 
-        //$("#language").innerHTML(a);
+        //Item Sale Hide
+        $("#item_sale_div").hide();
+        $("#new_item_sale_heading").hide();
+        $("#show_details").hide();
 
-        //var c = document.getElementById("language").innerHTML(a);
-        //alert(c);
+        //Quote Show
+        $("#quote_number_div").show();
+        $("#new_quote_heading").show();
+
     }
 
     else if (selectedValue == 3) {
+        //alert("Item Sale Document");
 
-        $("#item_sale_id").show();
-        $("#invoice_id").hide();
-        $("#quote_id").hide();
+        //Invoice Hide
+        $("#invoice_number_div").hide();
+        $("#new_invoice_heading").hide();
+        $("#hideExcludeVat").hide();
+        $("#net_tr").hide();
+        $("#vat_tr").hide();
+
+
+        //Quote Hide
+        $("#quote_number_div").hide();
+        $("#new_quote_heading").hide();
+
+
+        $("#payment_method_div").show();
+        $("#global_discount_div").show();
+        $("#payment_status_tr").show();
+
+        //Item Sale Show
+        $("#item_sale_div").show();
+        $("#new_item_sale_heading").show();
+        $("#show_details").show();
+
+        //$("#item_sale_id").show();
+        //$("#invoice_id").hide();
+        //$("#quote_id").hide();
 
 
 
@@ -367,17 +417,23 @@ function go(id,type_id) {
     var address = document.getElementById('juni3' + id);
     var postcode = document.getElementById('juni4' + id);
     var email = document.getElementById('juni5' + id);
+    var balance = document.getElementById('juni6' + id);
+    var credit = document.getElementById('juni7' + id);
+    var credit_limit = document.getElementById('juni8' + id);
     var type1 = type_id;
     
     
 
     
 
-    var name1 = name.innerHTML
-    var phone1 = phone.innerHTML
-    var address1 = address.innerHTML
-    var postcode1 = postcode.innerHTML
-    var email1 = email.innerHTML
+    var name1 = name.innerHTML;
+    var phone1 = phone.innerHTML;
+    var address1 = address.innerHTML;
+    var postcode1 = postcode.innerHTML;
+    var email1 = email.innerHTML;
+    var balance1 = balance.innerHTML;
+    var credit1 = credit.innerHTML;
+    var credit_limit1 = credit_limit.innerHTML;
 
     //alert(name1);
     //alert(phone1);
@@ -388,13 +444,17 @@ function go(id,type_id) {
 
     //$("#ExistingModal").hide;
 
-
+    
     $("#customer_name").text(name1);
     $("#customer_address").text(phone1);
     $("#customer_postcode").text(address1);
     $("#customer_phone").text(postcode1);
     $("#customer_email").text(email1);
+    $("#customer_balance").text(balance1);
+    $("#customer_credit").text(credit1);
+    $("#customer_credit_limit").text(credit_limit1);
     $("#exist_customer_id").val(id);
+    $("#credit_limit_input").val(credit_limit1);
 
     
 
@@ -478,6 +538,22 @@ function go(id,type_id) {
 //---------------------New Invoice Existing Customer---------------------
 
 
+function customer_credit() {
+    var balance = document.getElementById("customer_balance");
+    var balance1 = balance.innerHTML;
+    //alert(balance1);
+    
+    
+
+    if (balance1 <= 0) {
+        $(".displayDIV").hide();
+    }
+    else {
+        $(".displayDIV").show();
+        $("#outstanding_balance").val("£" + balance1);
+    }
+}
+
 
 function clear_customer_li() {
     //INVOICE
@@ -487,7 +563,7 @@ function clear_customer_li() {
     $("#customer_phone").text("");
     $("#customer_email").text("");
     $("#type_customer").text("");
-
+    
 
     //QUOTE
     $("#customer_name_quote").text("");

@@ -37,19 +37,21 @@
 
                             <div class="col-md-12">
 
-                                <div class="col-md-3">
-                                    <h3 class="bold margin-stock-manager-heading">Stock Manager<small></small></h3>
+                                <div class="col-md-3 pl-0">
+                                    <h3 class="bold">Stock Manager<small></small></h3>
                                 </div>
+
+                                <div class="empty-height"></div><div class="empty-height"></div>
                                 @*<div class="col-md-3">
                                     <a href="#" data-toggle="modal" data-target="#EditModal" class="btn btn-primary blue-btn-style btn-mini width-170 product-stock-btn bold">Edit</a>
                                 </div>*@
 
-                                <div class="col-md-3 pull-right">
-                                    <a href="~/Product/Stock_Taking_List" class="btn btn-primary blue-btn-style btn-mini width-170 product-stock-btn bold">Update Stocktaking</a>
+                                <div class="col-md-2 pull-right pr-0">
+                                    <a href="/Product/Stock_Taking_List" class="btn btn-primary pull-right blue-btn-style btn-mini width-170 bold">Update Stocktaking</a>
                                 </div>
 
                                 <div class="col-md-3 pull-right">
-                                    <a href="~/Home/Epos" class="btn btn-primary btn-mini blue-btn-style width-170 product-import-btn bold">Import / Export</a>
+                                    <a href="/Home/Epos" class="btn btn-primary pull-right btn-mini blue-btn-style width-170 bold">Import / Export</a>
                                 </div>
 
 
@@ -59,7 +61,7 @@
 
                         <div class="clearfix"></div>
 
-                        <div class="col-md-12">
+                        @*<div class="col-md-12">
 
                             <div class="col-md-3 pull-left">
                                 <a href="~/Home/Epos" class="btn btn-primary blue-btn-style btn-mini supplier-epos-btn bold">Back to EPOS Main Panel</a>
@@ -69,15 +71,22 @@
                                 <a href="#" data-toggle="modal" data-target="#CreateModal" class="btn btn-primary blue-btn-style btn-mini width-200 ml--50 product-import-btn bold">Add New Item</a>
 
                             </div>
+                            <div class="clearfix"></div>
 
+                        </div>*@
+                        <div class="empty-height"></div><div class="empty-height"></div>
+                        <div class="col-md-12 col-lg-12">
 
-                            <div class="col-md-4 search-filter-div">
-                                <label class="supplier-create-texts ml-22" for="middle-name">Search Filter</label>
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <input type="text" class="ml--95 width-208" name="postcode" id="postcode">
-                                    <a href="#"><img class="search-btn-product" src="~/img/images/ssearch.png" /></a>
-                                </div>
+                            <div class="col-md-3 col-lg-3 width-280 pull-left pl-0">
+                                <a href="~/Home/Epos" class="btn btn-primary btn-mini blue-btn-style bold">Back to EPOS Main Panel</a>
                             </div>
+
+                            <div class="col-md-3 col-lg-2 pull-left">
+                                <a href="#" data-toggle="modal" data-target="#CreateModal" class="btn btn-primary blue-btn-style btn-mini width-200 ml--72 bold">Add New Item</a>
+
+                            </div>
+                            <div class="col-md-3 col-lg-3"></div>
+                            <div class="col-md-3 col-lg-3"></div>
 
                             <div class="clearfix"></div>
 
@@ -89,11 +98,16 @@
                         <div class="margin-checkboxes-product">
                             <div class="row1 pull-right">
                                 <div class="pull-left bold  mr-5">Custom Fields</div>
-                                <div class="pull-left mr-5"><label class="unbold"><input onclick="normalprice()" id="checkbox-normal" type="checkbox" />Normal</label></div>
-                                <div class="pull-left mr-5"><label class="unbold"><input onclick="normalprice()" id="checkbox-trade" type="checkbox" />Trade</label></div>
-                                <div class="pull-left mr-5"><label class="unbold"><input onclick="normalprice()" id="checkbox-premium" type="checkbox" />Premium</label></div>
-                                <div class="pull-left mr-5"><label class="unbold"><input onclick="normalprice()" id="checkbox-other" type="checkbox" />Other</label></div>
-                                <div class="pull-left mr-5"><label class="unbold"><input onclick="normalprice()" id="checkbox-cost" type="checkbox" />Cost</label></div>
+                                @*<div class="pull-left mr-5"><label class="unbold"><input onclick="abc()" id="checkbox-normal" type="checkbox" />Normal</label></div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="abc()" id="checkbox-trade" type="checkbox" />Trade</label></div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="abc()" id="checkbox-premium" type="checkbox" />Premium</label></div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="abc()" id="checkbox-other" type="checkbox" />Other</label></div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="abc()" id="checkbox-cost" type="checkbox" />Cost</label></div>*@
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="abc()" id="checkbox_normal" type="checkbox" />Normal</label></div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="abc1()" id="checkbox_trade" type="checkbox" />Trade</label></div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="abc2()" id="checkbox_premium" type="checkbox" />Premium</label></div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="abc3()" id="checkbox_other" type="checkbox" />Other</label></div>
+                                <div class="pull-left mr-5"><label class="unbold"><input onclick="abc4()" id="checkbox_cost" type="checkbox" />Cost</label></div>
                             </div>
                         </div>
 
@@ -105,26 +119,31 @@
 
                         @*<section id="no-more-tables">*@
 
-                        <section id="no-more-tables" class="margin-table-product">
-                            <div class="table-border">
-
-                                <table class="table table-responsive col-md-12">
+                            <div class="col-md-12">
+                                <table border="0" class="table table-responsive border_black" id="product_list_tableeee">
                                     <thead>
                                         <tr class="table-heading-fonts table-main-headings">
                                             @*<th>Id</th>*@
-                                            <th>SKU</th>
-                                            <th>Description</th>
-                                            <th>Normal Price</th>
-                                            <th>Trade Price</th>
-                                            <th>Premium Price</th>
-                                            <th>Other Price</th>
-                                            <th>Cost Price</th>
-                                            
-                                            <th id="check-normal-price-th" class="hideDiv">Total Normal Price</th>
-                                            <th id="check-trade-price-th" class="hideDiv">Total Trade Price</th>
-                                            <th id="check-premium-price-th" class="hideDiv">Total Premium Price</th>
-                                            <th id="check-other-price-th" class="hideDiv">Total Other Price</th>
-                                            <th id="check-cost-price-th" class="hideDiv">Total Cost Price</th>
+                                            <th class="text-center">SKU</th>
+                                            <th class="text-center">Description</th>
+                                            <th class="text-center">Normal Price</th>
+                                            <th class="text-center">Trade Price</th>
+                                            <th class="text-center">Premium Price</th>
+                                            <th class="text-center">Other Price</th>
+                                            <th class="text-center">Cost Price</th>
+
+                                            @*<th id="check-normal-price-th" class="hideDiv text-center">Total Normal Price</th>
+                                            <th id="check-trade-price-th" class="hideDiv text-center">Total Trade Price</th>
+                                            <th id="check-premium-price-th" class="hideDiv text-center">Total Premium Price</th>
+                                            <th id="check-other-price-th" class="hideDiv text-center">Total Other Price</th>
+                                            <th id="check-cost-price-th" class="hideDiv text-center">Total Cost Price</th>*@
+
+                                            <th class="normal_total text-center" style="display:none">Total Normal Price</th>
+                                            <th class="trade_total text-center" style="display:none">Total Trade Price</th>
+                                            <th class="premium_total text-center" style="display:none">Total Premium Price</th>
+                                            <th class="other_total text-center" style="display:none">Total Other Price</th>
+                                            <th class="cost_total text-center" style="display:none">Total Cost Price</th>
+
                                             <th class="text-center">Actions</th>
 
 
@@ -133,17 +152,11 @@
 
 
 
-                                    <tbody class="bold tbody-font-style">
+                                    <tbody class="bold tbody-font-style text-center">
 
                                         @foreach (var v in Model)
                                         {
-
-                                            @*<tr data-toggle="modal" data-target=".bs-example-modal-lg">*@
-
                                             <tr class="">
-
-
-
                                                 @*<td data-title="User ID">@v.Id</td>*@
                                                 <td data-title="User ID">@v.Custom_Label_</td>
                                                 <td data-title="First Name">@v.Item_Title</td>
@@ -152,31 +165,38 @@
                                                 <td data-title="Date Registered">@v.Price_Premium</td>
                                                 <td class="">@v.Price_Others</td>
                                                 <td class="">@v.Cost_Price</td>
-                                                
-                                                <td id="check-normal-price-td" class="hideDiv">@v.Normal_VAT</td>
+                                                @*<td id="check-normal-price-td" class="hideDiv">@v.Normal_VAT</td>
                                                 <td id="check-trade-price-td" class="hideDiv">@v.Normal_VAT</td>
                                                 <td id="check-premium-price-td" class="hideDiv">@v.Normal_VAT</td>
                                                 <td id="check-other-price-td" class="hideDiv">@v.Normal_VAT</td>
-                                                <td id="check-cost-price-td" class="hideDiv">@v.Normal_VAT</td>
+                                                <td id="check-cost-price-td" class="hideDiv">@v.Normal_VAT</td>*@
+
+                                                <td class="normal_total" style="display:none">@v.Normal_VAT</td>
+                                                <td class="trade_total" style="display:none">@v.Trade_VAT</td>
+                                                <td class="premium_total" style="display:none">@v.Premium_VAT</td>
+                                                <td class="other_total" style="display:none">@v.Other_VAT</td>
+                                                <td class="cost_total" style="display:none">@v.Cost_VAT</td>
+
+
+
+
                                                 <td>
                                                     <a href="#" data-toggle="modal" data-target="#EditModal" class="btn btn-sm btn-success bold" onclick="GetProduct(@v.Id)">Edit</a>
-                                                <a class="btn btn-sm btn-danger bold" href="">
-                                                    Delete
-                                                </a>
+                                                    <a class="btn btn-sm btn-danger bold" href="">
+                                                        Delete
+                                                    </a>
                                                 </td>
                                             </tr>
                                         }
                                     </tbody>
                                 </table>
 
-                                <div class="clearfix"></div>
 
 
-                            </div>
+                                    <div class="clearfix"></div>
 
 
-
-                        </section>
+</div>
 
                     </div>
                 </div>
@@ -204,7 +224,7 @@
 
                 <div class="title col-md-12">
                     <span>Confirm</span>
-                    <img src="~/img/images/c3.png" class="close mr--13 pull-right" />
+                    <img src="~/img/images/c3.png" onclick="dismiss_modal()" class="close mr--13 pull-right" />
                 </div>
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -232,7 +252,7 @@
                                     </div>
 
                                     <div class="col-md-3">
-                                        <a href="#" onclick="cancel_btn()" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0 ml-22">Cancel</a>
+                                        <a href="#" onclick="dismiss_modal()" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0 ml-22">Cancel</a>
                                     </div>
                                     <div class="col-md-3"></div>
 
@@ -272,13 +292,13 @@
 
     @*----------------------------POP UP for CATEGORY--------------------------------*@
 
-    <div class="modal fade bs-example-modal-md z-999999999999999999999999" id="create_category_modal" tabindex="-1" role="dialog" aria-hidden="false">
+          <div class="modal fade bs-example-modal-md z-999999999999999999999999" id="create_category_modal" tabindex="-1" role="dialog" aria-hidden="false">
         <div class="modal-dialog modal-lg-2">
             <div class="modal-content modal-style-custom">
 
                 <div class="title col-md-12">
                     <span>Categories</span>
-                    <img src="~/img/images/c3.png" class="close mr--13 pull-right" />
+                    <img src="~/img/images/c3.png" onclick="dismiss_modal()" class="close mr--13 pull-right" />
                 </div>
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -311,7 +331,7 @@
                                     </div>
 
                                     <div class="col-md-3">
-                                        <a href="#" onclick="cancel_btn()" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0 ml-22">Cancel</a>
+                                        <a href="#" onclick="dismiss_modal()" class="btn btn-primary btn-mini width-123 center-block a-cancel height-40 mt-0 ml-22">Cancel</a>
                                     </div>
                                     <div class="col-md-3"></div>
 
@@ -1727,12 +1747,75 @@
 
     
 
-    @*----------------------------POP UP END ADD PRODUCT--------------------------------*@
+    @*----------------------------POP UP END EDIT PRODUCT--------------------------------*@
 
+    <script>
+        function abc() {
+            if (document.getElementById("checkbox_normal").checked) {
+                $(".normal_total").show('slow');
+           }
+
+           else {
+                $(".normal_total").hide('slow');
+           }
+        }
+
+        function abc1() {
+            if (document.getElementById("checkbox_trade").checked) {
+                $(".trade_total").show('slow');
+            }
+
+            else {
+                $(".trade_total").hide('slow');
+            }
+        }
+
+        function abc2() {
+            if (document.getElementById("checkbox_premium").checked) {
+                $(".premium_total").show('slow');
+            }
+
+            else {
+                $(".premium_total").hide('slow');
+            }
+        }
+
+        function abc3() {
+            if (document.getElementById("checkbox_other").checked) {
+                $(".other_total").show('slow');
+            }
+
+            else {
+                $(".other_total").hide('slow');
+            }
+        }
+
+        function abc4() {
+            if (document.getElementById("checkbox_cost").checked) {
+                $(".cost_total").show('slow');
+            }
+
+            else {
+                $(".cost_total").hide('slow');
+            }
+        }
+
+
+    </script>
+
+    <script src="~/Scripts/new-js/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/new-js/jquery.datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#product_list_tableeee').dataTable();
+        });
+
+    </script>
 
     <script>
         function Barcode_Ok() {
-            var v=$("#barcode_label").val;
+            var v=document.getElementById("barcode_label").textContent;
             if (v == "") {
                 alert(v);
                 alert("EMPTY");
@@ -1741,11 +1824,15 @@
 
                 alert("NOT EMPTY");
                 alert(v);
-                $("#barcode_code").val = v;
-                $("#barcode_code").disabled;
-                $(".barcode_modal").addClass("none");
-
+                $("#barcode_code").val(v);
+                document.getElementById("barcode_code").disabled = true;
+                $("#barcode_modal").hide('fast');
             }
+        }
+
+        function dismiss_modal(){
+            $("#create_category_modal").hide('fast');
+            $("#barcode_modal").hide('fast');
         }
 
 
@@ -1758,15 +1845,10 @@
 
             document.getElementById("barcode_code").value = unique;
             document.getElementById("barcode_code").readOnly = true;
-
         }
 
     </script>
-
-
-
-
-
+    
     <script>
         $('.add_new_warehouse').click(function () {
             $(this).after('<div class="ml-16 remove_warehouse_div"><div class="form-group pull-left"><label class="control-label pull-left">Location:</label><select name="ware_house_name" required class="form-control width-170 pull-left">@foreach (var warehouse in ViewBag.Warehouses){<option value="@warehouse.Id">@warehouse.Name </option>}</select></div><div class="pull-left"><label class="control-label pull-left ml-22 mr-5">Shelf No :</label><select name="ware_shelf_number" required class="form-control width-94 pull-left">@foreach (var warehouse in ViewBag.Warehouses){<option value="@warehouse.Id">@warehouse.shelf_number </option>}</select></div><div id="addedRows"></div><div class="form-group pull-left"><label class="control-label pull-left ml-22">QTY:</label><input id="" class="form-control pull-left width-78 ml-5" type="text" name="ware_house_qty" placeholder="" required="" title="admin"></div><div><a class="kashif" onclick="removeWarehouse()"><img class="del-img-size" style="margin-left:-14px;" src="/img/images/delete.png" /></a></div><div class="clearfix"></div></div>');

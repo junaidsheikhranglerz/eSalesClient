@@ -80,18 +80,18 @@
 
                         <div class="col-md-12">
 
-                            <div class="col-md-3 pull-left">
-                                <a href="~/Home/Epos" class="btn btn-primary btn-mini blue-btn-style bold ml--20">Back to EPOS Main Panel</a>
+                            <div class="col-md-3 pull-left pl-0">
+                                <a href="~/Home/Epos" class="btn btn-primary blue-btn-style btn-mini bold">Back to EPOS Main Panel</a>
                             </div>
 
-                            <div class="col-md-3"></div>
+                            <div class="col-md-5"></div>
 
-                            <div class="col-md-3 pull-right">
-                                <a href="#" data-toggle="modal" data-target="#customer_modal" class="btn btn-primary blue-btn-style btn-mini bold ml-75">Customer Summary</a>
+                            <div class="col-md-2 pull-right pr-0">
+                                <a href="#" data-toggle="modal" data-target="#customer_modal" class="btn btn-primary blue-btn-style btn-mini bold pull-right">Customer Summary</a>
                             </div>
 
-                            <div class="col-md-3 pull-right">
-                                <a href="~/Home/Epos" onclick="PrintBtn()" class="btn btn-primary btn-mini blue-btn-style bold width-150 ml-160">Print</a>
+                            <div class="col-md-2 pull-right pr-0">
+                                <a href="~/Home/Epos" onclick="PrintBtn()" class="btn btn-primary blue-btn-style btn-mini bold width-150 pull-right">Print</a>
                             </div>
 
                             <div class="clearfix"></div>
@@ -102,8 +102,8 @@
                         <div class="clearfix"></div>
 
 
-                        <div class="empty-height"></div>
-                        <div class="empty-height"></div>
+                        <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
+                        
 
                         <div id="customer_summary" class="none">
 
@@ -311,18 +311,18 @@
                                 <table border="0" class="table table-responsive border_black" id="table_on_dates">
                                     <thead>
                                         <tr class="table-heading-fonts table-main-headings">
-                                            <th>Type</th>
-                                            <th>Customer</th>
-                                            <th>Phone No</th>
-                                            <th>Email</th>
-                                            <th>Credit Limit</th>
-                                            <th>Outstanding Balance</th>
-                                            <th>Status</th>
+                                            <th class="text-center">Type</th>
+                                            <th class="text-center">Customer</th>
+                                            <th class="text-center">Phone No</th>
+                                            <th class="text-center">Email</th>
+                                            <th class="text-center">Credit Limit</th>
+                                            <th class="text-center">Outstanding Balance</th>
+                                            <th class="text-center">Status</th>
 
 
                                         </tr>
                                     </thead>
-                                    <tbody class="black-color bold">
+                                    <tbody class="black-color bold text-center">
 
                                         @*@foreach (var v in Model)
                                             {*@

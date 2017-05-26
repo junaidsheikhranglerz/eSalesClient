@@ -34,6 +34,10 @@
         margin-left: 50px;
     }
 
+    .ml--{
+        margin-left:-52px;
+    }
+
     /*.banner-size {
       
     }*/
@@ -84,6 +88,10 @@
     .end_margin_left {
         margin-left: 10px;
     }
+
+     /*.ml--{
+        margin-left:-14px;
+    }*/
 }
 
 
@@ -118,5 +126,9 @@
 
     .date-width-height{
         width:150px;
+    }
+
+    .ml--{
+        margin-left:29px;
     }
 }

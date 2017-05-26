@@ -1,4 +1,5 @@
-﻿<body id="body-index">
+﻿@model List<eSalesPro.Models.Product>
+<body id="body-index">
     <div id="sticky-footer-wrap">
 
         @*-----------------Top Navigation Start---------------*@
@@ -27,12 +28,12 @@
 
                             <div class="col-md-12">
 
-                                <div class="col-md-4">
-                                    <h3 class="bold update-stock-margin">Low Stocks<small></small></h3>
+                                <div class="col-md-4 pl-0">
+                                    <h3 class="bold">Low Stocks<small></small></h3>
                                 </div>
-                                <div class="mt-10 ml-99">
-                                    <div class="col-md-2 pull-right">
-                                        <a href="~/Home/Epos" class="btn btn-primary blue-btn-style ml--72 btn-mini text-center width-208 bold">Print</a>
+                                <div class="col-md-8 mt-10 pr-0">
+                                    <div class="col-md-4 pull-right pr-0">
+                                        <a href="/Home/Epos" class="btn btn-primary blue-btn-style pull-right btn-mini text-center width-208 bold">Print</a>
                                     </div>
 
                                     <div class="col-md-2 pull-right">
@@ -44,25 +45,28 @@
                                     <div class="col-md-2 pull-right">
                                     </div>
                                 </div>
+                                <div class="clearfix"></div>
 
                             </div>
                             <div class="clearfix"></div>
 
                         </div>
 
+                        <div class="clearfix empty-height"></div>
                         <div class="clearfix"></div>
 
-                        <div class="col-md-12">
+                        <div class="col-md-12 col-lg-12">
 
-                            <div class="col-md-3 pull-left">
-                                <a href="~/Home/Epos" class="btn btn-primary btn-mini blue-btn-style supplier-epos-btn bold">Back to EPOS Main Panel</a>
+                            <div class="col-md-3 col-lg-3 width-280 pull-left pl-0">
+                                <a href="~/Home/Epos" class="btn btn-primary btn-mini blue-btn-style bold">Back to EPOS Main Panel</a>
                             </div>
 
-                            <div class="col-md-3 pull-left">
-                                <a href="#" data-toggle="modal" class="btn btn-primary blue-btn-style btn-mini width-200 ml--50 product-import-btn bold">Add to Purchase Order</a>
+                            <div class="col-md-3 col-lg-2 pull-left">
+                                <a href="#" data-toggle="modal" class="btn btn-primary blue-btn-style btn-mini width-200 ml--72 bold">Add to Purchase Order</a>
 
                             </div>
-
+                            <div class="col-md-3 col-lg-3"></div>
+                            <div class="col-md-3 col-lg-3"></div>
 
                             @*------------CUSTOM SEARCH BAR------------
                                 <div class="col-md-4 search-filter-div">
@@ -101,19 +105,26 @@
                                             <th class="text-center">Warn Level</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bold tbody-font-style">
+                                    <tbody class="bold tbody-font-style" id="">
 
-                                        @*<tr data-toggle="modal" data-target=".bs-example-modal-lg">*@
-                                        <tr>
-                                            <td class="text-center">12</td>
-                                            <td class="text-center">Johnson</td>
-                                            <td class="text-center">2410G-SONY</td>
-                                            <td class="text-center">2.4 38Mega Pixel TVI Hybrid Fixed Lens HQ</td>
-                                            <td class="text-center">£130</td>
-                                            <td class="text-center">10000</td>
-                                            <td class="text-center">99</td>
-                                        </tr>
-
+                                        @foreach (var v in Model)
+                                        {
+                                            if (v.Quantity.Quantity1 <= v.Warn_Level)
+                                            {
+                                                <tr class="">
+                                                    <td class="text-center">@v.Id</td>
+                                                    <td class="text-center">@v.Supplier.Name</td>
+                                                    <td class="text-center">@v.Custom_Label_</td>
+                                                    <td class="text-center">@v.Item_Title</td>
+                                                    <td class="text-center">@v.Cost_Price</td>
+                                                    <td class="text-center">@v.Quantity.Quantity1</td>
+                                                    <td class="text-center">@v.Warn_Level</td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                            }
+                                        }
                                     </tbody>
                                 </table>
 

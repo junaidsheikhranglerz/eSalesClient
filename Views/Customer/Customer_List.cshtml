@@ -1,5 +1,5 @@
 ﻿@model List<eSalesPro.Models.Customer>
-<body id="body-index">
+<body id="body-index" onload="">
     <div id="sticky-footer-wrap">
 
         @*-----------------Top Navigation Start---------------*@
@@ -32,58 +32,60 @@
                                         <h3 class="bold update-stock-margin"><small></small></h3>
                                     </div>*@
 
-                                <div class="pull-left">
+                                <div class="pull-left col-md-3 pl-0">
                                     <a href="~/Home/Epos" class="btn btn-primary blue-btn-style mt-10 btn-mini bold">Back to EPOS Main Panel</a>
                                 </div>
 
+                                <div class="empty-height"></div>
+                                <div class="col-md-9 pr-0">
+                                   
 
-                                <div class="mt-10">
-                                    <div class="col-md-2 pull-right">
-                                        <a href="~/Home/Epos" onclick="PrintBtn()" class="btn btn-primary blue-btn-style ml--45 btn-mini text-center width-195 bold">Print</a>
+                                    <div class="col-md-2 pull-left"></div>
+
+                                    <div class="col-md-2 pull-left"></div>
+
+                                    <div class="col-md-2 pull-left"></div>
+
+                                    <div class="col-md-3 pull-right pr-0">
+                                        <a href="~/Home/Epos" onclick="PrintBtn()" class="btn pull-right btn-primary blue-btn-style btn-mini text-center width-195 bold">Print</a>
                                     </div>
 
-                                    <div class="col-md-2 pull-right">
-                                    </div>
-
-                                    <div class="col-md-2 pull-right">
-                                    </div>
-
-                                    <div class="col-md-2 pull-right">
-                                    </div>
                                 </div>
 
                             </div>
                             <div class="clearfix"></div>
-                            <div class="mt-30">
-                                <div class="col-md-3 pull-left">
-                                    <h4 class="black-color bold">Choose Customer type : </h4>
+                            
+                            <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
+                            
+                            
+                                <div class="">
+                                    <div class="col-md-3 pull-left width-260">
+                                        <h4 class="black-color bold">Choose Customer type : </h4>
+                                    </div>
+                                    <div class="col-md-2 pull-left padding-all-0">
+                                        <select oninput="Custom_List()" name="customer_type" id="customer_type_dropdown" required class="form-control">
+                                            <option>Please Select any</option>
+                                            @foreach (var customer_type in ViewBag.Customer_Type)
+                                            {
+                                                <option value="@customer_type.Id">@customer_type.Type</option>
+                                            }
+                                        </select>
+
+
+
+
+                                    </div>
+
+                                    <div class="col-md-3 pull-right">
+                                        <a href="#" data-toggle="modal" data-target="#customer_modal" class="btn pull-right btn-primary blue-btn-style btn-mini text-center width-195 bold">Customer Summary</a>
+                                    </div>
+
+                                    <div class="col-md-3"></div>
                                 </div>
-                                <div class="col-md-2 ml--40 pull-left">
-                                    <select oninput="show_customer_type()" name="customer_type" required class="form-control">
-                                        <option value="">Please select any </option>
-                                        @foreach (var customer_type in ViewBag.Customer_Type)
-                                        {
-                                            <option value="@customer_type.Id">@customer_type.Type</option>
-                                        }
-                                    </select>
 
+                                <div class="clearfix"></div>
 
-
-
-                                </div>
-
-                                <div class="col-md-3 pull-right mb-20">
-                                    @*<a href="#" data-toggle="modal" data-target="#customer_modal" class="btn btn-primary btn-mini bold ml-75">Customer Summary</a>*@
-                                    <a href="#" data-toggle="modal" data-target="#customer_modal" class="btn btn-primary blue-btn-style ml-30 btn-mini text-center width-195 bold">Customer Summary</a>
-                                </div>
-
-                                <div class="col-md-3"></div>
-                            </div>
-
-
-                            <div class="clearfix"></div>
-
-                        </div>
+</div>
 
                         <div class="clearfix"></div>
 
@@ -93,73 +95,7 @@
 
 
 
-                        <div class="col-md-12 mt-20 none" id="customer_table_div">
-
-                            <table class="table table-responsive border_black" id="customer_list_table">
-                                <thead>
-                                    <tr class="table-heading-fonts table-main-headings">
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Company Name</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Address</th>
-                                        
-
-                                        <th>Status</th>
-
-                                        @*<th>Pay Rate</th>
-                                            <th>Role</th>
-                                            <th>Status</th>*@
-
-                                        <th class="text-center">Actions</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody class="black-color bold" id="updated_customer_list">
-
-                                    @foreach (var v in Model)
-                                    {
-                                        <tr>
-                                            <td data-title="User ID">@v.Id</td>
-                                            <td data-title="User ID">@v.Name</td>
-                                            <td>@v.Company.Company_Name</td>
-                                            <td data-title="First Name">@v.phone</td>
-                                            <td data-title="Last Name">@v.Email</td>
-                                            <td data-title="Email" class="user-emails">@v.Billing_Address</td>
-                                            
-
-                                            @*@if (@v.Is_Active == 1)
-                                                {*@
-                                            <td class="gg">Active</td>
-                                            @*}
-                                                else
-                                                {
-                                                    <td class="red">Deactive</td>
-                                                }*@
-
-                                            <td data-title="Actions" class="text-center min-width-191 buttons-block">
-                                                <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#Edit_Customer_Modal" onclick="GetCustomer(@v.Id)">
-                                                    Edit
-                                                </a>
-                                                @*<a class="btn btn-sm btn-success bold" href="#">
-                                                        Enable
-                                                    </a>*@
-                                                <a class="btn btn-sm btn-danger bold" href="" onclick="delete_customer(@v.Id)">
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                       
-                                    }
-                                </tbody>
-
-
-                            </table>
-
-                            <div class="clearfix"></div>
-
-                        </div>
+                        <div class="col-md-12 mt-20" id="customer_table_div"></div>
 
                         <div class="clearfix"></div>
 
@@ -698,6 +634,31 @@
 
     <script>
 
+        function Custom_List() {
+            //alert("CUSTOM_LIST")
+
+            var type_ID = document.getElementById("customer_type_dropdown").value;
+            //alert(type_ID)
+
+            $.ajax({
+
+                url: '/Customer/Customer_List_Custom/',
+                data: { customer_type_id: type_ID},
+                cache: false,
+                type: 'Get',
+                success: function (data) {
+                    //alert("Success");
+                    //alert(data);
+                    document.getElementById('customer_table_div').innerHTML = data;
+
+                },
+                error: function (response) {
+                    //alert("Error");
+                }
+
+            })
+        }
+
         function GetCustomer(ID) {
 
             $("#PleaseWait").addClass('showDiv');
@@ -760,16 +721,16 @@
         function show_customer_summary() {
             $("#customer_summary").removeClass("none");
             $("#customer_summary").addClass("showDiv");
-            $("#customer_table_div").addClass("none");
+            //$("#customer_table_div").addClass("none");
         }
     </script>
 
     <script>
-        function show_customer_type() {
-            $("#customer_table_div").removeClass("none");
-            $("#customer_table_div").addClass("showDiv");
-            $("#customer_summary").addClass("none");
-        }
+        //function show_customer_type() {
+        //    $("#customer_table_div").removeClass("none");
+        //    $("#customer_table_div").addClass("showDiv");
+        //    $("#customer_summary").addClass("none");
+        //}
     </script>
 
     <script>
