@@ -38,7 +38,7 @@
 
                                 <div class="empty-height"></div>
                                 <div class="col-md-9 pr-0">
-                                   
+
 
                                     <div class="col-md-2 pull-left"></div>
 
@@ -54,52 +54,54 @@
 
                             </div>
                             <div class="clearfix"></div>
-                            
+
                             <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
-                            
-                            
-                                <div class="">
-                                    <div class="col-md-3 pull-left width-260">
-                                        <h4 class="black-color bold">Choose Customer type : </h4>
-                                    </div>
-                                    <div class="col-md-2 pull-left padding-all-0">
-                                        <select oninput="Custom_List()" name="customer_type" id="customer_type_dropdown" required class="form-control">
-                                            <option>Please Select any</option>
-                                            @foreach (var customer_type in ViewBag.Customer_Type)
-                                            {
-                                                <option value="@customer_type.Id">@customer_type.Type</option>
-                                            }
-                                        </select>
+
+
+                            <div class="">
+                                <div class="col-md-3 pull-left width-260">
+                                    <h4 class="black-color bold">Choose Customer type : </h4>
+                                </div>
+                                <div class="col-md-2 pull-left padding-all-0">
+                                    <select onchange="Custom_List()" name="customer_type" id="customer_type_dropdown" required class="form-control">
+                                        <option>Please Select any</option>
+                                        @foreach (var customer_type in ViewBag.Customer_Type)
+                                        {
+                                            <option value="@customer_type.Id">@customer_type.Type</option>
+                                        }
+                                    </select>
 
 
 
 
-                                    </div>
-
-                                    <div class="col-md-3 pull-right">
-                                        <a href="#" data-toggle="modal" data-target="#customer_modal" class="btn pull-right btn-primary blue-btn-style btn-mini text-center width-195 bold">Customer Summary</a>
-                                    </div>
-
-                                    <div class="col-md-3"></div>
                                 </div>
 
-                                <div class="clearfix"></div>
+                                <div class="col-md-3 pull-right">
+                                    <a href="#" data-toggle="modal" data-target="#ExistingModal" class="btn pull-right btn-primary blue-btn-style btn-mini text-center width-195 bold">Customer Summary</a>
+                                </div>
 
-</div>
+                                <div class="col-md-3"></div>
+                            </div>
 
-                        <div class="clearfix"></div>
+                            <div class="clearfix"></div>
 
-
-
-
-
-
-
-                        <div class="col-md-12 mt-20" id="customer_table_div"></div>
+                        </div>
 
                         <div class="clearfix"></div>
 
-                        <div id="customer_summary" class="none">
+                        <input hidden type="text" id="" onkeypress="testKeyEvent(this.value)" />
+
+                        <input hidden type="text" id="customer_id" name="customer_id" />
+
+
+
+                        <div class="col-md-12 mt-20" id="customer_table_div">
+
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div id="customer_summary" style="display:none">
 
                             <div class="col-md-12">
                                 <h4 class="pull-left bold black-color">Customer Summary</h4>
@@ -113,40 +115,40 @@
                                     <table class="black-color col-md-3 pull-left">
                                         <tr>
                                             <th class="width-90 font-16">Name</th>
-                                            <td>Bill Gates</td>
+                                            <td id="c_name"></td>
                                         </tr>
                                         <tr>
                                             <th class="width-90 font-16">Phone</th>
-                                            <td>+125577854</td>
+                                            <td id="c_phone"></td>
                                         </tr>
 
                                         <tr>
                                             <th class="width-90 font-16">Email</th>
-                                            <td>cctv@yahoo.com</td>
+                                            <td id="c_email"></td>
                                         </tr>
                                         <tr>
                                             <th class="width-90 font-16">Type</th>
-                                            <td>Normal Customer</td>
+                                            <td id="c_type"></td>
                                         </tr>
                                         <tr>
                                             <th class="width-90 font-16">Notes</th>
-                                            <td>No Notes</td>
+                                            <td id="c_notes"></td>
                                         </tr>
                                         <tr>
                                             <th class="width-90 font-16">Credit Limit</th>
-                                            <td>£99</td>
+                                            <td id="c_credit_limit"></td>
                                         </tr>
 
                                     </table>
 
                                     <div class="col-md-3">
                                         <label class="bold black-color font-16">Billing Address:</label><br />
-                                        <p class="black-color">185 Rochdale Lancashire England OL12ODR</p>
+                                        <p class="black-color" id="c_address"></p>
                                     </div>
 
                                     <div class="col-md-3 border_black text-center">
                                         <label class="bold red mt-5 font-16">Available Credit Balance</label><br />
-                                        <label class="bold black-color font-16">£122</label><br />
+                                        <label class="bold black-color font-16" id="c_balance"></label><br />
                                         <a href="#" data-toggle="modal" data-target="#" class="btn mb-10 blue-btn-style btn-primary btn-mini bold">View Payment Status</a>
                                     </div>
 
@@ -159,11 +161,11 @@
                                 <div class="col-md-12 mt-15">
 
                                     <div class="col-md-2 pull-left">
-                                        <a href="~/Home/Epos" class="btn btn-primary btn-mini ml--20 blue-btn-style bold width-150">Edit Customer</a>
+                                        <a data-target="#Edit_Customer_Modal" onclick="GetCustomer(-1)" data-toggle="modal" class="btn btn-primary btn-mini ml--20 blue-btn-style bold width-150">Edit Customer</a>
                                     </div>
 
                                     <div class="col-md-2 pull-left">
-                                        <a href="~/Home/Epos" class="btn btn-primary btn-mini ml--20 blue-btn-style bold width-150">Delete Customer</a>
+                                        <a href="" onclick="delete_customer(-1)" class="btn btn-primary btn-mini ml--20 blue-btn-style bold width-150">Delete Customer</a>
                                     </div>
 
                                     <div class="col-md-2 pull-left">
@@ -171,7 +173,7 @@
                                     </div>
 
                                     <div class="col-md-2 pull-left">
-                                        <a href="~/Home/Epos" class="btn ml--20 btn-primary blue-btn-style btn-mini bold width-150">New Sale</a>
+                                        <a href="~/Sale/New_Invoice" class="btn ml--20 btn-primary blue-btn-style btn-mini bold width-150">New Sale</a>
                                     </div>
 
                                     <div class="clearfix"></div>
@@ -183,73 +185,27 @@
                                 <div class="col-md-12">
                                     <p class="bold font-20 mt-30 black-color">Customer Invoices<small></small></p>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-12" id="">
                                     <table border="0" class="table table-responsive border_black" id="customer_invoices_table">
                                         <thead>
                                             <tr class="table-heading-fonts table-main-headings">
-                                                <th>Order Id</th>
-                                                <th>Payment Type</th>
-                                                <th>Status</th>
-                                                <th>Net</th>
-                                                <th>VAT</th>
-                                                <th>Gross</th>
-
-                                                <th>Date</th>
+                                                <th class="text-center">Order Id</th>
+                                                <th class="text-center">Payment Type</th>
+                                                <th class="text-center">Status</th>
+                                                <th class="text-center">Net</th>
+                                                <th class="text-center">VAT</th>
+                                                <th class="text-center">Gross</th>
+                                                <th class="text-center">Date</th>
 
 
                                             </tr>
                                         </thead>
-                                        <tbody class="black-color bold">
-
-                                            @*@foreach (var v in Model)
-                                                {*@
-                                            @*<tr data-toggle="modal" data-target="#EditModal">*@
-
-
-
-                                            <tr>
-                                                <td data-title="User ID">Order-110</td>
-                                                <td data-title="User ID">Paypal</td>
-                                                <td data-title="User ID">Done</td>
-                                                <td data-title="User ID">£123</td>
-                                                <td data-title="User ID">£123</td>
-                                                <td data-title="User ID">£246</td>
-                                                <td data-title="User ID">1-1-2017</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">Order-80</td>
-                                                <td data-title="User ID">Cash</td>
-                                                <td data-title="User ID">Partially Paid</td>
-                                                <td data-title="User ID">£1</td>
-                                                <td data-title="User ID">£12</td>
-                                                <td data-title="User ID">£13</td>
-                                                <td data-title="User ID">05-07-2017</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">Order-007</td>
-                                                <td data-title="User ID">Bank Transfer</td>
-                                                <td data-title="User ID">Done</td>
-                                                <td data-title="User ID">£2000</td>
-                                                <td data-title="User ID">£8000</td>
-                                                <td data-title="User ID">£10000</td>
-                                                <td data-title="User ID">07-07-2010</td>
-                                            </tr>
-
-
-
-
-
-
-                                            @*}*@
-                                        </tbody>
-
+                                        <tbody class="black-color bold" id="invoice_by_customer_partial_view"></tbody>
                                     </table>
                                     <div class="clearfix"></div>
                                 </div>
+
+
 
                                 <div class="clearfix"></div>
 
@@ -263,30 +219,17 @@
                                     <table border="0" class="table table-responsive border_black" id="item_history_table">
                                         <thead>
                                             <tr class="table-heading-fonts table-main-headings">
-                                                <th>Date</th>
-                                                <th>SKU</th>
-                                                <th>Quantity</th>
-                                                <th>Item Price</th>
-                                                <th>VAT</th>
-                                                <th>VAT+Item Price</th>
+                                                <th class="text-center">Date</th>
+                                                <th class="text-center">SKU</th>
+                                                <th class="text-center">Description</th>
+                                                <th class="text-center">Quantity</th>
+                                                <th class="text-center">Item Price</th>
+                                                <th class="text-center">VAT+Item Price</th>
 
 
                                             </tr>
                                         </thead>
-                                        <tbody class="black-color bold">
-
-                                            <tr>
-                                                <td data-title="User ID">07-07-2007</td>
-                                                <td data-title="User ID">SKU-1111</td>
-                                                <td data-title="User ID">1000</td>
-                                                <td data-title="User ID">£10</td>
-                                                <td data-title="User ID">£2</td>
-                                                <td data-title="User ID">£12</td>
-
-                                            </tr>
-
-
-                                        </tbody>
+                                        <tbody class="black-color bold" id="hhh"></tbody>
 
                                     </table>
                                     <div class="clearfix"></div>
@@ -373,6 +316,74 @@
     @*----------------------------POP UP END CUSTOMER SUMMARY--------------------------------*@
 
 
+    @*----------------------------POP UP for EXISTING CUSTOMER--------------------------------*@
+
+    <div class="modal fade" id="ExistingModal" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-style-custom">
+
+                <div class="title col-md-12">
+                    <span>Message</span>
+                    <img src="~/img/images/c3.png" class="close mr--13 pull-right" data-dismiss="modal" />
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="win text-center">
+                            <h3 class="color"><b>Find Customer</b></h3>
+
+                            <div class="empty-height"></div><div class="empty-height"></div>
+
+
+
+                            <div class="col-md-12" id="">
+                                <table border="0" class="table table-responsive border_black" id="customer_summary_table">
+                                    <thead>
+                                        <tr class="table-heading-fonts table-main-headings">
+                                            <th class="text-center">Name</th>
+                                            <th class="text-center">Phone</th>
+                                            <th class="text-center">Address</th>
+                                            <th class="text-center">Email</th>
+                                            <th class="text-center">Notes</th>
+                                            <th class="text-center">Credit Limit</th>
+                                            <th class="text-center">Balance</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody class="black-color bold">
+                                        @foreach (var v in ViewBag.Customer)
+                                        {
+                                            <tr onclick="customer_summary_list(@v.Id,@v.Customer_Type_Id);">
+                                                <td id="@String.Concat("customer_value_1", v.Id)" data-title="User ID">@v.Name</td>
+                                                <td id="@String.Concat("customer_value_2", v.Id)" data-title="First Name">@v.phone</td>
+                                                <td id="@String.Concat("customer_value_3", v.Id)" data-title="Last Name">@v.Billing_Address</td>
+                                                <td id="@String.Concat("customer_value_4", v.Id)" data-title="Email" class="user-emails">@v.Email</td>
+                                                <td id="@String.Concat("customer_value_5", v.Id)" data-title="Email" class="user-emails">@v.Notes</td>
+                                                <td id="@String.Concat("customer_value_6", v.Id)" data-title="Email" class="user-emails">@v.Credit_Limit</td>
+                                                <td id="@String.Concat("customer_value_7", v.Id)" data-title="Email" class="user-emails">@v.Balance</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer"></div>
+                <div class=""></div>
+
+            </div>
+        </div>
+    </div>
+
+    @*----------------------------POP UP END EXISTING CUSTOMER--------------------------------*@
+
+
+
     @*----------------------------POP UP EDIT CUSTOMER--------------------------------*@
 
     <div class="modal fade" id="Edit_Customer_Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -432,20 +443,20 @@
                                         </div>
 
                                         @*<div class="form-group">
-                                            <label class="customer-create-texts" for="middle-name">Bank<span class="required">*</span></label>
-                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <label class="customer-create-texts" for="middle-name">Bank<span class="required">*</span></label>
+                                                <div class="col-md-3 col-sm-6 col-xs-12">
 
-                                                <select id="" name="bank_name" class="form-control width-192">
-                                                    <option value="">Please Select</option>
-                                                    @foreach (var banks in ViewBag.Bank)
-                                                    {
-                                                        <option value="@banks.Id">@banks.Bank_Name</option>
-                                                    }
-                                                </select>
+                                                    <select id="" name="bank_name" class="form-control width-192">
+                                                        <option value="">Please Select</option>
+                                                        @foreach (var banks in ViewBag.Bank)
+                                                        {
+                                                            <option value="@banks.Id">@banks.Bank_Name</option>
+                                                        }
+                                                    </select>
 
 
-                                            </div>
-                                        </div>*@
+                                                </div>
+                                            </div>*@
 
 
                                         <div class="form-group">
@@ -629,21 +640,154 @@
 
     @*----------------------------POP UP END EDIT CUSTOMER--------------------------------*@
 
+    <script>
+
+        function testKeyEvent(e) {
+
+            if (e.keyCode == 32) //We are using Enter key press event for test purpose.
+            {
+                alert('Enter key pressed');
+
+            }
+            else //If any other button pressed.
+            {
+                alert('Not Enter key pressed');
+            }
+        }
+
+    </script>
+
+    @*<script src="~/scripts/customer/customer_list.js"></script>*@
     <script src="~/Scripts/new-js/jquery-1.11.1.min.js"></script>
     <script src="~/Scripts/new-js/jquery.datatables.min.js"></script>
+
+    <script>
+        function customer_summary_list(id, type_id) {
+
+
+            var name = document.getElementById('customer_value_1' + id);
+            var phone = document.getElementById('customer_value_2' + id);
+            var address = document.getElementById('customer_value_3' + id);
+            var email = document.getElementById('customer_value_4' + id);
+            var notes = document.getElementById('customer_value_5' + id);
+            var credit_limit = document.getElementById('customer_value_6' + id);
+            var balance = document.getElementById('customer_value_7' + id);
+
+
+
+            var type1 = type_id;
+
+
+            var a = name.innerHTML;
+            var b = phone.innerHTML;
+            var c = address.innerHTML;
+            var d = email.innerHTML;
+            var e = notes.innerHTML;
+            var f = credit_limit.innerHTML;
+            var g = balance.innerHTML;
+
+
+            $("#customer_id").val(id);
+
+            $("#c_name").html(a);
+            $("#c_phone").html(b);
+            $("#c_address").html(c);
+            $("#c_email").html(d);
+            $("#c_notes").html(e);
+            $("#c_credit_limit").html(f);
+            $("#c_balance").html(g);
+
+
+
+            if (type1 == 1) {
+                $("#c_type").text("Normal Customer");
+            }
+            else if (type1 == 2) {
+                $("#c_type").text("Premium Customer");
+            }
+
+            else if (type1 == 3) {
+                $("#c_type").text("Trade Customer");
+            }
+            else if (type1 == 4) {
+                $("#c_type").text("Other Customer");
+            }
+
+            $("#ExistingModal").hide('slow');
+            customer_invoice_list(id);
+            customer_item_sale_list(id);
+            $("#customer_summary").show();
+            $("#customer_table_div").hide();
+        }
+
+        function customer_invoice_list(id) {
+            $("#PleaseWait").addClass('showDiv');
+            var customerID = id;
+            //alert(customerID);
+
+            $.ajax({
+
+                url: "/Customer/Customer_Invoices_List/",
+                data: { id: customerID },
+                cache: false,
+                type: "Get",
+                success: function (data) {
+                    //alert("SUCCESS");
+                    document.getElementById("invoice_by_customer_partial_view").innerHTML = data;
+                    $("#PleaseWait").removeClass('showDiv');
+                    $("#PleaseWait").addClass('hideDiv');
+                },
+                error: function (response) {
+                    alert("Error" + response);
+                }
+
+            })
+        }
+
+        function customer_item_sale_list(id) {
+            $("#PleaseWait").addClass('showDiv');
+            var customerID = id;
+            //alert(customerID);
+
+            $.ajax({
+                url: "/Customer/Customer_Item_Sale_List/",
+                data: { id: customerID },
+                cache: false,
+                type: "Get",
+                success: function (data) {
+                    //alert("SUCCESS");
+                    document.getElementById("hhh").innerHTML = data;
+                    $("#PleaseWait").removeClass('showDiv');
+                    $("#PleaseWait").addClass('hideDiv');
+                },
+                error: function (response) {
+                    alert("Error" + response);
+                }
+
+            })
+        }
+
+        $("#ExistingModal").hide('fast');
+
+        //jQuery.noConflict();
+        //$("#ExistingModal").hide();
+
+
+    </script>
 
     <script>
 
         function Custom_List() {
             //alert("CUSTOM_LIST")
-
+            $("#customer_table_div").show();
+            $("#customer_summary").hide();
             var type_ID = document.getElementById("customer_type_dropdown").value;
             //alert(type_ID)
 
             $.ajax({
 
                 url: '/Customer/Customer_List_Custom/',
-                data: { customer_type_id: type_ID},
+                data: { customer_type_id: type_ID },
                 cache: false,
                 type: 'Get',
                 success: function (data) {
@@ -663,6 +807,12 @@
 
             $("#PleaseWait").addClass('showDiv');
 
+            if (ID == -1) {
+                ID = document.getElementById("customer_id").value;
+            }
+
+            alert("ID" + ID);
+
             $.ajax({
 
                 url: "/Customer/Edit/",
@@ -673,6 +823,7 @@
                     document.getElementById("edit_customers").innerHTML = data;
                     $("#PleaseWait").removeClass('showDiv');
                     $("#PleaseWait").addClass('hideDiv');
+
                 },
                 error: function (response) {
                     alert("Error" + response);
@@ -681,13 +832,17 @@
             })
         }
 
-
-
     </script>
-
 
     <script>
         function delete_customer(ID) {
+
+            if (ID == -1) {
+                ID = document.getElementById("customer_id").value;
+            }
+
+            alert("ID" + ID);
+
             $.ajax({
                 url: "/Customer/Delete_Customer/",
                 data: { id: ID },
@@ -713,8 +868,11 @@
 
     <script>
         $(document).ready(function () {
-            $('#customer_list_table').dataTable();
+            $('#customer_summary_table').dataTable();
+            $('#item_history_table').dataTable();
+            $('#customer_invoices_table').dataTable();
         });
+
     </script>
 
     <script>
@@ -722,32 +880,6 @@
             $("#customer_summary").removeClass("none");
             $("#customer_summary").addClass("showDiv");
             //$("#customer_table_div").addClass("none");
-        }
-    </script>
-
-    <script>
-        //function show_customer_type() {
-        //    $("#customer_table_div").removeClass("none");
-        //    $("#customer_table_div").addClass("showDiv");
-        //    $("#customer_summary").addClass("none");
-        //}
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $('#customer_invoices_table').dataTable();
-        });
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $('#item_history_table').dataTable();
-        });
-    </script>
-
-    <script>
-        function PrintBtn() {
-            window.print();
         }
     </script>
 

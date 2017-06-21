@@ -1,0 +1,44 @@
+﻿@model List<eSalesPro.Models.Invoice>
+
+<script src="~/Scripts/new-js/jquery-1.11.1.min.js"></script>
+<script src="~/Scripts/new-js/jquery.datatables.min.js"></script>
+
+@foreach (var v in Model)
+{
+    if(v != null)
+    { 
+        
+    <tr class="text-center">
+        <td data-title="User ID">@v.Invoice_Number</td>
+        <td data-title="User ID">@v.Customer.Name</td>
+        @*<td data-title="User ID">@v.Customer.Customer_Type.Type</td>*@
+        <td data-title="User ID">@v.Payment_Methods.Type</td>
+        <td data-title="User ID">@v.Payment_Status.Status</td>
+        <td data-title="User ID">@v.Net_Price</td>
+        <td data-title="User ID">@v.VAT_20</td>
+        <td data-title="User ID">@v.Gross</td>
+        <td data-title="User ID">@v.Created_at.ToString("MM/dd/yyyy")</td>
+
+        <td class="text-center width-120" style="vertical-align:middle;">
+            <a class="btn btn-sm btn-info bold" href="~/Sale/Edit_Sale/@v.Id">
+                Edit
+            </a>
+
+            <a class="btn btn-sm btn-danger bold" href="">
+                Delete
+            </a>
+        </td>
+
+    </tr>
+}
+}
+
+
+<script src="~/Scripts/new-js/jquery-1.11.1.min.js"></script>
+<script src="~/Scripts/new-js/jquery.datatables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#table_on_dates').dataTable();
+    });
+</script>

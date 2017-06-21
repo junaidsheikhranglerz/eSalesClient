@@ -39,11 +39,31 @@
         <AssociationConnector Association="Database1Model.FK_Sales_Product_SaleID" />
         <AssociationConnector Association="Database1Model.FK_Sales_Product_ID" />
         <AssociationConnector Association="Database1Model.FK_Sales_Product_ProductID" />
-        <EntityTypeShape EntityType="Database1Model.Invoice_Log" Width="1.5" PointX="15.75" PointY="5.375" />
+        <EntityTypeShape EntityType="Database1Model.Invoice_Log" Width="1.5" PointX="17.75" PointY="5" />
         <AssociationConnector Association="Database1Model.FK_Sale_Log_Customer_ID" />
         <AssociationConnector Association="Database1Model.FK_Invoice_Log_Sale" />
         <AssociationConnector Association="Database1Model.FK_Sale_Log_Payment_Typeeeee" />
         <AssociationConnector Association="Database1Model.fk_customerrrrr_id_Sale_table" />
+        <EntityTypeShape EntityType="Database1Model.Purchase_Order_Product" Width="2.375" PointX="14.25" PointY="0.75" />
+        <EntityTypeShape EntityType="Database1Model.Purchase_Order_Status" Width="1.5" PointX="14.25" PointY="16.75" />
+        <AssociationConnector Association="Database1Model.FK_Purchase_Order_Product_Table" />
+        <AssociationConnector Association="Database1Model.FK_Purchase_Order_Supplier_Table" />
+        <EntityTypeShape EntityType="Database1Model.Payment_Priority" Width="1.5" PointX="9.375" PointY="4.75" />
+        <EntityTypeShape EntityType="Database1Model.Purchase_Log" Width="1.5" PointX="20.75" PointY="6.875" />
+        <EntityTypeShape EntityType="Database1Model.Purchase_Order" Width="1.875" PointX="16.125" PointY="10.5" />
+        <AssociationConnector Association="Database1Model.FK_Payment_Method_Purchase_Order" />
+        <AssociationConnector Association="Database1Model.FK_Payment_Piriority_Id" />
+        <AssociationConnector Association="Database1Model.FK_Purchase_Log_Piriority_Id" />
+        <AssociationConnector Association="Database1Model.FK_Payment_Status_Purchase_Order" />
+        <AssociationConnector Association="Database1Model.FK_Purchase_Log_Status_Id" />
+        <AssociationConnector Association="Database1Model.FK_Purchase_Log_PO_Id" />
+        <AssociationConnector Association="Database1Model.FK_Purchase_Log_Supp_Id" />
+        <AssociationConnector Association="Database1Model.FK_Purchase_Order_Status_Purchase_Order" />
+        <AssociationConnector Association="Database1Model.FK_Supplier_Purchase_Order" />
+        <AssociationConnector Association="Database1Model.FK_User_Purchase_Order" />
+        <EntityTypeShape EntityType="Database1Model.PO_Sale_Invoice" Width="2.125" PointX="18.75" PointY="12.875" />
+        <AssociationConnector Association="Database1Model.FK_PO_Sale_Invoice_ToTable" />
+        <AssociationConnector Association="Database1Model.FK_PO_Sale_Invoice_ToTable_1" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

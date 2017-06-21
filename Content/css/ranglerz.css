@@ -130,6 +130,14 @@
     margin-left: 18px;
 }
 
+.pl-40{
+    padding-left:40px;
+}
+
+.pl-34{
+    padding-left:34px;
+}
+
 .mr-9 {
     margin-right: 18px;
 }
@@ -149,6 +157,14 @@
 
 .pl-82 {
     padding-left: 82px;
+}
+
+.pl-30 {
+    padding-left: 30px;
+}
+
+.pr-30 {
+    padding-right: 30px;
 }
 
 .input_type_custom{
@@ -241,6 +257,27 @@
     font-weight: bold;
     width: 135px;
     float: left;
+}
+
+.config_input{
+    /*padding:0;
+    font-weight:normal;
+    font-size:17px;*/
+    border-radius: 8px;
+    border: 0px solid #AAA;
+    background: #FFF;
+    font-weight: bold;
+    color: #444;
+    padding: 5px;
+    /*width: 400px;*/
+    box-shadow: 1px 1px 1px #888;
+}
+
+.resize_height{
+    min-height:200px;
+    resize:vertical;
+    font-weight:normal;
+    padding:0;
 }
 
 .width-kj{
@@ -820,6 +857,17 @@
     font-size:16px;
 }
 
+#table_cashh td {
+    padding-left: 4px;
+    padding-right:4px;
+    /*border-bottom:1px solid black;*/
+    font-size:16px;
+}
+
+.pt_4{
+    padding-top:4px!important;
+}
+
 .mr-14{
     margin-right:14px;
 }
@@ -890,6 +938,11 @@
 }
 
 #kj tbody tr:hover td{
+    background-color:#76c5f7;
+    cursor: pointer;
+}
+
+#customer_summary_table tbody tr:hover td{
     background-color:#76c5f7;
     cursor: pointer;
 }
@@ -1313,6 +1366,11 @@
 .border-bottom-black-1px {
     border-bottom: 1px solid black;
 }
+
+.border_bottom_black_2px {
+    border-bottom: 2px solid black;
+}
+
 
 #table_cash_flow {
     min-width: 380px;

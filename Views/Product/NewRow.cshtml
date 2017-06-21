@@ -16,8 +16,8 @@
     <td class="border-right-td"><div class="text-center"><input onkeypress="validate(event)" id="@String.Concat("invoice_price", counter)" onkeyup="Total(@counter)" placeholder="0.0" class="4 new-invoice-width-boxes unbold width-68 text-center" name="@String.Concat("invoice_price", counter)" onkeyup="Total(@counter)" type="text"></div></td>
     <td class="border-right-td hidecolumn text-center"><input onkeypress="validate(event)" id="@String.Concat("invoice_price_vat",counter)" onkeyup="Total2(@counter)" placeholder="0.0" class="5 new-invoice-width-boxes unbold width-78 text-center" name="@String.Concat("invoice_price_vat",counter)" type="text"></td>
     
-    <td class="border-right-td text-center"><input readonly id="@String.Concat("invoice_total",counter)" placeholder="0.0" class="6 new-invoice-width-boxes unbold width-68 text-center" name="" type="text"></td>
-    <td class="border-right-td hidecolumn text-center"><input readonly id="@String.Concat("invoice_total_vat",counter)" placeholder="0.0" class="7 new-invoice-width-boxes unbold width-78 text-center" name="" type="text"></td>
+    <td class="border-right-td text-center"><input readonly id="@String.Concat("invoice_total",counter)" placeholder="0.0" class="6 new-invoice-width-boxes unbold width-68 text-center" name="@String.Concat("invoice_total",counter)" type="text"></td>
+    <td class="border-right-td hidecolumn text-center"><input readonly id="@String.Concat("invoice_total_vat",counter)" placeholder="0.0" class="7 new-invoice-width-boxes unbold width-78 text-center" name="@String.Concat("invoice_total_vat",counter)" type="text"></td>
     
     @*<td class="text-center border-right-td width-68"><div id="@String.Concat("invoice_total",counter)" class="6 total_invoice_background text-center">£0</div></td>
     <td class="border-right-td text-center width-78 hidecolumn"><div id="@String.Concat("invoice_total_vat",counter)" class="7 total_invoice_background text-center">£0</div></td>*@

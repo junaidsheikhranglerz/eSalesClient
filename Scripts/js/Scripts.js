@@ -30,6 +30,40 @@ function showToDate() {
     }
 }
 
+function startTime() {
+
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+
+
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('time').innerHTML =
+    h + ":" + m + ":" + s;
+    document.getElementById('date').innerHTML =
+     dd + '/' + mm + '/' + yyyy;
+    var t = setTimeout(startTime, 500);
+}
+
+function checkTime(i) {
+    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+    return i;
+}
+
 function SetDate() {
     var date = new Date();
 
@@ -109,22 +143,7 @@ function excludeVatQuote() {
     }
 }
 
-//function () {
-//if ($("#excludeVat").not("checked")) {
-//    alert("jghadjasdjasd");
-//        $("#price_vat_th").addClass("showDiv");
-//        $("#price_vat_td").addClass("showDiv");
-//        $("#total_vat_th").addClass("showDiv");
-//        $("#total_vat_td").addClass("showDiv");
-//}
 
-//else if() {
-//    $("#price_vat_th").addClass("none");
-//    $("#price_vat_td").addClass("none");
-//    $("#total_vat_th").addClass("none");
-//    $("#total_vat_td").addClass("none");
-//}
-//}
 
 
 
@@ -275,6 +294,8 @@ function run_invoice() {
         $("#net_tr").show();
         $("#vat_tr").show();
 
+        $(".priceVAT").show();
+
         $("#global_discount_div").show();
         $("#hideExcludeVat").show();
 
@@ -306,12 +327,13 @@ function run_invoice() {
         //Item Sale Hide
         $("#item_sale_div").hide();
         $("#new_item_sale_heading").hide();
-        $("#show_details").hide();
+        
 
         //Quote Show
         $("#quote_number_div").show();
         $("#new_quote_heading").show();
-
+        $("#show_details").show();
+        $(".priceVAT").show();
     }
 
     else if (selectedValue == 3) {
@@ -334,10 +356,14 @@ function run_invoice() {
         $("#global_discount_div").show();
         $("#payment_status_tr").show();
 
+
+        $(".priceVAT").hide();
+
+        $("#show_details").hide();
         //Item Sale Show
         $("#item_sale_div").show();
         $("#new_item_sale_heading").show();
-        $("#show_details").show();
+        
 
         //$("#item_sale_id").show();
         //$("#invoice_id").hide();
@@ -422,7 +448,7 @@ function go(id,type_id) {
     var credit_limit = document.getElementById('juni8' + id);
     var type1 = type_id;
     
-    
+    //alert("name" + name);
 
     
 
@@ -434,6 +460,8 @@ function go(id,type_id) {
     var balance1 = balance.innerHTML;
     var credit1 = credit.innerHTML;
     var credit_limit1 = credit_limit.innerHTML;
+
+    //alert("name" + name1);
 
     //alert(name1);
     //alert(phone1);

@@ -116,11 +116,11 @@
                                                     <a class="btn btn-sm btn-info bold" href="" data-toggle="modal" data-target="#EditModal" onclick="GetEditedObject(@v.Id)">
                                                         Edit
                                                     </a>
-                                                    <a class="btn btn-sm btn-success bold" href="~/Supplier/Active/@v.Id">
+                                                    @*<a class="btn btn-sm btn-success bold" href="~/Supplier/Active/@v.Id">
                                                         Enable
-                                                    </a>
+                                                    </a>*@
                                                     <a class="btn btn-sm btn-danger bold" href="~/Supplier/Disable/@v.Id">
-                                                        Disable
+                                                        Delete
                                                     </a>
                                                 </td>
                                             </tr>
@@ -490,7 +490,7 @@
                             @*<img class="pull-right" src="~/img/images/supplier.png" style="margin:-34px 81px 20px 0" />*@
 
 
-                            <form id="demo-form2" action="~/Supplier/List" method="post" data-parsley-validate class="form-horizontal form-label-left mt-30" enctype="multipart/form-data">
+                            @*<form id="demo-form2" action="~/Supplier/Create" method="post" data-parsley-validate class="form-horizontal form-label-left mt-30" enctype="multipart/form-data">*@
 
 
 
@@ -518,18 +518,18 @@
 
 
                                     @*<div class="form-group">
-                                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                                    <input type="text" name="credit_period" style="width:320px">
-                                                </div>
-                                            </div>
-                                        <div class="col-md-3 pull-left">
-                                            <input type="submit" value="Add" class="btn-success btn-mini center-block" style="width:110px" />
-                                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <input type="text" name="credit_period" style="width:320px">
+                        </div>
+                    </div>
+                <div class="col-md-3 pull-left">
+                    <input type="submit" value="Add" class="btn-success btn-mini center-block" style="width:110px" />
+                </div>
 
-                                        <div class="col-md-3">
-                                            @*<a href="" class="btn btn-primary btn-mini center-block" style="width:135px">Cancel</a>
-                                            <a href="~/Supplier/Create" class="btn-primary btn-mini center-block" style="width: 110px;margin-top:2px">Cancel</a>
-                                        </div>*@
+                <div class="col-md-3">
+                    @*<a href="" class="btn btn-primary btn-mini center-block" style="width:135px">Cancel</a>
+                    <a href="~/Supplier/Create" class="btn-primary btn-mini center-block" style="width: 110px;margin-top:2px">Cancel</a>
+                </div>*@
 
                                 </div>
 
@@ -537,8 +537,8 @@
 
 
                                 @*<div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-3" style="margin-bottom:15px">
-                                        <input type="submit" value="Add Product" class="btn btn-success" />
-                                    </div>*@
+                <input type="submit" value="Add Product" class="btn btn-success" />
+            </div>*@
 
 
 
@@ -548,7 +548,7 @@
 
 
 
-                            </form>
+                            @*</form>*@
 
 
                         </div>
@@ -591,7 +591,7 @@
                             <h3 class="black-color"><b>New Supplier</b></h3>
                             <img class="pull-right margin-supplier ml-22" src="~/img/images/supplier.png" />
 
-                            <form id="demo-form2" action="~/Supplier/List" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+                            <form id="demo-form2" action="@Url.Action("Create", "Supplier")" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
 
 
 
@@ -843,8 +843,8 @@
 
 
                                 @*<div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-3" style="margin-bottom:15px">
-                                        <input type="submit" value="Add Product" class="btn btn-success" />
-                                    </div>*@
+                <input type="submit" value="Add Product" class="btn btn-success" />
+            </div>*@
                                 <div class="col-md-12">
                                     <div class="col-md-3"></div>
 

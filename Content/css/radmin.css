@@ -1150,6 +1150,18 @@ div.login-inner div.form-actions {
     background: linear-gradient(to right, #c9c9c9 ,#fafafd,#fafafd, #c9c9c9 ); /* Standard syntax (must be last) */
 }
 
+.right_side_custom_style{
+    width: 81%;
+    min-height: 1700px;
+    float: right;
+    /*background: #fff;*/
+   
+    background: -webkit-linear-gradient(left, #c9c9c9,#fafafd, #fafafd,#c9c9c9 ); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #c9c9c9,#fafafd,#fafafd,#c9c9c9 ); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #c9c9c9,#fafafd,#fafafd, #c9c9c9 ); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #c9c9c9 ,#fafafd,#fafafd, #c9c9c9 ); /* Standard syntax (must be last) */
+}
+
 .side-navi-style{
     width:17%;float:left; margin-left:15px
 }

@@ -1,0 +1,18 @@
+﻿@model List<eSalesPro.Models.Invoice>
+
+@foreach (var v in Model)
+{
+    @*<tr data-toggle="modal" data-target="#EditModal">*@
+
+
+
+    <tr>
+        <td class="text-center" data-title="User ID">@v.Invoice_Number</td>
+        <td class="text-center" data-title="User ID">@v.Payment_Methods.Type</td>
+        <td class="text-center" data-title="User ID">@v.Payment_Status.Status</td>
+        <td class="text-center" data-title="User ID">@v.Net_Price</td>
+        <td class="text-center" data-title="User ID">@v.VAT_20</td>
+        <td class="text-center" data-title="User ID">@v.Gross</td>
+        <td class="text-center" data-title="User ID">@v.Created_at.ToShortDateString()</td>
+    </tr>
+}

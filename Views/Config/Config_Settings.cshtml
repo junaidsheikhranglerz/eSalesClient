@@ -1,0 +1,194 @@
+﻿<body id="body-index" onload="startTime()">
+
+    <div id="sticky-footer-wrap">
+
+
+        @*-----------------Top Navigation Start---------------*@
+
+        @{
+            Html.RenderPartial("Top_Navigation_View");
+        }
+
+        @*-----------------Top Navigation End---------------*@
+
+        <div class="container-fluid main-container">
+
+            @*-----------------Side Navigation Start---------------*@
+            <div class="row">
+                @{
+                    Html.RenderPartial("Side_Navigation_View");
+                }
+                @*-----------------Side Navigation End---------------*@
+
+
+
+                @*-----------------Main Container Start---------------*@
+                @*-----------------Main Container Start---------------*@
+
+                <div class="right_side_custom_style">
+                    <div class="bggg-img">
+
+                        @*<h3 id="time_"></h3>*@
+                        <div class="empty-height"></div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div class="title">
+                                @*<img src="~/img/images/triangle.png"/>*@
+                                <span class="ml-15">Invoice Settings</span>
+                                <a class="pull-right" href="#" data-toggle="modal" data-target="">
+                                    @*<img src="~/img/images/i.png" style="margin: -2px 3px 0px 0;"/>*@
+                                </a>
+
+
+
+
+                            </div>
+                            <div class="space">
+                                <div class="row">
+                                    <h3 class="col-md-12 pl-34 text-left bold">EPOS Company Details</h3>
+                                    <p>If these fields are left blank, the ones from your admin panel will be used </p>
+
+
+                                    <div class="form-group">
+                                        <label class="pull-left pl-34 font-18" for="middle-name">Address</label>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-12 col-sm-6 col-xs-12 pl-30 pr-30">
+                                            <textarea class="col-md-12 resize_height" name=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="empty-height"></div>
+
+                                    <div class="form-group">
+                                        <label class="pull-left pl-34 font-18" for="middle-name">Terms and conditions</label>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-12 col-sm-6 col-xs-12 pl-30 pr-30">
+                                            <textarea class="col-md-12 resize_height" name=""></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="empty-height"></div>
+
+                                    <div class="form-group">
+                                        <label class="pull-left pl-34 font-18" for="middle-name">Terms and conditions for Item Sales</label>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-12 col-sm-6 col-xs-12 pl-30 pr-30">
+                                            <textarea class="col-md-12 resize_height" name=""></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
+
+                                    <div class="form-group">
+                                        <label class="pull-left pl-34 font-18" for="middle-name">Company Number</label>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-12 col-sm-6 col-xs-12 pl-30 pr-30">
+                                            <input class="col-md-11 config_input" name="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
+
+                                    <div class="form-group">
+                                        <label class="pull-left pl-34 font-18" for="middle-name">VAT Number</label>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-12 col-sm-6 col-xs-12 pl-30 pr-30">
+                                            <input class="col-md-11 config_input" name="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
+
+                                    <div class="form-group">
+                                        <label class="pull-left pl-34 font-18" for="middle-name">Card Percentage</label>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-12 col-sm-6 col-xs-12 pl-30 pr-30">
+                                            <input class="col-md-11 config_input" name="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="empty-height"></div>
+
+                                    <div>
+                                        <h3 class="bold font-18 text-left pl-34">Upload Image</h3>
+                                        <div class="fileupload fileupload-new" data-provides="fileupload" align="center">
+
+                                            <div class="fileupload-new thumbnail"><img src="~/img/images/default-image.jpg" class="product-img" /></div>
+
+                                            <div class="fileupload-preview fileupload-exists thumbnail @*product-img*@" style="width:400px"></div>
+
+                                            <div>
+
+                                                <span class="btn btn-file btn-primary btn-margin-product"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name="image[]" id="a_image1" onchange="Checkfilesimage(1)"></span>
+
+                                                <a href="javascript:;" class="btn btn-primary btn-margin-product fileupload-exists" data-dismiss="fileupload">Remove</a>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
+
+                                    <div class="col-md-12">
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-4 pull-left">
+                                            <a href="#" class="btn btn-success blue-btn-style btn-mini bold width-150">Save</a>
+                                        </div>
+
+                                        <div class="col-md-4 pull-left">
+                                            <a href="~/Home/Epos" class="btn btn-primary blue-btn-style btn-mini bold width-150">Back</a>
+                                        </div>
+                                        <div class="col-md-2"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="empty-height"></div><div class="empty-height"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+
+
+
+
+                    </div>
+
+                </div>
+                @*-----------------Main Container Ends---------------*@
+            </div>
+            <div id="sticky-footer-push"></div>
+        </div>
+    </div>
+
+    <footer class="black">
+
+        @{
+            Html.RenderPartial("Footer_View");
+        }
+    </footer>
+
+
+    <script src="~/Scripts/new-js/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/new-js/jquery.datatables.min.js"></script>
+
+    <script>
+        function data_report_table() {
+            $('#data_report_table_div').show();
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#data_report_table').dataTable();
+        });
+    </script>
+
+
+</body>

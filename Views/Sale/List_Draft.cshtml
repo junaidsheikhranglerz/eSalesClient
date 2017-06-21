@@ -26,71 +26,7 @@
                     <div class="bggg-img">
                         <div>
 
-                            <div class="col-md-12">
-
-                                <div class="col-md-3 pl-0 pr-0">
-                                    <h3 class="bold font-23">Report Manager<small></small></h3>
-                                </div>
-                                <div class="pull-right mt-10">
-
-                                    <div class="pull-left">
-                                        <input  type="text" onkeyup='findByUser();' class="width_78_height text-center mr-7" placeholder="User..." name="stock_qty" id="User_ID">
-                                    </div>
-
-                                    <div class="pull-left">
-                                        <input type="text" onkeypress='validate(event)' class="width_78_height text-center mr-7" placeholder="Serial no..." name="stock_qty" id="login">
-                                    </div>
-
-                                    <div class="pull-left">
-                                        <input type="text" onkeyup='findByInvoice(this.value)' class="width_78_height text-center mr-7" placeholder="Sales no..." name="stock_qty" id="invoice_ID">
-                                    </div>
-                                    <div class="pull-left">
-                                        <select class="width_78_height text-center mr-7" id="docType" onchange="findByDocType(this.value)">
-                                            <option>Please Select Any</option>
-                                            @foreach (var type in ViewBag.docTypes)
-                                            {
-                                                <option value="@type.Id">@type.Type</option>
-                                            }
-
-                                        </select>
-                                      
-                                    </div>
-
-                                    <div class="pull-left">
-                                        <select class="width_78_height text-center mr-7" id="payType" onchange="findByPayType(this.value)">
-                                            <option>Please Select Any</option>
-                                            @foreach (var type in ViewBag.payTypes)
-                                            {
-                                                <option value="@type.Id">@type.Status</option>
-                                            }
-
-                                        </select>
-
-                                    </div>
-                                    
-                                    <div class="pull-left">
-                                        <label class="black-color mr-3 mt-5">From :</label>
-                                    </div>
-                                    <div class="pull-left">
-                                        <input required type="date" id="from_date" oninput="showToDate()" class="date-width-height mr-3" name="from_date">
-                                    </div>
-                                    <div class="pull-left">
-                                        <label class="black-color mr-3 mt-5">To :</label>
-                                    </div>
-                                    <div class="pull-left">
-                                        <input required type="date" disabled id="to_date" oninput="showDateDiv();findByDate()" class="date-width-height" name="to_date">
-                                    </div>
-
-
-
-
-
-
-                                </div>
-
-                                <div class="clearfix"></div>
-
-                            </div>
+                            
 
                             <div class="clearfix"></div>
                             <div class="empty-height"></div><div class="empty-height"></div>
@@ -112,10 +48,10 @@
                             </div>
 
                             <div class="col-md-2 pull-right pr-0">
-                                <a href="~/Sale/List_Draft" class="btn btn-success blue-btn-style btn-mini bold width-150 pull-right">Draft List</a>
+                                <a href="~/Home/Epos" onclick="PrintBtn()" class="btn btn-primary blue-btn-style btn-mini bold width-150 pull-right">Print</a>
                             </div>
 
-                            
+
 
                         </div>
                         <div class="clearfix"></div>
@@ -124,207 +60,9 @@
 
                         <div class="clearfix"></div>
 
-                        @*<a href="~/Sale/List_Draft">DRAFT LIST</a>*@
+                        
 
-                        <div id="customer_summary" class="none">
-
-                            <div class="col-md-12">
-                                <h4 class="pull-left bold black-color">Customer Summary</h4>
-                            </div>
-
-                            <div class="">
-
-                                <div class="col-md-12">
-
-
-                                    <table class="black-color col-md-3 pull-left">
-                                        <tr>
-                                            <th class="width-90 font-16">Name</th>
-                                            <td>Bill Gates</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="width-90 font-16">Phone</th>
-                                            <td>+125577854</td>
-                                        </tr>
-
-                                        <tr>
-                                            <th class="width-90 font-16">Email</th>
-                                            <td>cctv@yahoo.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="width-90 font-16">Type</th>
-                                            <td>Normal Customer</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="width-90 font-16">Notes</th>
-                                            <td>No Notes</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="width-90 font-16">Credit Limit</th>
-                                            <td>£99</td>
-                                        </tr>
-
-                                    </table>
-
-                                    <div class="col-md-3">
-                                        <label class="bold black-color font-16">Billing Address:</label><br />
-                                        <p class="black-color">185 Rochdale Lancashire England OL12ODR</p>
-                                    </div>
-
-                                    <div class="col-md-3 border_black text-center">
-                                        <label class="bold red mt-5 font-16">Available Credit Balance</label><br />
-                                        <label class="bold black-color font-16">£122</label><br />
-                                        <a href="#" data-toggle="modal" data-target="#" class="btn mb-10 btn-primary blue-btn-style btn-mini bold">View Payment Status</a>
-                                    </div>
-
-                                    <div class="col-md-3"></div>
-
-                                </div>
-
-
-
-                                <div id="crud_btn_hide" class="col-md-12 mt-15">
-
-                                    <div class="col-md-2 pull-left">
-                                        <a href="~/Home/Epos" class="btn btn-primary blue-btn-style btn-mini ml--20 bold width-150">Edit Customer</a>
-                                    </div>
-
-                                    <div class="col-md-2 pull-left">
-                                        <a href="~/Home/Epos" class="btn btn-primary blue-btn-style btn-mini ml--20 bold width-150">Delete Customer</a>
-                                    </div>
-
-                                    <div class="col-md-2 pull-left">
-                                        <a href="#" class="btn btn-primary ml--20 blue-btn-style btn-mini bold">Set Custom Prices</a>
-                                    </div>
-
-                                    <div class="col-md-2 pull-left">
-                                        <a href="~/Home/Epos" class="btn ml--20 btn-primary blue-btn-style btn-mini bold width-150">New Sale</a>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-
-                                </div>
-
-                                <div class="clearfix"></div>
-
-                                <div class="col-md-12">
-                                    <p class="bold font-20 mt-30 black-color">Customer Invoices<small></small></p>
-                                </div>
-                                <div class="col-md-12">
-                                    <table border="0" class="table table-responsive border_black" id="example1">
-                                        <thead>
-                                            <tr class="table-heading-fonts table-main-headings">
-                                                <th>Order Id</th>
-                                                <th>Payment Type</th>
-                                                <th>Status</th>
-                                                <th>Net</th>
-                                                <th>VAT</th>
-                                                <th>Gross</th>
-
-                                                <th>Date</th>
-
-
-                                            </tr>
-                                        </thead>
-                                        <tbody class="black-color bold">
-
-                                            @*@foreach (var v in Model)
-                                                {*@
-                                            @*<tr data-toggle="modal" data-target="#EditModal">*@
-
-
-
-                                            <tr>
-                                                <td data-title="User ID">Order-110</td>
-                                                <td data-title="User ID">Paypal</td>
-                                                <td data-title="User ID">Done</td>
-                                                <td data-title="User ID">£123</td>
-                                                <td data-title="User ID">£123</td>
-                                                <td data-title="User ID">£246</td>
-                                                <td data-title="User ID">1-1-2017</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">Order-80</td>
-                                                <td data-title="User ID">Cash</td>
-                                                <td data-title="User ID">Partially Paid</td>
-                                                <td data-title="User ID">£1</td>
-                                                <td data-title="User ID">£12</td>
-                                                <td data-title="User ID">£13</td>
-                                                <td data-title="User ID">05-07-2017</td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td data-title="User ID">Order-007</td>
-                                                <td data-title="User ID">Bank Transfer</td>
-                                                <td data-title="User ID">Done</td>
-                                                <td data-title="User ID">£2000</td>
-                                                <td data-title="User ID">£8000</td>
-                                                <td data-title="User ID">£10000</td>
-                                                <td data-title="User ID">07-07-2010</td>
-                                            </tr>
-
-
-
-
-
-
-                                            @*}*@
-                                        </tbody>
-
-                                    </table>
-                                    <div class="clearfix"></div>
-                                </div>
-
-                                <div class="clearfix"></div>
-
-                                <div class="col-md-12">
-                                    <p class="bold font-20 mt-30 black-color">Item History<small></small></p>
-                                </div>
-
-
-
-                                <div class="col-md-12">
-                                    <table border="0" class="table table-responsive border_black" id="example">
-                                        <thead>
-                                            <tr class="table-heading-fonts table-main-headings">
-                                                <th>Date</th>
-                                                <th>SKU</th>
-                                                <th>Quantity</th>
-                                                <th>Item Price</th>
-                                                <th>VAT</th>
-                                                <th>VAT+Item Price</th>
-
-
-                                            </tr>
-                                        </thead>
-                                        <tbody class="black-color bold">
-
-
-                                            <tr>
-                                                <td data-title="User ID">07-07-2007</td>
-                                                <td data-title="User ID">SKU-1111</td>
-                                                <td data-title="User ID">1000</td>
-                                                <td data-title="User ID">£10</td>
-                                                <td data-title="User ID">£2</td>
-                                                <td data-title="User ID">£12</td>
-
-                                            </tr>
-
-
-                                        </tbody>
-
-                                    </table>
-                                    <div class="clearfix"></div>
-                                </div>
-
-                                <div class="clearfix"></div>
-                                <div class="clearfix"></div>
-
-                            </div>
-                        </div>
+                        
 
                         <script src="~/Scripts/new-js/jquery-1.11.1.min.js"></script>
                         <script src="~/Scripts/new-js/jquery.datatables.min.js"></script>
@@ -351,8 +89,37 @@
                                     </thead>
                                     <tbody id="updatedDiv" class="black-color bold">
 
-                                     
+                                        @foreach (var v in Model)
+                                        {
+
+                                                <tr class="text-center">
+                                                    <td data-title="User ID">@v.Invoice_Number</td>
+                                                    <td data-title="User ID">@v.Customer.Name</td>
+                                                    @*<td data-title="User ID">@v.Customer.Customer_Type.Type</td>*@
+                                                    <td data-title="User ID">@v.Payment_Methods.Type</td>
+                                                    <td data-title="User ID">@v.Payment_Status.Status</td>
+                                                    <td data-title="User ID">@v.Net_Price</td>
+                                                    <td data-title="User ID">@v.VAT_20</td>
+                                                    <td data-title="User ID">@v.Gross</td>
+                                                    <td data-title="User ID">@v.Created_at.ToString("MM/dd/yyyy")</td>
+
+                                                    <td class="text-center width-120" style="vertical-align:middle;">
+                                                        <a class="btn btn-sm btn-info bold" href="~/Sale/Edit_Sale/@v.Id">
+                                                            Edit
+                                                        </a>
+
+                                                        <a class="btn btn-sm btn-danger bold" href="">
+                                                            Delete
+                                                        </a>
+                                                    </td>
+
+                                                </tr>
+                                        }
+
+
                                     </tbody>
+
+
 
                                 </table>
                                 <div class="clearfix"></div>
@@ -588,7 +355,7 @@
 
     @*----------------------------POP UP END CUSTOMER SUMMARY--------------------------------*@
 
- 
+
 
 
     <script>
@@ -616,7 +383,7 @@
         }
     </script>
 
-    
+
     <script>
         function show_customer_summary() {
             $("#customer_summary").removeClass("none");
@@ -690,7 +457,7 @@
         function findByUser()
         {
             var user = document.getElementById('User_ID').value;
-           
+
             $.ajax({
 
                 url: '/Report/SaleReportByUser/',
@@ -699,11 +466,11 @@
                 cache: false,
                 success: function(data)
                 {
-                   
+
                    document.getElementById('updatedDiv').innerHTML= data;
                 },
                 error: function (response) {
-            
+
                 }
 
             })
@@ -721,13 +488,13 @@
                     document.getElementById('updatedDiv').innerHTML = data;
                 },
                 error: function (response) {
-                    
+
                 }
 
             })
         }
 
-      
+
 
         function findByDocType(id) {
             $.ajax({
@@ -765,7 +532,7 @@
 
 
         function findByDate() {
-            
+
             //alert("dsfdsdfvdfgdfgdfsgdfhbgefagdsgrgfsgsdggbwdgdsagfgfgdfg");
             var to = document.getElementById('to_date').value;
             var from = document.getElementById('from_date').value;

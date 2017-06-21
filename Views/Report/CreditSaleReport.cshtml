@@ -36,39 +36,50 @@
 
                                 <div class="empty-height"></div>
 
-                                    <div class="col-md-8 padding-0">
-                                        <div class="pull-right">
-                                            <div class="mr-7 pull-left">
-                                                @*<input type="text"  class="width-192 text-center mr-7" placeholder="">*@
-                                                <select name="sale_type" required class="form-control">
-                                                    <option value="">All Type of Sales</option>
-                                                    <option value="">Invoice </option>
-                                                    <option value="">Item Sale</option>
-                                                </select>
-                                            </div>
-                                            <div class="mr-7 pull-left">
-                                                @*<input type="text" class="width-192 text-center mr-7" placeholder="">*@
-                                                <select name="customer_type" required class="form-control">
-                                                    <option value="">All Type of Customers</option>
-                                                    <option value="">Normal </option>
-                                                    <option value="">Trade </option>
-                                                    <option value="">Premium </option>
-                                                    <option value="">Other </option>
-                                                </select>
-                                            </div>
+                                <div class="col-md-8 padding-0">
+                                    <div class="pull-right">
+                                        <div class="mr-7 pull-left">
 
-                                            <div class="pull-left">
-                                                <label class="black-color mr-3 mt-7">To Date :</label>
-                                            </div>
-                                            <div class="pull-left">
-                                                <input required type="date" id="to_date" oninput="showDateDiv()" class="mr-3 credit_date_width-height" name="to_date">
-                                            </div>
+
+                                            <select name="sale_type" id="docType" required class="form-control">
+
+                                                <option value="-1">All Types </option>
+
+                                                @foreach (var obj in ViewBag.docTypes)
+                                                {
+                                                    if (obj.Id == 2)
+                                                    {
+                                                        continue;
+                                                    }
+                                                    <option value="@obj.Id">@obj.Type </option>
+                                                }
+
+                                            </select>
+                                        </div>
+                                        <div class="mr-7 pull-left">
+
+                                            <select name="customer_type" id="customerType" required class="form-control">
+                                                <option value="-1">All Type of Customers</option>
+                                                @foreach (var obj in ViewBag.customersType)
+                                                {
+                                                    <option value="@obj.Id">@obj.Type </option>
+                                                }
+
+                                            </select>
+                                        </div>
+
+                                        <div class="pull-left">
+                                            <label class="black-color mr-3 mt-7">To Date :</label>
+                                        </div>
+                                        <div class="pull-left">
+                                            <input required type="date" id="to_date" oninput="findRecord(this.value)" class="mr-3 credit_date_width-height" name="to_date">
                                         </div>
                                     </div>
-
-                                    <div class="clearfix"></div>
-
                                 </div>
+
+                                <div class="clearfix"></div>
+
+                            </div>
                             <div class="clearfix"></div>
 
                         </div>
@@ -103,7 +114,7 @@
 
 
                         <div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div><div class="empty-height"></div>
-                        
+
 
                         <div id="customer_summary" class="none">
 
@@ -207,9 +218,7 @@
                                         </thead>
                                         <tbody class="black-color bold">
 
-                                            @*@foreach (var v in Model)
-                                                {*@
-                                            @*<tr data-toggle="modal" data-target="#EditModal">*@
+
 
 
 
@@ -305,59 +314,20 @@
                             </div>
                         </div>
 
-                        <div id="date_click_div" class="none">
+                        <div id="date_click_div" class="">
 
-                            <div class="col-md-12">
-                                <table border="0" class="table table-responsive border_black" id="table_on_dates">
-                                    <thead>
-                                        <tr class="table-heading-fonts table-main-headings">
-                                            <th class="text-center">Type</th>
-                                            <th class="text-center">Customer</th>
-                                            <th class="text-center">Phone No</th>
-                                            <th class="text-center">Email</th>
-                                            <th class="text-center">Credit Limit</th>
-                                            <th class="text-center">Outstanding Balance</th>
-                                            <th class="text-center">Status</th>
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody class="black-color bold text-center">
-
-                                        @*@foreach (var v in Model)
-                                            {*@
-                                        @*<tr data-toggle="modal" data-target="#EditModal">*@
-
-
-                                        <tr>
-                                            <td data-title="User ID">Premium</td>
-                                            <td data-title="User ID">Cctv</td>
-                                            <td data-title="User ID">8687655</td>
-                                            <td data-title="User ID">test@icloud.com</td>
-                                            <td class="text-center" data-title="User ID">£555</td>
-                                            <td class="text-center" data-title="User ID">£12</td>
-                                            <td data-title="User ID"></td>
-                                        </tr>
-
-
-
-
-
-
-                                        @*}*@
-                                    </tbody>
-
-                                </table>
+                            <div class="col-md-12" id="updatedDiv">
+                                
                                 <div class="clearfix"></div>
                             </div>
 
                             <div class="clearfix"></div>
 
-                            
+
 
                             <div class="clearfix"></div>
 
-                            
+
 
                             <div class="clearfix"></div>
 
@@ -512,5 +482,46 @@
             window.print();
         }
     </script>
+
+
+
+    <script>
+
+        function findRecord(date) {
+      
+
+            var doc = document.getElementById('docType').value;
+            var custType = document.getElementById('customerType').value;
+
+
+            $.ajax({
+
+                url: '/Report/creditSalesRecord/',
+                data: { docType: doc, customerType: custType , dateLimit : date },
+                type: 'Post',
+                cache: false,
+                success: function (data) {
+
+                   
+                    document.getElementById('updatedDiv').innerHTML = data;
+                },
+                error: function () {
+
+                    
+                }
+
+
+            })
+        }
+
+    </script>
+
+
+
+
+
+
+
+
 
 </body>
