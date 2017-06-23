@@ -669,7 +669,10 @@
                                                 <td id="@String.Concat("suppliers3", v.Id)" data-title="Last Name">@v.Post_Code</td>
                                                 <td id="@String.Concat("suppliers4", v.Id)" data-title="First Name">@v.Email</td>
                                                 <td id="@String.Concat("suppliers5", v.Id)" data-title="Email" class="user-emails">@v.Mobile</td>
-                                                <td id="@String.Concat("suppliers6", v.Id)" data-title="Email" class="user-emails">@v.Credit_Limit</td>
+                                                <td id="" data-title="Email" class="user-emails">@v.Credit_Limit_Old</td>
+
+                                                <input type="text" id="@String.Concat("suppliers6", v.Id)" value="@v.Credit_Limit" hidden/>
+
                                                 @*<td id="@String.Concat("supp5", v.Id)" data-title="Email" class="user-emails">@v.</td>*@
 
 
@@ -1041,7 +1044,8 @@
         </div>
     </div>
 
-    <input type="hidden" value="1" id="rowCounterrr" />
+    <input type="hidden" value="1" id="rowCounterrr"/>
+    <input type="hidden" value="1" id="ApnaApnaRowNumber"/>
 
     @*----------------------------POP UP END ADD SUPPLIER--------------------------------*@
 

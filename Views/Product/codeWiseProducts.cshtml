@@ -27,8 +27,8 @@
         {
             <tbody class="black-color">
 
-          
-                <tr id="rowId" class="font-15" onclick="tbody_add_record(@v.Id,@count)">
+
+                <tr id="rowId" class="font-15" onclick="tbody_add_record(@v.Id,@ViewBag.Serial)">
 
                     <td id="@String.Concat("partial_row1", v.Id)" class="border-right-td text-center">@v.Custom_Label_</td>
                     <td id="@String.Concat("partial_row2", v.Id)" class="border-right-td text-center">@v.Item_Title</td>

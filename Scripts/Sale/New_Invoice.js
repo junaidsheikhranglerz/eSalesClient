@@ -29,6 +29,7 @@ function checkCreditLimit() {
 
 
     var limit = limit_float.toFixed(2);
+
     //alert("gross" + gross);
     //alert("limit" + limit);
 
@@ -69,6 +70,8 @@ function checkCreditLimit() {
         }
 
         else {
+         
+
             if (parseFloat(gross) > parseFloat(limit)) {
 
                 //alert("Gross" + gross);
@@ -88,7 +91,6 @@ function checkCreditLimit() {
                 return false;
             }
             else {
-                //alert("Not Reached your Credit Limit");
                 return true;
             }
         }
@@ -248,31 +250,7 @@ function RemoveAddedRow(id) {
 
 
 
-function addNewRow() {
 
-
-    arguments.callee.myStaticVar = arguments.callee.myStaticVar || 2;
-    var count = arguments.callee.myStaticVar++;
-    document.getElementById("counters").value = count;
-    //alert("new Row counter = "  + count);
-
-    $.ajax({
-
-        url: '/Product/AddNewRow/',
-        data: { counter: count },
-        type: "Get",
-        cache: false,
-        success: function (data) {
-
-
-            var iddd = 'newrow' + count;
-
-            document.getElementById('newrow' + count).innerHTML = data;
-
-        }
-
-    })
-}
 
 function tbody_add_record(id, count) {
 
@@ -325,7 +303,7 @@ function tbody_add_record(id, count) {
     //alert("TOTAL VAT : " + total_price_with_vat);
 
     //$("#invoice_discount" + count).val("0");
-    $("#invoice_quantity" + count).val("0");
+    $("#invoice_quantity" + count).val("1");
 
     $("#productList").hide();
     //alert(price_inner);
@@ -409,12 +387,43 @@ function global_discount() {
 }
 
 
+function addNewRow() {
 
 
+    arguments.callee.myStaticVar = arguments.callee.myStaticVar || 2;
+    var count = arguments.callee.myStaticVar++;
+    document.getElementById("counters").value = count;
 
-function productList(char) {
+    var hrRowkoUsKaNumberDeneKLiye = document.getElementById('ApnaApnaRowNumber').value;
+    document.getElementById('ApnaApnaRowNumber').value = +hrRowkoUsKaNumberDeneKLiye + +1;
+    hrRowkoUsKaNumberDeneKLiye = +hrRowkoUsKaNumberDeneKLiye + +1;
 
-    //arguments.callee.counter = arguments.callee.counter || 1;
+    $.ajax({
+
+        url: '/Product/AddNewRow/',
+        data: { counter: count, serialkisser: hrRowkoUsKaNumberDeneKLiye },
+        type: "Get",
+        cache: false,
+        success: function (data) {
+            
+
+            var iddd = 'newrow' + count;
+
+            document.getElementById('newrow' + count).innerHTML = data;
+
+        }
+
+    })
+}
+
+
+function productList(char, serialnumber) {
+
+
+    if (serialnumber == "" || serialnumber == null) {
+
+        serialnumber = 1;
+    }
 
     var customerID = document.getElementById("exist_customer_id").value;
 
@@ -434,7 +443,7 @@ function productList(char) {
 
         $.ajax({
             url: '/Product/GetProducts/',
-            data: { ch: char, counte: Count },
+            data: { ch: char, counte: Count, SR: serialnumber },
             cache: false,
             type: "Get",
             success: function (data) {

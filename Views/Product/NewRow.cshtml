@@ -5,7 +5,7 @@
 
 
 <tr id="@String.Concat("rowId"+counter)" class="font-15 id remove_div">
-    <td class="border-right-td"><div class="text-center"><input placeholder="Code" class="yoyo unbold width-110 text-center" id="@String.Concat("codeforProduct",counter)" name="yoyoyoyoyoyoyoy" onkeyup="productList(this.value);Total(counter)" type="text"></div></td>
+    <td class="border-right-td"><div class="text-center"><input placeholder="Code" class="yoyo unbold width-110 text-center" id="@String.Concat("codeforProduct",counter)" name="yoyoyoyoyoyoyoy" onkeyup="productList(this.value,@ViewBag.serialNumber);Total(counter)" type="text"></div></td>
 
 
 

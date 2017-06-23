@@ -223,7 +223,7 @@
                                                         <td class="border-right-td">
                                                             <div class="text-center">
                                                                 <input value="@obj.Purchase_Order_Product.Code" placeholder="Code" class="yoyo unbold width-110 text-center"
-                                                                       onkeyup="productList(this.value);" type="text"
+                                                                       onkeyup="productList(this.value,@counter);" type="text"
                                                                        id="@String.Concat("codeforProduct",counter)" name="@String.Concat("codeforProduct",counter)">
                                                             </div>
                                                         </td>
@@ -1122,7 +1122,8 @@
         counter = counter - 1;
     }
 
-    <input type="hidden" name="totalRows" value="@counter" id="rowCounterrr" />
+    <input type="hidden" name="totalRows" value="@counter" id="rowCounterrr"/>
+    <input type="hidden" value="1" id="ApnaApnaRowNumber"/>
 
     @*----------------------------POP UP END ADD SUPPLIER--------------------------------*@
 

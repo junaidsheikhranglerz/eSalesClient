@@ -153,32 +153,6 @@ function RemoveAddedRow(id) {
 }
 
 
-function addNewRow() {
-
-    var rowNumber = document.getElementById("rowNumber").value;
-    var rowNumber1 = rowNumber;
-    arguments.callee.myStaticVar = arguments.callee.myStaticVar || rowNumber1;
-    var count = arguments.callee.myStaticVar++;
-    document.getElementById("counters").value = count;
-    //alert(count);
-
-    $.ajax({
-
-        url: '/Product/AddNewRow/',
-        data: { counter: count },
-        type: "Get",
-        cache: false,
-        success: function (data) {
-
-
-            var iddd = 'newrow' + count;
-
-            document.getElementById('newrow' + count).innerHTML = data;
-
-        }
-
-    })
-}
 
 function tbody_add_record(id, count) {
 
@@ -217,7 +191,7 @@ function tbody_add_record(id, count) {
     $("#total_hidden" + count).val(price_inner);
     $("#total_vat_hidden" + count).val(total_price_with_vat);
 
-    $("#invoice_quantity" + count).val("0");
+    $("#invoice_quantity" + count).val("1");
 
     $("#productList").hide();
 
@@ -294,30 +268,62 @@ function global_discount() {
 
 
 
+function addNewRow() {
 
 
-function productList(char) {
+    arguments.callee.myStaticVar = arguments.callee.myStaticVar || 2;
+    var count = arguments.callee.myStaticVar++;
+    document.getElementById("counters").value = count;
+
+    var hrRowkoUsKaNumberDeneKLiye = document.getElementById('ApnaApnaRowNumber').value;
+    document.getElementById('ApnaApnaRowNumber').value = +hrRowkoUsKaNumberDeneKLiye + +1;
+    hrRowkoUsKaNumberDeneKLiye = +hrRowkoUsKaNumberDeneKLiye + +1;
+    $.ajax({
+
+        url: '/Product/AddNewRow/',
+        data: { counter: count, serialkisser: hrRowkoUsKaNumberDeneKLiye },
+        type: "Get",
+        cache: false,
+        success: function (data) {
 
 
+            var iddd = 'newrow' + count;
 
-    //var customerID = document.getElementById("exist_customer_id").value;
+            document.getElementById('newrow' + count).innerHTML = data;
 
-    //if (customerID != null && customerID != "") {
+        }
 
-    var Count = document.getElementById("counters").value;
-    //alert("Counterrrrrrrrrrrrrr" + Count);
+    })
+}
+
+
+function productList(char, serialnumber) {
+
+
+    if (serialnumber == "" || serialnumber == null) {
+
+        serialnumber = 1;
+    }
+
+    var customerID = document.getElementById("exist_customer_id").value;
+
+    if (customerID != null && customerID != "") {
+
+        var Count = document.getElementById("counters").value;
         if (Count == "") {
             Count = 1;
         }
-
+        //alert("Product List Counter ="+  Count)
 
 
         $("#productList").show();
 
 
+
+
         $.ajax({
             url: '/Product/GetProducts/',
-            data: { ch: char, counte: Count },
+            data: { ch: char, counte: Count, SR: serialnumber },
             cache: false,
             type: "Get",
             success: function (data) {
@@ -329,16 +335,28 @@ function productList(char) {
 
             },
             error: function (response) {
-                //alert("123131");
+                //alert("productList");
             }
         })
-    //}
-    //else {
+    }
+    else {
 
-    //    alert("Please Select customer First");
-    //}
+        swal({
+            title: "CUSTOMER NOT SELECTED",
+            text: "You have to Select Customer first, to Select Products",
+            type: "warning",
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Okay',
+        },
+  function () {
+  });
 
+        //alert("Please Select customer First");
+    }
 }
+
+
+
 
 
 

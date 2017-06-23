@@ -100,8 +100,8 @@
 
 
                                             <div class="col-md-2 pull-left pl-0 pr-0">
-                                                <input type="text" name="exist_customer_idd" class="hidden" id="exist_customer_id" />
-                                                <input type="text" name="credit_limit_input" class="hidden" id="credit_limit_input" />
+                                                <input type="text" name="exist_customer_idd" class="hidden" id="exist_customer_id"/>
+                                                <input type="text" name="credit_limit_input" class="" id="credit_limit_input" hidden/>
                                                 <ul class="list-style-type-custom">
                                                     <li id="type_customer" class="bold font-18 black-color"></li>
                                                     <li id="customer_name"></li>
@@ -994,8 +994,10 @@
                                                 <td id="@String.Concat("juni5", v.Id)" data-title="Email" class="user-emails">@v.Email</td>
                                                 <td id="@String.Concat("juni6", v.Id)" data-title="Email" class="user-emails">@v.Balance</td>
                                                 <td id="@String.Concat("juni7", v.Id)" data-title="Email" class="user-emails">@v.Credit</td>
-                                                <td id="@String.Concat("juni8", v.Id)" data-title="Email" class="user-emails">@v.Credit_Limit</td>
+                                                <td id="" data-title="Email" class="user-emails">@v.Credit_Limit_Old</td>
                                                 @*<input type="text" id="jj" name="jj" value="@v.Balance"/>*@
+                                                <input type="text" id="@String.Concat("juni8", v.Id)" value="@v.Credit_Limit" hidden/>
+
                                             </tr>
 
                                         }
@@ -1306,7 +1308,8 @@
         </div>
     </div>
 
-    <input type="hidden" value="1" id="rowCounterrr" />
+    <input type="hidden" value="1" id="rowCounterrr"/>
+    <input type="hidden" value="1" id="ApnaApnaRowNumber"/>
 
     @*----------------------------POP UP END ADD CUSTOMER--------------------------------*@
 

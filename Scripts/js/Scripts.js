@@ -445,12 +445,13 @@ function go(id,type_id) {
     var email = document.getElementById('juni5' + id);
     var balance = document.getElementById('juni6' + id);
     var credit = document.getElementById('juni7' + id);
-    var credit_limit = document.getElementById('juni8' + id);
+    var credit_limit = document.getElementById('juni8' + id).value;
     var type1 = type_id;
+    
     
     //alert("name" + name);
 
-    
+    //alert("credit_limit" + credit_limit);
 
     var name1 = name.innerHTML;
     var phone1 = phone.innerHTML;
@@ -461,6 +462,7 @@ function go(id,type_id) {
     var credit1 = credit.innerHTML;
     var credit_limit1 = credit_limit.innerHTML;
 
+    //alert("credit_limit_new" + credit_limit1);
     //alert("name" + name1);
 
     //alert(name1);
@@ -480,9 +482,9 @@ function go(id,type_id) {
     $("#customer_email").text(email1);
     $("#customer_balance").text(balance1);
     $("#customer_credit").text(credit1);
-    $("#customer_credit_limit").text(credit_limit1);
+    $("#customer_credit_limit").text(credit_limit);
     $("#exist_customer_id").val(id);
-    $("#credit_limit_input").val(credit_limit1);
+    $("#credit_limit_input").val(credit_limit);
 
     
 

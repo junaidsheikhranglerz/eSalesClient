@@ -251,7 +251,7 @@
 
                                                             <input placeholder="Code" value="@obj.Sale.Product.Custom_Label_" class="yoyo unbold width-110 text-center"
                                                                    id="@String.Concat("codeforProduct",counter)" name="yoyoyoyoyoyoyoy"
-                                                                   onkeyup="productList(this.value);Total(counter)" type="text">
+                                                                   onkeyup="productList(this.value,@counter);Total(counter)" type="text">
 
                                                         </div>
 
@@ -1028,8 +1028,9 @@
                                                 <td id="@String.Concat("juni5", v.Id)" data-title="Email" class="user-emails">@v.Email</td>
                                                 <td id="@String.Concat("juni6", v.Id)" data-title="Email" class="user-emails">@v.Balance</td>
                                                 <td id="@String.Concat("juni7", v.Id)" data-title="Email" class="user-emails">@v.Credit</td>
-                                                <td id="@String.Concat("juni8", v.Id)" data-title="Email" class="user-emails">@v.Credit_Limit</td>
+                                                <td id="" data-title="Email" class="user-emails">@v.Credit_Limit_Old</td>
                                                 @*<input type="text" id="jj" name="jj" value="@v.Balance"/>*@
+                                                <input type="text" id="@String.Concat("juni8", v.Id)" value="@v.Credit_Limit" hidden/>
                                             </tr>
 
                                         }
@@ -1302,7 +1303,9 @@
         counter = counter - 1;
     }
 
-    <input type="hidden" name="totalRows" value="@counter" id="rowCounterrr" />
+    <input type="hidden" name="totalRows" value="@counter" id="rowCounterrr"/>
+    <input type="hidden" value="1" id="ApnaApnaRowNumber"/>
+
     @*----------------------------POP UP END ADD CUSTOMER--------------------------------*@
 
     <script src="~/Scripts/Sale/Edit_Sale.js"></script>

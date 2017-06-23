@@ -25,7 +25,7 @@ function existing_supplier_click(id) {
     var postcode = document.getElementById('suppliers3' + id);
     var email = document.getElementById('suppliers4' + id);
     var phone = document.getElementById('suppliers5' + id);
-    var credit_limit = document.getElementById('suppliers6' + id);
+    var credit_limit = document.getElementById('suppliers6' + id).value;
     //var supp_code = document.getElementById('supp6' + id);
  
 
@@ -46,8 +46,10 @@ function existing_supplier_click(id) {
     var postcode1 = postcode.innerHTML;
     var email1 = email.innerHTML;
     var phone1 = phone.innerHTML;
-    var limit = credit_limit.innerHTML;
+    //var limit = credit_limit.innerHTML;
     
+    //alert("LIMIT" + credit_limit);
+
     //var supp_code1 = supp_code.textContent;
     //            alert("GOOD" + name1);
 
@@ -56,7 +58,7 @@ function existing_supplier_click(id) {
     $("#supplier_postcodes").text(postcode1);
     $("#supplier_emails").text(email1);
     $("#supplier_phones").text(phone1);
-    $("#credit_limit_input").text(limit);
+    $("#credit_limit_input").val(credit_limit);
     
 
     
@@ -130,12 +132,17 @@ function addNewRow() {
     arguments.callee.myStaticVar = arguments.callee.myStaticVar || 2;
     var count = arguments.callee.myStaticVar++;
     document.getElementById("counters").value = count;
+
+    var hrRowkoUsKaNumberDeneKLiye = document.getElementById('ApnaApnaRowNumber').value;
+    document.getElementById('ApnaApnaRowNumber').value = +hrRowkoUsKaNumberDeneKLiye + +1;
+    hrRowkoUsKaNumberDeneKLiye = +hrRowkoUsKaNumberDeneKLiye + +1;
+
     //alert("new Row counter = "  + count);
 
     $.ajax({
 
         url: '/Purchase/AddNewRowPurchases/',
-        data: { counter: count },
+        data: { counter: count, serialkisser: hrRowkoUsKaNumberDeneKLiye },
         type: "Get",
         cache: false,
         success: function (data) {
@@ -205,14 +212,14 @@ function tbody_add_record(id, count) {
     //$("#total_vat_hidden" + count).val(total_price_with_vat);
 
 
-    $("#invoice_quantity" + count).val("0");
-    $("#invoice_receieved_quantity").val("0");
+    $("#invoice_quantity" + count).val("1");
+    $("#invoice_receieved_quantity" + count).val("1");
     $("#productList").hide();
 
     //alert("Total(count);");
 
     Total(count);
-
+    TotalReceived1(count);
     checkFilterSupplier(count);
     
 
@@ -258,13 +265,18 @@ function PO__Status() {
 
 
 
-function productList(char) {
+function productList(char, serialnumber) {
 
     //alert("ENTER");
     //arguments.callee.counter = arguments.callee.counter || 1;
     //var productID = document.getElementById("invoice_product_id" + counter).value;
     
     //alert("Supplier ID" + Supplier_ID);
+
+    if (serialnumber == "" || serialnumber == null) {
+
+        serialnumber = 1;
+    }
 
     var supplierID = document.getElementById("supplier_IDD").value;
 
@@ -301,7 +313,7 @@ function productList(char) {
 
             $.ajax({
                 url: '/Purchase/GetProducts/',
-                data: { ch: char, counter: Count },
+                data: { ch: char, counter: Count, SR: serialnumber },
                 cache: false,
                 type: "Get",
                 success: function (data) {
@@ -873,7 +885,7 @@ function submitResult() {
 function checkCreditLimit() {
 
     //alert("check_credit_limit");
-    var limits = document.getElementById('credit_limit_input').textContent;
+    var limits = document.getElementById('credit_limit_input').value;
     //alert("Credit Limit" + limits);
 
     var order_total1 = document.getElementById("order_total_hidden").value;
@@ -931,8 +943,9 @@ function checkCreditLimit() {
 
         else {
             //alert("else 3");
-            //alert("limit" + limit);
             //alert("total" + order_total);
+            //alert("limit" + limit);
+            
             if (parseFloat(order_total) > parseFloat(limit)) {
                 //alert("if 2");
                 //alert("Gross" + gross);

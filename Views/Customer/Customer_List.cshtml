@@ -149,7 +149,7 @@
                                     <div class="col-md-3 border_black text-center">
                                         <label class="bold red mt-5 font-16">Available Credit Balance</label><br />
                                         <label class="bold black-color font-16" id="c_balance"></label><br />
-                                        <a href="#" data-toggle="modal" data-target="#" class="btn mb-10 blue-btn-style btn-primary btn-mini bold">View Payment Status</a>
+                                        @*<a href="#" data-toggle="modal" data-target="#" class="btn mb-10 blue-btn-style btn-primary btn-mini bold">View Payment Status</a>*@
                                     </div>
 
                                     <div class="col-md-3"></div>
@@ -811,7 +811,7 @@
                 ID = document.getElementById("customer_id").value;
             }
 
-            alert("ID" + ID);
+            //alert("ID" + ID);
 
             $.ajax({
 
@@ -841,7 +841,7 @@
                 ID = document.getElementById("customer_id").value;
             }
 
-            alert("ID" + ID);
+            //alert("ID" + ID);
 
             $.ajax({
                 url: "/Customer/Delete_Customer/",
